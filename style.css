@@ -115,7 +115,7 @@ h1 {
 
 #intro-image {
   margin: 2em 0 0 2em;
-  width: 22em;
+  width: 20em;
   height: auto;
   float: left;
   border-radius: 1em;
@@ -123,14 +123,21 @@ h1 {
 }
 
 #intro-image img {
-  width: 18em;
+  width: 15em;
   margin-bottom: 1em;
 }
 
 .clustrmaps-container {
   margin-top: 1em;
   text-align: center;
-  min-height: 220px; /* 确保地球容器有空间渲染 */
+  min-height: 200px;
+}
+
+/* 缩小地球渲染尺寸 */
+.clustrmaps-container canvas,
+.clustrmaps-container iframe {
+  width: 12.5em !important;
+  height: 12.5em !important;
 }
 
 #busuanzi_container_site_uv {
