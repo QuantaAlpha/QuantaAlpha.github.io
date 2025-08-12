@@ -58,6 +58,10 @@ table {
 
 /**************************************************/
 
+html {
+  scroll-behavior: smooth;
+}
+
 #body{
   font-family: "Times New Roman";
   font-size: 1em;
@@ -111,19 +115,28 @@ h1 {
 
 #intro-image {
   margin: 2em 0 0 2em;
-  width: 12em;
-  height: 40em;
+  width: 22em;
+  height: auto;
   float: left;
-  overflow: hidden;
   border-radius: 1em;
+  text-align: center;
 }
 
 #intro-image img {
-  width: 12em;
+  width: 18em;
+  margin-bottom: 1em;
+}
+
+.clustrmaps-container {
+  margin-top: 1em;
+  text-align: center;
+  min-height: 220px; /* 确保地球容器有空间渲染 */
 }
 
 #busuanzi_container_site_uv {
   color: #a0a8b0;
+  margin-top: 1em;
+  display: block;
 }
 
 /**************************************************/
