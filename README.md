@@ -1,6 +1,6 @@
-# JARVIS-Xs
+# QuantaAlpha
 
-JARVIS-Xs is an elite research team dedicated to advancing AI Agent technology, committed to pushing the frontiers of artificial intelligence.
+QuantaAlpha is an elite research team dedicated to advancing AI Agent technology, committed to pushing the frontiers of artificial intelligence.
 
 ## Our Vision
 
@@ -45,13 +45,13 @@ We are actively seeking collaborators and team members who share our passion for
 
 ## Contact Us
 
-- **Email**: jarvis-xs@example.com
+- **Email**: wanghuacan17@mails.ucas.ac.cn
 - **Location**: China
-- **GitHub**: [https://github.com/JARVIS-Xs](https://github.com/JARVIS-Xs)
+- **GitHub**: [https://github.com/QuantaAlpha](https://github.com/QuantaAlpha)
 
 ## Website
 
-Visit our homepage: [https://jarvis-xs.github.io](https://jarvis-xs.github.io)
+Visit our homepage: [https://quantaalpha.github.io](https://quantaalpha.github.io)
 
 ---
 
