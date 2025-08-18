@@ -4,7 +4,7 @@ QuantaAlpha is an elite research team dedicated to advancing AI Agent technology
 
 ## Our Vision
 
-To continuously advance Agent technology frontiers, explore the next-generation CodeAgent paradigm, and conduct research that generates significant academic and industrial impact.
+To explore the “quanta” of intelligence and lead the “alpha” frontiers of AI Agents — advancing CodeAgents, self-evolving intelligence, and domain-specialized agents to redefine the boundaries of artificial intelligence research.
 
 ## Team Size
 
@@ -17,13 +17,16 @@ Our team currently consists of approximately 20 members, including:
 
 Our research focuses on three core areas:
 
-1. **RL Scaling + Agentic Reasoning**: Breakthrough research in reinforcement learning scaling and intelligent agent reasoning, including CodeAgent and DeepResearch directions
-2. **Self-Evolve / Self-Learning + Co-Learning**: Exploring intelligent agents' self-evolution and self-learning capabilities, as well as collaborative learning mechanisms
-3. **Finance-Agent**: Developing financial intelligent agents for multi-source data search and analysis, achieving autonomous portfolio optimization
+- 💻 CodeAgent: End-to-end execution for real-world coding tasks, enabling agents to autonomously understand, modify, and run complex repositories.
+- 📚 DeepResearch: Multi-step reasoning agents for open-ended scientific and knowledge discovery, capable of synthesizing insights across domains.
+- 🧠 Agentic Reasoning / Agentic RL: Scaling reinforcement learning with reasoning-centered agents, bridging decision-making, planning, and adaptive intelligence.
+- 🔄 Self-Evolving & Co-Learning Agents that continuously improve through self-evolution and collaborative learning, enabling emergent collective intelligence.
 
 ## Latest Work
 
 Check out our latest research on arXiv:
+- GitTaskBench: A Benchmark for Code Agents Solving Real-World Tasks Through Code Repository Leveraging
+- CogFSM: Enabling Explicit and Capability-aware Multi-Agent Systems with Self-Learning Finite State Machines
 - [RepoMaster: Autonomous Exploration and Understanding of GitHub Repositories for Complex Task Solving](https://arxiv.org/pdf/2505.21577)
 - [SE-Agent: Self-Evolution Trajectory Optimization in Multi-Step Reasoning with LLM-Based Agents](https://arxiv.org/pdf/2508.02085)
 
@@ -45,8 +48,7 @@ We are actively seeking collaborators and team members who share our passion for
 
 ## Contact Us
 
-- **Email**: wanghuacan17@mails.ucas.ac.cn
-- **Location**: China
+- **Email**: quantaalpha.ai@gmail.com
 - **GitHub**: [https://github.com/QuantaAlpha](https://github.com/QuantaAlpha)
 
 ## Website
