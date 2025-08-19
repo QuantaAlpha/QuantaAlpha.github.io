@@ -13,183 +13,1050 @@
     <!-- Title -->
     <title>QuantaAlpha - AI Agent Research Team</title>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=1000">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- Favicon -->
     <link rel="icon" type="image/jpeg" href="images/logo.png">
     <link rel="shortcut icon" type="image/jpeg" href="images/logo.png">
     <link rel="apple-touch-icon" href="images/logo.png">
 
+    <!-- Particles.js -->
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    
     <!-- Isotope JS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.13.2/jquery-ui.min.js"></script>
     <script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js"></script>
 
+    <!-- AOS - Animate On Scroll Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
     <!-- Custom Style -->
-    <link rel="stylesheet" href="style.css">
-    <!-- use times new roman instead -->
-    <!-- Google Font -->
-    <!-- <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> -->
-    <!-- <link href="https://fonts.googleapis.com/css2?family=Asap:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet"> -->
-    <!-- <style>
-      @import url('https://fonts.googleapis.com/css2?family=Asap:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');
-    </style> -->
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+      
+      body {
+        font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+        background: linear-gradient(135deg, #0c0c0c 0%, #1a1a2e 50%, #16213e 100%);
+        color: #ffffff;
+        overflow-x: hidden;
+        min-height: 100vh;
+        font-size: 16px;
+        line-height: 1.6;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+
+      /* Particles background */
+      #particles-js {
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        z-index: -1;
+      }
+
+      /* Neon glow effects */
+      .neon-glow {
+        text-shadow: 0 0 5px #00ffff, 0 0 10px #00ffff, 0 0 20px #00ffff, 0 0 40px #00ffff;
+      }
+
+      .neon-border {
+        border: 2px solid #00ffff;
+        box-shadow: 0 0 10px #00ffff, inset 0 0 10px rgba(0, 255, 255, 0.1);
+        border-radius: 10px;
+      }
+
+      /* Main container */
+      #main {
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: 20px 40px;
+        position: relative;
+        z-index: 1;
+      }
+
+      /* Hero section */
+      #intro {
+        display: block;
+        margin-bottom: 30px;
+        padding: 40px;
+        background: rgba(0, 0, 0, 0.3);
+        backdrop-filter: blur(15px);
+        border-radius: 30px;
+        border: 1px solid rgba(0, 255, 255, 0.2);
+        transform: perspective(1500px) rotateX(2deg);
+        transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5), 0 0 30px rgba(0, 255, 255, 0.2);
+        position: relative;
+        overflow: hidden;
+      }
+
+      #intro::before {
+        content: '';
+        position: absolute;
+        top: -50%;
+        left: -50%;
+        width: 200%;
+        height: 200%;
+        background: radial-gradient(circle, rgba(0, 255, 255, 0.1) 0%, transparent 70%);
+        opacity: 0;
+        transition: opacity 0.5s ease;
+        pointer-events: none;
+      }
+
+      #intro:hover {
+        transform: perspective(1500px) rotateX(0deg) scale(1.02);
+        border-color: rgba(0, 255, 255, 0.4);
+      }
+
+      #intro:hover::before {
+        opacity: 1;
+      }
+
+      #intro h1 {
+        font-size: 3.5em;
+        margin-bottom: 15px;
+        color: #00ffff;
+        font-weight: 800;
+        letter-spacing: 2px;
+        font-family: 'Space Grotesk', sans-serif;
+        text-rendering: optimizeLegibility;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        text-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+        animation: rainbow 5s ease-in-out infinite alternate;
+        position: relative;
+        display: inline-block;
+      }
+
+      #intro h1::after {
+        content: '';
+        position: absolute;
+        bottom: -5px;
+        left: 0;
+        width: 100%;
+        height: 3px;
+        background: linear-gradient(90deg, #00ffff, #ff00ff, #ffff00, #00ff00, #ff6600);
+        background-size: 400% 400%;
+        animation: gradient-move 5s ease infinite;
+        border-radius: 3px;
+      }
+
+      @keyframes gradient-move {
+        0% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+        100% { background-position: 0% 50%; }
+      }
+
+      @keyframes rainbow {
+        0% { color: #00ffff; }
+        25% { color: #ff00ff; }
+        50% { color: #ffff00; }
+        75% { color: #00ff00; }
+        100% { color: #ff6600; }
+      }
+
+      #intro p {
+        font-size: 1.2em;
+        line-height: 1.7;
+        margin-bottom: 20px;
+        opacity: 1;
+        color: #f0f0f0;
+        font-weight: 400;
+        text-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+      }
+
+      #intro ul {
+        list-style: none;
+        padding-left: 0;
+      }
+
+      #intro li {
+        margin: 15px 0;
+        padding: 18px;
+        background: rgba(0, 255, 255, 0.1);
+        border-left: 4px solid #00ffff;
+        border-radius: 8px;
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+        font-size: 16px;
+        line-height: 1.7;
+        color: #f0f0f0;
+      }
+
+      #intro li:hover {
+        background: rgba(0, 255, 255, 0.2);
+        transform: translateX(10px);
+        box-shadow: 0 5px 15px rgba(0, 255, 255, 0.3);
+      }
+
+      #intro li::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+        transition: left 0.5s;
+      }
+
+      #intro li:hover::before {
+        left: 100%;
+      }
+
+      /* Terminal style box */
+      .terminal-box {
+        background: linear-gradient(135deg, #0d1117, #1a1a2e);
+        border: 2px solid rgba(48, 54, 61, 0.8);
+        border-radius: 16px;
+        padding: 25px 20px;
+        margin: 25px 0;
+        font-family: 'JetBrains Mono', 'SF Mono', 'Monaco', 'Inconsolata', 'Roboto Mono', 'Source Code Pro', 'Menlo', 'Consolas', monospace;
+        position: relative;
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6), 0 0 15px rgba(0, 255, 255, 0.1);
+        font-size: 15px;
+        line-height: 1.7;
+        transition: all 0.4s ease;
+        overflow: hidden;
+      }
+      
+      .terminal-box:hover {
+        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7), 0 0 20px rgba(0, 255, 255, 0.2);
+        border-color: rgba(0, 255, 255, 0.3);
+        transform: translateY(-5px);
+      }
+
+      .terminal-box::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 40px;
+        background: rgba(30, 30, 50, 0.7);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        border-top-left-radius: 14px;
+        border-top-right-radius: 14px;
+        z-index: 0;
+      }
+
+      .terminal-box::after {
+        content: '● ● ●';
+        position: absolute;
+        top: 12px;
+        left: 15px;
+        color: #ff5f56;
+        font-size: 12px;
+        z-index: 1;
+        text-shadow: 0 0 5px rgba(255, 95, 86, 0.5);
+      }
+
+      .terminal-box .terminal-title {
+        color: #58a6ff;
+        margin-bottom: 20px;
+        margin-top: 20px;
+        font-weight: 600;
+        font-size: 16px;
+        position: relative;
+        z-index: 1;
+        padding-left: 10px;
+        text-shadow: 0 0 5px rgba(88, 166, 255, 0.5);
+        font-family: 'JetBrains Mono', monospace;
+      }
+
+      /* Filter buttons */
+      #filters {
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+        margin: 30px 0;
+        flex-wrap: wrap;
+        position: sticky;
+        top: 20px;
+        z-index: 100;
+        padding: 15px;
+        background: rgba(10, 10, 20, 0.7);
+        backdrop-filter: blur(15px);
+        border-radius: 30px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        max-width: 90%;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .button {
+        padding: 12px 24px;
+        background: rgba(20, 20, 40, 0.7);
+        border: 2px solid rgba(0, 255, 255, 0.3);
+        color: #00ffff;
+        border-radius: 20px;
+        cursor: pointer;
+        transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        font-family: 'Space Grotesk', sans-serif;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        position: relative;
+        overflow: hidden;
+        font-size: 14px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+      }
+
+      .button::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(0, 255, 255, 0.2), transparent);
+        transition: left 0.5s;
+      }
+
+      .button:hover::before {
+        left: 100%;
+      }
+
+      .button:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 25px rgba(0, 255, 255, 0.4);
+        border-color: rgba(0, 255, 255, 0.8);
+      }
+      
+      .button.is-checked {
+        background: linear-gradient(45deg, #00ffff, #0080ff);
+        color: #000;
+        box-shadow: 0 0 20px rgba(0, 255, 255, 0.6);
+        transform: translateY(-3px) scale(1.05);
+        border-color: transparent;
+      }
+
+      /* 3D Cards */
+      .grid {
+        display: grid;
+        gap: 40px;
+        margin-top: 30px;
+        max-width: 100%;
+      }
+
+      .list-item {
+        background: rgba(10, 15, 30, 0.6);
+        backdrop-filter: blur(15px);
+        border: 1px solid rgba(0, 255, 255, 0.2);
+        border-radius: 24px;
+        padding: 40px;
+        transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+        position: relative;
+        overflow: hidden;
+        transform: perspective(1200px) rotateX(5deg);
+        width: 100%;
+        box-sizing: border-box;
+        margin: 0 auto;
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 0 0 20px rgba(0, 255, 255, 0.1);
+      }
+
+      .list-item::before {
+        content: '';
+        position: absolute;
+        top: -2px;
+        left: -2px;
+        right: -2px;
+        bottom: -2px;
+        background: linear-gradient(45deg, #00ffff, #ff00ff, #ffff00, #00ffff);
+        background-size: 400% 400%;
+        animation: gradient-move 8s ease infinite;
+        border-radius: 24px;
+        z-index: -1;
+        opacity: 0;
+        transition: opacity 0.5s ease;
+      }
+
+      .list-item::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: radial-gradient(circle at top right, rgba(0, 255, 255, 0.15), transparent 70%);
+        border-radius: 24px;
+        z-index: -1;
+        opacity: 0;
+        transition: opacity 0.5s ease;
+      }
+
+      .list-item:hover::before {
+        opacity: 0.5;
+      }
+
+      .list-item:hover::after {
+        opacity: 1;
+      }
+
+      .list-item:hover {
+        transform: perspective(1200px) rotateX(0deg) rotateY(3deg) scale(1.03);
+        box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5), 0 0 30px rgba(0, 255, 255, 0.3);
+        border-color: rgba(0, 255, 255, 0.4);
+      }
+
+      /* Publication cards */
+      .publication {
+        display: grid;
+        grid-template-columns: 250px 1fr;
+        gap: 30px;
+        align-items: center;
+        width: 100%;
+        box-sizing: border-box;
+      }
+
+      .thumbnail img {
+        width: 100%;
+        height: 180px;
+        object-fit: cover;
+        border-radius: 10px;
+        border: 2px solid #00ffff;
+        transition: all 0.3s ease;
+      }
+
+      .thumbnail img:hover {
+        transform: scale(1.1) rotate(2deg);
+        box-shadow: 0 10px 25px rgba(0, 255, 255, 0.5);
+      }
+
+      /* Tech stack animation */
+      .tech-stack {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin: 25px 0;
+      }
+
+      .tech-item {
+        padding: 10px 18px;
+        background: rgba(20, 30, 60, 0.7);
+        border: 1px solid rgba(0, 255, 255, 0.4);
+        border-radius: 50px;
+        font-size: 0.9em;
+        font-weight: 500;
+        animation: pulse 3s infinite;
+        transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        position: relative;
+        overflow: hidden;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        backdrop-filter: blur(5px);
+        letter-spacing: 0.5px;
+      }
+      
+      .tech-item::before {
+        content: '';
+        position: absolute;
+        top: -50%;
+        left: -50%;
+        width: 200%;
+        height: 200%;
+        background: radial-gradient(circle, rgba(0, 255, 255, 0.3) 0%, transparent 70%);
+        opacity: 0;
+        transition: opacity 0.5s ease;
+        z-index: -1;
+      }
+
+      .tech-item:hover {
+        background: linear-gradient(45deg, rgba(0, 255, 255, 0.8), rgba(0, 128, 255, 0.8));
+        color: #000;
+        transform: translateY(-5px) scale(1.05);
+        border-color: transparent;
+        box-shadow: 0 10px 25px rgba(0, 255, 255, 0.4);
+      }
+      
+      .tech-item:hover::before {
+        opacity: 1;
+      }
+
+      @keyframes pulse {
+        0%, 100% { box-shadow: 0 0 5px rgba(0, 255, 255, 0.3); }
+        50% { box-shadow: 0 0 15px rgba(0, 255, 255, 0.5), 0 0 25px rgba(0, 255, 255, 0.2); }
+      }
+
+      /* Responsive design */
+      @media (max-width: 1024px) {
+        #main {
+          max-width: 95%;
+          padding: 15px 25px;
+        }
+      }
+
+      @media (max-width: 768px) {
+        #intro {
+          text-align: center;
+          padding: 20px;
+        }
+        
+        #intro div[style*="grid-template-columns: 1fr 1fr"] {
+          display: block !important;
+          gap: 20px !important;
+        }
+        
+        #intro .info-card {
+          margin-bottom: 20px;
+        }
+        
+        #intro .info-card:last-child {
+          margin-bottom: 0;
+        }
+        
+        .cta-banner > div {
+          flex-direction: column !important;
+          gap: 10px !important;
+        }
+        
+        .cta-banner > div > div:first-child {
+          font-size: 1.8em !important;
+        }
+
+        #intro h1 {
+          font-size: 2.8em;
+        }
+        
+        #intro p {
+          font-size: 1.2em !important;
+        }
+
+        .publication {
+          grid-template-columns: 1fr;
+          text-align: center;
+        }
+
+        #filters {
+          flex-direction: column;
+          align-items: center;
+        }
+
+        #main {
+          padding: 10px 15px;
+        }
+        
+        .info-card {
+          padding: 20px;
+        }
+        
+        .card-header {
+          font-size: 1.3em;
+          margin-bottom: 15px;
+        }
+        
+        .card-content {
+          font-size: 1em;
+        }
+        
+        .cta-button {
+          font-size: 1em !important;
+          padding: 12px 25px !important;
+        }
+      }
+
+      /* Typography improvements */
+      h2, h3 {
+        color: #f0f0f0;
+        font-weight: 600;
+        line-height: 1.4;
+      }
+
+      h2 {
+        font-size: 1.8em;
+      }
+
+      h3 {
+        font-size: 1.4em;
+      }
+
+      p, li, span {
+        color: #e0e0e0;
+      }
+
+      /* Footer */
+      #footer {
+        margin-top: 80px;
+        padding: 40px;
+        text-align: center;
+        background: rgba(10, 15, 30, 0.5);
+        backdrop-filter: blur(15px);
+        border-radius: 24px;
+        border: 1px solid rgba(0, 255, 255, 0.2);
+        box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.3);
+        position: relative;
+        overflow: hidden;
+        transition: all 0.5s ease;
+      }
+      
+      #footer::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 1px;
+        background: linear-gradient(90deg, transparent, rgba(0, 255, 255, 0.5), transparent);
+        z-index: 1;
+      }
+      
+      #footer:hover {
+        border-color: rgba(0, 255, 255, 0.4);
+        box-shadow: 0 -10px 40px rgba(0, 0, 0, 0.4), 0 0 20px rgba(0, 255, 255, 0.2);
+      }
+
+      /* Scrollbar styling */
+      ::-webkit-scrollbar {
+        width: 8px;
+      }
+
+      ::-webkit-scrollbar-track {
+        background: #1a1a2e;
+      }
+
+      ::-webkit-scrollbar-thumb {
+        background: linear-gradient(45deg, #00ffff, #0080ff);
+        border-radius: 4px;
+      }
+
+      ::-webkit-scrollbar-thumb:hover {
+        background: linear-gradient(45deg, #0080ff, #00ffff);
+      }
+
+      /* Loading animation */
+      .loading {
+        opacity: 0;
+        animation: fadeInUp 1s ease forwards;
+      }
+
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      /* New styles for intro section */
+      .info-card {
+        background: rgba(0, 0, 0, 0.3);
+        border: 1px solid rgba(0, 255, 255, 0.3);
+        border-radius: 15px;
+        padding: 25px;
+        transition: all 0.3s ease;
+      }
+
+      .info-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 25px rgba(0, 255, 255, 0.3);
+      }
+
+      .card-header {
+        color: #00ffff;
+        font-size: 1.4em;
+        font-weight: 600;
+        margin-bottom: 18px;
+        padding-bottom: 12px;
+        border-bottom: 1px solid rgba(0, 255, 255, 0.2);
+      }
+
+      .card-content {
+        font-size: 1.05em;
+        color: #e0e0e0;
+        line-height: 1.6;
+      }
+
+      .tech-stack-compact {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-top: 15px;
+      }
+
+      .tech-item-compact {
+        padding: 8px 16px;
+        background: linear-gradient(45deg, #1a1a2e, #16213e);
+        border: 1px solid #00ffff;
+        border-radius: 12px;
+        font-size: 1em;
+        animation: pulse 2s infinite;
+        transition: all 0.3s ease;
+      }
+
+      .tech-item-compact:hover {
+        background: linear-gradient(45deg, #00ffff, #0080ff);
+        color: #000;
+        transform: scale(1.05);
+      }
+
+      .cta-banner {
+        background: rgba(0, 255, 255, 0.1);
+        border: 1px solid rgba(0, 255, 255, 0.3);
+        border-radius: 15px;
+        padding: 25px;
+        margin-top: 20px;
+        text-align: center;
+      }
+
+      .cta-button {
+        display: inline-block;
+        padding: 15px 30px;
+        background: linear-gradient(45deg, #00ffff, #0080ff);
+        color: #000;
+        border-radius: 25px;
+        text-decoration: none;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        transition: all 0.3s ease;
+        border: 2px solid #00ffff;
+        box-shadow: 0 0 10px rgba(0, 255, 255, 0.3);
+        font-size: 1.1em;
+      }
+
+      .cta-button:hover {
+        background: linear-gradient(45deg, #0080ff, #00ffff);
+        box-shadow: 0 0 20px #00ffff;
+        transform: translateY(-3px);
+      }
+
+      /* Additional styles for consistent alignment */
+      .project-description {
+        width: 100%;
+        box-sizing: border-box;
+        margin: 0 auto;
+      }
+      
+      /* Center align headings in all sections */
+      .list-item h2, .list-item h3 {
+        text-align: center;
+        margin-bottom: 25px;
+      }
+      
+      /* Make all content sections same width as intro */
+      .list-item.contact, .list-item.research, .list-item.publication, .list-item.highlight {
+        max-width: 100%;
+        box-sizing: border-box;
+      }
+    </style>
   </head>
 
   <body id="body">
+    <!-- Particles background -->
+    <div id="particles-js"></div>
 
     <div id="main">
-      <div id="intro">
+      <div id="intro" class="loading">
         <div id="intro-text">
-          <h1>🤖 QuantaAlpha</h1>
-          <p>
-            QuantaAlpha is an elite research team dedicated to advancing AI Agent technology, committed to pushing the frontiers of artificial intelligence. 🚀
-            <br><br>
-            
-            Founded in April 2025, our team consists of approximately 20 members, including professors and associate professors from China's top 985/211 universities, 
-            postdocs, PhDs, and master's students from prestigious international institutions (CMU, OSU, UTHealth Houston, HKUST, etc.), 
-            and PhD/master's students from China's leading universities (Tsinghua, Peking University, USTC, Zhejiang University, etc.). 🎓
-            <br><br>
-            
-            <strong>🌟 Our Vision:</strong> To explore the “quanta” of intelligence and lead the “alpha” frontiers of AI Agents — advancing CodeAgents, self-evolving intelligence, 
-            and domain-specialized agents to redefine the boundaries of artificial intelligence research.
-            <br><br>
-            
-            Our research focuses on three core areas: 
+          <h1 class="neon-glow">🤖 QuantaAlpha</h1>
+          <p style="text-align: center; color: #58a6ff; font-size: 1.4em; margin-bottom: 25px; font-weight: 500;">
+            Elite AI Agent Research Team • Advancing Intelligence Frontiers 🚀
           </p>
-          <br>
-          <ul>
-            <li><strong>💻 CodeAgent:</strong> <br><span>End-to-end execution for real-world coding tasks, enabling agents to autonomously understand, modify, and run complex repositories.</span></li>
-            <li><strong>📚 DeepResearch:</strong> <br><span>Multi-step reasoning agents for open-ended scientific and knowledge discovery, capable of synthesizing insights across domains.</span></li>
-            <li><strong>🧠 Agentic Reasoning / Agentic RL:</strong> <br><span>Scaling reinforcement learning with reasoning-centered agents, bridging decision-making, planning, and adaptive intelligence.</span></li>
-            <li><strong>🔄 Self-Evolving & Co-Learning</strong> <br><span>Agents that continuously improve through self-evolution and collaborative learning, enabling emergent collective intelligence.</span></li>
-          </ul>
-          <br>
           
-          <a href="https://github.com/QuantaAlpha">🐙 Github</a>
-          <br><br>
-          
-          <p style="margin-top: 1em; padding: 1em; background-color: #f8f9fa; border-left: 4px solid #007bff; border-radius: 4px;">
-            <strong>💬 Join Us!</strong> If you're interested in joining our team or have collaboration opportunities, 
-            please <a href="#contact" onclick="localStorage.setItem('filterValue','.contact'); update_isotope(); document.getElementById('contact').scrollIntoView({behavior:'smooth'}); return false;">contact us</a>! 
-            We welcome talented individuals and potential partners from all fields. 🤝
-          </p>
-        </div>
-        <div id="intro-image">
-          <img src="images/logo.png" alt="QuantaAlpha Logo">
-          <br>
-          <div class="clustrmaps-container">
-            <script type="text/javascript" id="clstr_globe" src="https://clustrmaps.com/globe.js?d=pi_aBfz8hTCBS3WHemYOzgxUrTI0ZhA9NxrqTe8uKw4"></script>
-            <br>
-            <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-            <span id="busuanzi_container_site_pv" style="display:block;color:#a0a8b0">Hi there, visitor <span id="busuanzi_value_site_pv"></span>. Welcome to QuantaAlpha!</span>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 25px; margin-bottom: 25px;">
+            <!-- Team Info Card -->
+            <div class="info-card">
+              <div class="card-header">👥 Team Profile</div>
+              <div class="card-content">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+                  <span style="color: #ff6b6b; font-weight: 600; font-size: 1.1em;">Founded:</span>
+                  <span style="color: #58a6ff; font-size: 1.1em;">April 2025</span>
+                </div>
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
+                  <span style="color: #ff6b6b; font-weight: 600; font-size: 1.1em;">Members:</span>
+                  <span style="color: #58a6ff; font-size: 1.1em;"> 20+ Researchers</span>
+                </div>
+                <div style="font-size: 1.05em; color: #e0e0e0; line-height: 1.5; margin-bottom: 15px;">
+                  <strong style="color: #00ffff;">Affiliations:</strong><br>
+                  <span style="color: #ffd700;">Universities:</span> UCAS, Tsinghua, PKU, CMU, HKUST, USTC, ZJU, etc.<br>
+                  <span style="color: #ffd700;">Roles:</span> Professors (985/211), Postdocs, PhD/Master Students
+                </div>
+                <div style="font-size: 1em; color: #a0a0a0; font-style: italic;">
+                  Committed to pushing AI Agent technology frontiers
+                </div>
+              </div>
+            </div>
+
+            <!-- Research Areas Card -->
+            <div class="info-card">
+              <div class="card-header">🔬 Research Focus</div>
+              <div class="card-content">
+                <div style="font-size: 1.05em; line-height: 1.5; margin-bottom: 15px;">
+                  <div style="margin-bottom: 10px;">
+                    <strong style="color: #00ffff;">💻 CodeAgent:</strong> End-to-end execution for real-world coding tasks
+                  </div>
+                  <div style="margin-bottom: 10px;">
+                    <strong style="color: #ff00ff;">📚 DeepResearch:</strong> Multi-step reasoning for scientific discovery
+                  </div>
+                  <div style="margin-bottom: 10px;">
+                    <strong style="color: #ffff00;">🧠 Agentic RL:</strong> Reasoning-centered reinforcement learning
+                  </div>
+                  <div>
+                    <strong style="color: #00ff00;">🔄 Self-Evolving:</strong> Continuous improvement & co-learning
+                  </div>
+                </div>
+                <div class="tech-stack-compact">
+                  <div class="tech-item-compact">Code Agent</div>
+                  <div class="tech-item-compact">Deep Research</div>
+                  <div class="tech-item-compact">Agentic RL</div>
+                  <div class="tech-item-compact">Self-Evolving</div>
+                </div>
+              </div>
+            </div>
           </div>
+
+
         </div>
       </div>
-      <hr>
-      <div id="filters" class="button-group">
-        <!-- <button class="button" data-filter="*">Show All</button> -->
-        <button class="button is-checked" data-filter=".highlight">🔥News</button>
-        <button class="button" data-filter=".publication">💡Pubs</button>
-        <button class="button" data-filter=".contact">📧Contact & Collaboration</button>
+
+      <div id="filters" class="button-group loading">
+        <button class="button is-checked" data-filter=".highlight">🔥 News</button>
+        <button class="button" data-filter=".publication">💡 Publications</button>
+        <button class="button" data-filter=".contact">📧 Contact & Collaboration</button>
+        <button class="button" data-filter=".research">🔬 Research Areas</button>
       </div>
 
       <div class="grid">
-        
-        <div id="contact" class="list-item contact" data-category="contact">
-          <div class="project-description">
-            <h2>📧 Contact & Collaboration</h2>
-            <p>
-              We are actively seeking collaborators and team members who share our passion for AI Agent technology. 
-              If you're interested in our research, want to establish partnerships, or join our team, please reach out to us. 🤝
-            </p>
-            <br>
-            <h3>🔗 Collaboration Resources We Need:</h3>
-            <ul>
-              <li><strong>🏫 University/Corporate Lab Resources:</strong> API access, GPU resources, and academic influence</li>
-              <li><strong>📚 Academic Research Collaboration:</strong> Joint research projects and publications</li>
-              <li><strong>💻 GitHub Open Source Collaboration:</strong> Contributing to and maintaining open-source projects</li>
-              <li><strong>🚀 Startup Collaboration:</strong> Industry partnerships and real-world applications</li>
-            </ul>
-            <br>
-            <h3>👥 Ideal Team Member Profile:</h3>
-            <ul>
-              <li><strong>🧮 Strong Algorithmic Capabilities:</strong> Published at least one A-class conference paper as first author (e.g., ACL, NeurIPS, etc.)</li>
-              <li><strong>💪 Exceptional Self-Motivation:</strong> Ultimate pursuit of technology and academia</li>
-              <li><strong>📖 Research Experience:</strong> Paper and achievement accumulation in Agent and LLM directions, with GitHub open-source experience</li>
-              <li><strong>🎯 Research Focus:</strong> RL + Agentic Reasoning / CodeAgent / DeepSearch / Those with actual landing projects and ideas are also welcome</li>
-            </ul>
-            <br>
-            <p>
-              <strong>📧 Contact:</strong> quantaalpha.ai@gmail.com<br>
-              We welcome talented individuals from all fields to join us in exploring the unlimited possibilities of AI Agent technology. ✨
+        <!-- Contact Section -->
+        <div id="contact" class="list-item contact loading" data-category="contact">
+          <div class="project-description" style="max-width: 900px; margin: 0 auto;">
+            <h2 class="neon-glow">📧 Contact & Collaboration</h2>
+            <div class="terminal-box">
+              <div class="terminal-title">$ cat collaboration_opportunities.md</div>
+              <p>We are actively seeking collaborators and team members who share our passion for AI Agent technology. 🤝</p>
+              
+              <h3 style="color: #00ffff; margin-top: 20px;">🔗 Collaboration Resources We Need:</h3>
+              <ul style="list-style: none; padding: 0;">
+                <li style="margin: 10px 0; padding: 15px; background: rgba(0, 255, 255, 0.1); border-radius: 5px; font-size: 15px; line-height: 1.6;">
+                  <strong>🏫 University/Corporate Lab Resources:</strong> API access, GPU resources, and academic influence
+                </li>
+                <li style="margin: 10px 0; padding: 15px; background: rgba(255, 0, 255, 0.1); border-radius: 5px; font-size: 15px; line-height: 1.6;">
+                  <strong>📚 Academic Research Collaboration:</strong> Joint research projects and publications
+                </li>
+                <li style="margin: 10px 0; padding: 15px; background: rgba(255, 255, 0, 0.1); border-radius: 5px; font-size: 15px; line-height: 1.6;">
+                  <strong>💻 GitHub Open Source Collaboration:</strong> Contributing to and maintaining open-source projects
+                </li>
+                <li style="margin: 10px 0; padding: 15px; background: rgba(0, 255, 0, 0.1); border-radius: 5px; font-size: 15px; line-height: 1.6;">
+                  <strong>🚀 Startup Collaboration:</strong> Industry partnerships and real-world applications
+                </li>
+              </ul>
+            </div>
+            
+            <div class="terminal-box">
+              <div class="terminal-title">$ echo $IDEAL_TEAM_MEMBER</div>
+              <h3 style="color: #ff00ff;">👥 Ideal Team Member Profile:</h3>
+              <ul style="list-style: none; padding: 0;">
+                <li>🧮 <strong>Strong Algorithmic Capabilities:</strong> Published at least one A-class conference paper as first author</li>
+                <li>💪 <strong>Exceptional Self-Motivation:</strong> Ultimate pursuit of technology and academia</li>
+                <li>📖 <strong>Research Experience:</strong> Paper and achievement accumulation in Agent and LLM directions</li>
+                <li>🎯 <strong>Research Focus:</strong> RL + Agentic Reasoning / CodeAgent / DeepSearch</li>
+              </ul>
+            </div>
+            
+            <p style="text-align: center; margin-top: 30px; padding: 20px; background: linear-gradient(45deg, rgba(0, 255, 255, 0.2), rgba(255, 0, 255, 0.2)); border-radius: 15px;">
+              <strong style="color: #00ffff;">📧 Contact:</strong> <a href="mailto:quantaalpha.ai@gmail.com" style="color: #ff00ff; text-decoration: none;">quantaalpha.ai@gmail.com</a><br>
+              ✨ Let's explore the unlimited possibilities of AI Agent technology together!
             </p>
           </div>
         </div>
 
-        <div class="list-item highlight description" data-category="highlight">
-          <p class="date">2025.08</p> <div class="description">🎉 Check out our latest work: "GitTaskBench: A Benchmark for Code Agents Solving Real-World Tasks Through Code Repository Leveraging" on arXiv!</div>
+        <!-- News/Highlights -->
+        <div class="list-item highlight description loading" data-category="highlight">
+          <div style="display: flex; flex-direction: column; align-items: center; width: 100%; max-width: 900px; margin: 0 auto;">
+            <div style="display: flex; align-items: center; gap: 15px; justify-content: center; width: 100%;">
+              <p class="date" style="color: #00ffff; font-weight: 600; font-size: 1.3em; min-width: 100px; text-align: right;">2025.08</p>
+              <div class="description" style="font-size: 16px; line-height: 1.6; color: #f0f0f0; flex: 1;">🎉 Check out our latest work: <strong>"GitTaskBench: A Benchmark for Code Agents Solving Real-World Tasks Through Code Repository Leveraging"</strong> on arXiv!</div>
+            </div>
+          </div>
         </div>
 
-        <div class="list-item highlight description" data-category="highlight">
-          <p class="date">2025.08</p> <div class="description">🎉 Check out our latest work: "CogFSM: Enabling Explicit and Capability-aware Multi-Agent Systems with Self-Learning Finite State Machines" on arXiv!</div>
+        <div class="list-item highlight description loading" data-category="highlight">
+          <div style="display: flex; flex-direction: column; align-items: center; width: 100%; max-width: 900px; margin: 0 auto;">
+            <div style="display: flex; align-items: center; gap: 15px; justify-content: center; width: 100%;">
+              <p class="date" style="color: #ff00ff; font-weight: 600; font-size: 1.3em; min-width: 100px; text-align: right;">2025.08</p>
+              <div class="description" style="font-size: 16px; line-height: 1.6; color: #f0f0f0; flex: 1;">🎉 Check out our latest work: <strong>"CogFSM: Enabling Explicit and Capability-aware Multi-Agent Systems with Self-Learning Finite State Machines"</strong> on arXiv!</div>
+            </div>
+          </div>
         </div>
 
-        <div class="list-item highlight description" data-category="highlight">
-          <p class="date">2025.08</p> <div class="description">🎉 Check out our latest work: "SE-Agent: Self-Evolution Trajectory Optimization in Multi-Step Reasoning with LLM-Based Agents" on arXiv!</div>
+        <div class="list-item highlight description loading" data-category="highlight">
+          <div style="display: flex; flex-direction: column; align-items: center; width: 100%; max-width: 900px; margin: 0 auto;">
+            <div style="display: flex; align-items: center; gap: 15px; justify-content: center; width: 100%;">
+              <p class="date" style="color: #ffff00; font-weight: 600; font-size: 1.3em; min-width: 100px; text-align: right;">2025.08</p>
+              <div class="description" style="font-size: 16px; line-height: 1.6; color: #f0f0f0; flex: 1;">🎉 Check out our latest work: <strong>"SE-Agent: Self-Evolution Trajectory Optimization in Multi-Step Reasoning with LLM-Based Agents"</strong> on arXiv!</div>
+            </div>
+          </div>
         </div>
         
-        <div class="list-item highlight description" data-category="highlight">
-          <p class="date">2025.05</p> <div class="description">🎉 Check out our latest work: "RepoMaster: Autonomous Exploration and Understanding of GitHub Repositories for Complex Task Solving" on arXiv!</div>
+        <div class="list-item highlight description loading" data-category="highlight">
+          <div style="display: flex; flex-direction: column; align-items: center; width: 100%; max-width: 900px; margin: 0 auto;">
+            <div style="display: flex; align-items: center; gap: 15px; justify-content: center; width: 100%;">
+              <p class="date" style="color: #00ff00; font-weight: 600; font-size: 1.3em; min-width: 100px; text-align: right;">2025.05</p>
+              <div class="description" style="font-size: 16px; line-height: 1.6; color: #f0f0f0; flex: 1;">🎉 Check out our latest work: <strong>"RepoMaster: Autonomous Exploration and Understanding of GitHub Repositories for Complex Task Solving"</strong> on arXiv!</div>
+            </div>
+          </div>
         </div>
 
-        <div class="list-item highlight description" data-category="highlight">
-          <p class="date">2025.04</p> <div class="description">🚀 QuantaAlpha team officially established, dedicated to cutting-edge AI Agent technology research!</div>
+        <div class="list-item highlight description loading" data-category="highlight">
+          <div style="display: flex; flex-direction: column; align-items: center; width: 100%; max-width: 900px; margin: 0 auto;">
+            <div style="display: flex; align-items: center; gap: 15px; justify-content: center; width: 100%;">
+              <p class="date" style="color: #ff0080; font-weight: 600; font-size: 1.3em; min-width: 100px; text-align: right;">2025.04</p>
+              <div class="description" style="font-size: 16px; line-height: 1.6; color: #f0f0f0; flex: 1;">🚀 <strong>QuantaAlpha team officially established</strong>, dedicated to cutting-edge AI Agent technology research!</div>
+            </div>
+          </div>
         </div>
 
         <!-- Publications -->
-        <div class="list-item publication" data-category="publication">
+        <div class="list-item publication loading" data-category="publication">
           <a href="https://arxiv.org/pdf/2508.02085" class="thumbnail">
             <img src="images/SE-Agent.png" alt="SE-Agent Paper" />
           </a>
-          <div class="project-description">
-            <h3><a href="https://arxiv.org/pdf/2508.02085">🧠 SE-Agent: Self-Evolution Trajectory Optimization in Multi-Step Reasoning with LLM-Based Agents</a></h3>
-            <p>
-              QuantaAlpha Team<br>
-              <i>📄 arXiv Preprint</i><br>
-              <a href="https://arxiv.org/pdf/2508.02085">📖 Paper</a>
-              <br>
+          <div class="project-description" style="text-align: left;">
+            <h3 style="text-align: left;"><a href="https://arxiv.org/pdf/2508.02085" style="color: #00ffff; text-decoration: none;">🧠 SE-Agent: Self-Evolution Trajectory Optimization in Multi-Step Reasoning with LLM-Based Agents</a></h3>
+            <p style="margin: 15px 0; font-size: 15px; line-height: 1.6; text-align: left;">
+              <strong style="color: #ff00ff;">QuantaAlpha Team</strong><br>
+              <i style="color: #ffff00;">📄 arXiv Preprint</i><br>
+              <a href="https://arxiv.org/pdf/2508.02085" style="color: #00ffff; text-decoration: none;">📖 Paper</a>
             </p>
           </div>
         </div>
 
-        <div class="list-item publication" data-category="publication">
+        <div class="list-item publication loading" data-category="publication">
           <a href="https://arxiv.org/pdf/2505.21577" class="thumbnail">
             <img src="images/RepoMaster.png" alt="RepoMaster Paper" />
           </a>
-          <div class="project-description">
-            <h3><a href="https://arxiv.org/pdf/2505.21577">🔍 RepoMaster: Autonomous Exploration and Understanding of GitHub Repositories for Complex Task Solving</a></h3>
-            <p>
-              QuantaAlpha Team<br>
-              <i>📄 arXiv Preprint</i><br>
-              <a href="https://arxiv.org/pdf/2505.21577">📖 Paper</a>
-              <br>
+          <div class="project-description" style="text-align: left;">
+            <h3 style="text-align: left;"><a href="https://arxiv.org/pdf/2505.21577" style="color: #00ffff; text-decoration: none;">🔍 RepoMaster: Autonomous Exploration and Understanding of GitHub Repositories for Complex Task Solving</a></h3>
+            <p style="margin: 15px 0; font-size: 15px; line-height: 1.6; text-align: left;">
+              <strong style="color: #ff00ff;">QuantaAlpha Team</strong><br>
+              <i style="color: #ffff00;">📄 arXiv Preprint</i><br>
+              <a href="https://arxiv.org/pdf/2505.21577" style="color: #00ffff; text-decoration: none;">📖 Paper</a>
             </p>
           </div>
         </div>
-
+        
+        <!-- Research Areas -->
+        <div class="list-item research loading" data-category="research">
+          <div class="project-description" style="max-width: 900px; margin: 0 auto;">
+            <h2 class="neon-glow">🔬 Research Areas</h2>
+            <div class="terminal-box">
+              <div class="terminal-title">$ ls -la research_areas/</div>
+              <ul>
+                <li><strong>💻 CodeAgent:</strong><br><span>End-to-end execution for real-world coding tasks, enabling agents to autonomously understand, modify, and run complex repositories.</span></li>
+                <li><strong>📚 DeepResearch:</strong><br><span>Multi-step reasoning agents for open-ended scientific and knowledge discovery, capable of synthesizing insights across domains.</span></li>
+                <li><strong>🧠 Agentic Reasoning / Agentic RL:</strong><br><span>Scaling reinforcement learning with reasoning-centered agents, bridging decision-making, planning, and adaptive intelligence.</span></li>
+                <li><strong>🔄 Self-Evolving & Co-Learning:</strong><br><span>Agents that continuously improve through self-evolution and collaborative learning, enabling emergent collective intelligence.</span></li>
+              </ul>
+            </div>
+            
+            <div class="terminal-box">
+              <div class="terminal-title">$ cat tech_stack.md</div>
+              <div class="tech-stack">
+                <div class="tech-item"><i class="fab fa-python"></i> Python</div>
+                <div class="tech-item"><i class="fab fa-js"></i> JavaScript</div>
+                <div class="tech-item"><i class="fas fa-robot"></i> AI Agents</div>
+                <div class="tech-item"><i class="fas fa-brain"></i> Deep Learning</div>
+                <div class="tech-item"><i class="fas fa-code"></i> Code Analysis</div>
+                <div class="tech-item"><i class="fas fa-infinity"></i> Reinforcement Learning</div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
 
-      <div id="footer">
-        <hr>
-        <p>🤖 QuantaAlpha Team - Dedicated to Advancing AI Agent Technology Frontiers 🚀</p>
+      <div id="footer" class="loading">
+        <!-- Join Us Call-to-Action -->
+        <div class="cta-banner" style="margin-bottom: 30px;">
+          <div style="display: flex; align-items: center; justify-content: center; gap: 15px;">
+            <div style="font-size: 2.2em;">🤝</div>
+            <div>
+              <div style="color: #00ffff; font-weight: 600; font-size: 1.4em;">Join Our Research Team!</div>
+              <div style="color: #e0e0e0; font-size: 1.1em;">Let's explore the unlimited possibilities of AI Agent technology together</div>
+            </div>
+            <a href="#contact" onclick="localStorage.setItem('filterValue','.contact'); update_isotope(); document.getElementById('contact').scrollIntoView({behavior:'smooth'}); return false;" 
+               class="cta-button">Contact Us</a>
+          </div>
+        </div>
+        <p class="neon-glow" style="font-size: 16px; line-height: 1.6; color: #f0f0f0;">🤖 QuantaAlpha Team - Dedicated to Advancing AI Agent Technology Frontiers 🚀</p>
       </div>
     </div>
 
     <script>
+      // Particles.js configuration
+      particlesJS('particles-js', {
+        particles: {
+          number: {
+            value: 100,
+            density: { enable: true, value_area: 800 }
+          },
+          color: { value: ['#00ffff', '#ff00ff', '#ffff00'] },
+          shape: {
+            type: 'circle',
+            stroke: { width: 0, color: '#000000' }
+          },
+          opacity: {
+            value: 0.5,
+            random: false,
+            anim: { enable: false, speed: 1, opacity_min: 0.1, sync: false }
+          },
+          size: {
+            value: 3,
+            random: true,
+            anim: { enable: false, speed: 40, size_min: 0.1, sync: false }
+          },
+          line_linked: {
+            enable: true,
+            distance: 150,
+            color: '#00ffff',
+            opacity: 0.4,
+            width: 1
+          },
+          move: {
+            enable: true,
+            speed: 6,
+            direction: 'none',
+            random: false,
+            straight: false,
+            out_mode: 'out',
+            bounce: false,
+            attract: { enable: false, rotateX: 600, rotateY: 1200 }
+          }
+        },
+        interactivity: {
+          detect_on: 'canvas',
+          events: {
+            onhover: { enable: true, mode: 'repulse' },
+            onclick: { enable: true, mode: 'push' },
+            resize: true
+          },
+          modes: {
+            grab: { distance: 400, line_linked: { opacity: 1 } },
+            bubble: { distance: 400, size: 40, duration: 2, opacity: 8, speed: 3 },
+            repulse: { distance: 200, duration: 0.4 },
+            push: { particles_nb: 4 },
+            remove: { particles_nb: 2 }
+          }
+        },
+        retina_detect: true
+      });
 
-      // Isotope grid.
+      // Isotope grid
       var $grid = $('.grid').isotope({
         itemSelector: '.list-item',
         layoutMode: 'fitRows',
@@ -208,14 +1075,14 @@
         }
       });
 
-      // Bind filter button click.
+      // Bind filter button click
       $('#filters').on( 'click', 'button', function() {
         var filterValue = $( this ).attr('data-filter');
         localStorage.setItem('filterValue', filterValue);
         $grid.isotope({ filter: filterValue });
       });
 
-      // Change is-checked class on buttons.
+      // Change is-checked class on buttons
       $('.button-group').each( function( i, buttonGroup ) {
         var $buttonGroup = $( buttonGroup );
         $buttonGroup.on( 'click', 'button', function() {
@@ -225,7 +1092,6 @@
       });
 
       function update_isotope() {
-        // Retrieve cached button click.
         var defaultFilterValue = localStorage.getItem('filterValue');
         if (defaultFilterValue == null) {
           defaultFilterValue = ".highlight"
@@ -241,47 +1107,48 @@
         }
       }
 
-      function toggle_bio() {
-        var x = document.getElementById("more-bio");
-        if (x.style.display === "none") {
-          x.style.display = "block";
-        } else {
-          x.style.display = "none";
-        }
-      }
-      function toggle_contact() {
-        var x = document.getElementById("more-contact");
-        if (x.style.display === "none") {
-          x.style.display = "block";
-        } else {
-          x.style.display = "none";
-        }
-      }
+      // Initialize page
+      $(document).ready(function() {
+        // Initialize AOS (Animate on Scroll)
+        AOS.init({
+          duration: 1000,
+          easing: 'ease-out',
+          once: false,
+          mirror: true,
+          offset: 100
+        });
+        
+        update_isotope();
+        
+        // Add staggered loading animation
+        $('.loading').each(function(index) {
+          $(this).css('animation-delay', (index * 0.15) + 's');
+          
+          // Add AOS animation attributes
+          if (!$(this).attr('data-aos')) {
+            let animations = ['fade-up', 'fade-down', 'fade-right', 'fade-left', 'zoom-in', 'zoom-out'];
+            let randomAnim = animations[Math.floor(Math.random() * animations.length)];
+            $(this).attr('data-aos', randomAnim);
+            $(this).attr('data-aos-delay', (index * 50).toString());
+          }
+        });
+        
+        // Refresh AOS when isotope layout changes
+        $grid.on('layoutComplete', function() {
+          AOS.refresh();
+        });
+      });
 
-      function toggle_highlights() {
-        var x = document.getElementById("main-highlights");
-        var y = document.getElementById("more-highlights");
-        var b = document.getElementById("toggle_highlights_button")
-        if (y.style.display === "none") {
-          x.style.display = "none";
-          y.style.display = "block";
-          b.innerHTML = "Show less"
-          update_isotope();
-        } else {
-          x.style.display = "block";
-          y.style.display = "none";
-          b.innerHTML = "Show more"
-          update_isotope();
+      // Smooth scrolling for internal links
+      $('a[href^="#"]').on('click', function(event) {
+        var target = $(this.getAttribute('href'));
+        if( target.length ) {
+          event.preventDefault();
+          $('html, body').stop().animate({
+            scrollTop: target.offset().top - 100
+          }, 1000);
         }
-      }
-
-      update_isotope();
-
+      });
     </script>
   </body>
 </html>
-
-
-
-
-
