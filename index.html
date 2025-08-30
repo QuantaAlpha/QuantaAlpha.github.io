@@ -510,6 +510,17 @@
           gap: 20px !important;
         }
         
+                 /* WeChat section responsive */
+         .wechat div[style*="grid-template-columns: 1fr 1fr 1fr"] {
+           grid-template-columns: 1fr !important;
+           gap: 20px !important;
+         }
+         
+         .wechat div[style*="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr))"] {
+           grid-template-columns: 1fr 1fr !important;
+           gap: 10px !important;
+         }
+        
         #intro .info-card {
           margin-bottom: 20px;
         }
@@ -541,8 +552,26 @@
         }
 
         #filters {
-          flex-direction: column;
-          align-items: center;
+          flex-wrap: nowrap !important;
+          justify-content: center;
+          gap: 8px !important;
+          padding: 8px !important;
+          overflow-x: auto;
+          max-width: 100% !important;
+        }
+        
+        .button {
+          font-size: 11px !important;
+          padding: 8px 12px !important;
+          white-space: nowrap;
+          flex-shrink: 0;
+        }
+
+        .quick-contact-btn {
+          top: 10px !important;
+          right: 10px !important;
+          padding: 10px 16px !important;
+          font-size: 12px !important;
         }
 
         #main {
@@ -754,10 +783,62 @@
         max-width: 100%;
         box-sizing: border-box;
       }
+
+      /* Quick Contact Button */
+      .quick-contact-btn {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        z-index: 1000;
+        padding: 12px 20px;
+        background: linear-gradient(45deg, #00ffff, #0080ff);
+        color: #000;
+        border: none;
+        border-radius: 25px;
+        font-weight: 600;
+        font-size: 14px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        box-shadow: 0 5px 15px rgba(0, 255, 255, 0.3);
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        font-family: 'Space Grotesk', sans-serif;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
+
+      .quick-contact-btn:hover {
+        background: linear-gradient(45deg, #0080ff, #00ffff);
+        box-shadow: 0 8px 25px rgba(0, 255, 255, 0.5);
+        transform: translateY(-2px) scale(1.05);
+      }
+
+      .quick-contact-btn::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+        transition: left 0.5s;
+      }
+
+      .quick-contact-btn:hover::before {
+        left: 100%;
+      }
     </style>
   </head>
 
   <body id="body">
+    <!-- Quick Contact Button -->
+    <a href="#wechat" class="quick-contact-btn" onclick="localStorage.setItem('filterValue','.wechat'); update_isotope(); document.getElementById('wechat').scrollIntoView({behavior:'smooth'}); return false;">
+      <span>💬</span>
+      <span>WeChat</span>
+    </a>
+
     <!-- Particles background -->
     <div id="particles-js"></div>
 
@@ -828,15 +909,89 @@
       <div id="filters" class="button-group loading">
         <button class="button is-checked" data-filter=".highlight">🔥 News</button>
         <button class="button" data-filter=".publication">💡 Publications</button>
-        <button class="button" data-filter=".contact">📧 Contact & Collaboration</button>
+        <button class="button" data-filter=".wechat">💬 WeChat Contact</button>
+        <button class="button" data-filter=".contact">📧 Collaboration</button>
         <button class="button" data-filter=".research">🔬 Research Areas</button>
       </div>
 
       <div class="grid">
+        <!-- WeChat Contact Section -->
+        <div id="wechat" class="list-item wechat loading" data-category="wechat">
+          <div class="project-description" style="max-width: 900px; margin: 0 auto;">
+            <h2 class="neon-glow">💬 WeChat Contact</h2>
+            <div class="terminal-box">
+              <div class="terminal-title">$ cat social_communities.md</div>
+              <p style="text-align: center; font-size: 1.2em; margin-bottom: 25px; color: #58a6ff;">Join our vibrant communities for real-time discussions and collaboration! 🚀</p>
+              
+              <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 25px; margin: 30px 0; align-items: center;">
+                <!-- Personal WeChat Contact -->
+                <div style="text-align: center;">
+                  <div style="background: rgba(255, 0, 255, 0.1); border: 2px solid #ff00ff; border-radius: 20px; padding: 25px; transition: all 0.3s ease; box-shadow: 0 10px 30px rgba(255, 0, 255, 0.2);" onmouseover="this.style.transform='scale(1.05)'; this.style.boxShadow='0 15px 40px rgba(255, 0, 255, 0.4)'" onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 10px 30px rgba(255, 0, 255, 0.2)'">
+                    <h3 style="color: #ff00ff; margin-bottom: 20px; font-size: 1.3em;">👤 Personal WeChat Contact</h3>
+                    <div style="width: 200px; height: 200px; background: linear-gradient(45deg, rgba(255, 0, 255, 0.3), rgba(0, 255, 255, 0.3)); border-radius: 15px; border: 3px solid #ff00ff; display: flex; flex-direction: column; align-items: center; justify-content: center; margin: 0 auto; box-shadow: 0 5px 15px rgba(255, 0, 255, 0.3); transition: all 0.3s ease;" onmouseover="this.style.transform='rotate(-5deg) scale(1.1)'" onmouseout="this.style.transform='rotate(0deg) scale(1)'">
+                      <div style="font-size: 3em; margin-bottom: 10px;">💬</div>
+                      <div style="color: #ff00ff; font-weight: 600; font-size: 1.2em; text-align: center;">Harry_-_Wang</div>
+                      <div style="color: #e0e0e0; font-size: 0.9em; margin-top: 5px;">WeChat ID</div>
+                    </div>
+                    <p style="margin-top: 15px; color: #e0e0e0; font-size: 1em;">Add for direct communication</p>
+                  </div>
+                </div>
+                
+                <!-- WeChat Group QR Code -->
+                <div style="text-align: center;">
+                  <div style="background: rgba(0, 255, 255, 0.1); border: 2px solid #00ffff; border-radius: 20px; padding: 25px; transition: all 0.3s ease; box-shadow: 0 10px 30px rgba(0, 255, 255, 0.2);" onmouseover="this.style.transform='scale(1.05)'; this.style.boxShadow='0 15px 40px rgba(0, 255, 255, 0.4)'" onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 10px 30px rgba(0, 255, 255, 0.2)'">
+                    <h3 style="color: #00ffff; margin-bottom: 20px; font-size: 1.3em;">🏘️ Academic Exchange Group</h3>
+                    <img src="images/WeChat.jpg" alt="WeChat Group QR Code" style="width: 200px; height: 200px; border-radius: 15px; border: 3px solid #00ffff; box-shadow: 0 5px 15px rgba(0, 255, 255, 0.3); transition: all 0.3s ease;" onmouseover="this.style.transform='rotate(5deg) scale(1.1)'" onmouseout="this.style.transform='rotate(0deg) scale(1)'">
+                    <p style="margin-top: 15px; color: #e0e0e0; font-size: 1em;">Scan to join our research community</p>
+                  </div>
+                </div>
+                
+                <!-- XiaoHongShu Group -->
+                <div style="text-align: center;">
+                  <div style="background: rgba(255, 102, 102, 0.1); border: 2px solid #ff6666; border-radius: 20px; padding: 25px; transition: all 0.3s ease; box-shadow: 0 10px 30px rgba(255, 102, 102, 0.2);" onmouseover="this.style.transform='scale(1.05)'; this.style.boxShadow='0 15px 40px rgba(255, 102, 102, 0.4)'" onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 10px 30px rgba(255, 102, 102, 0.2)'">
+                    <h3 style="color: #ff6666; margin-bottom: 20px; font-size: 1.3em;">📖 XiaoHongShu Group</h3>
+                    <div style="width: 200px; height: 200px; background: linear-gradient(45deg, rgba(255, 102, 102, 0.3), rgba(255, 182, 193, 0.3)); border-radius: 15px; border: 3px solid #ff6666; display: flex; flex-direction: column; align-items: center; justify-content: center; margin: 0 auto; box-shadow: 0 5px 15px rgba(255, 102, 102, 0.3); transition: all 0.3s ease; cursor: pointer;" onclick="navigator.clipboard.writeText('2【长按复制，小红书APP见】 9月27日到期，&quot;QuantaAlpha&quot;志同道合处 MU5117 :/#t🍒🐍🐨🐍🍑😜😗😎🍍🍣🤣🍈'); alert('小红书群链接已复制到剪贴板！');" onmouseover="this.style.transform='rotate(5deg) scale(1.1)'" onmouseout="this.style.transform='rotate(0deg) scale(1)'">
+                      <div style="font-size: 2.5em; margin-bottom: 10px;">📱</div>
+                      <div style="color: #ff6666; font-weight: 600; font-size: 1.1em; text-align: center; line-height: 1.3;">QuantaAlpha<br>志同道合处</div>
+                      <div style="color: #e0e0e0; font-size: 0.8em; margin-top: 8px;">Click to Copy</div>
+                      <div style="color: #ffcc00; font-size: 0.75em; margin-top: 5px;">Expires: 9/27</div>
+                    </div>
+                    <p style="margin-top: 15px; color: #e0e0e0; font-size: 1em;">Join our XiaoHongShu community</p>
+                  </div>
+                </div>
+              </div>
+              
+              <div style="background: rgba(0, 255, 0, 0.1); border: 1px solid rgba(0, 255, 0, 0.3); border-radius: 15px; padding: 20px; margin-top: 25px;">
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px;">
+                  <div style="text-align: center; padding: 15px;">
+                    <div style="font-size: 2em; margin-bottom: 10px;">🔬</div>
+                    <div style="color: #00ffff; font-weight: 600;">Research Discussions</div>
+                    <div style="color: #e0e0e0; font-size: 0.9em;">Latest AI Agent insights</div>
+                  </div>
+                  <div style="text-align: center; padding: 15px;">
+                    <div style="font-size: 2em; margin-bottom: 10px;">🤝</div>
+                    <div style="color: #ff00ff; font-weight: 600;">Collaboration</div>
+                    <div style="color: #e0e0e0; font-size: 0.9em;">Find research partners</div>
+                  </div>
+                  <div style="text-align: center; padding: 15px;">
+                    <div style="font-size: 2em; margin-bottom: 10px;">📚</div>
+                    <div style="color: #ffff00; font-weight: 600;">Resource Sharing</div>
+                    <div style="color: #e0e0e0; font-size: 0.9em;">Papers & tools exchange</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <p style="text-align: center; margin-top: 30px; padding: 20px; background: linear-gradient(45deg, rgba(0, 255, 255, 0.2), rgba(255, 0, 255, 0.2)); border-radius: 15px; font-size: 1.1em;">
+              <strong style="color: #00ffff;">💡 Pro Tip:</strong> Join our WeChat group for instant updates and engage directly with our research team!
+            </p>
+          </div>
+        </div>
+
         <!-- Contact Section -->
         <div id="contact" class="list-item contact loading" data-category="contact">
           <div class="project-description" style="max-width: 900px; margin: 0 auto;">
-            <h2 class="neon-glow">📧 Contact & Collaboration</h2>
+            <h2 class="neon-glow">📧 Collaboration</h2>
             <div class="terminal-box">
               <div class="terminal-title">$ cat collaboration_opportunities.md</div>
               <p>We are actively seeking collaborators and team members who share our passion for AI Agent technology. 🤝</p>
@@ -933,7 +1088,8 @@
             <p style="margin: 15px 0; font-size: 15px; line-height: 1.6; text-align: left;">
               <strong style="color: #ff00ff;">QuantaAlpha Team</strong><br>
               <i style="color: #ffff00;">📄 arXiv Preprint</i><br>
-              <a href="https://arxiv.org/pdf/2508.02085" style="color: #00ffff; text-decoration: none;">📖 Paper</a>
+              <a href="https://arxiv.org/pdf/2508.02085" style="color: #00ffff; text-decoration: none;">📖 Paper</a> |
+              <a href="https://github.com/JARVIS-Xs/SE-Agent" style="color: #ff6b6b; text-decoration: none;">💻 GitHub</a>
             </p>
           </div>
         </div>
@@ -947,7 +1103,8 @@
             <p style="margin: 15px 0; font-size: 15px; line-height: 1.6; text-align: left;">
               <strong style="color: #ff00ff;">QuantaAlpha Team</strong><br>
               <i style="color: #ffff00;">📄 arXiv Preprint</i><br>
-              <a href="#" style="color: #00ffff; text-decoration: none;">📖 Paper</a>
+              <a href="#" style="color: #00ffff; text-decoration: none;">📖 Paper</a> |
+              <a href="https://github.com/QuantaAlpha/GitTaskBench" style="color: #ff6b6b; text-decoration: none;">💻 GitHub</a>
             </p>
           </div>
         </div>
@@ -961,7 +1118,8 @@
             <p style="margin: 15px 0; font-size: 15px; line-height: 1.6; text-align: left;">
               <strong style="color: #ff00ff;">QuantaAlpha Team</strong><br>
               <i style="color: #ffff00;">📄 arXiv Preprint</i><br>
-              <a href="https://arxiv.org/pdf/2505.21577" style="color: #00ffff; text-decoration: none;">📖 Paper</a>
+              <a href="https://arxiv.org/pdf/2505.21577" style="color: #00ffff; text-decoration: none;">📖 Paper</a> |
+              <a href="https://github.com/QuantaAlpha/RepoMaster" style="color: #ff6b6b; text-decoration: none;">💻 GitHub</a>
             </p>
           </div>
         </div>
@@ -1004,8 +1162,7 @@
               <div style="color: #00ffff; font-weight: 600; font-size: 1.4em;">Join Our Research Team!</div>
               <div style="color: #e0e0e0; font-size: 1.1em;">Let's explore the unlimited possibilities of AI Agent technology together</div>
             </div>
-            <a href="#contact" onclick="localStorage.setItem('filterValue','.contact'); update_isotope(); document.getElementById('contact').scrollIntoView({behavior:'smooth'}); return false;" 
-               class="cta-button">Contact Us</a>
+                         <a href="#contact" onclick="localStorage.setItem('filterValue','.contact'); update_isotope(); document.getElementById('contact').scrollIntoView({behavior:'smooth'}); return false;" class="cta-button">Contact Us</a>
           </div>
         </div>
         <p class="neon-glow" style="font-size: 16px; line-height: 1.6; color: #f0f0f0;"><img src="images/logo.png" alt="QuantaAlpha Logo" style="height: 35px; vertical-align: middle; margin-right: 8px;"> QuantaAlpha Team - Dedicated to Advancing AI Agent Technology Frontiers 🚀</p>
