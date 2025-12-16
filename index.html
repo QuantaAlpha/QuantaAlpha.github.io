@@ -1,6 +1,6 @@
-<!DOCTYPE HTML>
-<html>
-  <head>
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
     <!-- Google analytics tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-STGLQW4BJX"></script>
     <script>
@@ -10,1359 +10,576 @@
       gtag('config', 'G-STGLQW4BJX');
     </script>
 
-    <!-- Title -->
-    <title>QuantaAlpha - AI Agent Research Team</title>
-    <meta charset="utf-8" />
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+    <title>QuantaAlpha - AI Agent Research Team</title>
+    
     <!-- Favicon -->
     <link rel="icon" type="image/jpeg" href="images/logo.png">
     <link rel="shortcut icon" type="image/jpeg" href="images/logo.png">
     <link rel="apple-touch-icon" href="images/logo.png">
 
-    <!-- Particles.js -->
-    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
-    
-    <!-- Isotope JS -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.13.2/jquery-ui.min.js"></script>
-    <script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js"></script>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        slate: {
+                            950: '#020617', // Deepest background
+                        },
+                        brand: {
+                            blue: '#38bdf8',
+                            violet: '#818cf8',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    }
+                }
+            }
+        }
+    </script>
 
-    <!-- AOS - Animate On Scroll Library -->
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    
-    <!-- Font Awesome for icons -->
+    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-    <!-- Custom Style -->
-    <style>
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-      }
-
-      @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap');
-      
-      body {
-        font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-        background: linear-gradient(135deg, #0c0c0c 0%, #1a1a2e 50%, #16213e 100%);
-        color: #ffffff;
-        overflow-x: hidden;
-        min-height: 100vh;
-        font-size: 16px;
-        line-height: 1.6;
-        -webkit-font-smoothing: antialiased;
-        -moz-osx-font-smoothing: grayscale;
-      }
-
-      /* Particles background */
-      #particles-js {
-        position: fixed;
-        width: 100%;
-        height: 100%;
-        top: 0;
-        left: 0;
-        z-index: -1;
-      }
-
-      /* Neon glow effects */
-      .neon-glow {
-        text-shadow: 0 0 5px #00ffff, 0 0 10px #00ffff, 0 0 20px #00ffff, 0 0 40px #00ffff;
-      }
-
-      .neon-border {
-        border: 2px solid #00ffff;
-        box-shadow: 0 0 10px #00ffff, inset 0 0 10px rgba(0, 255, 255, 0.1);
-        border-radius: 10px;
-      }
-
-      /* Main container */
-      #main {
-        max-width: 1400px;
-        margin: 0 auto;
-        padding: 20px 40px;
-        position: relative;
-        z-index: 1;
-      }
-
-      /* Hero section */
-      #intro {
-        display: block;
-        margin-bottom: 30px;
-        padding: 40px;
-        background: rgba(0, 0, 0, 0.3);
-        backdrop-filter: blur(15px);
-        border-radius: 30px;
-        border: 1px solid rgba(0, 255, 255, 0.2);
-        transform: perspective(1500px) rotateX(2deg);
-        transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
-        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5), 0 0 30px rgba(0, 255, 255, 0.2);
-        position: relative;
-        overflow: hidden;
-      }
-
-      #intro::before {
-        content: '';
-        position: absolute;
-        top: -50%;
-        left: -50%;
-        width: 200%;
-        height: 200%;
-        background: radial-gradient(circle, rgba(0, 255, 255, 0.1) 0%, transparent 70%);
-        opacity: 0;
-        transition: opacity 0.5s ease;
-        pointer-events: none;
-      }
-
-      #intro:hover {
-        transform: perspective(1500px) rotateX(0deg) scale(1.02);
-        border-color: rgba(0, 255, 255, 0.4);
-      }
-
-      #intro:hover::before {
-        opacity: 1;
-      }
-
-      #intro h1 {
-        font-size: 3.5em;
-        margin-bottom: 15px;
-        color: #00ffff;
-        font-weight: 800;
-        letter-spacing: 2px;
-        font-family: 'Space Grotesk', sans-serif;
-        text-rendering: optimizeLegibility;
-        -webkit-font-smoothing: antialiased;
-        -moz-osx-font-smoothing: grayscale;
-        text-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
-        animation: rainbow 5s ease-in-out infinite alternate;
-        position: relative;
-        display: inline-block;
-      }
-
-      #intro h1::after {
-        content: '';
-        position: absolute;
-        bottom: -5px;
-        left: 0;
-        width: 100%;
-        height: 3px;
-        background: linear-gradient(90deg, #00ffff, #ff00ff, #ffff00, #00ff00, #ff6600);
-        background-size: 400% 400%;
-        animation: gradient-move 5s ease infinite;
-        border-radius: 3px;
-      }
-
-      @keyframes gradient-move {
-        0% { background-position: 0% 50%; }
-        50% { background-position: 100% 50%; }
-        100% { background-position: 0% 50%; }
-      }
-
-      @keyframes rainbow {
-        0% { color: #00ffff; }
-        25% { color: #ff00ff; }
-        50% { color: #ffff00; }
-        75% { color: #00ff00; }
-        100% { color: #ff6600; }
-      }
-
-      #intro p {
-        font-size: 1.2em;
-        line-height: 1.7;
-        margin-bottom: 20px;
-        opacity: 1;
-        color: #f0f0f0;
-        font-weight: 400;
-        text-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-      }
-
-      #intro ul {
-        list-style: none;
-        padding-left: 0;
-      }
-
-      #intro li {
-        margin: 15px 0;
-        padding: 18px;
-        background: rgba(0, 255, 255, 0.1);
-        border-left: 4px solid #00ffff;
-        border-radius: 8px;
-        transition: all 0.3s ease;
-        position: relative;
-        overflow: hidden;
-        font-size: 16px;
-        line-height: 1.7;
-        color: #f0f0f0;
-      }
-
-      #intro li:hover {
-        background: rgba(0, 255, 255, 0.2);
-        transform: translateX(10px);
-        box-shadow: 0 5px 15px rgba(0, 255, 255, 0.3);
-      }
-
-      #intro li::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: -100%;
-        width: 100%;
-        height: 100%;
-        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
-        transition: left 0.5s;
-      }
-
-      #intro li:hover::before {
-        left: 100%;
-      }
-
-      /* Terminal style box */
-      .terminal-box {
-        background: linear-gradient(135deg, #0d1117, #1a1a2e);
-        border: 2px solid rgba(48, 54, 61, 0.8);
-        border-radius: 16px;
-        padding: 25px 20px;
-        margin: 25px 0;
-        font-family: 'JetBrains Mono', 'SF Mono', 'Monaco', 'Inconsolata', 'Roboto Mono', 'Source Code Pro', 'Menlo', 'Consolas', monospace;
-        position: relative;
-        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6), 0 0 15px rgba(0, 255, 255, 0.1);
-        font-size: 15px;
-        line-height: 1.7;
-        transition: all 0.4s ease;
-        overflow: hidden;
-      }
-      
-      .terminal-box:hover {
-        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7), 0 0 20px rgba(0, 255, 255, 0.2);
-        border-color: rgba(0, 255, 255, 0.3);
-        transform: translateY(-5px);
-      }
-
-      .terminal-box::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        height: 40px;
-        background: rgba(30, 30, 50, 0.7);
-        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        border-top-left-radius: 14px;
-        border-top-right-radius: 14px;
-        z-index: 0;
-      }
-
-      .terminal-box::after {
-        content: '● ● ●';
-        position: absolute;
-        top: 12px;
-        left: 15px;
-        color: #ff5f56;
-        font-size: 12px;
-        z-index: 1;
-        text-shadow: 0 0 5px rgba(255, 95, 86, 0.5);
-      }
-
-      .terminal-box .terminal-title {
-        color: #58a6ff;
-        margin-bottom: 20px;
-        margin-top: 20px;
-        font-weight: 600;
-        font-size: 16px;
-        position: relative;
-        z-index: 1;
-        padding-left: 10px;
-        text-shadow: 0 0 5px rgba(88, 166, 255, 0.5);
-        font-family: 'JetBrains Mono', monospace;
-      }
-
-      /* Filter buttons */
-      #filters {
-        display: flex;
-        justify-content: center;
-        gap: 15px;
-        margin: 30px 0;
-        flex-wrap: wrap;
-        position: sticky;
-        top: 20px;
-        z-index: 100;
-        padding: 15px;
-        background: rgba(10, 10, 20, 0.7);
-        backdrop-filter: blur(15px);
-        border-radius: 30px;
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-        max-width: 90%;
-        margin-left: auto;
-        margin-right: auto;
-      }
-
-      .button {
-        padding: 12px 24px;
-        background: rgba(20, 20, 40, 0.7);
-        border: 2px solid rgba(0, 255, 255, 0.3);
-        color: #00ffff;
-        border-radius: 20px;
-        cursor: pointer;
-        transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        font-family: 'Space Grotesk', sans-serif;
-        font-weight: 600;
-        text-transform: uppercase;
-        letter-spacing: 1px;
-        position: relative;
-        overflow: hidden;
-        font-size: 14px;
-        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-      }
-
-      .button::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: -100%;
-        width: 100%;
-        height: 100%;
-        background: linear-gradient(90deg, transparent, rgba(0, 255, 255, 0.2), transparent);
-        transition: left 0.5s;
-      }
-
-      .button:hover::before {
-        left: 100%;
-      }
-
-      .button:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 10px 25px rgba(0, 255, 255, 0.4);
-        border-color: rgba(0, 255, 255, 0.8);
-      }
-      
-      .button.is-checked {
-        background: linear-gradient(45deg, #00ffff, #0080ff);
-        color: #000;
-        box-shadow: 0 0 20px rgba(0, 255, 255, 0.6);
-        transform: translateY(-3px) scale(1.05);
-        border-color: transparent;
-      }
-
-      /* 3D Cards */
-      .grid {
-        display: grid;
-        gap: 40px;
-        margin-top: 30px;
-        max-width: 100%;
-      }
-
-      .list-item {
-        background: rgba(10, 15, 30, 0.6);
-        backdrop-filter: blur(15px);
-        border: 1px solid rgba(0, 255, 255, 0.2);
-        border-radius: 24px;
-        padding: 40px;
-        transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
-        position: relative;
-        overflow: hidden;
-        transform: perspective(1200px) rotateX(5deg);
-        width: 100%;
-        box-sizing: border-box;
-        margin: 0 auto;
-        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 0 0 20px rgba(0, 255, 255, 0.1);
-      }
-
-      .list-item::before {
-        content: '';
-        position: absolute;
-        top: -2px;
-        left: -2px;
-        right: -2px;
-        bottom: -2px;
-        background: linear-gradient(45deg, #00ffff, #ff00ff, #ffff00, #00ffff);
-        background-size: 400% 400%;
-        animation: gradient-move 8s ease infinite;
-        border-radius: 24px;
-        z-index: -1;
-        opacity: 0;
-        transition: opacity 0.5s ease;
-      }
-
-      .list-item::after {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background: radial-gradient(circle at top right, rgba(0, 255, 255, 0.15), transparent 70%);
-        border-radius: 24px;
-        z-index: -1;
-        opacity: 0;
-        transition: opacity 0.5s ease;
-      }
-
-      .list-item:hover::before {
-        opacity: 0.5;
-      }
-
-      .list-item:hover::after {
-        opacity: 1;
-      }
-
-      .list-item:hover {
-        transform: perspective(1200px) rotateX(0deg) rotateY(3deg) scale(1.03);
-        box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5), 0 0 30px rgba(0, 255, 255, 0.3);
-        border-color: rgba(0, 255, 255, 0.4);
-      }
-
-      /* Publication cards */
-      .publication {
-        display: grid;
-        grid-template-columns: 250px 1fr;
-        gap: 30px;
-        align-items: center;
-        width: 100%;
-        box-sizing: border-box;
-      }
-
-      .thumbnail img {
-        width: 100%;
-        height: 180px;
-        object-fit: cover;
-        border-radius: 10px;
-        border: 2px solid #00ffff;
-        transition: all 0.3s ease;
-      }
-
-      .thumbnail img:hover {
-        transform: scale(1.1) rotate(2deg);
-        box-shadow: 0 10px 25px rgba(0, 255, 255, 0.5);
-      }
-
-      /* Tech stack animation */
-      .tech-stack {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 12px;
-        margin: 25px 0;
-      }
-
-      .tech-item {
-        padding: 10px 18px;
-        background: rgba(20, 30, 60, 0.7);
-        border: 1px solid rgba(0, 255, 255, 0.4);
-        border-radius: 50px;
-        font-size: 0.9em;
-        font-weight: 500;
-        animation: pulse 3s infinite;
-        transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        position: relative;
-        overflow: hidden;
-        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-        backdrop-filter: blur(5px);
-        letter-spacing: 0.5px;
-      }
-      
-      .tech-item::before {
-        content: '';
-        position: absolute;
-        top: -50%;
-        left: -50%;
-        width: 200%;
-        height: 200%;
-        background: radial-gradient(circle, rgba(0, 255, 255, 0.3) 0%, transparent 70%);
-        opacity: 0;
-        transition: opacity 0.5s ease;
-        z-index: -1;
-      }
-
-      .tech-item:hover {
-        background: linear-gradient(45deg, rgba(0, 255, 255, 0.8), rgba(0, 128, 255, 0.8));
-        color: #000;
-        transform: translateY(-5px) scale(1.05);
-        border-color: transparent;
-        box-shadow: 0 10px 25px rgba(0, 255, 255, 0.4);
-      }
-      
-      .tech-item:hover::before {
-        opacity: 1;
-      }
-
-      @keyframes pulse {
-        0%, 100% { box-shadow: 0 0 5px rgba(0, 255, 255, 0.3); }
-        50% { box-shadow: 0 0 15px rgba(0, 255, 255, 0.5), 0 0 25px rgba(0, 255, 255, 0.2); }
-      }
-
-      /* Responsive design */
-      @media (max-width: 1024px) {
-        #main {
-          max-width: 95%;
-          padding: 15px 25px;
-        }
-      }
-
-      @media (max-width: 768px) {
-        #intro {
-          text-align: center;
-          padding: 20px;
-        }
-        
-        #intro div[style*="grid-template-columns: 1fr 1fr"] {
-          display: block !important;
-          gap: 20px !important;
-        }
-        
-                 /* WeChat section responsive */
-         .wechat div[style*="grid-template-columns: 1fr 1fr 1fr"] {
-           grid-template-columns: 1fr !important;
-           gap: 20px !important;
-         }
-         
-         .wechat div[style*="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr))"] {
-           grid-template-columns: 1fr 1fr !important;
-           gap: 10px !important;
-         }
-        
-        #intro .info-card {
-          margin-bottom: 20px;
-        }
-        
-        #intro .info-card:last-child {
-          margin-bottom: 0;
-        }
-        
-        .cta-banner > div {
-          flex-direction: column !important;
-          gap: 10px !important;
-        }
-        
-        .cta-banner > div > div:first-child {
-          font-size: 1.8em !important;
-        }
-
-        #intro h1 {
-          font-size: 2.8em;
-        }
-        
-        #intro p {
-          font-size: 1.2em !important;
-        }
-
-        .publication {
-          grid-template-columns: 1fr;
-          text-align: center;
-        }
-
-        #filters {
-          flex-wrap: nowrap !important;
-          justify-content: center;
-          gap: 8px !important;
-          padding: 8px !important;
-          overflow-x: auto;
-          max-width: 100% !important;
-        }
-        
-        .button {
-          font-size: 11px !important;
-          padding: 8px 12px !important;
-          white-space: nowrap;
-          flex-shrink: 0;
-        }
-
-        .quick-contact-btn {
-          top: 10px !important;
-          right: 10px !important;
-          padding: 10px 16px !important;
-          font-size: 12px !important;
-        }
-
-        #main {
-          padding: 10px 15px;
-        }
-        
-        .info-card {
-          padding: 20px;
-        }
-        
-        .card-header {
-          font-size: 1.3em;
-          margin-bottom: 15px;
-        }
-        
-        .card-content {
-          font-size: 1em;
-        }
-        
-        .cta-button {
-          font-size: 1em !important;
-          padding: 12px 25px !important;
-        }
-      }
-
-      /* Typography improvements */
-      h2, h3 {
-        color: #f0f0f0;
-        font-weight: 600;
-        line-height: 1.4;
-      }
-
-      h2 {
-        font-size: 1.8em;
-      }
-
-      h3 {
-        font-size: 1.4em;
-      }
-
-      p, li, span {
-        color: #e0e0e0;
-      }
-
-      /* Footer */
-      #footer {
-        margin-top: 80px;
-        padding: 40px;
-        text-align: center;
-        background: rgba(10, 15, 30, 0.5);
-        backdrop-filter: blur(15px);
-        border-radius: 24px;
-        border: 1px solid rgba(0, 255, 255, 0.2);
-        box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.3);
-        position: relative;
-        overflow: hidden;
-        transition: all 0.5s ease;
-      }
-      
-      #footer::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        height: 1px;
-        background: linear-gradient(90deg, transparent, rgba(0, 255, 255, 0.5), transparent);
-        z-index: 1;
-      }
-      
-      #footer:hover {
-        border-color: rgba(0, 255, 255, 0.4);
-        box-shadow: 0 -10px 40px rgba(0, 0, 0, 0.4), 0 0 20px rgba(0, 255, 255, 0.2);
-      }
-
-      /* Scrollbar styling */
-      ::-webkit-scrollbar {
-        width: 8px;
-      }
-
-      ::-webkit-scrollbar-track {
-        background: #1a1a2e;
-      }
-
-      ::-webkit-scrollbar-thumb {
-        background: linear-gradient(45deg, #00ffff, #0080ff);
-        border-radius: 4px;
-      }
-
-      ::-webkit-scrollbar-thumb:hover {
-        background: linear-gradient(45deg, #0080ff, #00ffff);
-      }
-
-      /* Loading animation */
-      .loading {
-        opacity: 0;
-        animation: fadeInUp 1s ease forwards;
-      }
-
-      @keyframes fadeInUp {
-        from {
-          opacity: 0;
-          transform: translateY(30px);
-        }
-        to {
-          opacity: 1;
-          transform: translateY(0);
-        }
-      }
-
-      /* New styles for intro section */
-      .info-card {
-        background: rgba(0, 0, 0, 0.3);
-        border: 1px solid rgba(0, 255, 255, 0.3);
-        border-radius: 15px;
-        padding: 25px;
-        transition: all 0.3s ease;
-      }
-
-      .info-card:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 10px 25px rgba(0, 255, 255, 0.3);
-      }
-
-      .card-header {
-        color: #00ffff;
-        font-size: 1.4em;
-        font-weight: 600;
-        margin-bottom: 18px;
-        padding-bottom: 12px;
-        border-bottom: 1px solid rgba(0, 255, 255, 0.2);
-      }
-
-      .card-content {
-        font-size: 1.05em;
-        color: #e0e0e0;
-        line-height: 1.6;
-      }
-
-      .tech-stack-compact {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 12px;
-        margin-top: 15px;
-      }
-
-      .tech-item-compact {
-        padding: 8px 16px;
-        background: linear-gradient(45deg, #1a1a2e, #16213e);
-        border: 1px solid #00ffff;
-        border-radius: 12px;
-        font-size: 1em;
-        animation: pulse 2s infinite;
-        transition: all 0.3s ease;
-      }
-
-      .tech-item-compact:hover {
-        background: linear-gradient(45deg, #00ffff, #0080ff);
-        color: #000;
-        transform: scale(1.05);
-      }
-
-      .cta-banner {
-        background: rgba(0, 255, 255, 0.1);
-        border: 1px solid rgba(0, 255, 255, 0.3);
-        border-radius: 15px;
-        padding: 25px;
-        margin-top: 20px;
-        text-align: center;
-      }
-
-      .cta-button {
-        display: inline-block;
-        padding: 15px 30px;
-        background: linear-gradient(45deg, #00ffff, #0080ff);
-        color: #000;
-        border-radius: 25px;
-        text-decoration: none;
-        font-weight: 600;
-        text-transform: uppercase;
-        letter-spacing: 1px;
-        transition: all 0.3s ease;
-        border: 2px solid #00ffff;
-        box-shadow: 0 0 10px rgba(0, 255, 255, 0.3);
-        font-size: 1.1em;
-      }
-
-      .cta-button:hover {
-        background: linear-gradient(45deg, #0080ff, #00ffff);
-        box-shadow: 0 0 20px #00ffff;
-        transform: translateY(-3px);
-      }
-
-      /* Additional styles for consistent alignment */
-      .project-description {
-        width: 100%;
-        box-sizing: border-box;
-        margin: 0 auto;
-      }
-      
-      /* Center align headings in all sections */
-      .list-item h2, .list-item h3 {
-        text-align: center;
-        margin-bottom: 25px;
-      }
-      
-      /* Make all content sections same width as intro */
-      .list-item.contact, .list-item.research, .list-item.publication, .list-item.highlight {
-        max-width: 100%;
-        box-sizing: border-box;
-      }
-
-      /* Quick Contact Button */
-      .quick-contact-btn {
-        position: fixed;
-        top: 20px;
-        right: 20px;
-        z-index: 1000;
-        padding: 12px 20px;
-        background: linear-gradient(45deg, #00ffff, #0080ff);
-        color: #000;
-        border: none;
-        border-radius: 25px;
-        font-weight: 600;
-        font-size: 14px;
-        cursor: pointer;
-        transition: all 0.3s ease;
-        box-shadow: 0 5px 15px rgba(0, 255, 255, 0.3);
-        text-decoration: none;
-        display: flex;
-        align-items: center;
-        gap: 8px;
-        font-family: 'Space Grotesk', sans-serif;
-        text-transform: uppercase;
-        letter-spacing: 1px;
-      }
-
-      .quick-contact-btn:hover {
-        background: linear-gradient(45deg, #0080ff, #00ffff);
-        box-shadow: 0 8px 25px rgba(0, 255, 255, 0.5);
-        transform: translateY(-2px) scale(1.05);
-      }
-
-      .quick-contact-btn::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: -100%;
-        width: 100%;
-        height: 100%;
-        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-        transition: left 0.5s;
-      }
-
-      .quick-contact-btn:hover::before {
-        left: 100%;
-      }
-    </style>
-  </head>
-
-  <body id="body">
-    <!-- Quick Contact Button -->
-    <a href="#wechat" class="quick-contact-btn" onclick="localStorage.setItem('filterValue','.wechat'); update_isotope(); document.getElementById('wechat').scrollIntoView({behavior:'smooth'}); return false;">
-      <span>💬</span>
-      <span>WeChat</span>
-    </a>
-
-    <!-- Particles background -->
-    <div id="particles-js"></div>
-
-    <div id="main">
-      <div id="intro" class="loading">
-        <div id="intro-text">
-          <h1 class="neon-glow"><img src="images/logo.png" alt="QuantaAlpha Logo" style="height: 80px; vertical-align: middle; margin-right: 15px;"> QuantaAlpha</h1>
-          <p style="text-align: center; color: #58a6ff; font-size: 1.4em; margin-bottom: 25px; font-weight: 500;">
-            Elite AI Agent Research Team • Advancing Intelligence Frontiers 🚀
-          </p>
-          
-          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 25px; margin-bottom: 25px;">
-            <!-- Team Info Card -->
-            <div class="info-card">
-              <div class="card-header">👥 Team Profile</div>
-              <div class="card-content">
-                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
-                  <span style="color: #ff6b6b; font-weight: 600; font-size: 1.1em;">Founded:</span>
-                  <span style="color: #58a6ff; font-size: 1.1em;">April 2025</span>
-                </div>
-                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
-                  <span style="color: #ff6b6b; font-weight: 600; font-size: 1.1em;">Members:</span>
-                  <span style="color: #58a6ff; font-size: 1.1em;"> 20+ Researchers</span>
-                </div>
-                <div style="font-size: 1.05em; color: #e0e0e0; line-height: 1.5; margin-bottom: 15px;">
-                  <strong style="color: #00ffff;">Affiliations:</strong><br>
-                  <span style="color: #ffd700;">Universities:</span> UCAS, Tsinghua, PKU, CMU, HKUST, USTC, ZJU, etc.<br>
-                  <span style="color: #ffd700;">Roles:</span> Professors (985/211), Postdocs, PhD/Master Students
-                </div>
-                <div style="font-size: 1em; color: #a0a0a0; font-style: italic;">
-                  Committed to pushing AI Agent technology frontiers
-                </div>
-              </div>
-            </div>
-
-            <!-- Research Areas Card -->
-            <div class="info-card">
-              <div class="card-header">🔬 Research Focus</div>
-              <div class="card-content">
-                <div style="font-size: 1.05em; line-height: 1.5; margin-bottom: 15px;">
-                  <div style="margin-bottom: 10px;">
-                    <strong style="color: #00ffff;">💻 CodeAgent:</strong> End-to-end execution for real-world coding tasks
-                  </div>
-                  <div style="margin-bottom: 10px;">
-                    <strong style="color: #ff00ff;">📚 DeepResearch:</strong> Multi-step reasoning for scientific discovery
-                  </div>
-                  <div style="margin-bottom: 10px;">
-                    <strong style="color: #ffff00;">🧠 Agentic RL:</strong> Reasoning-centered reinforcement learning
-                  </div>
-                  <div>
-                    <strong style="color: #00ff00;">🔄 Self-Evolving:</strong> Continuous improvement & co-learning
-                  </div>
-                </div>
-                <div class="tech-stack-compact">
-                  <div class="tech-item-compact">Code Agent</div>
-                  <div class="tech-item-compact">Deep Research</div>
-                  <div class="tech-item-compact">Agentic RL</div>
-                  <div class="tech-item-compact">Self-Evolving</div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-
-        </div>
-      </div>
-
-      <div id="filters" class="button-group loading">
-        <button class="button is-checked" data-filter=".highlight">🔥 News</button>
-        <button class="button" data-filter=".publication">💡 Publications</button>
-        <button class="button" data-filter=".wechat">💬 WeChat Contact</button>
-        <button class="button" data-filter=".contact">📧 Collaboration</button>
-        <button class="button" data-filter=".research">🔬 Research Areas</button>
-      </div>
-
-      <div class="grid">
-        <!-- WeChat Contact Section -->
-        <div id="wechat" class="list-item wechat loading" data-category="wechat">
-          <div class="project-description" style="max-width: 900px; margin: 0 auto;">
-            <h2 class="neon-glow">💬 WeChat Contact</h2>
-            <div class="terminal-box">
-              <div class="terminal-title">$ cat social_communities.md</div>
-              <p style="text-align: center; font-size: 1.2em; margin-bottom: 25px; color: #58a6ff;">Join our vibrant communities for real-time discussions and collaboration! 🚀</p>
-              
-              <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 25px; margin: 30px 0; align-items: center;">
-                <!-- Personal WeChat Contact -->
-                <div style="text-align: center;">
-                  <div style="background: rgba(255, 0, 255, 0.1); border: 2px solid #ff00ff; border-radius: 20px; padding: 25px; transition: all 0.3s ease; box-shadow: 0 10px 30px rgba(255, 0, 255, 0.2);" onmouseover="this.style.transform='scale(1.05)'; this.style.boxShadow='0 15px 40px rgba(255, 0, 255, 0.4)'" onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 10px 30px rgba(255, 0, 255, 0.2)'">
-                    <h3 style="color: #ff00ff; margin-bottom: 20px; font-size: 1.3em;">👤 Personal WeChat Contact</h3>
-                    <div style="width: 200px; height: 200px; background: linear-gradient(45deg, rgba(255, 0, 255, 0.3), rgba(0, 255, 255, 0.3)); border-radius: 15px; border: 3px solid #ff00ff; display: flex; flex-direction: column; align-items: center; justify-content: center; margin: 0 auto; box-shadow: 0 5px 15px rgba(255, 0, 255, 0.3); transition: all 0.3s ease;" onmouseover="this.style.transform='rotate(-5deg) scale(1.1)'" onmouseout="this.style.transform='rotate(0deg) scale(1)'">
-                      <div style="font-size: 3em; margin-bottom: 10px;">💬</div>
-                      <div style="color: #ff00ff; font-weight: 600; font-size: 1.2em; text-align: center;">Harry_-_Wang</div>
-                      <div style="color: #e0e0e0; font-size: 0.9em; margin-top: 5px;">WeChat ID</div>
-                    </div>
-                    <p style="margin-top: 15px; color: #e0e0e0; font-size: 1em;">Add for direct communication</p>
-                  </div>
+    <!-- AOS Animation -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="mesh-bg min-h-screen selection:bg-brand-blue selection:text-white">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 top-0 glass border-b border-white/5">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo -->
+                <div class="flex-shrink-0 flex items-center gap-3 cursor-pointer" onclick="window.scrollTo(0,0)">
+                    <img class="h-10 w-10 rounded-lg shadow-lg shadow-brand-blue/20" src="images/logo.png" alt="QuantaAlpha">
+                    <span class="font-bold text-xl tracking-tight text-white">QuantaAlpha</span>
                 </div>
                 
-                <!-- WeChat Group QR Code -->
-                <div style="text-align: center;">
-                  <div style="background: rgba(0, 255, 255, 0.1); border: 2px solid #00ffff; border-radius: 20px; padding: 25px; transition: all 0.3s ease; box-shadow: 0 10px 30px rgba(0, 255, 255, 0.2);" onmouseover="this.style.transform='scale(1.05)'; this.style.boxShadow='0 15px 40px rgba(0, 255, 255, 0.4)'" onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 10px 30px rgba(0, 255, 255, 0.2)'">
-                    <h3 style="color: #00ffff; margin-bottom: 20px; font-size: 1.3em;">🏘️ Academic Exchange Group</h3>
-                    <img src="images/WeChat.jpg" alt="WeChat Group QR Code" style="width: 200px; height: 200px; border-radius: 15px; border: 3px solid #00ffff; box-shadow: 0 5px 15px rgba(0, 255, 255, 0.3); transition: all 0.3s ease;" onmouseover="this.style.transform='rotate(5deg) scale(1.1)'" onmouseout="this.style.transform='rotate(0deg) scale(1)'">
-                    <p style="margin-top: 15px; color: #e0e0e0; font-size: 1em;">Scan to join our research community</p>
-                  </div>
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex space-x-8 items-center">
+                    <a href="#about" class="text-sm font-medium text-slate-300 hover:text-white transition-colors">About</a>
+                    <a href="#research" class="text-sm font-medium text-slate-300 hover:text-white transition-colors">Research</a>
+                    <a href="#news" class="text-sm font-medium text-slate-300 hover:text-white transition-colors">News</a>
+                    <a href="#publications" class="text-sm font-medium text-slate-300 hover:text-white transition-colors">Publications</a>
+                    <a href="#community" class="text-sm font-medium text-slate-300 hover:text-white transition-colors">Community</a>
+                    <a href="#contact" class="px-4 py-2 text-sm font-semibold text-slate-950 bg-white rounded-full hover:bg-slate-200 transition-all shadow-lg shadow-white/10">
+                        Join Us
+                    </a>
                 </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden">
+                    <button id="mobile-menu-btn" class="text-slate-300 hover:text-white p-2">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden glass border-t border-white/5 absolute w-full">
+            <div class="px-4 pt-2 pb-6 space-y-2">
+                <a href="#about" class="block px-3 py-2 text-base font-medium text-slate-300 hover:text-white hover:bg-white/5 rounded-md">About</a>
+                <a href="#research" class="block px-3 py-2 text-base font-medium text-slate-300 hover:text-white hover:bg-white/5 rounded-md">Research</a>
+                <a href="#news" class="block px-3 py-2 text-base font-medium text-slate-300 hover:text-white hover:bg-white/5 rounded-md">News</a>
+                <a href="#publications" class="block px-3 py-2 text-base font-medium text-slate-300 hover:text-white hover:bg-white/5 rounded-md">Publications</a>
+                <a href="#community" class="block px-3 py-2 text-base font-medium text-slate-300 hover:text-white hover:bg-white/5 rounded-md">Community</a>
+                <a href="#contact" class="block px-3 py-2 text-base font-medium text-white bg-brand-blue/20 rounded-md">Join Us</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="about" class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+            <div data-aos="fade-up" data-aos-duration="1000">
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-blue/10 border border-brand-blue/20 text-brand-blue text-sm font-medium mb-6">
+                    <span class="flex h-2 w-2 rounded-full bg-brand-blue animate-pulse"></span>
+                    Advancing Intelligence Frontiers
+                </div>
+                <h1 class="text-5xl md:text-7xl font-extrabold tracking-tight text-white mb-6">
+                    QuantaAlpha
+                </h1>
+                <p class="text-xl md:text-2xl text-slate-400 max-w-3xl mx-auto font-light leading-relaxed mb-10">
+                    Elite AI Agent Research Team 🚀 <br>
+                    <span class="text-gradient font-medium">Building the future of Autonomous Intelligence</span>
+                </p>
                 
-                <!-- XiaoHongShu Group -->
-                <div style="text-align: center;">
-                  <div style="background: rgba(255, 102, 102, 0.1); border: 2px solid #ff6666; border-radius: 20px; padding: 25px; transition: all 0.3s ease; box-shadow: 0 10px 30px rgba(255, 102, 102, 0.2);" onmouseover="this.style.transform='scale(1.05)'; this.style.boxShadow='0 15px 40px rgba(255, 102, 102, 0.4)'" onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 10px 30px rgba(255, 102, 102, 0.2)'">
-                    <h3 style="color: #ff6666; margin-bottom: 20px; font-size: 1.3em;">📖 XiaoHongShu Group</h3>
-                    <div style="width: 200px; height: 200px; background: linear-gradient(45deg, rgba(255, 102, 102, 0.3), rgba(255, 182, 193, 0.3)); border-radius: 15px; border: 3px solid #ff6666; display: flex; flex-direction: column; align-items: center; justify-content: center; margin: 0 auto; box-shadow: 0 5px 15px rgba(255, 102, 102, 0.3); transition: all 0.3s ease; cursor: pointer;" onclick="navigator.clipboard.writeText('2【长按复制，小红书APP见】 9月27日到期，&quot;QuantaAlpha&quot;志同道合处 MU5117 :/#t🍒🐍🐨🐍🍑😜😗😎🍍🍣🤣🍈'); alert('小红书群链接已复制到剪贴板！');" onmouseover="this.style.transform='rotate(5deg) scale(1.1)'" onmouseout="this.style.transform='rotate(0deg) scale(1)'">
-                      <div style="font-size: 2.5em; margin-bottom: 10px;">📱</div>
-                      <div style="color: #ff6666; font-weight: 600; font-size: 1.1em; text-align: center; line-height: 1.3;">QuantaAlpha<br>志同道合处</div>
-                      <div style="color: #e0e0e0; font-size: 0.8em; margin-top: 8px;">Click to Copy</div>
-                      <div style="color: #ffcc00; font-size: 0.75em; margin-top: 5px;">Expires: 9/27</div>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                    <a href="#research" class="px-8 py-3.5 text-base font-bold text-slate-950 bg-white rounded-full hover:bg-slate-200 transition-all shadow-xl shadow-white/10 w-full sm:w-auto">
+                        Explore Research
+                    </a>
+                    <a href="#contact" class="px-8 py-3.5 text-base font-bold text-white bg-white/5 border border-white/10 rounded-full hover:bg-white/10 transition-all backdrop-blur-sm w-full sm:w-auto">
+                        Collaboration
+                    </a>
+                </div>
+            </div>
+
+            <!-- Stats Grid -->
+            <div class="mt-20 grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto" data-aos="fade-up" data-aos-delay="200">
+                <div class="glass-card p-6 rounded-2xl text-center group">
+                    <div class="text-3xl font-bold text-white mb-2 group-hover:text-brand-blue transition-colors">April 2025</div>
+                    <div class="text-sm text-slate-400 uppercase tracking-wider font-semibold">Founded</div>
+                </div>
+                <div class="glass-card p-6 rounded-2xl text-center group">
+                    <div class="text-3xl font-bold text-white mb-2 group-hover:text-brand-blue transition-colors">30+</div>
+                    <div class="text-sm text-slate-400 uppercase tracking-wider font-semibold">Elite Researchers</div>
+                </div>
+                <div class="glass-card p-6 rounded-2xl text-center group">
+                    <div class="text-lg font-bold text-white mb-2 group-hover:text-brand-blue transition-colors leading-tight">
+                        UCAS, PKU, THU, CMU, HKUST, USTC, ZJU.
                     </div>
-                    <p style="margin-top: 15px; color: #e0e0e0; font-size: 1em;">Join our XiaoHongShu community</p>
-                  </div>
+                    <div class="text-sm text-slate-400 uppercase tracking-wider font-semibold">Top Affiliations</div>
                 </div>
-              </div>
-              
-              <div style="background: rgba(0, 255, 0, 0.1); border: 1px solid rgba(0, 255, 0, 0.3); border-radius: 15px; padding: 20px; margin-top: 25px;">
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px;">
-                  <div style="text-align: center; padding: 15px;">
-                    <div style="font-size: 2em; margin-bottom: 10px;">🔬</div>
-                    <div style="color: #00ffff; font-weight: 600;">Research Discussions</div>
-                    <div style="color: #e0e0e0; font-size: 0.9em;">Latest AI Agent insights</div>
-                  </div>
-                  <div style="text-align: center; padding: 15px;">
-                    <div style="font-size: 2em; margin-bottom: 10px;">🤝</div>
-                    <div style="color: #ff00ff; font-weight: 600;">Collaboration</div>
-                    <div style="color: #e0e0e0; font-size: 0.9em;">Find research partners</div>
-                  </div>
-                  <div style="text-align: center; padding: 15px;">
-                    <div style="font-size: 2em; margin-bottom: 10px;">📚</div>
-                    <div style="color: #ffff00; font-weight: 600;">Resource Sharing</div>
-                    <div style="color: #e0e0e0; font-size: 0.9em;">Papers & tools exchange</div>
-                  </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Research Areas -->
+    <section id="research" class="py-20 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Research Focus</h2>
+                <div class="h-1 w-20 bg-brand-blue mx-auto rounded-full"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- CodeAgent -->
+                <div class="glass-card p-8 rounded-2xl" data-aos="fade-up" data-aos-delay="0">
+                    <div class="h-12 w-12 bg-blue-500/20 rounded-xl flex items-center justify-center mb-6 text-brand-blue">
+                        <i class="fas fa-laptop-code text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">CodeAgent</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed">
+                        End-to-end execution for real-world coding tasks, enabling agents to autonomously understand, modify, and run complex repositories.
+                    </p>
                 </div>
-              </div>
+
+                <!-- DeepResearch -->
+                <div class="glass-card p-8 rounded-2xl" data-aos="fade-up" data-aos-delay="100">
+                    <div class="h-12 w-12 bg-purple-500/20 rounded-xl flex items-center justify-center mb-6 text-purple-400">
+                        <i class="fas fa-book-journal-whills text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">DeepResearch</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed">
+                        Multi-step reasoning agents for open-ended scientific and knowledge discovery, synthesizing insights across domains.
+                    </p>
+                </div>
+
+                <!-- Agentic RL -->
+                <div class="glass-card p-8 rounded-2xl" data-aos="fade-up" data-aos-delay="200">
+                    <div class="h-12 w-12 bg-yellow-500/20 rounded-xl flex items-center justify-center mb-6 text-yellow-400">
+                        <i class="fas fa-brain text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Agentic RL</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed">
+                        Reasoning-centered reinforcement learning, bridging decision-making, planning, and adaptive intelligence.
+                    </p>
+                </div>
+
+                <!-- Self-Evolving -->
+                <div class="glass-card p-8 rounded-2xl" data-aos="fade-up" data-aos-delay="300">
+                    <div class="h-12 w-12 bg-green-500/20 rounded-xl flex items-center justify-center mb-6 text-green-400">
+                        <i class="fas fa-dna text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Self-Evolving</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed">
+                        Agents that continuously improve through self-evolution and collaborative learning, enabling emergent collective intelligence.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- News Section -->
+    <section id="news" class="py-20 bg-slate-900/50">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12" data-aos="fade-up">
+                <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Latest News</h2>
+            </div>
+
+            <div class="space-y-6">
+                <!-- Item -->
+                <div class="glass-card p-6 rounded-xl flex flex-col md:flex-row gap-4 items-start md:items-center" data-aos="fade-left">
+                    <div class="flex-shrink-0 w-24 text-brand-blue font-mono font-bold">2025.11</div>
+                    <div class="text-slate-300">
+                        🎉 Check out our latest work: <strong class="text-white">"Octopus: Agentic Multimodal Reasoning with Six-Capability Orchestration"</strong> on arXiv!
+                    </div>
+                </div>
+
+                <!-- Item: AAAI 2026 (GitTaskBench) -->
+                <div class="glass-card p-6 rounded-xl flex flex-col md:flex-row gap-4 items-start md:items-center" data-aos="fade-left">
+                    <div class="flex-shrink-0 w-24 text-green-400 font-mono font-bold">2025.12</div>
+                    <div class="text-slate-300">
+                        🏆 Paper <strong class="text-white">"GitTaskBench"</strong> accepted to <strong class="text-green-400">AAAI 2026</strong> as <span class="px-2 py-0.5 rounded text-sm font-bold badge-oral inline-flex items-center gap-1"><i class="fas fa-star text-xs"></i> Oral Presentation</span>! (Total 3 papers accepted)
+                    </div>
+                </div>
+
+                <!-- Item: NeurIPS 2025 (RepoMaster) -->
+                <div class="glass-card p-6 rounded-xl flex flex-col md:flex-row gap-4 items-start md:items-center" data-aos="fade-left" data-aos-delay="50">
+                    <div class="flex-shrink-0 w-24 text-pink-400 font-mono font-bold">2025.10</div>
+                    <div class="text-slate-300">
+                        🏆 Paper <strong class="text-white">"RepoMaster"</strong> accepted to <strong class="text-pink-400">NeurIPS 2025</strong> as <span class="px-2 py-0.5 rounded text-sm font-bold badge-spotlight inline-flex items-center gap-1"><i class="fas fa-bolt text-xs"></i> Spotlight</span>! (Total 2 papers accepted)
+                    </div>
+                </div>
+
+                <!-- Item: NeurIPS 2025 (SE-Agent) -->
+                <div class="glass-card p-6 rounded-xl flex flex-col md:flex-row gap-4 items-start md:items-center" data-aos="fade-left" data-aos-delay="50">
+                  <div class="flex-shrink-0 w-24 text-pink-400 font-mono font-bold">2025.10</div>
+                  <div class="text-slate-300">
+                      🏆 Paper <strong class="text-white">"SE-Agent"</strong> accepted to <strong class="text-pink-400">NeurIPS 2025</strong> as <span class="px-2 py-0.5 rounded text-sm font-bold badge-spotlight inline-flex items-center gap-1"><i class="fas fa-bolt text-xs"></i> Poster</span>! (Total 2 papers accepted)
+                  </div>
+              </div>                
+
+                <!-- Item: EMNLP 2025 Findings (ALRPHFS) -->
+                <div class="glass-card p-6 rounded-xl flex flex-col md:flex-row gap-4 items-start md:items-center" data-aos="fade-left" data-aos-delay="100">
+                    <div class="flex-shrink-0 w-24 text-purple-400 font-mono font-bold">2025.10</div>
+                    <div class="text-slate-300">
+                        🎉 Paper <strong class="text-white">"ALRPHFS: Adversarially Learned Risk Patterns..."</strong> accepted to <strong class="text-purple-400">Findings of EMNLP 2025</strong>.
+                    </div>
+                </div>
+
+                <!-- Item -->
+                <div class="glass-card p-6 rounded-xl flex flex-col md:flex-row gap-4 items-start md:items-center" data-aos="fade-left" data-aos-delay="150">
+                    <div class="flex-shrink-0 w-24 text-brand-blue font-mono font-bold">2025.08</div>
+                    <div class="text-slate-300">
+                        🎉 Check out our latest work: <strong class="text-white">"GitTaskBench: A Benchmark for Code Agents Solving Real-World Tasks"</strong> on arXiv!
+                    </div>
+                </div>
+
+                <!-- Item -->
+                <div class="glass-card p-6 rounded-xl flex flex-col md:flex-row gap-4 items-start md:items-center" data-aos="fade-left" data-aos-delay="200">
+                    <div class="flex-shrink-0 w-24 text-pink-400 font-mono font-bold">2025.08</div>
+                    <div class="text-slate-300">
+                        🎉 Check out our latest work: <strong class="text-white">"CogFSM: Enabling Explicit and Capability-aware Multi-Agent Systems"</strong> on arXiv!
+                    </div>
+                </div>
+
+                <!-- Item -->
+                <div class="glass-card p-6 rounded-xl flex flex-col md:flex-row gap-4 items-start md:items-center" data-aos="fade-left" data-aos-delay="250">
+                    <div class="flex-shrink-0 w-24 text-yellow-400 font-mono font-bold">2025.08</div>
+                    <div class="text-slate-300">
+                        🎉 Check out our latest work: <strong class="text-white">"SE-Agent: Self-Evolution Trajectory Optimization"</strong> on arXiv!
+                    </div>
+                </div>
+                <!-- Item: ACL 2025 Findings (Beyond Surface) -->
+                <div class="glass-card p-6 rounded-xl flex flex-col md:flex-row gap-4 items-start md:items-center" data-aos="fade-left" data-aos-delay="150">
+                  <div class="flex-shrink-0 w-24 text-brand-blue font-mono font-bold">2025.05</div>
+                  <div class="text-slate-300">
+                       🎉 Paper <strong class="text-white">"Beyond Surface-Level Patterns..."</strong> accepted to <strong class="text-brand-blue">Findings of ACL 2025</strong>.
+                  </div>
+              </div>                
+
+                <!-- Item -->
+                <div class="glass-card p-6 rounded-xl flex flex-col md:flex-row gap-4 items-start md:items-center" data-aos="fade-left" data-aos-delay="300">
+                    <div class="flex-shrink-0 w-24 text-green-400 font-mono font-bold">2025.05</div>
+                    <div class="text-slate-300">
+                        🎉 Check out our latest work: <strong class="text-white">"RepoMaster: Autonomous Exploration of GitHub Repositories"</strong> on arXiv!
+                    </div>
+                </div>
+
+                <!-- Item: ShieldLearner -->
+                <div class="glass-card p-6 rounded-xl flex flex-col md:flex-row gap-4 items-start md:items-center" data-aos="fade-left" data-aos-delay="400">
+                    <div class="flex-shrink-0 w-24 text-blue-400 font-mono font-bold">2025.02</div>
+                    <div class="text-slate-300">
+                        📄 New preprint: <strong class="text-white">"ShieldLearner: A New Paradigm for Jailbreak Attack Defense in LLMs"</strong> released on arXiv.
+                    </div>
+                </div>
+
             </div>
             
-            <p style="text-align: center; margin-top: 30px; padding: 20px; background: linear-gradient(45deg, rgba(0, 255, 255, 0.2), rgba(255, 0, 255, 0.2)); border-radius: 15px; font-size: 1.1em;">
-              <strong style="color: #00ffff;">💡 Pro Tip:</strong> Join our WeChat group for instant updates and engage directly with our research team!
-            </p>
-          </div>
+            <div class="mt-8 text-center">
+                <button class="text-sm text-slate-500 hover:text-white transition-colors flex items-center justify-center gap-2 mx-auto">
+                    <span>View Full Timeline</span>
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+            </div>
         </div>
+    </section>
 
-        <!-- Contact Section -->
-        <div id="contact" class="list-item contact loading" data-category="contact">
-          <div class="project-description" style="max-width: 900px; margin: 0 auto;">
-            <h2 class="neon-glow">📧 Collaboration</h2>
-            <div class="terminal-box">
-              <div class="terminal-title">$ cat collaboration_opportunities.md</div>
-              <p>We are actively seeking collaborators and team members who share our passion for AI Agent technology. 🤝</p>
-              
-              <h3 style="color: #00ffff; margin-top: 20px;">🔗 Collaboration Resources We Need:</h3>
-              <ul style="list-style: none; padding: 0;">
-                <li style="margin: 10px 0; padding: 15px; background: rgba(0, 255, 255, 0.1); border-radius: 5px; font-size: 15px; line-height: 1.6;">
-                  <strong>🏫 University/Corporate Lab Resources:</strong> API access, GPU resources, and academic influence
-                </li>
-                <li style="margin: 10px 0; padding: 15px; background: rgba(255, 0, 255, 0.1); border-radius: 5px; font-size: 15px; line-height: 1.6;">
-                  <strong>📚 Academic Research Collaboration:</strong> Joint research projects and publications
-                </li>
-                <li style="margin: 10px 0; padding: 15px; background: rgba(255, 255, 0, 0.1); border-radius: 5px; font-size: 15px; line-height: 1.6;">
-                  <strong>💻 GitHub Open Source Collaboration:</strong> Contributing to and maintaining open-source projects
-                </li>
-                <li style="margin: 10px 0; padding: 15px; background: rgba(0, 255, 0, 0.1); border-radius: 5px; font-size: 15px; line-height: 1.6;">
-                  <strong>🚀 Startup Collaboration:</strong> Industry partnerships and real-world applications
-                </li>
-              </ul>
+    <!-- Publications Section -->
+    <section id="publications" class="py-20 relative">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Selected Publications</h2>
+                <div class="h-1 w-20 bg-brand-blue mx-auto rounded-full"></div>
+            </div>
+
+            <div class="space-y-8">
+                <!-- Pub 1: Octopus -->
+                <div class="glass-card p-6 rounded-2xl flex flex-col md:flex-row gap-8 items-start" data-aos="fade-up">
+                    <div class="w-full md:w-1/3 flex-shrink-0">
+                        <img src="images/Octupus.png" alt="Octopus" class="w-full h-auto rounded-lg shadow-lg border border-white/10 hover:scale-[1.02] transition-transform duration-300">
+                    </div>
+                    <div class="flex-1">
+                        <h3 class="text-2xl font-bold text-white mb-3 hover:text-brand-blue transition-colors">
+                            <a href="#">🐙 Octopus: Agentic Multimodal Reasoning with Six-Capability Orchestration</a>
+                        </h3>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-3 py-1 bg-white/5 rounded-full text-xs font-medium text-brand-blue border border-brand-blue/20">QuantaAlpha Team</span>
+                            <span class="px-3 py-1 bg-yellow-500/10 rounded-full text-xs font-medium text-yellow-500 border border-yellow-500/20">arXiv Preprint</span>
+                        </div>
+                        <p class="text-slate-400 mb-6 text-sm leading-relaxed">
+                            Comprehensive agentic framework orchestrating six distinct capabilities for advanced multimodal reasoning and problem solving.
+                        </p>
+                        <div class="flex gap-4">
+                            <a href="#" class="inline-flex items-center gap-2 text-sm font-semibold text-white hover:text-brand-blue transition-colors">
+                                <i class="fas fa-file-alt"></i> Paper
+                            </a>
+                            <a href="#" class="inline-flex items-center gap-2 text-sm font-semibold text-slate-500 cursor-not-allowed">
+                                <i class="fab fa-github"></i> Code Coming Soon
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pub 2: SE-Agent -->
+                <div class="glass-card p-6 rounded-2xl flex flex-col md:flex-row gap-8 items-start" data-aos="fade-up">
+                    <div class="w-full md:w-1/3 flex-shrink-0">
+                        <img src="images/SE-Agent.png" alt="SE-Agent" class="w-full h-auto rounded-lg shadow-lg border border-white/10 hover:scale-[1.02] transition-transform duration-300">
+                    </div>
+                    <div class="flex-1">
+                        <h3 class="text-2xl font-bold text-white mb-3 hover:text-brand-blue transition-colors">
+                            <a href="https://arxiv.org/pdf/2508.02085">🧠 SE-Agent: Self-Evolution Trajectory Optimization in Multi-Step Reasoning</a>
+                        </h3>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-3 py-1 bg-white/5 rounded-full text-xs font-medium text-brand-blue border border-brand-blue/20">QuantaAlpha Team</span>
+                            <span class="px-3 py-1 bg-yellow-500/10 rounded-full text-xs font-medium text-yellow-500 border border-yellow-500/20">NeurIPS 2025 Poster</span>
+                        </div>
+                        <p class="text-slate-400 mb-6 text-sm leading-relaxed">
+                            A novel framework for self-evolving agents that optimizes reasoning trajectories through continuous learning and adaptation.
+                        </p>
+                        <div class="flex gap-4">
+                            <a href="https://arxiv.org/pdf/2508.02085" class="inline-flex items-center gap-2 text-sm font-semibold text-white hover:text-brand-blue transition-colors">
+                                <i class="fas fa-file-alt"></i> Paper
+                            </a>
+                            <a href="https://github.com/JARVIS-Xs/SE-Agent" class="inline-flex items-center gap-2 text-sm font-semibold text-white hover:text-brand-blue transition-colors">
+                                <i class="fab fa-github"></i> GitHub
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pub 3: GitTaskBench (Updated) -->
+                <div class="glass-card p-6 rounded-2xl flex flex-col md:flex-row gap-8 items-start" data-aos="fade-up">
+                    <div class="w-full md:w-1/3 flex-shrink-0">
+                        <img src="images/GitTaskBench.png" alt="GitTaskBench" class="w-full h-auto rounded-lg shadow-lg border border-white/10 hover:scale-[1.02] transition-transform duration-300">
+                    </div>
+                    <div class="flex-1">
+                        <h3 class="text-2xl font-bold text-white mb-3 hover:text-brand-blue transition-colors">
+                            <a href="#">🧩 GitTaskBench: A Benchmark for Code Agents Solving Real-World Tasks</a>
+                        </h3>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-3 py-1 bg-white/5 rounded-full text-xs font-medium text-brand-blue border border-brand-blue/20">QuantaAlpha Team</span>
+                            <span class="px-3 py-1 bg-green-500/10 rounded-full text-xs font-medium text-green-400 border border-green-500/20">AAAI 2026 Oral</span>
+                        </div>
+                        <p class="text-slate-400 mb-6 text-sm leading-relaxed">
+                             A benchmark evaluating code agents on their ability to solve complex, real-world tasks by leveraging entire code repositories.
+                        </p>
+                        <div class="flex gap-4">
+                            <a href="#" class="inline-flex items-center gap-2 text-sm font-semibold text-white hover:text-brand-blue transition-colors">
+                                <i class="fas fa-file-alt"></i> Paper
+                            </a>
+                            <a href="https://github.com/QuantaAlpha/GitTaskBench" class="inline-flex items-center gap-2 text-sm font-semibold text-white hover:text-brand-blue transition-colors">
+                                <i class="fab fa-github"></i> GitHub
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pub 4: RepoMaster (Updated) -->
+                <div class="glass-card p-6 rounded-2xl flex flex-col md:flex-row gap-8 items-start" data-aos="fade-up">
+                    <div class="w-full md:w-1/3 flex-shrink-0">
+                        <img src="images/RepoMaster.png" alt="RepoMaster" class="w-full h-auto rounded-lg shadow-lg border border-white/10 hover:scale-[1.02] transition-transform duration-300">
+                    </div>
+                    <div class="flex-1">
+                        <h3 class="text-2xl font-bold text-white mb-3 hover:text-brand-blue transition-colors">
+                            <a href="https://arxiv.org/pdf/2505.21577">🔍 RepoMaster: Autonomous Exploration and Understanding of GitHub Repositories</a>
+                        </h3>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-3 py-1 bg-white/5 rounded-full text-xs font-medium text-brand-blue border border-brand-blue/20">QuantaAlpha Team</span>
+                            <span class="px-3 py-1 bg-pink-500/10 rounded-full text-xs font-medium text-pink-400 border border-pink-500/20">NeurIPS 2025 Spotlight</span>
+                        </div>
+                        <p class="text-slate-400 mb-6 text-sm leading-relaxed">
+                            Autonomous agents capable of exploring and understanding large-scale codebases to solve complex programming tasks.
+                        </p>
+                        <div class="flex gap-4">
+                            <a href="https://arxiv.org/pdf/2505.21577" class="inline-flex items-center gap-2 text-sm font-semibold text-white hover:text-brand-blue transition-colors">
+                                <i class="fas fa-file-alt"></i> Paper
+                            </a>
+                            <a href="https://github.com/QuantaAlpha/RepoMaster" class="inline-flex items-center gap-2 text-sm font-semibold text-white hover:text-brand-blue transition-colors">
+                                <i class="fab fa-github"></i> GitHub
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Community Section -->
+    <section id="community" class="py-20 bg-slate-900/30">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Join Our Community</h2>
+                <p class="text-slate-400">Engage with us on WeChat and XiaoHongShu for real-time discussions</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                
+                <!-- Personal WeChat -->
+                <div class="glass-card p-8 rounded-2xl text-center relative overflow-hidden group" data-aos="fade-up" data-aos-delay="0">
+                    <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-purple-500 to-transparent opacity-50"></div>
+                    <div class="w-16 h-16 mx-auto bg-purple-500/10 rounded-full flex items-center justify-center mb-6 text-purple-400 group-hover:scale-110 transition-transform">
+                        <i class="fas fa-user-plus text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2">Personal WeChat</h3>
+                    <div class="bg-white/5 rounded-lg p-4 mb-4 backdrop-blur-sm border border-white/5">
+                        <div class="font-mono text-purple-300 text-lg">Harry_-_Wang</div>
+                        <div class="text-xs text-slate-500 mt-1">WeChat ID</div>
+                    </div>
+                    <p class="text-slate-400 text-sm">Add for direct communication with the team core.</p>
+                </div>
+
+                <!-- WeChat Group -->
+                <div class="glass-card p-8 rounded-2xl text-center relative overflow-hidden group" data-aos="fade-up" data-aos-delay="100">
+                    <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-brand-blue to-transparent opacity-50"></div>
+                    <div class="w-16 h-16 mx-auto bg-brand-blue/10 rounded-full flex items-center justify-center mb-6 text-brand-blue group-hover:scale-110 transition-transform">
+                        <i class="fas fa-users text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-4">Academic Exchange</h3>
+                    <div class="relative w-40 h-40 mx-auto mb-6 group-hover:rotate-2 transition-transform duration-500">
+                        <img src="images/WeChat.jpg" alt="WeChat QR" class="w-full h-full object-cover rounded-xl border-2 border-brand-blue/30 shadow-lg shadow-brand-blue/20">
+                    </div>
+                    <p class="text-slate-400 text-sm">Scan to join our vibrant research community group.</p>
+                </div>
+
+                <!-- XiaoHongShu -->
+                <div class="glass-card p-8 rounded-2xl text-center relative overflow-hidden group" data-aos="fade-up" data-aos-delay="200">
+                    <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-red-500 to-transparent opacity-50"></div>
+                    <div class="w-16 h-16 mx-auto bg-red-500/10 rounded-full flex items-center justify-center mb-6 text-red-400 group-hover:scale-110 transition-transform">
+                        <i class="fas fa-book-open text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2">XiaoHongShu</h3>
+                    <div class="bg-white/5 rounded-lg p-4 mb-4 cursor-pointer hover:bg-white/10 transition-colors" onclick="navigator.clipboard.writeText('2【长按复制，小红书APP见】 9月27日到期，&quot;QuantaAlpha&quot;志同道合处 MU5117 :/#t🍒🐍🐨🐍🍑😜😗😎🍍🍣🤣🍈'); alert('小红书群链接已复制到剪贴板！');">
+                        <div class="font-bold text-red-300">QuantaAlpha</div>
+                        <div class="text-xs text-slate-500 mt-1">志同道合处</div>
+                        <div class="text-[10px] text-yellow-500/80 mt-2">Click to Copy Link</div>
+                    </div>
+                    <p class="text-slate-400 text-sm">Follow our updates on RED.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Collaboration / Careers -->
+    <section id="contact" class="py-20">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="glass-card rounded-3xl p-8 md:p-12 overflow-hidden relative">
+                <!-- Decorative background elements -->
+                <div class="absolute top-0 right-0 w-64 h-64 bg-brand-blue/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"></div>
+                
+                <div class="relative z-10 text-center mb-12">
+                    <h2 class="text-3xl font-bold text-white mb-4">Collaboration & Careers</h2>
+                    <p class="text-slate-300">We are always looking for exceptional talent and partners.</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-10 mb-12">
+                    <!-- Collaborations -->
+                    <div>
+                        <h3 class="text-lg font-bold text-brand-blue mb-4 flex items-center gap-2">
+                            <i class="fas fa-handshake"></i> Seeking Partners
+                        </h3>
+                        <ul class="space-y-3 text-slate-400 text-sm">
+                            <li class="flex items-start gap-2">
+                                <span class="text-brand-blue mt-1">•</span>
+                                <span><strong>University/Corp Labs:</strong> Joint research, compute resources.</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <span class="text-brand-blue mt-1">•</span>
+                                <span><strong>Startups:</strong> Industry applications of Agent tech.</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <span class="text-brand-blue mt-1">•</span>
+                                <span><strong>Open Source:</strong> Contributors for our GitHub repos.</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Ideal Candidate -->
+                    <div>
+                        <h3 class="text-lg font-bold text-brand-blue mb-4 flex items-center gap-2">
+                            <i class="fas fa-user-graduate"></i> Ideal Candidate
+                        </h3>
+                        <ul class="space-y-3 text-slate-400 text-sm">
+                            <li class="flex items-start gap-2">
+                                <span class="text-brand-blue mt-1">•</span>
+                                <span>Top-tier conference publications (First Author).</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <span class="text-brand-blue mt-1">•</span>
+                                <span>Strong self-motivation & passion for AGI.</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <span class="text-brand-blue mt-1">•</span>
+                                <span>Focus: Agentic RL, CodeAgents, Reasoning.</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="text-center">
+                    <a href="mailto:quantaalpha.ai@gmail.com" class="inline-flex items-center justify-center px-8 py-4 text-base font-bold text-slate-950 bg-gradient-to-r from-brand-blue to-brand-violet rounded-full hover:shadow-lg hover:shadow-brand-blue/25 hover:scale-105 transition-all duration-300">
+                        <i class="fas fa-envelope mr-2"></i> quantaalpha.ai@gmail.com
+                    </a>
+                    <p class="mt-4 text-slate-500 text-sm">Reach out to explore unlimited possibilities.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="border-t border-white/5 bg-slate-950 py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-6">
+            <div class="flex items-center gap-3">
+                <img src="images/logo.png" alt="Logo" class="h-8 w-8 opacity-80 grayscale hover:grayscale-0 transition-all">
+                <span class="text-slate-400 text-sm">© 2025 QuantaAlpha Research.</span>
             </div>
             
-            <div class="terminal-box">
-              <div class="terminal-title">$ echo $IDEAL_TEAM_MEMBER</div>
-              <h3 style="color: #ff00ff;">👥 Ideal Team Member Profile:</h3>
-              <ul style="list-style: none; padding: 0;">
-                <li>🧮 <strong>Strong Algorithmic Capabilities:</strong> Published at least one A-class conference paper as first author</li>
-                <li>💪 <strong>Exceptional Self-Motivation:</strong> Ultimate pursuit of technology and academia</li>
-                <li>📖 <strong>Research Experience:</strong> Paper and achievement accumulation in Agent and LLM directions</li>
-                <li>🎯 <strong>Research Focus:</strong> RL + Agentic Reasoning / CodeAgent / DeepSearch</li>
-              </ul>
+            <div class="flex gap-6">
+                <a href="#" class="text-slate-500 hover:text-white transition-colors"><i class="fab fa-github text-xl"></i></a>
+                <a href="#" class="text-slate-500 hover:text-white transition-colors"><i class="fab fa-twitter text-xl"></i></a>
+                <a href="#" class="text-slate-500 hover:text-white transition-colors"><i class="fab fa-linkedin text-xl"></i></a>
             </div>
-            
-            <p style="text-align: center; margin-top: 30px; padding: 20px; background: linear-gradient(45deg, rgba(0, 255, 255, 0.2), rgba(255, 0, 255, 0.2)); border-radius: 15px;">
-              <strong style="color: #00ffff;">📧 Contact:</strong> <a href="mailto:quantaalpha.ai@gmail.com" style="color: #ff00ff; text-decoration: none;">quantaalpha.ai@gmail.com</a><br>
-              ✨ Let's explore the unlimited possibilities of AI Agent technology together!
-            </p>
-          </div>
         </div>
+    </footer>
 
-        <!-- News/Highlights -->
-        <div class="list-item highlight description loading" data-category="highlight">
-          <div style="display: flex; flex-direction: column; align-items: center; width: 100%; max-width: 900px; margin: 0 auto;">
-            <div style="display: flex; align-items: center; gap: 15px; justify-content: center; width: 100%;">
-              <p class="date" style="color: #ff6600; font-weight: 600; font-size: 1.3em; min-width: 100px; text-align: right;">2025.11</p>
-              <div class="description" style="font-size: 16px; line-height: 1.6; color: #f0f0f0; flex: 1;">🎉 Check out our latest work: <strong>"Octopus: Agentic Multimodal Reasoning with Six-Capability Orchestration"</strong> on arXiv!</div>
-            </div>
-          </div>
-        </div>
-
-        <div class="list-item highlight description loading" data-category="highlight">
-          <div style="display: flex; flex-direction: column; align-items: center; width: 100%; max-width: 900px; margin: 0 auto;">
-            <div style="display: flex; align-items: center; gap: 15px; justify-content: center; width: 100%;">
-              <p class="date" style="color: #00ff99; font-weight: 600; font-size: 1.3em; min-width: 100px; text-align: right;">2025.11</p>
-              <div class="description" style="font-size: 16px; line-height: 1.6; color: #f0f0f0; flex: 1;">🎊 Exciting news! <strong>Three papers accepted at AAAI 2026, including two orals!</strong></div>
-            </div>
-          </div>
-        </div>
-
-        <div class="list-item highlight description loading" data-category="highlight">
-          <div style="display: flex; flex-direction: column; align-items: center; width: 100%; max-width: 900px; margin: 0 auto;">
-            <div style="display: flex; align-items: center; gap: 15px; justify-content: center; width: 100%;">
-              <p class="date" style="color: #ff00cc; font-weight: 600; font-size: 1.3em; min-width: 100px; text-align: right;">2025.09</p>
-              <div class="description" style="font-size: 16px; line-height: 1.6; color: #f0f0f0; flex: 1;">🎊 Exciting news! <strong>Two papers accepted at NeurIPS 2025, including one spotlight!</strong></div>
-            </div>
-          </div>
-        </div>
-
-        <div class="list-item highlight description loading" data-category="highlight">
-          <div style="display: flex; flex-direction: column; align-items: center; width: 100%; max-width: 900px; margin: 0 auto;">
-            <div style="display: flex; align-items: center; gap: 15px; justify-content: center; width: 100%;">
-              <p class="date" style="color: #00ffff; font-weight: 600; font-size: 1.3em; min-width: 100px; text-align: right;">2025.08</p>
-              <div class="description" style="font-size: 16px; line-height: 1.6; color: #f0f0f0; flex: 1;">🎉 Check out our latest work: <strong>"GitTaskBench: A Benchmark for Code Agents Solving Real-World Tasks Through Code Repository Leveraging"</strong> on arXiv!</div>
-            </div>
-          </div>
-        </div>
-
-        <div class="list-item highlight description loading" data-category="highlight">
-          <div style="display: flex; flex-direction: column; align-items: center; width: 100%; max-width: 900px; margin: 0 auto;">
-            <div style="display: flex; align-items: center; gap: 15px; justify-content: center; width: 100%;">
-              <p class="date" style="color: #ff00ff; font-weight: 600; font-size: 1.3em; min-width: 100px; text-align: right;">2025.08</p>
-              <div class="description" style="font-size: 16px; line-height: 1.6; color: #f0f0f0; flex: 1;">🎉 Check out our latest work: <strong>"CogFSM: Enabling Explicit and Capability-aware Multi-Agent Systems with Self-Learning Finite State Machines"</strong> on arXiv!</div>
-            </div>
-          </div>
-        </div>
-
-        <div class="list-item highlight description loading" data-category="highlight">
-          <div style="display: flex; flex-direction: column; align-items: center; width: 100%; max-width: 900px; margin: 0 auto;">
-            <div style="display: flex; align-items: center; gap: 15px; justify-content: center; width: 100%;">
-              <p class="date" style="color: #ffff00; font-weight: 600; font-size: 1.3em; min-width: 100px; text-align: right;">2025.08</p>
-              <div class="description" style="font-size: 16px; line-height: 1.6; color: #f0f0f0; flex: 1;">🎉 Check out our latest work: <strong>"SE-Agent: Self-Evolution Trajectory Optimization in Multi-Step Reasoning with LLM-Based Agents"</strong> on arXiv!</div>
-            </div>
-          </div>
-        </div>
-        
-        <div class="list-item highlight description loading" data-category="highlight">
-          <div style="display: flex; flex-direction: column; align-items: center; width: 100%; max-width: 900px; margin: 0 auto;">
-            <div style="display: flex; align-items: center; gap: 15px; justify-content: center; width: 100%;">
-              <p class="date" style="color: #00ff00; font-weight: 600; font-size: 1.3em; min-width: 100px; text-align: right;">2025.05</p>
-              <div class="description" style="font-size: 16px; line-height: 1.6; color: #f0f0f0; flex: 1;">🎉 Check out our latest work: <strong>"RepoMaster: Autonomous Exploration and Understanding of GitHub Repositories for Complex Task Solving"</strong> on arXiv!</div>
-            </div>
-          </div>
-        </div>
-
-        <div class="list-item highlight description loading" data-category="highlight">
-          <div style="display: flex; flex-direction: column; align-items: center; width: 100%; max-width: 900px; margin: 0 auto;">
-            <div style="display: flex; align-items: center; gap: 15px; justify-content: center; width: 100%;">
-              <p class="date" style="color: #ff0080; font-weight: 600; font-size: 1.3em; min-width: 100px; text-align: right;">2025.04</p>
-              <div class="description" style="font-size: 16px; line-height: 1.6; color: #f0f0f0; flex: 1;">🚀 <strong>QuantaAlpha team officially established</strong>, dedicated to cutting-edge AI Agent technology research!</div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Publications -->
-
-        <div class="list-item publication loading" data-category="publication">
-          <a href="#" class="thumbnail">
-            <img src="images/Octupus.png" alt="Octopus Paper" />
-          </a>
-          <div class="project-description" style="text-align: left;">
-            <h3 style="text-align: left;"><a href="#" style="color: #00ffff; text-decoration: none;">🐙 Octopus: Agentic Multimodal Reasoning with Six-Capability Orchestration</a></h3>
-            <p style="margin: 15px 0; font-size: 15px; line-height: 1.6; text-align: left;">
-              <strong style="color: #ff00ff;">QuantaAlpha Team</strong><br>
-              <i style="color: #ffff00;">📄 arXiv Preprint</i><br>
-              <a href="#" style="color: #00ffff; text-decoration: none;">📖 Paper</a> |
-              <a href="#" style="color: #ff6b6b; text-decoration: none;">💻 GitHub (Coming Soon)</a>
-            </p>
-          </div>
-        </div>
-
-        <div class="list-item publication loading" data-category="publication">
-          <a href="https://arxiv.org/pdf/2508.02085" class="thumbnail">
-            <img src="images/SE-Agent.png" alt="SE-Agent Paper" />
-          </a>
-          <div class="project-description" style="text-align: left;">
-            <h3 style="text-align: left;"><a href="https://arxiv.org/pdf/2508.02085" style="color: #00ffff; text-decoration: none;">🧠 SE-Agent: Self-Evolution Trajectory Optimization in Multi-Step Reasoning with LLM-Based Agents</a></h3>
-            <p style="margin: 15px 0; font-size: 15px; line-height: 1.6; text-align: left;">
-              <strong style="color: #ff00ff;">QuantaAlpha Team</strong><br>
-              <i style="color: #ffff00;">📄 arXiv Preprint</i><br>
-              <a href="https://arxiv.org/pdf/2508.02085" style="color: #00ffff; text-decoration: none;">📖 Paper</a> |
-              <a href="https://github.com/JARVIS-Xs/SE-Agent" style="color: #ff6b6b; text-decoration: none;">💻 GitHub</a>
-            </p>
-          </div>
-        </div>
-
-        <div class="list-item publication loading" data-category="publication">
-          <a href="#" class="thumbnail">
-            <img src="images/GitTaskBench.png" alt="GitTaskBench Paper" />
-          </a>
-          <div class="project-description" style="text-align: left;">
-            <h3 style="text-align: left;"><a href="#" style="color: #00ffff; text-decoration: none;">🧩 GitTaskBench: A Benchmark for Code Agents Solving Real-World Tasks Through Code Repository Leveraging</a></h3>
-            <p style="margin: 15px 0; font-size: 15px; line-height: 1.6; text-align: left;">
-              <strong style="color: #ff00ff;">QuantaAlpha Team</strong><br>
-              <i style="color: #ffff00;">📄 arXiv Preprint</i><br>
-              <a href="#" style="color: #00ffff; text-decoration: none;">📖 Paper</a> |
-              <a href="https://github.com/QuantaAlpha/GitTaskBench" style="color: #ff6b6b; text-decoration: none;">💻 GitHub</a>
-            </p>
-          </div>
-        </div>
-
-        <div class="list-item publication loading" data-category="publication">
-          <a href="https://arxiv.org/pdf/2505.21577" class="thumbnail">
-            <img src="images/RepoMaster.png" alt="RepoMaster Paper" />
-          </a>
-          <div class="project-description" style="text-align: left;">
-            <h3 style="text-align: left;"><a href="https://arxiv.org/pdf/2505.21577" style="color: #00ffff; text-decoration: none;">🔍 RepoMaster: Autonomous Exploration and Understanding of GitHub Repositories for Complex Task Solving</a></h3>
-            <p style="margin: 15px 0; font-size: 15px; line-height: 1.6; text-align: left;">
-              <strong style="color: #ff00ff;">QuantaAlpha Team</strong><br>
-              <i style="color: #ffff00;">📄 arXiv Preprint</i><br>
-              <a href="https://arxiv.org/pdf/2505.21577" style="color: #00ffff; text-decoration: none;">📖 Paper</a> |
-              <a href="https://github.com/QuantaAlpha/RepoMaster" style="color: #ff6b6b; text-decoration: none;">💻 GitHub</a>
-            </p>
-          </div>
-        </div>
-        
-        <!-- Research Areas -->
-        <div class="list-item research loading" data-category="research">
-          <div class="project-description" style="max-width: 900px; margin: 0 auto;">
-            <h2 class="neon-glow">🔬 Research Areas</h2>
-            <div class="terminal-box">
-              <div class="terminal-title">$ ls -la research_areas/</div>
-              <ul>
-                <li><strong>💻 CodeAgent:</strong><br><span>End-to-end execution for real-world coding tasks, enabling agents to autonomously understand, modify, and run complex repositories.</span></li>
-                <li><strong>📚 DeepResearch:</strong><br><span>Multi-step reasoning agents for open-ended scientific and knowledge discovery, capable of synthesizing insights across domains.</span></li>
-                <li><strong>🧠 Agentic Reasoning / Agentic RL:</strong><br><span>Scaling reinforcement learning with reasoning-centered agents, bridging decision-making, planning, and adaptive intelligence.</span></li>
-                <li><strong>🔄 Self-Evolving & Co-Learning:</strong><br><span>Agents that continuously improve through self-evolution and collaborative learning, enabling emergent collective intelligence.</span></li>
-              </ul>
-            </div>
-            
-            <div class="terminal-box">
-              <div class="terminal-title">$ cat tech_stack.md</div>
-              <div class="tech-stack">
-                <div class="tech-item"><i class="fab fa-python"></i> Python</div>
-                <div class="tech-item"><i class="fab fa-js"></i> JavaScript</div>
-                <div class="tech-item"><i class="fas fa-robot"></i> AI Agents</div>
-                <div class="tech-item"><i class="fas fa-brain"></i> Deep Learning</div>
-                <div class="tech-item"><i class="fas fa-code"></i> Code Analysis</div>
-                <div class="tech-item"><i class="fas fa-infinity"></i> Reinforcement Learning</div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div id="footer" class="loading">
-        <!-- Join Us Call-to-Action -->
-        <div class="cta-banner" style="margin-bottom: 30px;">
-          <div style="display: flex; align-items: center; justify-content: center; gap: 15px;">
-            <div style="font-size: 2.2em;">🤝</div>
-            <div>
-              <div style="color: #00ffff; font-weight: 600; font-size: 1.4em;">Join Our Research Team!</div>
-              <div style="color: #e0e0e0; font-size: 1.1em;">Let's explore the unlimited possibilities of AI Agent technology together</div>
-            </div>
-                         <a href="#contact" onclick="localStorage.setItem('filterValue','.contact'); update_isotope(); document.getElementById('contact').scrollIntoView({behavior:'smooth'}); return false;" class="cta-button">Contact Us</a>
-          </div>
-        </div>
-        <p class="neon-glow" style="font-size: 16px; line-height: 1.6; color: #f0f0f0;"><img src="images/logo.png" alt="QuantaAlpha Logo" style="height: 35px; vertical-align: middle; margin-right: 8px;"> QuantaAlpha Team - Dedicated to Advancing AI Agent Technology Frontiers 🚀</p>
-      </div>
-    </div>
-
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-      // Particles.js configuration
-      particlesJS('particles-js', {
-        particles: {
-          number: {
-            value: 100,
-            density: { enable: true, value_area: 800 }
-          },
-          color: { value: ['#00ffff', '#ff00ff', '#ffff00'] },
-          shape: {
-            type: 'circle',
-            stroke: { width: 0, color: '#000000' }
-          },
-          opacity: {
-            value: 0.5,
-            random: false,
-            anim: { enable: false, speed: 1, opacity_min: 0.1, sync: false }
-          },
-          size: {
-            value: 3,
-            random: true,
-            anim: { enable: false, speed: 40, size_min: 0.1, sync: false }
-          },
-          line_linked: {
-            enable: true,
-            distance: 150,
-            color: '#00ffff',
-            opacity: 0.4,
-            width: 1
-          },
-          move: {
-            enable: true,
-            speed: 6,
-            direction: 'none',
-            random: false,
-            straight: false,
-            out_mode: 'out',
-            bounce: false,
-            attract: { enable: false, rotateX: 600, rotateY: 1200 }
-          }
-        },
-        interactivity: {
-          detect_on: 'canvas',
-          events: {
-            onhover: { enable: true, mode: 'repulse' },
-            onclick: { enable: true, mode: 'push' },
-            resize: true
-          },
-          modes: {
-            grab: { distance: 400, line_linked: { opacity: 1 } },
-            bubble: { distance: 400, size: 40, duration: 2, opacity: 8, speed: 3 },
-            repulse: { distance: 200, duration: 0.4 },
-            push: { particles_nb: 4 },
-            remove: { particles_nb: 2 }
-          }
-        },
-        retina_detect: true
-      });
-
-      // Isotope grid
-      var $grid = $('.grid').isotope({
-        itemSelector: '.list-item',
-        layoutMode: 'fitRows',
-        transitionDuration: 0,
-        stagger: 10,
-        initLayout: false,
-        getSortData: {
-          name: '.name',
-          symbol: '.symbol',
-          number: '.number parseInt',
-          category: '[data-category]',
-          weight: function( itemElem ) {
-            var weight = $( itemElem ).find('.weight').text();
-            return parseFloat( weight.replace( /[\(\)]/g, '') );
-          }
-        }
-      });
-
-      // Bind filter button click
-      $('#filters').on( 'click', 'button', function() {
-        var filterValue = $( this ).attr('data-filter');
-        localStorage.setItem('filterValue', filterValue);
-        $grid.isotope({ filter: filterValue });
-      });
-
-      // Change is-checked class on buttons
-      $('.button-group').each( function( i, buttonGroup ) {
-        var $buttonGroup = $( buttonGroup );
-        $buttonGroup.on( 'click', 'button', function() {
-          $buttonGroup.find('.is-checked').removeClass('is-checked');
-          $( this ).addClass('is-checked');
-        });
-      });
-
-      function update_isotope() {
-        var defaultFilterValue = localStorage.getItem('filterValue');
-        if (defaultFilterValue == null) {
-          defaultFilterValue = ".highlight"
-        }
-        $grid.isotope({ filter: defaultFilterValue });
-        var buttons = document.getElementsByClassName("button");
-        for (var currButton of buttons) {
-          if (currButton.getAttribute('data-filter') == defaultFilterValue) {
-            currButton.classList.add('is-checked');
-          } else {
-            currButton.classList.remove('is-checked');
-          }
-        }
-      }
-
-      // Initialize page
-      $(document).ready(function() {
-        // Initialize AOS (Animate on Scroll)
+        // Initialize AOS
         AOS.init({
-          duration: 1000,
-          easing: 'ease-out',
-          once: false,
-          mirror: true,
-          offset: 100
+            once: true,
+            offset: 50,
+            duration: 800,
+            easing: 'ease-out-cubic',
         });
-        
-        update_isotope();
-        
-        // Add staggered loading animation
-        $('.loading').each(function(index) {
-          $(this).css('animation-delay', (index * 0.15) + 's');
-          
-          // Add AOS animation attributes
-          if (!$(this).attr('data-aos')) {
-            let animations = ['fade-up', 'fade-down', 'fade-right', 'fade-left', 'zoom-in', 'zoom-out'];
-            let randomAnim = animations[Math.floor(Math.random() * animations.length)];
-            $(this).attr('data-aos', randomAnim);
-            $(this).attr('data-aos-delay', (index * 50).toString());
-          }
-        });
-        
-        // Refresh AOS when isotope layout changes
-        $grid.on('layoutComplete', function() {
-          AOS.refresh();
-        });
-      });
 
-      // Smooth scrolling for internal links
-      $('a[href^="#"]').on('click', function(event) {
-        var target = $(this.getAttribute('href'));
-        if( target.length ) {
-          event.preventDefault();
-          $('html, body').stop().animate({
-            scrollTop: target.offset().top - 100
-          }, 1000);
-        }
-      });
+        // Mobile Menu Toggle
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+
+        btn.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+        });
     </script>
-  </body>
+</body>
 </html>
