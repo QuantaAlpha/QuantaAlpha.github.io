@@ -119,3 +119,41 @@ body {
     0%, 100% { box-shadow: 0 0 10px rgba(232, 121, 249, 0.2); }
     50% { box-shadow: 0 0 20px rgba(232, 121, 249, 0.5); }
 }
+
+/* Hide scrollbar for carousel */
+.scrollbar-hide {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+}
+.scrollbar-hide::-webkit-scrollbar {
+    display: none;  /* Chrome, Safari and Opera */
+}
+
+/* Carousel active dot */
+.carousel-dot.active {
+    background-color: rgba(255, 255, 255, 0.8) !important;
+    transform: scale(1.2);
+}
+
+.carousel-dot {
+    transition: all 0.3s ease;
+}
+
+/* Publication item animation */
+.pub-item {
+    transition: all 0.3s ease;
+}
+
+.pub-item:hover {
+    transform: translateX(4px);
+}
+
+/* Back to Top Button */
+#back-to-top {
+    transition: all 0.3s ease;
+}
+
+#back-to-top:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 0 20px rgba(56, 189, 248, 0.4);
+}
