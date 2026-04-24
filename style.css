@@ -88,6 +88,43 @@ body {
     animation: float 6s ease-in-out infinite;
 }
 
+/* Hero Torus:
+   - 钉在"居中容器"的右下角（跟随 max-w-7xl 居中），保证大屏上不会飞到视口右边
+   - right: ~25% × 直径 => 中心偏右
+   - bottom: ~17% × 直径 => 底部被切 ~17%，整体视觉重心下移 */
+.hero-torus-wrapper {
+    position: absolute;
+    right: -170px;   /* 更靠右 */
+    bottom: -120px;
+    width: 540px;     /* 略缩 */
+    height: 540px;
+}
+@media (min-width: 1024px) {
+    .hero-torus-wrapper {
+        width: 640px;
+        height: 640px;
+        right: -210px;
+        bottom: -150px;
+    }
+}
+@media (min-width: 1280px) {
+    .hero-torus-wrapper {
+        width: 720px;
+        height: 720px;
+        right: -250px;
+        bottom: -180px;
+    }
+}
+@media (min-width: 1536px) {
+    .hero-torus-wrapper {
+        width: 800px;
+        height: 800px;
+        right: -280px;
+        bottom: -210px;
+    }
+}
+
+
 /* Glow Effects */
 .glow-on-hover:hover {
     box-shadow: 0 0 20px rgba(56, 189, 248, 0.4);
