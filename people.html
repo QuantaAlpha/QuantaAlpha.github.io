@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <!-- Google analytics tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-STGLQW4BJX"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-STGLQW4BJX');
+    </script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>People - QuantaAlpha</title>
+    <meta name="description" content="Researchers, community channels, and collaboration contacts for QuantaAlpha.">
+    <meta name="keywords" content="AI Agent, CodeAgent, LLM, Deep Research, Self-Evolving, NeurIPS, AAAI, Machine Learning, Autonomous Intelligence">
+    
+    <!-- Open Graph / Social Media -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="QuantaAlpha - AI Agent Research Team">
+    <meta property="og:description" content="Elite AI Agent research team building the future of Autonomous Intelligence. 30+ publications at NeurIPS, AAAI, ACL, EMNLP.">
+    <meta property="og:image" content="images/logo.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="QuantaAlpha - AI Agent Research Team">
+    <meta name="twitter:description" content="Elite AI Agent research team building the future of Autonomous Intelligence.">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/jpeg" href="images/logo.png">
+    <link rel="shortcut icon" type="image/jpeg" href="images/logo.png">
+    <link rel="apple-touch-icon" href="images/logo.png">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        slate: {
+                            950: '#020617', // Deepest background
+                        },
+                        brand: {
+                            blue: '#38bdf8',
+                            violet: '#818cf8',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- AOS Animation -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body class="mesh-bg min-h-screen selection:bg-brand-blue selection:text-white">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 top-0 glass border-b border-white/5">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-4">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo -->
+                <div class="flex-shrink-0 flex items-center gap-3 cursor-pointer" onclick="window.location.href='index.html'">
+                    <img class="h-10 w-10 rounded-lg shadow-lg shadow-brand-blue/20" src="images/logo.png" alt="QuantaAlpha">
+                    <span class="font-bold text-xl tracking-tight text-white">QuantaAlpha</span>
+                </div>
+                
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex space-x-8 items-center">
+                    <a href="index.html#research" class="text-sm font-medium text-slate-300 hover:text-white transition-colors">Research</a>
+                    <a href="publications.html" class="text-sm font-medium text-slate-300 hover:text-white transition-colors">Publications</a>
+                    <a href="commercialization.html" class="text-sm font-medium text-slate-300 hover:text-white transition-colors">Commercialization</a>
+                    <a href="media.html" class="text-sm font-medium text-slate-300 hover:text-white transition-colors">Media</a>
+                    <a href="people.html" class="text-sm font-medium text-slate-300 hover:text-white transition-colors">People</a>
+                    <a href="people.html#community" class="text-sm font-medium text-slate-300 hover:text-white transition-colors">Community</a>
+                    <a href="index.html#contact" class="px-4 py-2 text-sm font-semibold text-slate-950 bg-white rounded-full hover:bg-slate-200 transition-all shadow-lg shadow-white/10">
+                        Join Us
+                    </a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden">
+                    <button id="mobile-menu-btn" class="text-slate-300 hover:text-white p-2">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden glass border-t border-white/5 absolute w-full">
+            <div class="px-4 pt-2 pb-6 space-y-2">
+                <a href="index.html#research" class="block px-3 py-2 text-base font-medium text-slate-300 hover:text-white hover:bg-white/5 rounded-md">Research</a>
+                <a href="publications.html" class="block px-3 py-2 text-base font-medium text-slate-300 hover:text-white hover:bg-white/5 rounded-md">Publications</a>
+                <a href="commercialization.html" class="block px-3 py-2 text-base font-medium text-slate-300 hover:text-white hover:bg-white/5 rounded-md">Commercialization</a>
+                <a href="media.html" class="block px-3 py-2 text-base font-medium text-slate-300 hover:text-white hover:bg-white/5 rounded-md">Media</a>
+                <a href="people.html" class="block px-3 py-2 text-base font-medium text-slate-300 hover:text-white hover:bg-white/5 rounded-md">People</a>
+                <a href="people.html#community" class="block px-3 py-2 text-base font-medium text-slate-300 hover:text-white hover:bg-white/5 rounded-md">Community</a>
+                <a href="index.html#contact" class="block px-3 py-2 text-base font-medium text-white bg-brand-blue/20 rounded-md">Join Us</a>
+            </div>
+        </div>
+    </nav>
+
+<!-- People Section -->
+    <section id="people" class="py-20 relative">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12" data-aos="fade-up">
+                <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Our Team</h2>
+                <p class="text-slate-400 text-sm">Meet the researchers behind QuantaAlpha</p>
+                <div class="h-1 w-20 bg-gradient-to-r from-brand-blue to-brand-violet mx-auto rounded-full mt-4"></div>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5" data-aos="fade-up" data-aos-delay="100">
+                <!-- Huacan Wang -->
+                <div class="glass-card p-5 rounded-xl hover:bg-white/5 transition-all group">
+                    <div class="flex flex-col items-center text-center">
+                        <div class="w-14 h-14 bg-brand-blue/20 rounded-full flex items-center justify-center text-brand-blue font-bold text-xl mb-3 group-hover:scale-110 transition-transform">
+                            HW
+                        </div>
+                        <h4 class="text-white font-semibold mb-1">Huacan Wang</h4>
+                        <a href="mailto:wanghuacan17@mails.ucas.ac.cn" class="text-slate-400 text-xs hover:text-brand-blue transition-colors break-all">
+                            <i class="fas fa-envelope mr-1"></i>wanghuacan17@mails.ucas.ac.cn
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Ronghao Chen -->
+                <div class="glass-card p-5 rounded-xl hover:bg-white/5 transition-all group">
+                    <div class="flex flex-col items-center text-center">
+                        <div class="w-14 h-14 bg-purple-500/20 rounded-full flex items-center justify-center text-purple-400 font-bold text-xl mb-3 group-hover:scale-110 transition-transform">
+                            RC
+                        </div>
+                        <h4 class="text-white font-semibold mb-1">Ronghao Chen</h4>
+                        <a href="mailto:chenronghao@alumni.pku.edu.cn" class="text-slate-400 text-xs hover:text-brand-blue transition-colors break-all">
+                            <i class="fas fa-envelope mr-1"></i>chenronghao@alumni.pku.edu.cn
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Sen Hu -->
+                <div class="glass-card p-5 rounded-xl hover:bg-white/5 transition-all group">
+                    <div class="flex flex-col items-center text-center">
+                        <div class="w-14 h-14 bg-green-500/20 rounded-full flex items-center justify-center text-green-400 font-bold text-xl mb-3 group-hover:scale-110 transition-transform">
+                            SH
+                        </div>
+                        <h4 class="text-white font-semibold mb-1">Sen Hu</h4>
+                        <a href="mailto:husen@pku.edu.cn" class="text-slate-400 text-xs hover:text-brand-blue transition-colors break-all">
+                            <i class="fas fa-envelope mr-1"></i>husen@pku.edu.cn
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Shuo Zhang -->
+                <div class="glass-card p-5 rounded-xl hover:bg-white/5 transition-all group">
+                    <div class="flex flex-col items-center text-center">
+                        <div class="w-14 h-14 bg-yellow-500/20 rounded-full flex items-center justify-center text-yellow-400 font-bold text-xl mb-3 group-hover:scale-110 transition-transform">
+                            SZ
+                        </div>
+                        <h4 class="text-white font-semibold mb-1">Shuo Zhang</h4>
+                        <a href="mailto:mcflurryshuoz@gmail.com" class="text-slate-400 text-xs hover:text-brand-blue transition-colors break-all">
+                            <i class="fas fa-envelope mr-1"></i>mcflurryshuoz@gmail.com
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Biao Wu -->
+                <div class="glass-card p-5 rounded-xl hover:bg-white/5 transition-all group">
+                    <div class="flex flex-col items-center text-center">
+                        <div class="w-14 h-14 bg-pink-500/20 rounded-full flex items-center justify-center text-pink-400 font-bold text-xl mb-3 group-hover:scale-110 transition-transform">
+                            BW
+                        </div>
+                        <h4 class="text-white font-semibold mb-1">Biao Wu</h4>
+                        <a href="mailto:biaowu165534@gmail.com" class="text-slate-400 text-xs hover:text-brand-blue transition-colors break-all">
+                            <i class="fas fa-envelope mr-1"></i>biaowu165534@gmail.com
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Zaoqu Liu -->
+                <div class="glass-card p-5 rounded-xl hover:bg-white/5 transition-all group">
+                    <div class="flex flex-col items-center text-center">
+                        <div class="w-14 h-14 bg-red-500/20 rounded-full flex items-center justify-center text-red-400 font-bold text-xl mb-3 group-hover:scale-110 transition-transform">
+                            ZL
+                        </div>
+                        <h4 class="text-white font-semibold mb-1">Zaoqu Liu</h4>
+                        <a href="mailto:liuzaoqu@163.com" class="text-slate-400 text-xs hover:text-brand-blue transition-colors break-all">
+                            <i class="fas fa-envelope mr-1"></i>liuzaoqu@163.com
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Zhenheng Tang -->
+                <div class="glass-card p-5 rounded-xl hover:bg-white/5 transition-all group">
+                    <div class="flex flex-col items-center text-center">
+                        <div class="w-14 h-14 bg-cyan-500/20 rounded-full flex items-center justify-center text-cyan-400 font-bold text-xl mb-3 group-hover:scale-110 transition-transform">
+                            ZT
+                        </div>
+                        <h4 class="text-white font-semibold mb-1">Zhenheng Tang</h4>
+                        <a href="mailto:zhtang.ml@ust.hk" class="text-slate-400 text-xs hover:text-brand-blue transition-colors break-all">
+                            <i class="fas fa-envelope mr-1"></i>zhtang.ml@ust.hk
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Jingping Liu -->
+                <div class="glass-card p-5 rounded-xl hover:bg-white/5 transition-all group">
+                    <div class="flex flex-col items-center text-center">
+                        <div class="w-14 h-14 bg-orange-500/20 rounded-full flex items-center justify-center text-orange-400 font-bold text-xl mb-3 group-hover:scale-110 transition-transform">
+                            JL
+                        </div>
+                        <h4 class="text-white font-semibold mb-1">Jingping Liu</h4>
+                        <a href="mailto:liujp68@mail.sysu.edu.cn" class="text-slate-400 text-xs hover:text-brand-blue transition-colors break-all">
+                            <i class="fas fa-envelope mr-1"></i>liujp68@mail.sysu.edu.cn
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Qizhen Lan -->
+                <div class="glass-card p-5 rounded-xl hover:bg-white/5 transition-all group">
+                    <div class="flex flex-col items-center text-center">
+                        <div class="w-14 h-14 bg-indigo-500/20 rounded-full flex items-center justify-center text-indigo-400 font-bold text-xl mb-3 group-hover:scale-110 transition-transform">
+                            QL
+                        </div>
+                        <h4 class="text-white font-semibold mb-1">Qizhen Lan</h4>
+                        <a href="mailto:contact.gai4si@gmail.com" class="text-slate-400 text-xs hover:text-brand-blue transition-colors break-all">
+                            <i class="fas fa-envelope mr-1"></i>contact.gai4si@gmail.com
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Zhi Yang -->
+                <div class="glass-card p-5 rounded-xl hover:bg-white/5 transition-all group">
+                    <div class="flex flex-col items-center text-center">
+                        <div class="w-14 h-14 bg-teal-500/20 rounded-full flex items-center justify-center text-teal-400 font-bold text-xl mb-3 group-hover:scale-110 transition-transform">
+                            ZY
+                        </div>
+                        <h4 class="text-white font-semibold mb-1">Zhi Yang</h4>
+                        <a href="mailto:yangzhi@stu.sufe.edu.cn" class="text-slate-400 text-xs hover:text-brand-blue transition-colors break-all">
+                            <i class="fas fa-envelope mr-1"></i>yangzhi@stu.sufe.edu.cn
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Xiaomin Yu -->
+                <div class="glass-card p-5 rounded-xl hover:bg-white/5 transition-all group">
+                    <div class="flex flex-col items-center text-center">
+                        <div class="w-14 h-14 bg-violet-500/20 rounded-full flex items-center justify-center text-violet-400 font-bold text-xl mb-3 group-hover:scale-110 transition-transform">
+                            XY
+                        </div>
+                        <h4 class="text-white font-semibold mb-1">Xiaomin Yu</h4>
+                        <a href="mailto:yuxm02@gmail.com" class="text-slate-400 text-xs hover:text-brand-blue transition-colors break-all">
+                            <i class="fas fa-envelope mr-1"></i>yuxm02@gmail.com
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Ziming Cheng -->
+                <div class="glass-card p-5 rounded-xl hover:bg-white/5 transition-all group">
+                    <div class="flex flex-col items-center text-center">
+                        <div class="w-14 h-14 bg-emerald-500/20 rounded-full flex items-center justify-center text-emerald-400 font-bold text-xl mb-3 group-hover:scale-110 transition-transform">
+                            ZC
+                        </div>
+                        <h4 class="text-white font-semibold mb-1">Ziming Cheng</h4>
+                        <a href="mailto:e1554503@u.nus.edu" class="text-slate-400 text-xs hover:text-brand-blue transition-colors break-all">
+                            <i class="fas fa-envelope mr-1"></i>e1554503@u.nus.edu
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Tu Hu -->
+                <div class="glass-card p-5 rounded-xl hover:bg-white/5 transition-all group">
+                    <div class="flex flex-col items-center text-center">
+                        <div class="w-14 h-14 bg-rose-500/20 rounded-full flex items-center justify-center text-rose-400 font-bold text-xl mb-3 group-hover:scale-110 transition-transform">
+                            TH
+                        </div>
+                        <h4 class="text-white font-semibold mb-1">Tu Hu</h4>
+                        <a href="mailto:tuhu@smail.nju.edu.cn" class="text-slate-400 text-xs hover:text-brand-blue transition-colors break-all">
+                            <i class="fas fa-envelope mr-1"></i>tuhu@smail.nju.edu.cn
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Chaofa Yuan -->
+                <div class="glass-card p-5 rounded-xl hover:bg-white/5 transition-all group">
+                    <div class="flex flex-col items-center text-center">
+                        <div class="w-14 h-14 bg-sky-500/20 rounded-full flex items-center justify-center text-sky-400 font-bold text-xl mb-3 group-hover:scale-110 transition-transform">
+                            CY
+                        </div>
+                        <h4 class="text-white font-semibold mb-1">Chaofa Yuan</h4>
+                        <a href="mailto:bruceyuan123@gmail.com" class="text-slate-400 text-xs hover:text-brand-blue transition-colors break-all">
+                            <i class="fas fa-envelope mr-1"></i>bruceyuan123@gmail.com
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Ruichuan An -->
+                <div class="glass-card p-5 rounded-xl hover:bg-white/5 transition-all group">
+                    <div class="flex flex-col items-center text-center">
+                        <div class="w-14 h-14 bg-sky-500/20 rounded-full flex items-center justify-center text-sky-400 font-bold text-xl mb-3 group-hover:scale-110 transition-transform">
+                            RA
+                        </div>
+                        <h4 class="text-white font-semibold mb-1">Ruichuan An</h4>
+                        <a href="mailto:arctanxarc@gmail.com" class="text-slate-400 text-xs hover:text-brand-blue transition-colors break-all">
+                            <i class="fas fa-envelope mr-1"></i>arctanxarc@gmail.com
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section><!-- Community Section -->
+    <section id="community" class="py-20 bg-slate-900/30">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Join Our Community</h2>
+                <p class="text-slate-400">Engage with us on WeChat and XiaoHongShu for real-time discussions</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                
+                <!-- Personal WeChat -->
+                <div class="glass-card p-8 rounded-2xl text-center relative overflow-hidden group" data-aos="fade-up" data-aos-delay="0">
+                    <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-purple-500 to-transparent opacity-50"></div>
+                    <div class="w-16 h-16 mx-auto bg-purple-500/10 rounded-full flex items-center justify-center mb-6 text-purple-400 group-hover:scale-110 transition-transform">
+                        <i class="fas fa-user-plus text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2">Personal WeChat</h3>
+                    <div class="bg-white/5 rounded-lg p-4 mb-4 backdrop-blur-sm border border-white/5">
+                        <div class="font-mono text-purple-300 text-lg">Harry_-_Wang</div>
+                        <div class="text-xs text-slate-500 mt-1">WeChat ID</div>
+                    </div>
+                    <p class="text-slate-400 text-sm">Add for direct communication with the team core.</p>
+                </div>
+
+                <!-- WeChat Group -->
+                <div class="glass-card p-8 rounded-2xl text-center relative overflow-hidden group" data-aos="fade-up" data-aos-delay="100">
+                    <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-brand-blue to-transparent opacity-50"></div>
+                    <div class="w-16 h-16 mx-auto bg-brand-blue/10 rounded-full flex items-center justify-center mb-6 text-brand-blue group-hover:scale-110 transition-transform">
+                        <i class="fas fa-users text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-4">Academic Exchange</h3>
+                    <div class="relative w-40 h-40 mx-auto mb-6 group-hover:rotate-2 transition-transform duration-500">
+                        <img src="images/WeChat.jpg" alt="WeChat QR" class="w-full h-full object-cover rounded-xl border-2 border-brand-blue/30 shadow-lg shadow-brand-blue/20">
+                    </div>
+                    <p class="text-slate-400 text-sm">Scan to join our vibrant research community group.</p>
+                </div>
+
+                <!-- XiaoHongShu -->
+                <div class="glass-card p-8 rounded-2xl text-center relative overflow-hidden group" data-aos="fade-up" data-aos-delay="200">
+                    <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-red-500 to-transparent opacity-50"></div>
+                    <div class="w-16 h-16 mx-auto bg-red-500/10 rounded-full flex items-center justify-center mb-6 text-red-400 group-hover:scale-110 transition-transform">
+                        <i class="fas fa-book-open text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2">XiaoHongShu</h3>
+                    <div class="bg-white/5 rounded-lg p-4 mb-4 cursor-pointer hover:bg-white/10 transition-colors" onclick="navigator.clipboard.writeText('2【长按复制，小红书APP见】 9月27日到期，&quot;QuantaAlpha&quot;志同道合处 MU5117 :/#t🍒🐍🐨🐍🍑😜😗😎🍍🍣🤣🍈'); alert('XiaoHongShu link copied!');">
+                        <div class="font-bold text-red-300">QuantaAlpha</div>
+                        <div class="text-xs text-slate-500 mt-1">Like-minded Community</div>
+                        <div class="text-[10px] text-yellow-500/80 mt-2">Click to Copy Link</div>
+                    </div>
+                    <p class="text-slate-400 text-sm">Follow our updates on RED.</p>
+                </div>
+            </div>
+        </div>
+    </section><!-- Collaboration / Careers -->
+    <section id="contact" class="py-20">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="glass-card rounded-3xl p-8 md:p-12 overflow-hidden relative">
+                <!-- Decorative background elements -->
+                <div class="absolute top-0 right-0 w-64 h-64 bg-brand-blue/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"></div>
+                
+                <div class="relative z-10 text-center mb-12">
+                    <h2 class="text-3xl font-bold text-white mb-4">Collaboration & Careers</h2>
+                    <p class="text-slate-300">We are always looking for exceptional talent and partners.</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-10 mb-12">
+                    <!-- Collaborations -->
+                    <div>
+                        <h3 class="text-lg font-bold text-brand-blue mb-4 flex items-center gap-2">
+                            <i class="fas fa-handshake"></i> Seeking Partners
+                        </h3>
+                        <ul class="space-y-3 text-slate-400 text-sm">
+                            <li class="flex items-start gap-2">
+                                <span class="text-brand-blue mt-1">•</span>
+                                <span><strong>University/Corp Labs:</strong> Joint research, compute resources.</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <span class="text-brand-blue mt-1">•</span>
+                                <span><strong>Startups:</strong> Industry applications of Agent tech.</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <span class="text-brand-blue mt-1">•</span>
+                                <span><strong>Open Source:</strong> Contributors for our GitHub repos.</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Ideal Candidate -->
+                    <div>
+                        <h3 class="text-lg font-bold text-brand-blue mb-4 flex items-center gap-2">
+                            <i class="fas fa-user-graduate"></i> Ideal Candidate
+                        </h3>
+                        <ul class="space-y-3 text-slate-400 text-sm">
+                            <li class="flex items-start gap-2">
+                                <span class="text-brand-blue mt-1">•</span>
+                                <span>Top-tier conference publications (First Author).</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <span class="text-brand-blue mt-1">•</span>
+                                <span>Strong self-motivation & passion for AGI.</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <span class="text-brand-blue mt-1">•</span>
+                                <span>Focus: Agentic RL, CodeAgents, Reasoning.</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="text-center">
+                    <a href="mailto:quantaalpha.ai@gmail.com" class="inline-flex items-center justify-center px-8 py-4 text-base font-bold text-slate-950 bg-gradient-to-r from-brand-blue to-brand-violet rounded-full hover:shadow-lg hover:shadow-brand-blue/25 hover:scale-105 transition-all duration-300">
+                        <i class="fas fa-envelope mr-2"></i> quantaalpha.ai@gmail.com
+                    </a>
+                    <p class="mt-4 text-slate-500 text-sm">Reach out to explore unlimited possibilities.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Back to Top Button -->
+    <button id="back-to-top" class="fixed bottom-8 right-8 w-12 h-12 bg-brand-blue/20 hover:bg-brand-blue/40 backdrop-blur-sm rounded-full flex items-center justify-center text-white transition-all shadow-lg border border-brand-blue/30 opacity-0 invisible z-50" aria-label="Back to top">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <!-- Footer -->
+    <footer class="border-t border-white/5 bg-slate-950 py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-6">
+            <div class="flex items-center gap-3">
+                <img src="images/logo.png" alt="Logo" class="h-8 w-8 opacity-80 grayscale hover:grayscale-0 transition-all">
+                <span class="text-slate-400 text-sm">© 2025-2026 QuantaAlpha Research.</span>
+            </div>
+            
+            <div class="flex gap-6">
+                <a href="#" class="text-slate-500 hover:text-white transition-colors"><i class="fab fa-github text-xl"></i></a>
+                <a href="#" class="text-slate-500 hover:text-white transition-colors"><i class="fab fa-twitter text-xl"></i></a>
+                <a href="#" class="text-slate-500 hover:text-white transition-colors"><i class="fab fa-linkedin text-xl"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>

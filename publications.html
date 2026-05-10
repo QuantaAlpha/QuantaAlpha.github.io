@@ -1,0 +1,1079 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <!-- Google analytics tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-STGLQW4BJX"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-STGLQW4BJX');
+    </script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Publications - QuantaAlpha</title>
+    <meta name="description" content="QuantaAlpha publications across AI agents, code agents, memory, safety, deep research, and self-evolving systems.">
+    <meta name="keywords" content="AI Agent, CodeAgent, LLM, Deep Research, Self-Evolving, NeurIPS, AAAI, Machine Learning, Autonomous Intelligence">
+    
+    <!-- Open Graph / Social Media -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="QuantaAlpha - AI Agent Research Team">
+    <meta property="og:description" content="Elite AI Agent research team building the future of Autonomous Intelligence. 30+ publications at NeurIPS, AAAI, ACL, EMNLP.">
+    <meta property="og:image" content="images/logo.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="QuantaAlpha - AI Agent Research Team">
+    <meta name="twitter:description" content="Elite AI Agent research team building the future of Autonomous Intelligence.">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/jpeg" href="images/logo.png">
+    <link rel="shortcut icon" type="image/jpeg" href="images/logo.png">
+    <link rel="apple-touch-icon" href="images/logo.png">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        slate: {
+                            950: '#020617', // Deepest background
+                        },
+                        brand: {
+                            blue: '#38bdf8',
+                            violet: '#818cf8',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- AOS Animation -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body class="mesh-bg min-h-screen selection:bg-brand-blue selection:text-white">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 top-0 glass border-b border-white/5">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-4">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo -->
+                <div class="flex-shrink-0 flex items-center gap-3 cursor-pointer" onclick="window.location.href='index.html'">
+                    <img class="h-10 w-10 rounded-lg shadow-lg shadow-brand-blue/20" src="images/logo.png" alt="QuantaAlpha">
+                    <span class="font-bold text-xl tracking-tight text-white">QuantaAlpha</span>
+                </div>
+                
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex space-x-8 items-center">
+                    <a href="index.html#research" class="text-sm font-medium text-slate-300 hover:text-white transition-colors">Research</a>
+                    <a href="publications.html" class="text-sm font-medium text-slate-300 hover:text-white transition-colors">Publications</a>
+                    <a href="commercialization.html" class="text-sm font-medium text-slate-300 hover:text-white transition-colors">Commercialization</a>
+                    <a href="media.html" class="text-sm font-medium text-slate-300 hover:text-white transition-colors">Media</a>
+                    <a href="people.html" class="text-sm font-medium text-slate-300 hover:text-white transition-colors">People</a>
+                    <a href="people.html#community" class="text-sm font-medium text-slate-300 hover:text-white transition-colors">Community</a>
+                    <a href="index.html#contact" class="px-4 py-2 text-sm font-semibold text-slate-950 bg-white rounded-full hover:bg-slate-200 transition-all shadow-lg shadow-white/10">
+                        Join Us
+                    </a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden">
+                    <button id="mobile-menu-btn" class="text-slate-300 hover:text-white p-2">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden glass border-t border-white/5 absolute w-full">
+            <div class="px-4 pt-2 pb-6 space-y-2">
+                <a href="index.html#research" class="block px-3 py-2 text-base font-medium text-slate-300 hover:text-white hover:bg-white/5 rounded-md">Research</a>
+                <a href="publications.html" class="block px-3 py-2 text-base font-medium text-slate-300 hover:text-white hover:bg-white/5 rounded-md">Publications</a>
+                <a href="commercialization.html" class="block px-3 py-2 text-base font-medium text-slate-300 hover:text-white hover:bg-white/5 rounded-md">Commercialization</a>
+                <a href="media.html" class="block px-3 py-2 text-base font-medium text-slate-300 hover:text-white hover:bg-white/5 rounded-md">Media</a>
+                <a href="people.html" class="block px-3 py-2 text-base font-medium text-slate-300 hover:text-white hover:bg-white/5 rounded-md">People</a>
+                <a href="people.html#community" class="block px-3 py-2 text-base font-medium text-slate-300 hover:text-white hover:bg-white/5 rounded-md">Community</a>
+                <a href="index.html#contact" class="block px-3 py-2 text-base font-medium text-white bg-brand-blue/20 rounded-md">Join Us</a>
+            </div>
+        </div>
+    </nav>
+
+<!-- All Publications Section -->
+    <section id="all-publications" class="py-20 bg-slate-900/50">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12" data-aos="fade-up">
+                <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">All Publications <span class="text-lg font-normal text-slate-500">(34+)</span></h2>
+                <p class="text-slate-400 text-sm">Complete publication list</p>
+                <div class="h-1 w-20 bg-brand-violet mx-auto rounded-full mt-4"></div>
+            </div>
+
+            <!-- Filter Tags -->
+            <div class="flex flex-wrap justify-center gap-2 mb-8" data-aos="fade-up">
+                <button class="pub-filter active px-4 py-2 rounded-full text-sm font-medium bg-brand-blue/20 text-brand-blue border border-brand-blue/30 hover:bg-brand-blue/30 transition-all" data-filter="all">All</button>
+                <button class="pub-filter px-4 py-2 rounded-full text-sm font-medium bg-white/5 text-slate-400 border border-white/10 hover:bg-white/10 transition-all" data-filter="2026">2026</button>
+                <button class="pub-filter px-4 py-2 rounded-full text-sm font-medium bg-white/5 text-slate-400 border border-white/10 hover:bg-white/10 transition-all" data-filter="2025">2025</button>
+                <button class="pub-filter px-4 py-2 rounded-full text-sm font-medium bg-white/5 text-slate-400 border border-white/10 hover:bg-white/10 transition-all" data-filter="codeagent">CodeAgent</button>
+                <button class="pub-filter px-4 py-2 rounded-full text-sm font-medium bg-white/5 text-slate-400 border border-white/10 hover:bg-white/10 transition-all" data-filter="memory">Memory</button>
+                <button class="pub-filter px-4 py-2 rounded-full text-sm font-medium bg-white/5 text-slate-400 border border-white/10 hover:bg-white/10 transition-all" data-filter="self-evolving">Self-Evolving</button>
+                <button class="pub-filter px-4 py-2 rounded-full text-sm font-medium bg-white/5 text-slate-400 border border-white/10 hover:bg-white/10 transition-all" data-filter="safety">Safety</button>
+            </div>
+
+            <div class="space-y-4" id="publications-list">
+                <!-- EpochX -->
+                <div class="pub-item glass-card p-5 rounded-xl hover:bg-white/5 transition-all" data-year="2026" data-tags="self-evolving" data-aos="fade-up">
+                    <div class="flex flex-col md:flex-row md:items-center gap-4">
+                        <div class="flex-shrink-0">
+                            <span class="inline-block px-3 py-1 bg-cyan-500/10 text-cyan-400 text-xs font-bold rounded-full border border-cyan-500/20">2026</span>
+                        </div>
+                        <div class="flex-1">
+                            <h4 class="text-lg font-semibold text-white mb-2 hover:text-brand-blue transition-colors">
+                                <a href="https://arxiv.org/abs/2603.27304" target="_blank">EpochX: Building the Infrastructure for an Emergent Agent Civilization</a>
+                            </h4>
+                            <div class="flex flex-wrap gap-1 mb-2">
+                                <span class="px-2 py-0.5 bg-green-500/10 text-green-400 text-xs rounded">Agent Infrastructure</span>
+                                <span class="px-2 py-0.5 bg-purple-500/10 text-purple-400 text-xs rounded">Human-Agent Collaboration</span>
+                                <span class="px-2 py-0.5 bg-blue-500/10 text-blue-400 text-xs rounded">Skill Marketplace</span>
+                            </div>
+                        </div>
+                        <div class="flex-shrink-0 flex gap-2">
+                            <a href="https://arxiv.org/abs/2603.27304" target="_blank" class="inline-flex items-center gap-2 px-4 py-2 bg-white/5 hover:bg-white/10 rounded-lg text-sm text-white transition-colors">
+                                <i class="fas fa-file-alt"></i> Paper
+                            </a>
+                            <a href="https://huggingface.co/papers/2603.27304" target="_blank" class="inline-flex items-center gap-2 px-4 py-2 bg-white/5 hover:bg-white/10 rounded-lg text-sm text-white transition-colors">
+                                <i class="fas fa-fire"></i> HF
+                            </a>
+                            <a href="https://github.com/QuantaAlpha/EpochX" target="_blank" class="inline-flex items-center gap-2 px-4 py-2 bg-white/5 hover:bg-white/10 rounded-lg text-sm text-white transition-colors">
+                                <i class="fab fa-github"></i> Code
+                            </a>
+                            <a href="https://epochx.cc/" target="_blank" class="inline-flex items-center gap-2 px-4 py-2 bg-white/5 hover:bg-white/10 rounded-lg text-sm text-white transition-colors">
+                                <i class="fas fa-globe"></i> Product
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Idea2Paper -->
+                <div class="pub-item glass-card p-5 rounded-xl hover:bg-white/5 transition-all" data-year="2026" data-tags="deepresearch" data-aos="fade-up">
+                    <div class="flex flex-col md:flex-row md:items-center gap-4">
+                        <div class="flex-shrink-0">
+                            <span class="inline-block px-3 py-1 bg-cyan-500/10 text-cyan-400 text-xs font-bold rounded-full border border-cyan-500/20">2026</span>
+                        </div>
+                        <div class="flex-1">
+                            <h4 class="text-lg font-semibold text-white mb-2 hover:text-brand-blue transition-colors">
+                                <a href="https://www.researchgate.net/profile/Biao-Wu-19/publication/400280248_Idea2Paper_What_Should_an_End-to-End_Research_Agent_Really_Do/links/697dbc01ca66ef6ab98eea54/Idea2Paper-What-Should-an-End-to-End-Research-Agent-Really-Do.pdf" target="_blank">Idea2Paper: What Should an End-to-End Research Agent Really Do?</a>
+                            </h4>
+                            <div class="flex flex-wrap gap-1 mb-2">
+                                <span class="px-2 py-0.5 bg-purple-500/10 text-purple-400 text-xs rounded">Research Agent</span>
+                                <span class="px-2 py-0.5 bg-blue-500/10 text-blue-400 text-xs rounded">End-to-End</span>
+                                <span class="px-2 py-0.5 bg-green-500/10 text-green-400 text-xs rounded">Scientific Writing</span>
+                            </div>
+                        </div>
+                        <div class="flex-shrink-0 flex gap-2">
+                            <a href="https://www.researchgate.net/profile/Biao-Wu-19/publication/400280248_Idea2Paper_What_Should_an_End-to-End_Research_Agent_Really_Do/links/697dbc01ca66ef6ab98eea54/Idea2Paper-What-Should-an-End-to-End-Research-Agent-Really-Do.pdf" target="_blank" class="inline-flex items-center gap-2 px-4 py-2 bg-white/5 hover:bg-white/10 rounded-lg text-sm text-white transition-colors">
+                                <i class="fas fa-file-alt"></i> Paper
+                            </a>
+                            <a href="https://github.com/AgentAlphaAGI/Idea2Paper" target="_blank" class="inline-flex items-center gap-2 px-4 py-2 bg-white/5 hover:bg-white/10 rounded-lg text-sm text-white transition-colors">
+                                <i class="fab fa-github"></i> Code
+                            </a>
+                            <a href="https://paperbuild.cn/" target="_blank" class="inline-flex items-center gap-2 px-4 py-2 bg-white/5 hover:bg-white/10 rounded-lg text-sm text-white transition-colors">
+                                <i class="fas fa-globe"></i> Product
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Idea2Story -->
+                <div class="pub-item glass-card p-5 rounded-xl hover:bg-white/5 transition-all" data-year="2026" data-tags="deepresearch" data-aos="fade-up">
+                    <div class="flex flex-col md:flex-row md:items-center gap-4">
+                        <div class="flex-shrink-0">
+                            <span class="inline-block px-3 py-1 bg-cyan-500/10 text-cyan-400 text-xs font-bold rounded-full border border-cyan-500/20">2026</span>
+                        </div>
+                        <div class="flex-1">
+                            <h4 class="text-lg font-semibold text-white mb-2 hover:text-brand-blue transition-colors">
+                                <a href="https://arxiv.org/pdf/2601.20833" target="_blank">Idea2Story: An Automated Pipeline for Transforming Research Concepts into Complete Scientific Narratives</a>
+                            </h4>
+                            <div class="flex flex-wrap gap-1 mb-2">
+                                <span class="px-2 py-0.5 bg-purple-500/10 text-purple-400 text-xs rounded">Research Automation</span>
+                                <span class="px-2 py-0.5 bg-blue-500/10 text-blue-400 text-xs rounded">Knowledge Graph</span>
+                                <span class="px-2 py-0.5 bg-orange-500/10 text-orange-400 text-xs rounded">Scientific Narrative</span>
+                            </div>
+                        </div>
+                        <div class="flex-shrink-0 flex gap-2">
+                            <a href="https://arxiv.org/pdf/2601.20833" target="_blank" class="inline-flex items-center gap-2 px-4 py-2 bg-white/5 hover:bg-white/10 rounded-lg text-sm text-white transition-colors">
+                                <i class="fas fa-file-alt"></i> Paper
+                            </a>
+                            <a href="https://github.com/AgentAlphaAGI/Idea2Paper" target="_blank" class="inline-flex items-center gap-2 px-4 py-2 bg-white/5 hover:bg-white/10 rounded-lg text-sm text-white transition-colors">
+                                <i class="fab fa-github"></i> Code
+                            </a>
+                            <a href="https://paperbuild.cn/" target="_blank" class="inline-flex items-center gap-2 px-4 py-2 bg-white/5 hover:bg-white/10 rounded-lg text-sm text-white transition-colors">
+                                <i class="fas fa-globe"></i> Product
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Story2Proposal -->
+                <div class="pub-item glass-card p-5 rounded-xl hover:bg-white/5 transition-all" data-year="2026" data-tags="deepresearch" data-aos="fade-up">
+                    <div class="flex flex-col md:flex-row md:items-center gap-4">
+                        <div class="flex-shrink-0">
+                            <span class="inline-block px-3 py-1 bg-cyan-500/10 text-cyan-400 text-xs font-bold rounded-full border border-cyan-500/20">2026</span>
+                        </div>
+                        <div class="flex-1">
+                            <h4 class="text-lg font-semibold text-white mb-2 hover:text-brand-blue transition-colors">
+                                <a href="https://arxiv.org/abs/2603.27065" target="_blank">Story2Proposal: A Scaffold for Structured Scientific Paper Writing</a>
+                            </h4>
+                            <div class="flex flex-wrap gap-1 mb-2">
+                                <span class="px-2 py-0.5 bg-purple-500/10 text-purple-400 text-xs rounded">Multi-Agent Framework</span>
+                                <span class="px-2 py-0.5 bg-blue-500/10 text-blue-400 text-xs rounded">Scientific Writing</span>
+                                <span class="px-2 py-0.5 bg-green-500/10 text-green-400 text-xs rounded">Visual Contract</span>
+                            </div>
+                        </div>
+                        <div class="flex-shrink-0 flex gap-2">
+                            <a href="https://arxiv.org/abs/2603.27065" target="_blank" class="inline-flex items-center gap-2 px-4 py-2 bg-white/5 hover:bg-white/10 rounded-lg text-sm text-white transition-colors">
+                                <i class="fas fa-file-alt"></i> Paper
+                            </a>
+                            <a href="https://github.com/AgentAlphaAGI/Idea2Paper" target="_blank" class="inline-flex items-center gap-2 px-4 py-2 bg-white/5 hover:bg-white/10 rounded-lg text-sm text-white transition-colors">
+                                <i class="fab fa-github"></i> Code
+                            </a>
+                            <a href="https://paperbuild.cn/" target="_blank" class="inline-flex items-center gap-2 px-4 py-2 bg-white/5 hover:bg-white/10 rounded-lg text-sm text-white transition-colors">
+                                <i class="fas fa-globe"></i> Product
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ChildBench -->
+                <div class="pub-item glass-card p-5 rounded-xl hover:bg-white/5 transition-all" data-year="2026" data-tags="reasoning" data-aos="fade-up">
+                    <div class="flex flex-col md:flex-row md:items-center gap-4">
+                        <div class="flex-shrink-0">
+                            <span class="inline-block px-3 py-1 bg-green-500/10 text-green-400 text-xs font-bold rounded-full border border-green-500/20">AAAI 2026 Oral</span>
+                        </div>
+                        <div class="flex-1">
+                            <h4 class="text-lg font-semibold text-white mb-2 hover:text-brand-blue transition-colors">
+                                <a href="https://ojs.aaai.org/index.php/AAAI/article/view/40479" target="_blank">Easy for Children, Hard for AI: The Limits of Multimodal LLMs in Early Childhood Learning</a>
+                            </h4>
+                            <div class="flex flex-wrap gap-1 mb-2">
+                                <span class="px-2 py-0.5 bg-purple-500/10 text-purple-400 text-xs rounded">Multimodal LLM</span>
+                                <span class="px-2 py-0.5 bg-blue-500/10 text-blue-400 text-xs rounded">Benchmark</span>
+                                <span class="px-2 py-0.5 bg-green-500/10 text-green-400 text-xs rounded">Oral</span>
+                            </div>
+                        </div>
+                        <div class="flex-shrink-0">
+                            <a href="https://ojs.aaai.org/index.php/AAAI/article/view/40479" target="_blank" class="inline-flex items-center gap-2 px-4 py-2 bg-white/5 hover:bg-white/10 rounded-lg text-sm text-white transition-colors">
+                                <i class="fas fa-file-alt"></i> Paper
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PsyPARSE -->
+                <div class="pub-item glass-card p-5 rounded-xl hover:bg-white/5 transition-all" data-year="2026" data-tags="reasoning" data-aos="fade-up">
+                    <div class="flex flex-col md:flex-row md:items-center gap-4">
+                        <div class="flex-shrink-0">
+                            <span class="inline-block px-3 py-1 bg-green-500/10 text-green-400 text-xs font-bold rounded-full border border-green-500/20">AAAI 2026</span>
+                        </div>
+                        <div class="flex-1">
+                            <h4 class="text-lg font-semibold text-white mb-2 hover:text-brand-blue transition-colors">
+                                <a href="https://ojs.aaai.org/index.php/AAAI/article/view/37089" target="_blank">PsyPARSE: Retrieval-Augmented Slow Thinking for Personalized Empathetic Counseling</a>
+                            </h4>
+                            <div class="flex flex-wrap gap-1 mb-2">
+                                <span class="px-2 py-0.5 bg-pink-500/10 text-pink-400 text-xs rounded">Empathetic Counseling</span>
+                                <span class="px-2 py-0.5 bg-purple-500/10 text-purple-400 text-xs rounded">RAG</span>
+                                <span class="px-2 py-0.5 bg-blue-500/10 text-blue-400 text-xs rounded">Slow Thinking</span>
+                            </div>
+                        </div>
+                        <div class="flex-shrink-0">
+                            <a href="https://ojs.aaai.org/index.php/AAAI/article/view/37089" target="_blank" class="inline-flex items-center gap-2 px-4 py-2 bg-white/5 hover:bg-white/10 rounded-lg text-sm text-white transition-colors">
+                                <i class="fas fa-file-alt"></i> Paper
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 2026 Papers -->
+                <!-- chain of mindset -->
+                <div class="pub-item glass-card p-5 rounded-xl hover:bg-white/5 transition-all" data-year="2026" data-tags="" data-aos="fade-up">
+                    <div class="flex flex-col md:flex-row md:items-center gap-4">
+                        <div class="flex-shrink-0">
+                            <span class="inline-block px-3 py-1 bg-cyan-500/10 text-cyan-400 text-xs font-bold rounded-full border border-cyan-500/20">2026</span>
+                        </div>
+                        <div class="flex-1">
+                            <h4 class="text-lg font-semibold text-white mb-2 hover:text-brand-blue transition-colors">
+                                <a href="https://arxiv.org/abs/2602.10063" target="_blank">Chain of Mindset: Reasoning with Adaptive Cognitive Modes</a>
+                            </h4>
+                            <div class="flex flex-wrap gap-1 mb-2">
+                                <span class="px-2 py-0.5 bg-red-500/10 text-red-400 text-xs rounded">LLM Reasoning</span>
+                                <span class="px-2 py-0.5 bg-purple-500/10 text-purple-400 text-xs rounded">Adaptive Cognitive Modes</span>
+                                <span class="px-2 py-0.5 bg-blue-500/10 text-blue-400 text-xs rounded">Chain of Mindset</span>
+                            </div>
+                        </div>
+                        <div class="flex-shrink-0 flex gap-2">
+                            <a href="https://arxiv.org/abs/2602.10063" target="_blank" class="inline-flex items-center gap-2 px-4 py-2 bg-white/5 hover:bg-white/10 rounded-lg text-sm text-white transition-colors">
+                                <i class="fas fa-file-alt"></i> Paper
+                            </a>
+                            <a href="https://huggingface.co/papers/2602.10063" target="_blank" class="inline-flex items-center gap-2 px-4 py-2 bg-white/5 hover:bg-white/10 rounded-lg text-sm text-white transition-colors">
+                                <i class="fas fa-fire"></i> HF
+                            </a>
+                            <a href="https://github.com/QuantaAlpha/chain-of-mindset" target="_blank" class="inline-flex items-center gap-2 px-4 py-2 bg-white/5 hover:bg-white/10 rounded-lg text-sm text-white transition-colors">
+                                <i class="fab fa-github"></i> Code
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- QuantaAlpha -->
+                <div class="pub-item glass-card p-5 rounded-xl hover:bg-white/5 transition-all" data-year="2026" data-tags="codeagent,self-evolving" data-aos="fade-up">
+                    <div class="flex flex-col md:flex-row md:items-center gap-4">
+                        <div class="flex-shrink-0">
+                            <span class="inline-block px-3 py-1 bg-cyan-500/10 text-cyan-400 text-xs font-bold rounded-full border border-cyan-500/20">2026</span>
+                        </div>
+                        <div class="flex-1">
+                            <h4 class="text-lg font-semibold text-white mb-2 hover:text-brand-blue transition-colors">
+                                <a href="https://arxiv.org/abs/2602.07085" target="_blank">QuantaAlpha: An Evolutionary Framework for LLM-Driven Alpha Mining</a>
+                            </h4>
+                            <div class="flex flex-wrap gap-1 mb-2">
+                                <span class="px-2 py-0.5 bg-red-500/10 text-red-400 text-xs rounded">AI4Investment</span>
+                                <span class="px-2 py-0.5 bg-purple-500/10 text-purple-400 text-xs rounded">self-evolving</span>
+                                <span class="px-2 py-0.5 bg-blue-500/10 text-blue-400 text-xs rounded">Alpha Mining</span>
+                            </div>
+                        </div>
+                        <div class="flex-shrink-0 flex gap-2">
+                            <a href="https://arxiv.org/abs/2602.07085" target="_blank" class="inline-flex items-center gap-2 px-4 py-2 bg-white/5 hover:bg-white/10 rounded-lg text-sm text-white transition-colors">
+                                <i class="fas fa-file-alt"></i> Paper
+                            </a>
+                            <a href="https://huggingface.co/papers/2602.07085" target="_blank" class="inline-flex items-center gap-2 px-4 py-2 bg-white/5 hover:bg-white/10 rounded-lg text-sm text-white transition-colors">
+                                <i class="fas fa-fire"></i> HF
+                            </a>
+                            <a href="https://github.com/QuantaAlpha/QuantaAlpha" target="_blank" class="inline-flex items-center gap-2 px-4 py-2 bg-white/5 hover:bg-white/10 rounded-lg text-sm text-white transition-colors">
+                                <i class="fab fa-github"></i> Code
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Spider-Sense -->
+                <div class="pub-item glass-card p-5 rounded-xl hover:bg-white/5 transition-all" data-year="2026" data-tags="safety" data-aos="fade-up">
+                    <div class="flex flex-col md:flex-row md:items-center gap-4">
+                        <div class="flex-shrink-0">
+                            <span class="inline-block px-3 py-1 bg-cyan-500/10 text-cyan-400 text-xs font-bold rounded-full border border-cyan-500/20">2026</span>
+                        </div>
+                        <div class="flex-1">
+                            <h4 class="text-lg font-semibold text-white mb-2 hover:text-brand-blue transition-colors">
+                                <a href="https://arxiv.org/abs/2602.05386" target="_blank">Spider-Sense: Intrinsic Risk Sensing for Efficient Agent Defense with Hierarchical Adaptive Screening</a>
+                            </h4>
+                            <div class="flex flex-wrap gap-1 mb-2">
+                                <span class="px-2 py-0.5 bg-red-500/10 text-red-400 text-xs rounded">Agent Safety</span>
+                                <span class="px-2 py-0.5 bg-purple-500/10 text-purple-400 text-xs rounded">Intrinsic Risk Sensing</span>
+                                <span class="px-2 py-0.5 bg-blue-500/10 text-blue-400 text-xs rounded">Hierarchical Defense</span>
+                            </div>
+                        </div>
+                        <div class="flex-shrink-0 flex gap-2">
+                            <a href="https://arxiv.org/pdf/2602.05386" target="_blank" class="inline-flex items-center gap-2 px-4 py-2 bg-white/5 hover:bg-white/10 rounded-lg text-sm text-white transition-colors">
+                                <i class="fas fa-file-alt"></i> Paper
+                            </a>
+                            <a href="https://huggingface.co/papers/2602.05386" target="_blank" class="inline-flex items-center gap-2 px-4 py-2 bg-white/5 hover:bg-white/10 rounded-lg text-sm text-white transition-colors">
+                                <i class="fas fa-fire"></i> HF
+                            </a>
+                            <a href="https://github.com/aifinlab/Spider-Sense" target="_blank" class="inline-flex items-center gap-2 px-4 py-2 bg-white/5 hover:bg-white/10 rounded-lg text-sm text-white transition-colors">
+                                <i class="fab fa-github"></i> Code
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Controlled Self-Evolution -->
+                <div class="pub-item glass-card p-5 rounded-xl hover:bg-white/5 transition-all" data-year="2026" data-tags="codeagent,self-evolving" data-aos="fade-up">
+                    <div class="flex flex-col md:flex-row md:items-center gap-4">
+                        <div class="flex-shrink-0">
+                            <span class="inline-block px-3 py-1 bg-cyan-500/10 text-cyan-400 text-xs font-bold rounded-full border border-cyan-500/20">2026</span>
+                        </div>
+                        <div class="flex-1">
+                            <h4 class="text-lg font-semibold text-white mb-2 hover:text-brand-blue transition-colors">
+                                <a href="https://arxiv.org/abs/2601.07348" target="_blank">Controlled Self-Evolution for Algorithmic Code Optimization</a>
+                            </h4>
+                            <div class="flex flex-wrap gap-1 mb-2">
+                                <span class="px-2 py-0.5 bg-green-500/10 text-green-400 text-xs rounded">Self-Evolution</span>
+                                <span class="px-2 py-0.5 bg-blue-500/10 text-blue-400 text-xs rounded">CodeAgent</span>
+                                <span class="px-2 py-0.5 bg-purple-500/10 text-purple-400 text-xs rounded">Genetic Algorithm</span>
+                                <span class="px-2 py-0.5 bg-yellow-500/10 text-yellow-400 text-xs rounded">EffiBench</span>
+                            </div>
+                        </div>
+                        <div class="flex-shrink-0 flex gap-2">
+                            <a href="https://arxiv.org/abs/2601.07348" target="_blank" class="inline-flex items-center gap-2 px-4 py-2 bg-white/5 hover:bg-white/10 rounded-lg text-sm text-white transition-colors">
+                                <i class="fas fa-file-alt"></i> Paper
+                            </a>
+                            <a href="https://huggingface.co/papers/2601.07348" target="_blank" class="inline-flex items-center gap-2 px-4 py-2 bg-white/5 hover:bg-white/10 rounded-lg text-sm text-white transition-colors">
+                                <i class="fas fa-fire"></i> HF
+                            </a>
+                            <a href="https://github.com/QuantaAlpha/EvoControl" target="_blank" class="inline-flex items-center gap-2 px-4 py-2 bg-white/5 hover:bg-white/10 rounded-lg text-sm text-white transition-colors">
+                                <i class="fab fa-github"></i> Code
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- MemGovern -->
+                <div class="pub-item glass-card p-5 rounded-xl hover:bg-white/5 transition-all" data-year="2026" data-tags="codeagent,memory" data-aos="fade-up">
+                    <div class="flex flex-col md:flex-row md:items-center gap-4">
+                        <div class="flex-shrink-0">
+                            <span class="inline-block px-3 py-1 bg-green-500/10 text-green-400 text-xs font-bold rounded-full border border-green-500/20">ACL 2026</span>
+                        </div>
+                        <div class="flex-1">
+                            <h4 class="text-lg font-semibold text-white mb-2 hover:text-brand-blue transition-colors">
+                                <a href="https://arxiv.org/abs/2601.06789" target="_blank">MemGovern: Enhancing Code Agents through Learning from Governed Human Experiences</a>
+                            </h4>
+                            <div class="flex flex-wrap gap-1 mb-2">
+                                <span class="px-2 py-0.5 bg-blue-500/10 text-blue-400 text-xs rounded">CodeAgent</span>
+                                <span class="px-2 py-0.5 bg-pink-500/10 text-pink-400 text-xs rounded">Memory</span>
+                                <span class="px-2 py-0.5 bg-orange-500/10 text-orange-400 text-xs rounded">Bug Fixing</span>
+                                <span class="px-2 py-0.5 bg-purple-500/10 text-purple-400 text-xs rounded">SWE-bench</span>
+                            </div>
+                        </div>
+                        <div class="flex-shrink-0 flex gap-2">
+                            <a href="https://arxiv.org/abs/2601.06789" target="_blank" class="inline-flex items-center gap-2 px-4 py-2 bg-white/5 hover:bg-white/10 rounded-lg text-sm text-white transition-colors">
+                                <i class="fas fa-file-alt"></i> Paper
+                            </a>
+                            <a href="https://huggingface.co/papers/2601.06789" target="_blank" class="inline-flex items-center gap-2 px-4 py-2 bg-white/5 hover:bg-white/10 rounded-lg text-sm text-white transition-colors">
+                                <i class="fas fa-fire"></i> HF
+                            </a>
+                            <a href="https://github.com/QuantaAlpha/MemGovern" target="_blank" class="inline-flex items-center gap-2 px-4 py-2 bg-white/5 hover:bg-white/10 rounded-lg text-sm text-white transition-colors">
+                                <i class="fab fa-github"></i> Code
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- VideoDR -->
+                <div class="pub-item glass-card p-5 rounded-xl hover:bg-white/5 transition-all" data-year="2026" data-tags="deepresearch" data-aos="fade-up">
+                    <div class="flex flex-col md:flex-row md:items-center gap-4">
+                        <div class="flex-shrink-0">
+                            <span class="inline-block px-3 py-1 bg-cyan-500/10 text-cyan-400 text-xs font-bold rounded-full border border-cyan-500/20">2026</span>
+                        </div>
+                        <div class="flex-1">
+                            <h4 class="text-lg font-semibold text-white mb-2 hover:text-brand-blue transition-colors">
+                                <a href="https://arxiv.org/abs/2601.06943" target="_blank">Watching, Reasoning, and Searching: A Video Deep Research Benchmark on Open Web for Agentic Video Reasoning</a>
+                            </h4>
+                            <div class="flex flex-wrap gap-1 mb-2">
+                                <span class="px-2 py-0.5 bg-red-500/10 text-red-400 text-xs rounded">Video Reasoning</span>
+                                <span class="px-2 py-0.5 bg-purple-500/10 text-purple-400 text-xs rounded">DeepResearch</span>
+                                <span class="px-2 py-0.5 bg-blue-500/10 text-blue-400 text-xs rounded">Web Retrieval</span>
+                                <span class="px-2 py-0.5 bg-green-500/10 text-green-400 text-xs rounded">VideoDR</span>
+                            </div>
+                        </div>
+                        <div class="flex-shrink-0 flex gap-2">
+                            <a href="https://arxiv.org/abs/2601.06943" target="_blank" class="inline-flex items-center gap-2 px-4 py-2 bg-white/5 hover:bg-white/10 rounded-lg text-sm text-white transition-colors">
+                                <i class="fas fa-file-alt"></i> Paper
+                            </a>
+                            <a href="https://huggingface.co/papers/2601.06943" target="_blank" class="inline-flex items-center gap-2 px-4 py-2 bg-white/5 hover:bg-white/10 rounded-lg text-sm text-white transition-colors">
+                                <i class="fas fa-fire"></i> HF
+                            </a>
+                            <a href="https://github.com/QuantaAlpha/VideoDR-Benchmark" target="_blank" class="inline-flex items-center gap-2 px-4 py-2 bg-white/5 hover:bg-white/10 rounded-lg text-sm text-white transition-colors">
+                                <i class="fab fa-github"></i> Code
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- KnowMe-Bench -->
+                <div class="pub-item glass-card p-5 rounded-xl hover:bg-white/5 transition-all" data-year="2026" data-tags="memory" data-aos="fade-up">
+                    <div class="flex flex-col md:flex-row md:items-center gap-4">
+                        <div class="flex-shrink-0">
+                            <span class="inline-block px-3 py-1 bg-green-500/10 text-green-400 text-xs font-bold rounded-full border border-green-500/20">ACL 2026</span>
+                        </div>
+                        <div class="flex-1">
+                            <h4 class="text-lg font-semibold text-white mb-2 hover:text-brand-blue transition-colors">
+                                <a href="https://arxiv.org/abs/2601.04745" target="_blank">KnowMe-Bench: Benchmarking Person Understanding for Lifelong Digital Companions</a>
+                            </h4>
+                            <div class="flex flex-wrap gap-1 mb-2">
+                                <span class="px-2 py-0.5 bg-pink-500/10 text-pink-400 text-xs rounded">Agent Memory</span>
+                                <span class="px-2 py-0.5 bg-purple-500/10 text-purple-400 text-xs rounded">Person Understanding</span>
+                                <span class="px-2 py-0.5 bg-blue-500/10 text-blue-400 text-xs rounded">Digital Companion</span>
+                            </div>
+                        </div>
+                        <div class="flex-shrink-0 flex gap-2">
+                            <a href="https://arxiv.org/abs/2601.04745" target="_blank" class="inline-flex items-center gap-2 px-4 py-2 bg-white/5 hover:bg-white/10 rounded-lg text-sm text-white transition-colors">
+                                <i class="fas fa-file-alt"></i> Paper
+                            </a>
+                            <a href="https://huggingface.co/papers/2601.04745" target="_blank" class="inline-flex items-center gap-2 px-4 py-2 bg-white/5 hover:bg-white/10 rounded-lg text-sm text-white transition-colors">
+                                <i class="fas fa-fire"></i> HF
+                            </a>
+                            <a href="https://github.com/QuantaAlpha/KnowMeBench" target="_blank" class="inline-flex items-center gap-2 px-4 py-2 bg-white/5 hover:bg-white/10 rounded-lg text-sm text-white transition-colors">
+                                <i class="fab fa-github"></i> Code
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- EvoFSM -->
+                <div class="pub-item glass-card p-5 rounded-xl hover:bg-white/5 transition-all" data-year="2026" data-tags="self-evolving,deepresearch" data-aos="fade-up">
+                    <div class="flex flex-col md:flex-row md:items-center gap-4">
+                        <div class="flex-shrink-0">
+                            <span class="inline-block px-3 py-1 bg-cyan-500/10 text-cyan-400 text-xs font-bold rounded-full border border-cyan-500/20">2026</span>
+                        </div>
+                        <div class="flex-1">
+                            <h4 class="text-lg font-semibold text-white mb-2 hover:text-brand-blue transition-colors">
+                                <a href="https://arxiv.org/abs/2601.09465" target="_blank">EvoFSM: Controllable Self-Evolution for Deep Research with Finite State Machines</a>
+                            </h4>
+                            <div class="flex flex-wrap gap-1 mb-2">
+                                <span class="px-2 py-0.5 bg-green-500/10 text-green-400 text-xs rounded">Self-Evolution</span>
+                                <span class="px-2 py-0.5 bg-purple-500/10 text-purple-400 text-xs rounded">DeepResearch</span>
+                                <span class="px-2 py-0.5 bg-blue-500/10 text-blue-400 text-xs rounded">Finite State Machine</span>
+                                <span class="px-2 py-0.5 bg-yellow-500/10 text-yellow-400 text-xs rounded">Multi-hop QA</span>
+                            </div>
+                        </div>
+                        <div class="flex-shrink-0 flex gap-2">
+                            <a href="https://arxiv.org/abs/2601.09465" target="_blank" class="inline-flex items-center gap-2 px-4 py-2 bg-white/5 hover:bg-white/10 rounded-lg text-sm text-white transition-colors">
+                                <i class="fas fa-external-link-alt"></i> arXiv
+                            </a>
+                            <a href="https://huggingface.co/papers/2601.09465" target="_blank" class="inline-flex items-center gap-2 px-4 py-2 bg-white/5 hover:bg-white/10 rounded-lg text-sm text-white transition-colors">
+                                <i class="fas fa-fire"></i> HF
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FinVault -->
+                <div class="pub-item glass-card p-5 rounded-xl hover:bg-white/5 transition-all" data-year="2026" data-tags="safety" data-aos="fade-up">
+                    <div class="flex flex-col md:flex-row md:items-center gap-4">
+                        <div class="flex-shrink-0">
+                            <span class="inline-block px-3 py-1 bg-cyan-500/10 text-cyan-400 text-xs font-bold rounded-full border border-cyan-500/20">2026</span>
+                        </div>
+                        <div class="flex-1">
+                            <h4 class="text-lg font-semibold text-white mb-2 hover:text-brand-blue transition-colors">
+                                <a href="https://arxiv.org/abs/2601.07853" target="_blank">FinVault: Benchmarking Financial Agent Safety in Execution-Grounded Environments</a>
+                            </h4>
+                            <div class="flex flex-wrap gap-1 mb-2">
+                                <span class="px-2 py-0.5 bg-red-500/10 text-red-400 text-xs rounded">Agent Safety</span>
+                                <span class="px-2 py-0.5 bg-orange-500/10 text-orange-400 text-xs rounded">Financial Security</span>
+                                <span class="px-2 py-0.5 bg-yellow-500/10 text-yellow-400 text-xs rounded">Regulatory Compliance</span>
+                            </div>
+                        </div>
+                        <div class="flex-shrink-0 flex gap-2">
+                            <a href="https://arxiv.org/abs/2601.07853" target="_blank" class="inline-flex items-center gap-2 px-4 py-2 bg-white/5 hover:bg-white/10 rounded-lg text-sm text-white transition-colors">
+                                <i class="fas fa-external-link-alt"></i> arXiv
+                            </a>
+                            <a href="https://huggingface.co/papers/2601.07853" target="_blank" class="inline-flex items-center gap-2 px-4 py-2 bg-white/5 hover:bg-white/10 rounded-lg text-sm text-white transition-colors">
+                                <i class="fas fa-fire"></i> HF
+                            </a>
+                            <a href="https://github.com/aifinlab/FinVault" target="_blank" class="inline-flex items-center gap-2 px-4 py-2 bg-white/5 hover:bg-white/10 rounded-lg text-sm text-white transition-colors">
+                                <i class="fab fa-github"></i> Code
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Does Memory Need Graphs? -->
+                <div class="pub-item glass-card p-5 rounded-xl hover:bg-white/5 transition-all" data-year="2026" data-tags="memory" data-aos="fade-up">
+                    <div class="flex flex-col md:flex-row md:items-center gap-4">
+                        <div class="flex-shrink-0">
+                            <span class="inline-block px-3 py-1 bg-green-500/10 text-green-400 text-xs font-bold rounded-full border border-green-500/20">ACL 2026</span>
+                        </div>
+                        <div class="flex-1">
+                            <h4 class="text-lg font-semibold text-white mb-2 hover:text-brand-blue transition-colors">
+                                <a href="https://arxiv.org/abs/2601.01280" target="_blank">Does Memory Need Graphs? A Unified Framework and Empirical Analysis for Long-Term Dialog Memory</a>
+                            </h4>
+                            <div class="flex flex-wrap gap-1 mb-2">
+                                <span class="px-2 py-0.5 bg-pink-500/10 text-pink-400 text-xs rounded">Agent Memory</span>
+                                <span class="px-2 py-0.5 bg-purple-500/10 text-purple-400 text-xs rounded">Graph Structure</span>
+                                <span class="px-2 py-0.5 bg-blue-500/10 text-blue-400 text-xs rounded">Dialog Memory</span>
+                            </div>
+                        </div>
+                        <div class="flex-shrink-0 flex gap-2">
+                            <a href="https://arxiv.org/abs/2601.01280" target="_blank" class="inline-flex items-center gap-2 px-4 py-2 bg-white/5 hover:bg-white/10 rounded-lg text-sm text-white transition-colors">
+                                <i class="fas fa-file-alt"></i> Paper
+                            </a>
+                            <a href="https://huggingface.co/papers/2601.01280" target="_blank" class="inline-flex items-center gap-2 px-4 py-2 bg-white/5 hover:bg-white/10 rounded-lg text-sm text-white transition-colors">
+                                <i class="fas fa-fire"></i> HF
+                            </a>
+                            <a href="https://github.com/AvatarMemory/UnifiedMem" target="_blank" class="inline-flex items-center gap-2 px-4 py-2 bg-white/5 hover:bg-white/10 rounded-lg text-sm text-white transition-colors">
+                                <i class="fab fa-github"></i> Code
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CloneMem -->
+                <div class="pub-item glass-card p-5 rounded-xl hover:bg-white/5 transition-all" data-year="2026" data-tags="memory" data-aos="fade-up">
+                    <div class="flex flex-col md:flex-row md:items-center gap-4">
+                        <div class="flex-shrink-0">
+                            <span class="inline-block px-3 py-1 bg-green-500/10 text-green-400 text-xs font-bold rounded-full border border-green-500/20">ACL 2026</span>
+                        </div>
+                        <div class="flex-1">
+                            <h4 class="text-lg font-semibold text-white mb-2 hover:text-brand-blue transition-colors">
+                                <a href="https://arxiv.org/abs/2601.07023" target="_blank">CloneMem: Benchmarking Long-Term Memory for AI Clones</a>
+                            </h4>
+                            <div class="flex flex-wrap gap-1 mb-2">
+                                <span class="px-2 py-0.5 bg-pink-500/10 text-pink-400 text-xs rounded">Agent Memory</span>
+                                <span class="px-2 py-0.5 bg-purple-500/10 text-purple-400 text-xs rounded">AI Clone</span>
+                                <span class="px-2 py-0.5 bg-blue-500/10 text-blue-400 text-xs rounded">Temporal Reasoning</span>
+                            </div>
+                        </div>
+                        <div class="flex-shrink-0 flex gap-2">
+                            <a href="https://arxiv.org/abs/2601.07023" target="_blank" class="inline-flex items-center gap-2 px-4 py-2 bg-white/5 hover:bg-white/10 rounded-lg text-sm text-white transition-colors">
+                                <i class="fas fa-file-alt"></i> Paper
+                            </a>
+                            <a href="https://huggingface.co/papers/2601.07023" target="_blank" class="inline-flex items-center gap-2 px-4 py-2 bg-white/5 hover:bg-white/10 rounded-lg text-sm text-white transition-colors">
+                                <i class="fas fa-fire"></i> HF
+                            </a>
+                            <a href="https://github.com/AvatarMemory/CloneMemBench" target="_blank" class="inline-flex items-center gap-2 px-4 py-2 bg-white/5 hover:bg-white/10 rounded-lg text-sm text-white transition-colors">
+                                <i class="fab fa-github"></i> Code
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- RealMem -->
+                <div class="pub-item glass-card p-5 rounded-xl hover:bg-white/5 transition-all" data-year="2026" data-tags="memory" data-aos="fade-up">
+                    <div class="flex flex-col md:flex-row md:items-center gap-4">
+                        <div class="flex-shrink-0">
+                            <span class="inline-block px-3 py-1 bg-green-500/10 text-green-400 text-xs font-bold rounded-full border border-green-500/20">ACL 2026</span>
+                        </div>
+                        <div class="flex-1">
+                            <h4 class="text-lg font-semibold text-white mb-2 hover:text-brand-blue transition-colors">
+                                <a href="https://arxiv.org/abs/2601.06966" target="_blank">RealMem: Benchmarking LLMs in Real-World Memory-Driven Interaction</a>
+                            </h4>
+                            <div class="flex flex-wrap gap-1 mb-2">
+                                <span class="px-2 py-0.5 bg-pink-500/10 text-pink-400 text-xs rounded">Agent Memory</span>
+                                <span class="px-2 py-0.5 bg-purple-500/10 text-purple-400 text-xs rounded">Cross-session Dialog</span>
+                                <span class="px-2 py-0.5 bg-blue-500/10 text-blue-400 text-xs rounded">Real-world Interaction</span>
+                            </div>
+                        </div>
+                        <div class="flex-shrink-0 flex gap-2">
+                            <a href="https://arxiv.org/abs/2601.06966" target="_blank" class="inline-flex items-center gap-2 px-4 py-2 bg-white/5 hover:bg-white/10 rounded-lg text-sm text-white transition-colors">
+                                <i class="fas fa-file-alt"></i> Paper
+                            </a>
+                            <a href="https://huggingface.co/papers/2601.06966" target="_blank" class="inline-flex items-center gap-2 px-4 py-2 bg-white/5 hover:bg-white/10 rounded-lg text-sm text-white transition-colors">
+                                <i class="fas fa-fire"></i> HF
+                            </a>
+                            <a href="https://github.com/AvatarMemory/RealMemBench" target="_blank" class="inline-flex items-center gap-2 px-4 py-2 bg-white/5 hover:bg-white/10 rounded-lg text-sm text-white transition-colors">
+                                <i class="fab fa-github"></i> Code
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- DR-LoRA -->
+                <div class="pub-item glass-card p-5 rounded-xl hover:bg-white/5 transition-all" data-year="2026" data-tags="training" data-aos="fade-up">
+                    <div class="flex flex-col md:flex-row md:items-center gap-4">
+                        <div class="flex-shrink-0">
+                            <span class="inline-block px-3 py-1 bg-cyan-500/10 text-cyan-400 text-xs font-bold rounded-full border border-cyan-500/20">2026</span>
+                        </div>
+                        <div class="flex-1">
+                            <h4 class="text-lg font-semibold text-white mb-2 hover:text-brand-blue transition-colors">
+                                <a href="https://arxiv.org/abs/2601.04823" target="_blank">DR-LoRA: Dynamic Rank LoRA for Mixture-of-Experts Adaptation</a>
+                            </h4>
+                            <div class="flex flex-wrap gap-1 mb-2">
+                                <span class="px-2 py-0.5 bg-orange-500/10 text-orange-400 text-xs rounded">LoRA</span>
+                                <span class="px-2 py-0.5 bg-purple-500/10 text-purple-400 text-xs rounded">MoE</span>
+                                <span class="px-2 py-0.5 bg-blue-500/10 text-blue-400 text-xs rounded">Dynamic Rank</span>
+                                <span class="px-2 py-0.5 bg-green-500/10 text-green-400 text-xs rounded">PEFT</span>
+                            </div>
+                        </div>
+                        <div class="flex-shrink-0 flex gap-2">
+                            <a href="https://arxiv.org/abs/2601.04823" target="_blank" class="inline-flex items-center gap-2 px-4 py-2 bg-white/5 hover:bg-white/10 rounded-lg text-sm text-white transition-colors">
+                                <i class="fas fa-external-link-alt"></i> arXiv
+                            </a>
+                            <a href="https://huggingface.co/papers/2601.04823" target="_blank" class="inline-flex items-center gap-2 px-4 py-2 bg-white/5 hover:bg-white/10 rounded-lg text-sm text-white transition-colors">
+                                <i class="fas fa-fire"></i> HF
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- MirrorQA -->
+                <div class="pub-item glass-card p-5 rounded-xl hover:bg-white/5 transition-all" data-year="2026" data-tags="reasoning" data-aos="fade-up">
+                    <div class="flex flex-col md:flex-row md:items-center gap-4">
+                        <div class="flex-shrink-0">
+                            <span class="inline-block px-3 py-1 bg-green-500/10 text-green-400 text-xs font-bold rounded-full border border-green-500/20">ACL 2026</span>
+                        </div>
+                        <div class="flex-1">
+                            <h4 class="text-lg font-semibold text-white mb-2 hover:text-brand-blue transition-colors">
+                                MirrorQA: Benchmarking Multimodal LLMs on Mirror-Orientation Reasoning
+                            </h4>
+                            <div class="flex flex-wrap gap-1 mb-2">
+                                <span class="px-2 py-0.5 bg-purple-500/10 text-purple-400 text-xs rounded">Multimodal LLM</span>
+                                <span class="px-2 py-0.5 bg-blue-500/10 text-blue-400 text-xs rounded">Mirror Reasoning</span>
+                                <span class="px-2 py-0.5 bg-green-500/10 text-green-400 text-xs rounded">Benchmark</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tiny Scales -->
+                <div class="pub-item glass-card p-5 rounded-xl hover:bg-white/5 transition-all" data-year="2026" data-tags="reasoning" data-aos="fade-up">
+                    <div class="flex flex-col md:flex-row md:items-center gap-4">
+                        <div class="flex-shrink-0">
+                            <span class="inline-block px-3 py-1 bg-green-500/10 text-green-400 text-xs font-bold rounded-full border border-green-500/20">ACL 2026</span>
+                        </div>
+                        <div class="flex-1">
+                            <h4 class="text-lg font-semibold text-white mb-2 hover:text-brand-blue transition-colors">
+                                Tiny Scales, Great Challenges: The Limits of Multimodal LLMs in Scale Recognition
+                            </h4>
+                            <div class="flex flex-wrap gap-1 mb-2">
+                                <span class="px-2 py-0.5 bg-purple-500/10 text-purple-400 text-xs rounded">Multimodal LLM</span>
+                                <span class="px-2 py-0.5 bg-blue-500/10 text-blue-400 text-xs rounded">Scale Recognition</span>
+                                <span class="px-2 py-0.5 bg-green-500/10 text-green-400 text-xs rounded">Benchmark</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SafetyMem -->
+                <div class="pub-item glass-card p-5 rounded-xl hover:bg-white/5 transition-all" data-year="2026" data-tags="safety,memory" data-aos="fade-up">
+                    <div class="flex flex-col md:flex-row md:items-center gap-4">
+                        <div class="flex-shrink-0">
+                            <span class="inline-block px-3 py-1 bg-green-500/10 text-green-400 text-xs font-bold rounded-full border border-green-500/20">ACL 2026</span>
+                        </div>
+                        <div class="flex-1">
+                            <h4 class="text-lg font-semibold text-white mb-2 hover:text-brand-blue transition-colors">
+                                SafetyMem: Adaptive Jailbreak Defense via Dual-Component Safety Memory
+                            </h4>
+                            <div class="flex flex-wrap gap-1 mb-2">
+                                <span class="px-2 py-0.5 bg-red-500/10 text-red-400 text-xs rounded">Jailbreak Defense</span>
+                                <span class="px-2 py-0.5 bg-purple-500/10 text-purple-400 text-xs rounded">Safety Memory</span>
+                                <span class="px-2 py-0.5 bg-blue-500/10 text-blue-400 text-xs rounded">LLM Safety</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Uni-NTFM -->
+                <div class="pub-item glass-card p-5 rounded-xl hover:bg-white/5 transition-all" data-year="2026" data-tags="" data-aos="fade-up">
+                    <div class="flex flex-col md:flex-row md:items-center gap-4">
+                        <div class="flex-shrink-0">
+                            <span class="inline-block px-3 py-1 bg-green-500/10 text-green-400 text-xs font-bold rounded-full border border-green-500/20">ICLR 2026</span>
+                        </div>
+                        <div class="flex-1">
+                            <h4 class="text-lg font-semibold text-white mb-2 hover:text-brand-blue transition-colors">
+                                <a href="https://arxiv.org/abs/2509.24222" target="_blank">Uni-NTFM: A Unified Foundation Model for EEG Signal Representation Learning</a>
+                            </h4>
+                            <div class="flex flex-wrap gap-1 mb-2">
+                                <span class="px-2 py-0.5 bg-purple-500/10 text-purple-400 text-xs rounded">Foundation Model</span>
+                                <span class="px-2 py-0.5 bg-blue-500/10 text-blue-400 text-xs rounded">EEG Signal</span>
+                                <span class="px-2 py-0.5 bg-green-500/10 text-green-400 text-xs rounded">Poster</span>
+                            </div>
+                        </div>
+                        <div class="flex-shrink-0">
+                            <a href="https://arxiv.org/abs/2509.24222" target="_blank" class="inline-flex items-center gap-2 px-4 py-2 bg-white/5 hover:bg-white/10 rounded-lg text-sm text-white transition-colors">
+                                <i class="fas fa-file-alt"></i> Paper
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- LiveCANNBench -->
+                <div class="pub-item glass-card p-5 rounded-xl hover:bg-white/5 transition-all" data-year="2026" data-tags="codeagent" data-aos="fade-up">
+                    <div class="flex flex-col md:flex-row md:items-center gap-4">
+                        <div class="flex-shrink-0">
+                            <span class="inline-block px-3 py-1 bg-green-500/10 text-green-400 text-xs font-bold rounded-full border border-green-500/20">ACL 2026</span>
+                        </div>
+                        <div class="flex-1">
+                            <h4 class="text-lg font-semibold text-white mb-2 hover:text-brand-blue transition-colors">
+                                LiveCANNBench: Benchmark SWE AI Coding for Ascend CANN
+                            </h4>
+                            <div class="flex flex-wrap gap-1 mb-2">
+                                <span class="px-2 py-0.5 bg-blue-500/10 text-blue-400 text-xs rounded">SWE AI Coding</span>
+                                <span class="px-2 py-0.5 bg-purple-500/10 text-purple-400 text-xs rounded">Benchmark</span>
+                                <span class="px-2 py-0.5 bg-orange-500/10 text-orange-400 text-xs rounded">Ascend CANN</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sema Code -->
+                <div class="pub-item glass-card p-5 rounded-xl hover:bg-white/5 transition-all" data-year="2026" data-tags="codeagent" data-aos="fade-up">
+                    <div class="flex flex-col md:flex-row md:items-center gap-4">
+                        <div class="flex-shrink-0">
+                            <span class="inline-block px-3 py-1 bg-cyan-500/10 text-cyan-400 text-xs font-bold rounded-full border border-cyan-500/20">2026</span>
+                        </div>
+                        <div class="flex-1">
+                            <h4 class="text-lg font-semibold text-white mb-2 hover:text-brand-blue transition-colors">
+                                <a href="https://arxiv.org/abs/2604.11045" target="_blank">Sema Code: Decoupling AI Coding Agents into Programmable, Embeddable Infrastructure</a>
+                            </h4>
+                            <div class="flex flex-wrap gap-1 mb-2">
+                                <span class="px-2 py-0.5 bg-blue-500/10 text-blue-400 text-xs rounded">CodeAgent</span>
+                                <span class="px-2 py-0.5 bg-purple-500/10 text-purple-400 text-xs rounded">Agent Infrastructure</span>
+                                <span class="px-2 py-0.5 bg-green-500/10 text-green-400 text-xs rounded">Embeddable</span>
+                            </div>
+                        </div>
+                        <div class="flex-shrink-0 flex gap-2">
+                            <a href="https://arxiv.org/abs/2604.11045" target="_blank" class="inline-flex items-center gap-2 px-4 py-2 bg-white/5 hover:bg-white/10 rounded-lg text-sm text-white transition-colors">
+                                <i class="fas fa-file-alt"></i> Paper
+                            </a>
+                            <a href="https://huggingface.co/papers/2604.11045" target="_blank" class="inline-flex items-center gap-2 px-4 py-2 bg-white/5 hover:bg-white/10 rounded-lg text-sm text-white transition-colors">
+                                <i class="fas fa-fire"></i> HF
+                            </a>
+                            <a href="https://github.com/midea-ai/sema-code-core" target="_blank" class="inline-flex items-center gap-2 px-4 py-2 bg-white/5 hover:bg-white/10 rounded-lg text-sm text-white transition-colors">
+                                <i class="fab fa-github"></i> Code
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SemaClaw -->
+                <div class="pub-item glass-card p-5 rounded-xl hover:bg-white/5 transition-all" data-year="2026" data-tags="" data-aos="fade-up">
+                    <div class="flex flex-col md:flex-row md:items-center gap-4">
+                        <div class="flex-shrink-0">
+                            <span class="inline-block px-3 py-1 bg-cyan-500/10 text-cyan-400 text-xs font-bold rounded-full border border-cyan-500/20">2026</span>
+                        </div>
+                        <div class="flex-1">
+                            <h4 class="text-lg font-semibold text-white mb-2 hover:text-brand-blue transition-colors">
+                                <a href="https://arxiv.org/abs/2604.11548" target="_blank">SemaClaw: A Step Towards General-Purpose Personal AI Agents Through Harness Engineering</a>
+                            </h4>
+                            <div class="flex flex-wrap gap-1 mb-2">
+                                <span class="px-2 py-0.5 bg-purple-500/10 text-purple-400 text-xs rounded">Personal AI Agent</span>
+                                <span class="px-2 py-0.5 bg-blue-500/10 text-blue-400 text-xs rounded">Harness Engineering</span>
+                                <span class="px-2 py-0.5 bg-green-500/10 text-green-400 text-xs rounded">General Purpose</span>
+                            </div>
+                        </div>
+                        <div class="flex-shrink-0 flex gap-2">
+                            <a href="https://arxiv.org/abs/2604.11548" target="_blank" class="inline-flex items-center gap-2 px-4 py-2 bg-white/5 hover:bg-white/10 rounded-lg text-sm text-white transition-colors">
+                                <i class="fas fa-file-alt"></i> Paper
+                            </a>
+                            <a href="https://huggingface.co/papers/2604.11548" target="_blank" class="inline-flex items-center gap-2 px-4 py-2 bg-white/5 hover:bg-white/10 rounded-lg text-sm text-white transition-colors">
+                                <i class="fas fa-fire"></i> HF
+                            </a>
+                            <a href="https://github.com/midea-ai/SemaClaw" target="_blank" class="inline-flex items-center gap-2 px-4 py-2 bg-white/5 hover:bg-white/10 rounded-lg text-sm text-white transition-colors">
+                                <i class="fab fa-github"></i> Code
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 2025 Papers -->
+                <!-- Octopus -->
+                <div class="pub-item glass-card p-5 rounded-xl hover:bg-white/5 transition-all" data-year="2025" data-tags="reasoning" data-aos="fade-up">
+                    <div class="flex flex-col md:flex-row md:items-center gap-4">
+                        <div class="flex-shrink-0">
+                            <span class="inline-block px-3 py-1 bg-yellow-500/10 text-yellow-400 text-xs font-bold rounded-full border border-yellow-500/20">2025</span>
+                        </div>
+                        <div class="flex-1">
+                            <h4 class="text-lg font-semibold text-white mb-2 hover:text-brand-blue transition-colors">
+                                <a href="#" target="_blank">🐙 Octopus: Agentic Multimodal Reasoning with Six-Capability Orchestration</a>
+                            </h4>
+                            <div class="flex flex-wrap gap-1 mb-2">
+                                <span class="px-2 py-0.5 bg-purple-500/10 text-purple-400 text-xs rounded">Multimodal Reasoning</span>
+                                <span class="px-2 py-0.5 bg-blue-500/10 text-blue-400 text-xs rounded">Agentic Framework</span>
+                                <span class="px-2 py-0.5 bg-yellow-500/10 text-yellow-400 text-xs rounded">arXiv Preprint</span>
+                            </div>
+                        </div>
+                        <div class="flex-shrink-0">
+                            <a href="#" class="inline-flex items-center gap-2 px-4 py-2 bg-white/5 hover:bg-white/10 rounded-lg text-sm text-white transition-colors">
+                                <i class="fas fa-external-link-alt"></i> Paper
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SE-Agent -->
+                <div class="pub-item glass-card p-5 rounded-xl hover:bg-white/5 transition-all" data-year="2025" data-tags="self-evolving,codeagent" data-aos="fade-up">
+                    <div class="flex flex-col md:flex-row md:items-center gap-4">
+                        <div class="flex-shrink-0">
+                            <span class="inline-block px-3 py-1 bg-pink-500/10 text-pink-400 text-xs font-bold rounded-full border border-pink-500/20">NeurIPS 2025</span>
+                        </div>
+                        <div class="flex-1">
+                            <h4 class="text-lg font-semibold text-white mb-2 hover:text-brand-blue transition-colors">
+                                <a href="https://arxiv.org/pdf/2508.02085" target="_blank">🧠 SE-Agent: Self-Evolution Trajectory Optimization in Multi-Step Reasoning</a>
+                            </h4>
+                            <div class="flex flex-wrap gap-1 mb-2">
+                                <span class="px-2 py-0.5 bg-green-500/10 text-green-400 text-xs rounded">Self-Evolution</span>
+                                <span class="px-2 py-0.5 bg-blue-500/10 text-blue-400 text-xs rounded">Trajectory Optimization</span>
+                                <span class="px-2 py-0.5 bg-pink-500/10 text-pink-400 text-xs rounded">Poster</span>
+                            </div>
+                        </div>
+                        <div class="flex-shrink-0 flex gap-2">
+                            <a href="https://arxiv.org/pdf/2508.02085" target="_blank" class="inline-flex items-center gap-2 px-4 py-2 bg-white/5 hover:bg-white/10 rounded-lg text-sm text-white transition-colors">
+                                <i class="fas fa-file-alt"></i> Paper
+                            </a>
+                            <a href="https://huggingface.co/papers/2508.02085" target="_blank" class="inline-flex items-center gap-2 px-4 py-2 bg-white/5 hover:bg-white/10 rounded-lg text-sm text-white transition-colors">
+                                <i class="fas fa-fire"></i> HF
+                            </a>
+                            <a href="https://github.com/JARVIS-Xs/SE-Agent" target="_blank" class="inline-flex items-center gap-2 px-4 py-2 bg-white/5 hover:bg-white/10 rounded-lg text-sm text-white transition-colors">
+                                <i class="fab fa-github"></i> Code
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- GitTaskBench -->
+                <div class="pub-item glass-card p-5 rounded-xl hover:bg-white/5 transition-all" data-year="2025" data-tags="codeagent" data-aos="fade-up">
+                    <div class="flex flex-col md:flex-row md:items-center gap-4">
+                        <div class="flex-shrink-0">
+                            <span class="inline-block px-3 py-1 bg-green-500/10 text-green-400 text-xs font-bold rounded-full border border-green-500/20">AAAI 2026 Oral</span>
+                        </div>
+                        <div class="flex-1">
+                            <h4 class="text-lg font-semibold text-white mb-2 hover:text-brand-blue transition-colors">
+                                <a href="https://arxiv.org/abs/2508.18993" target="_blank">🧩 GitTaskBench: A Benchmark for Code Agents Solving Real-World Tasks</a>
+                            </h4>
+                            <div class="flex flex-wrap gap-1 mb-2">
+                                <span class="px-2 py-0.5 bg-blue-500/10 text-blue-400 text-xs rounded">CodeAgent</span>
+                                <span class="px-2 py-0.5 bg-purple-500/10 text-purple-400 text-xs rounded">Benchmark</span>
+                                <span class="px-2 py-0.5 bg-green-500/10 text-green-400 text-xs rounded">Oral</span>
+                            </div>
+                        </div>
+                        <div class="flex-shrink-0 flex gap-2">
+                            <a href="https://arxiv.org/abs/2508.18993" target="_blank" class="inline-flex items-center gap-2 px-4 py-2 bg-white/5 hover:bg-white/10 rounded-lg text-sm text-white transition-colors">
+                                <i class="fas fa-file-alt"></i> Paper
+                            </a>
+                            <a href="https://huggingface.co/papers/2508.18993" target="_blank" class="inline-flex items-center gap-2 px-4 py-2 bg-white/5 hover:bg-white/10 rounded-lg text-sm text-white transition-colors">
+                                <i class="fas fa-fire"></i> HF
+                            </a>
+                            <a href="https://github.com/QuantaAlpha/GitTaskBench" target="_blank" class="inline-flex items-center gap-2 px-4 py-2 bg-white/5 hover:bg-white/10 rounded-lg text-sm text-white transition-colors">
+                                <i class="fab fa-github"></i> Code
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ALRPHFS -->
+                <div class="pub-item glass-card p-5 rounded-xl hover:bg-white/5 transition-all" data-year="2025" data-tags="safety" data-aos="fade-up">
+                    <div class="flex flex-col md:flex-row md:items-center gap-4">
+                        <div class="flex-shrink-0">
+                            <span class="inline-block px-3 py-1 bg-pink-500/10 text-pink-400 text-xs font-bold rounded-full border border-pink-500/20">EMNLP 2025 Findings</span>
+                        </div>
+                        <div class="flex-1">
+                            <h4 class="text-lg font-semibold text-white mb-2 hover:text-brand-blue transition-colors">
+                                <a href="https://aclanthology.org/2025.findings-acl.760.pdf" target="_blank">ALRPHFS: Adversarially Learned Risk Patterns with Hierarchical Fast&Slow Reasoning for Robust Agent Defense</a>
+                            </h4>
+                            <div class="flex flex-wrap gap-1 mb-2">
+                                <span class="px-2 py-0.5 bg-blue-500/10 text-blue-400 text-xs rounded">Agent Safety</span>
+                                <span class="px-2 py-0.5 bg-purple-500/10 text-purple-400 text-xs rounded">Self-learning</span>
+                                <span class="px-2 py-0.5 bg-pink-500/10 text-pink-400 text-xs rounded">Hierarchical Reasoning</span>
+                            </div>
+                        </div>
+                        <div class="flex-shrink-0 flex gap-2">
+                            <a href="https://arxiv.org/pdf/2505.19260" target="_blank" class="inline-flex items-center gap-2 px-4 py-2 bg-white/5 hover:bg-white/10 rounded-lg text-sm text-white transition-colors">
+                                <i class="fas fa-file-alt"></i> Paper
+                            </a>
+                            <a href="https://github.com/ShiyuXiang77/ALRPHFS" target="_blank" class="inline-flex items-center gap-2 px-4 py-2 bg-white/5 hover:bg-white/10 rounded-lg text-sm text-white transition-colors">
+                                <i class="fab fa-github"></i> Code
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- RepoMaster -->
+                <div class="pub-item glass-card p-5 rounded-xl hover:bg-white/5 transition-all" data-year="2025" data-tags="codeagent" data-aos="fade-up">
+                    <div class="flex flex-col md:flex-row md:items-center gap-4">
+                        <div class="flex-shrink-0">
+                            <span class="inline-block px-3 py-1 bg-pink-500/10 text-pink-400 text-xs font-bold rounded-full border border-pink-500/20">NeurIPS 2025 Spotlight</span>
+                        </div>
+                        <div class="flex-1">
+                            <h4 class="text-lg font-semibold text-white mb-2 hover:text-brand-blue transition-colors">
+                                <a href="https://arxiv.org/pdf/2505.21577" target="_blank">🔍 RepoMaster: Autonomous Exploration and Understanding of GitHub Repositories</a>
+                            </h4>
+                            <div class="flex flex-wrap gap-1 mb-2">
+                                <span class="px-2 py-0.5 bg-blue-500/10 text-blue-400 text-xs rounded">CodeAgent</span>
+                                <span class="px-2 py-0.5 bg-purple-500/10 text-purple-400 text-xs rounded">Repository Understanding</span>
+                                <span class="px-2 py-0.5 bg-pink-500/10 text-pink-400 text-xs rounded">Spotlight</span>
+                            </div>
+                        </div>
+                        <div class="flex-shrink-0 flex gap-2">
+                            <a href="https://arxiv.org/pdf/2505.21577" target="_blank" class="inline-flex items-center gap-2 px-4 py-2 bg-white/5 hover:bg-white/10 rounded-lg text-sm text-white transition-colors">
+                                <i class="fas fa-file-alt"></i> Paper
+                            </a>
+                            <a href="https://huggingface.co/papers/2505.21577" target="_blank" class="inline-flex items-center gap-2 px-4 py-2 bg-white/5 hover:bg-white/10 rounded-lg text-sm text-white transition-colors">
+                                <i class="fas fa-fire"></i> HF
+                            </a>
+                            <a href="https://github.com/QuantaAlpha/RepoMaster" target="_blank" class="inline-flex items-center gap-2 px-4 py-2 bg-white/5 hover:bg-white/10 rounded-lg text-sm text-white transition-colors">
+                                <i class="fab fa-github"></i> Code
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- EDDF -->
+                <div class="pub-item glass-card p-5 rounded-xl hover:bg-white/5 transition-all" data-year="2025" data-tags="safety" data-aos="fade-up">
+                    <div class="flex flex-col md:flex-row md:items-center gap-4">
+                        <div class="flex-shrink-0">
+                            <span class="inline-block px-3 py-1 bg-pink-500/10 text-pink-400 text-xs font-bold rounded-full border border-pink-500/20">ACL 2025 Findings</span>
+                        </div>
+                        <div class="flex-1">
+                            <h4 class="text-lg font-semibold text-white mb-2 hover:text-brand-blue transition-colors">
+                                <a href="https://aclanthology.org/2025.findings-acl.760.pdf" target="_blank">Beyond Surface-Level Patterns: An Essence-Driven Defense Framework Against Jailbreak Attacks in LLMs</a>
+                            </h4>
+                            <div class="flex flex-wrap gap-1 mb-2">
+                                <span class="px-2 py-0.5 bg-blue-500/10 text-blue-400 text-xs rounded">LLM Safety</span>
+                                <span class="px-2 py-0.5 bg-purple-500/10 text-purple-400 text-xs rounded">Essence Driven Defense</span>
+                                <span class="px-2 py-0.5 bg-pink-500/10 text-pink-400 text-xs rounded">Jailbreak</span>
+                            </div>
+                        </div>
+                        <div class="flex-shrink-0 flex gap-2">
+                            <a href="https://aclanthology.org/2025.findings-acl.760.pdf7" target="_blank" class="inline-flex items-center gap-2 px-4 py-2 bg-white/5 hover:bg-white/10 rounded-lg text-sm text-white transition-colors">
+                                <i class="fas fa-file-alt"></i> Paper
+                            </a>
+                            <a href="https://github.com/ShiyuXiang77/EDDF" target="_blank" class="inline-flex items-center gap-2 px-4 py-2 bg-white/5 hover:bg-white/10 rounded-lg text-sm text-white transition-colors">
+                                <i class="fab fa-github"></i> Code
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ShieldLearner -->
+                <div class="pub-item glass-card p-5 rounded-xl hover:bg-white/5 transition-all" data-year="2025" data-tags="safety" data-aos="fade-up">
+                    <div class="flex flex-col md:flex-row md:items-center gap-4">
+                        <div class="flex-shrink-0">
+                            <span class="inline-block px-3 py-1 bg-pink-500/10 text-pink-400 text-xs font-bold rounded-full border border-pink-500/20">2025</span>
+                        </div>
+                        <div class="flex-1">
+                            <h4 class="text-lg font-semibold text-white mb-2 hover:text-brand-blue transition-colors">
+                                <a href="https://arxiv.org/abs/2502.13162" target="_blank">ShieldLearner: A New Paradigm for Jailbreak Attack Defense in LLMs
+                                </a>
+                            </h4>
+                            <div class="flex flex-wrap gap-1 mb-2">
+                                <span class="px-2 py-0.5 bg-blue-500/10 text-blue-400 text-xs rounded">LLM Safety</span>
+                                <span class="px-2 py-0.5 bg-purple-500/10 text-purple-400 text-xs rounded">Self-learning</span>
+                                <span class="px-2 py-0.5 bg-pink-500/10 text-pink-400 text-xs rounded">Jailbreak</span>
+                            </div>
+                        </div>
+                        <div class="flex-shrink-0 flex gap-2">
+                            <a href="https://arxiv.org/abs/2502.13162" target="_blank" class="inline-flex items-center gap-2 px-4 py-2 bg-white/5 hover:bg-white/10 rounded-lg text-sm text-white transition-colors">
+                                <i class="fas fa-file-alt"></i> Paper
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Back to Top Button -->
+    <button id="back-to-top" class="fixed bottom-8 right-8 w-12 h-12 bg-brand-blue/20 hover:bg-brand-blue/40 backdrop-blur-sm rounded-full flex items-center justify-center text-white transition-all shadow-lg border border-brand-blue/30 opacity-0 invisible z-50" aria-label="Back to top">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <!-- Footer -->
+    <footer class="border-t border-white/5 bg-slate-950 py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-6">
+            <div class="flex items-center gap-3">
+                <img src="images/logo.png" alt="Logo" class="h-8 w-8 opacity-80 grayscale hover:grayscale-0 transition-all">
+                <span class="text-slate-400 text-sm">© 2025-2026 QuantaAlpha Research.</span>
+            </div>
+            
+            <div class="flex gap-6">
+                <a href="#" class="text-slate-500 hover:text-white transition-colors"><i class="fab fa-github text-xl"></i></a>
+                <a href="#" class="text-slate-500 hover:text-white transition-colors"><i class="fab fa-twitter text-xl"></i></a>
+                <a href="#" class="text-slate-500 hover:text-white transition-colors"><i class="fab fa-linkedin text-xl"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>

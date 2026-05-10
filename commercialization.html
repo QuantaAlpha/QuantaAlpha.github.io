@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <!-- Google analytics tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-STGLQW4BJX"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-STGLQW4BJX');
+    </script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Commercialization - QuantaAlpha</title>
+    <meta name="description" content="Commercialization projects from QuantaAlpha research across AI investment, agent infrastructure, and research automation.">
+    <meta name="keywords" content="AI Agent, CodeAgent, LLM, Deep Research, Self-Evolving, NeurIPS, AAAI, Machine Learning, Autonomous Intelligence">
+    
+    <!-- Open Graph / Social Media -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="QuantaAlpha - AI Agent Research Team">
+    <meta property="og:description" content="Elite AI Agent research team building the future of Autonomous Intelligence. 30+ publications at NeurIPS, AAAI, ACL, EMNLP.">
+    <meta property="og:image" content="images/logo.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="QuantaAlpha - AI Agent Research Team">
+    <meta name="twitter:description" content="Elite AI Agent research team building the future of Autonomous Intelligence.">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/jpeg" href="images/logo.png">
+    <link rel="shortcut icon" type="image/jpeg" href="images/logo.png">
+    <link rel="apple-touch-icon" href="images/logo.png">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        slate: {
+                            950: '#020617', // Deepest background
+                        },
+                        brand: {
+                            blue: '#38bdf8',
+                            violet: '#818cf8',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- AOS Animation -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body class="mesh-bg min-h-screen selection:bg-brand-blue selection:text-white">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 top-0 glass border-b border-white/5">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-4">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo -->
+                <div class="flex-shrink-0 flex items-center gap-3 cursor-pointer" onclick="window.location.href='index.html'">
+                    <img class="h-10 w-10 rounded-lg shadow-lg shadow-brand-blue/20" src="images/logo.png" alt="QuantaAlpha">
+                    <span class="font-bold text-xl tracking-tight text-white">QuantaAlpha</span>
+                </div>
+                
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex space-x-8 items-center">
+                    <a href="index.html#research" class="text-sm font-medium text-slate-300 hover:text-white transition-colors">Research</a>
+                    <a href="publications.html" class="text-sm font-medium text-slate-300 hover:text-white transition-colors">Publications</a>
+                    <a href="commercialization.html" class="text-sm font-medium text-slate-300 hover:text-white transition-colors">Commercialization</a>
+                    <a href="media.html" class="text-sm font-medium text-slate-300 hover:text-white transition-colors">Media</a>
+                    <a href="people.html" class="text-sm font-medium text-slate-300 hover:text-white transition-colors">People</a>
+                    <a href="people.html#community" class="text-sm font-medium text-slate-300 hover:text-white transition-colors">Community</a>
+                    <a href="index.html#contact" class="px-4 py-2 text-sm font-semibold text-slate-950 bg-white rounded-full hover:bg-slate-200 transition-all shadow-lg shadow-white/10">
+                        Join Us
+                    </a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden">
+                    <button id="mobile-menu-btn" class="text-slate-300 hover:text-white p-2">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden glass border-t border-white/5 absolute w-full">
+            <div class="px-4 pt-2 pb-6 space-y-2">
+                <a href="index.html#research" class="block px-3 py-2 text-base font-medium text-slate-300 hover:text-white hover:bg-white/5 rounded-md">Research</a>
+                <a href="publications.html" class="block px-3 py-2 text-base font-medium text-slate-300 hover:text-white hover:bg-white/5 rounded-md">Publications</a>
+                <a href="commercialization.html" class="block px-3 py-2 text-base font-medium text-slate-300 hover:text-white hover:bg-white/5 rounded-md">Commercialization</a>
+                <a href="media.html" class="block px-3 py-2 text-base font-medium text-slate-300 hover:text-white hover:bg-white/5 rounded-md">Media</a>
+                <a href="people.html" class="block px-3 py-2 text-base font-medium text-slate-300 hover:text-white hover:bg-white/5 rounded-md">People</a>
+                <a href="people.html#community" class="block px-3 py-2 text-base font-medium text-slate-300 hover:text-white hover:bg-white/5 rounded-md">Community</a>
+                <a href="index.html#contact" class="block px-3 py-2 text-base font-medium text-white bg-brand-blue/20 rounded-md">Join Us</a>
+            </div>
+        </div>
+    </nav>
+
+<!-- Commercialization Section -->
+    <section id="commercialization" class="py-20 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8 mb-12" data-aos="fade-up">
+                <div class="max-w-3xl">
+                    <div class="text-sm uppercase tracking-[0.2em] text-brand-blue font-semibold mb-3">Commercialization Pipeline</div>
+                    <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">From Frontier Papers to Deployable Agent Products</h2>
+                    <p class="text-slate-400 text-sm md:text-base leading-relaxed">
+                        QuantaAlpha turns research results into product-grade systems across AI investment, code agent infrastructure, research automation, and personal agent orchestration.
+                    </p>
+                </div>
+                <div class="grid grid-cols-3 gap-3 w-full lg:w-auto">
+                    <div class="glass-card rounded-xl px-5 py-4 text-center">
+                        <div class="text-2xl font-bold text-white">4</div>
+                        <div class="text-[11px] uppercase tracking-wider text-slate-500 mt-1">Product Lines</div>
+                    </div>
+                    <div class="glass-card rounded-xl px-5 py-4 text-center">
+                        <div class="text-2xl font-bold text-white">1K+</div>
+                        <div class="text-[11px] uppercase tracking-wider text-slate-500 mt-1">Plugin Users</div>
+                    </div>
+                    <div class="glass-card rounded-xl px-5 py-4 text-center">
+                        <div class="text-2xl font-bold text-white">400+</div>
+                        <div class="text-[11px] uppercase tracking-wider text-slate-500 mt-1">Weekly Active</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                <article class="commercial-card glass-card rounded-2xl overflow-hidden" data-aos="fade-up">
+                    <img src="images/media/quantaalpha-qbitai-mirror.png" alt="QuantaAlpha alpha mining media screenshot" class="commercial-img">
+                    <div class="p-6">
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-2 py-1 bg-amber-500/10 text-amber-300 text-xs font-semibold rounded border border-amber-500/20">AI4Investment</span>
+                            <span class="px-2 py-1 bg-cyan-500/10 text-cyan-300 text-xs font-semibold rounded border border-cyan-500/20">Reported by QbitAI mirror</span>
+                        </div>
+                        <h3 class="text-2xl font-bold text-white mb-3">QuantaAlpha Alpha Mining Engine</h3>
+                        <p class="text-slate-400 text-sm leading-relaxed mb-5">
+                            A self-evolving factor discovery system that converts quant research into an auditable agent workflow: hypothesis generation, factor coding, backtest validation, trajectory mutation, crossover, and risk filtering.
+                        </p>
+                        <div class="grid grid-cols-3 gap-3 mb-5">
+                            <div class="metric-tile"><span>27.75%</span><small>Reported ARR</small></div>
+                            <div class="metric-tile"><span>CSI 300</span><small>Core Market</small></div>
+                            <div class="metric-tile"><span>Zero-shot</span><small>Cross-market</small></div>
+                        </div>
+                        <div class="flex flex-wrap gap-3">
+                            <a href="https://arxiv.org/abs/2602.07085" target="_blank" class="section-link"><i class="fas fa-file-alt"></i> Paper</a>
+                            <a href="https://github.com/QuantaAlpha/QuantaAlpha" target="_blank" class="section-link"><i class="fab fa-github"></i> Code</a>
+                            <a href="https://www.itsolotime.com/archives/21115" target="_blank" class="section-link"><i class="fas fa-newspaper"></i> Coverage</a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="commercial-card glass-card rounded-2xl overflow-hidden" data-aos="fade-up" data-aos-delay="100">
+                    <img src="images/EpochX.jpg" alt="EpochX product screenshot" class="commercial-img">
+                    <div class="p-6">
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-2 py-1 bg-purple-500/10 text-purple-300 text-xs font-semibold rounded border border-purple-500/20">Agent Economy</span>
+                            <span class="px-2 py-1 bg-cyan-500/10 text-cyan-300 text-xs font-semibold rounded border border-cyan-500/20">Live Product</span>
+                        </div>
+                        <h3 class="text-2xl font-bold text-white mb-3">EpochX Production Network</h3>
+                        <p class="text-slate-400 text-sm leading-relaxed mb-5">
+                            A credits-native human-agent marketplace where tasks are decomposed, executed, verified, and converted into reusable skills, workflows, execution traces, and institutional memory.
+                        </p>
+                        <div class="grid grid-cols-3 gap-3 mb-5">
+                            <div class="metric-tile"><span>Credits</span><small>Native Economy</small></div>
+                            <div class="metric-tile"><span>Recursive</span><small>Task Splitting</small></div>
+                            <div class="metric-tile"><span>Reusable</span><small>Agent Assets</small></div>
+                        </div>
+                        <div class="flex flex-wrap gap-3">
+                            <a href="https://epochx.cc/" target="_blank" class="section-link"><i class="fas fa-globe"></i> Product</a>
+                            <a href="https://arxiv.org/abs/2603.27304" target="_blank" class="section-link"><i class="fas fa-file-alt"></i> Paper</a>
+                            <a href="https://www.techwalker.com/2026/0401/3182916.shtml" target="_blank" class="section-link"><i class="fas fa-newspaper"></i> Coverage</a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="commercial-card glass-card rounded-2xl overflow-hidden" data-aos="fade-up">
+                    <img src="images/RepoMaster.png" alt="RepoMaster code agent screenshot" class="commercial-img">
+                    <div class="p-6">
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-2 py-1 bg-sky-500/10 text-sky-300 text-xs font-semibold rounded border border-sky-500/20">Code Agent Infra</span>
+                            <span class="px-2 py-1 bg-pink-500/10 text-pink-300 text-xs font-semibold rounded border border-pink-500/20">NeurIPS Spotlight</span>
+                        </div>
+                        <h3 class="text-2xl font-bold text-white mb-3">Sema Code / RepoMaster Stack</h3>
+                        <p class="text-slate-400 text-sm leading-relaxed mb-5">
+                            A programmable AI coding engine for enterprise workflows: repository understanding, tool execution, multi-agent scheduling, permission control, and VS Code / messaging-channel delivery from the same core.
+                        </p>
+                        <div class="grid grid-cols-3 gap-3 mb-5">
+                            <div class="metric-tile"><span>10万+</span><small>Repo Scale</small></div>
+                            <div class="metric-tile"><span>95%</span><small>Token Cut</small></div>
+                            <div class="metric-tile"><span>1K+</span><small>VS Code Users</small></div>
+                        </div>
+                        <div class="flex flex-wrap gap-3">
+                            <a href="https://arxiv.org/abs/2604.11045" target="_blank" class="section-link"><i class="fas fa-file-alt"></i> Sema Code</a>
+                            <a href="https://arxiv.org/pdf/2505.21577" target="_blank" class="section-link"><i class="fas fa-file-alt"></i> RepoMaster</a>
+                            <a href="https://www.x-techcon.com/article/39410.html" target="_blank" class="section-link"><i class="fas fa-newspaper"></i> Coverage</a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="commercial-card glass-card rounded-2xl overflow-hidden" data-aos="fade-up" data-aos-delay="100">
+                    <img src="images/media/quantaalpha-hf.png" alt="QuantaAlpha paper community screenshot" class="commercial-img">
+                    <div class="p-6">
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-2 py-1 bg-emerald-500/10 text-emerald-300 text-xs font-semibold rounded border border-emerald-500/20">Research Automation</span>
+                            <span class="px-2 py-1 bg-cyan-500/10 text-cyan-300 text-xs font-semibold rounded border border-cyan-500/20">Public Experience</span>
+                        </div>
+                        <h3 class="text-2xl font-bold text-white mb-3">Idea2Paper / ARK Research Harness</h3>
+                        <p class="text-slate-400 text-sm leading-relaxed mb-5">
+                            End-to-end research automation that links literature exploration, method planning, experiment execution, result interpretation, manuscript drafting, and review iteration into a closed-loop product surface.
+                        </p>
+                        <div class="grid grid-cols-3 gap-3 mb-5">
+                            <div class="metric-tile"><span>1000+</span><small>Papers Assisted</small></div>
+                            <div class="metric-tile"><span>400+</span><small>WAU</small></div>
+                            <div class="metric-tile"><span>7-stage</span><small>Research Loop</small></div>
+                        </div>
+                        <div class="flex flex-wrap gap-3">
+                            <a href="https://idea2paper.org/" target="_blank" class="section-link"><i class="fas fa-globe"></i> ARK</a>
+                            <a href="https://paperbuild.cn/" target="_blank" class="section-link"><i class="fas fa-globe"></i> Product</a>
+                            <a href="https://github.com/AgentAlphaAGI/Idea2Paper" target="_blank" class="section-link"><i class="fab fa-github"></i> Code</a>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Back to Top Button -->
+    <button id="back-to-top" class="fixed bottom-8 right-8 w-12 h-12 bg-brand-blue/20 hover:bg-brand-blue/40 backdrop-blur-sm rounded-full flex items-center justify-center text-white transition-all shadow-lg border border-brand-blue/30 opacity-0 invisible z-50" aria-label="Back to top">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <!-- Footer -->
+    <footer class="border-t border-white/5 bg-slate-950 py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-6">
+            <div class="flex items-center gap-3">
+                <img src="images/logo.png" alt="Logo" class="h-8 w-8 opacity-80 grayscale hover:grayscale-0 transition-all">
+                <span class="text-slate-400 text-sm">© 2025-2026 QuantaAlpha Research.</span>
+            </div>
+            
+            <div class="flex gap-6">
+                <a href="#" class="text-slate-500 hover:text-white transition-colors"><i class="fab fa-github text-xl"></i></a>
+                <a href="#" class="text-slate-500 hover:text-white transition-colors"><i class="fab fa-twitter text-xl"></i></a>
+                <a href="#" class="text-slate-500 hover:text-white transition-colors"><i class="fab fa-linkedin text-xl"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
