@@ -48,12 +48,12 @@ document.addEventListener('DOMContentLoaded', () => {
         en: {
             navResearch: 'Research',
             navPublications: 'Publications',
-            navCommercialization: 'Commercialization',
+            navCommercialization: 'Products',
             navMedia: 'Media',
             navPeople: 'People',
             navCommunity: 'Community',
             navJoin: 'Join Us',
-            commercialEyebrow: 'Commercialization Pipeline',
+            commercialEyebrow: 'Products Pipeline',
             commercialTitle: 'From Frontier Papers to Deployable Agent Products',
             commercialIntro: 'QuantaAlpha turns research results into product-grade systems across AI investment, code agent infrastructure, research automation, and personal agent orchestration.',
             statProductLines: 'Product Lines',
@@ -82,12 +82,12 @@ document.addEventListener('DOMContentLoaded', () => {
         zh: {
             navResearch: '研究方向',
             navPublications: '论文成果',
-            navCommercialization: '商业化',
+            navCommercialization: '产品',
             navMedia: '媒体报道',
             navPeople: '团队',
             navCommunity: '社区',
             navJoin: '加入我们',
-            commercialEyebrow: '商业化管线',
+            commercialEyebrow: '产品管线',
             commercialTitle: '从前沿论文到可部署的 Agent 产品',
             commercialIntro: 'QuantaAlpha 将研究成果转化为产品级系统，覆盖 AI 投资、CodeAgent 基础设施、科研自动化和个人 Agent 编排。',
             statProductLines: '产品线',
@@ -270,7 +270,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const modulePages = [
         { href: 'index.html', label: 'Research' },
         { href: 'publications.html', label: 'Publications' },
-        { href: 'commercialization.html', label: 'Commercialization' },
+        { href: 'commercialization.html', label: 'Products' },
         { href: 'media.html', label: 'Media' },
         { href: 'people.html', label: 'People' }
     ];
@@ -539,7 +539,11 @@ document.addEventListener('DOMContentLoaded', () => {
     showcaseTabs.forEach((tab) => {
         tab.addEventListener('click', () => {
             const target = tab.dataset.showcaseTab;
-            showcaseTabs.forEach((item) => item.classList.toggle('active', item === tab));
+            showcaseTabs.forEach((item) => {
+                const isActive = item === tab;
+                item.classList.toggle('active', isActive);
+                item.setAttribute('aria-selected', isActive ? 'true' : 'false');
+            });
             showcasePanels.forEach((panel) => {
                 const isActive = panel.dataset.showcasePanel === target;
                 panel.classList.toggle('active', isActive);
@@ -551,7 +555,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    document.querySelectorAll('.showcase-track').forEach((track) => {
+    document.querySelectorAll('.showcase-track:not(.showcase-track--grid)').forEach((track) => {
         track.addEventListener('wheel', (event) => {
             if (Math.abs(event.deltaY) <= Math.abs(event.deltaX)) return;
             event.preventDefault();
@@ -662,7 +666,9 @@ document.addEventListener('DOMContentLoaded', () => {
     function replaceShowcaseTrack(panelName, items) {
         const track = document.querySelector(`[data-showcase-panel="${panelName}"] .showcase-track`);
         if (!track || items.length <= track.querySelectorAll('.showcase-card').length) return;
-        track.innerHTML = items.map(renderShowcaseCard).join('');
+        const maxCards = track.classList.contains('showcase-track--grid') ? 3 : items.length;
+        const slice = items.slice(0, maxCards);
+        track.innerHTML = slice.map(renderShowcaseCard).join('');
         track.scrollTo({ left: 0, behavior: 'auto' });
     }
 

@@ -7,6 +7,6 @@
   </defs>
   <rect width="640" height="360" fill="url(#g)"/>
   <rect x="0" y="0" width="640" height="360" fill="none" stroke="rgba(255,255,255,0.12)" stroke-width="2"/>
-  <text x="320" y="175" fill="rgba(255,255,255,0.92)" font-family="system-ui,sans-serif" font-size="28" font-weight="700" text-anchor="middle">��l�</text>
+  <text x="320" y="175" fill="rgba(255,255,255,0.92)" font-family="system-ui,sans-serif" font-size="28" font-weight="700" text-anchor="middle">微信公众号</text>
   <text x="320" y="215" fill="rgba(255,255,255,0.55)" font-family="system-ui,sans-serif" font-size="14" text-anchor="middle">WeChat Official Article</text>
 </svg>

@@ -792,6 +792,30 @@ nav a.nav-active {
     padding: 2px 2px 18px;
 }
 
+/* 首页 Selected Work：三列网格（非横向滚动） */
+.showcase-track.showcase-track--grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: clamp(1.25rem, 3vw, 2rem);
+    overflow-x: visible;
+    scroll-snap-type: none;
+    cursor: default;
+    padding: 2px 2px 18px;
+}
+
+@media (min-width: 768px) {
+    .showcase-track.showcase-track--grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+}
+
+.showcase-track.showcase-track--grid .showcase-card {
+    width: 100%;
+    max-width: none;
+    flex: none;
+    scroll-snap-align: unset;
+}
+
 .showcase-track.is-dragging {
     cursor: grabbing;
     scroll-behavior: auto;
@@ -870,6 +894,69 @@ nav a.nav-active {
 
 .showcase-link:hover {
     color: #38bdf8;
+}
+
+/* 首页 #selected-work：深色卡片 + Tabs，覆盖 body.mesh-bg-aurora 下的浅色 showcase 规则 */
+body.mesh-bg-aurora #selected-work .showcase-tabs {
+    background: rgba(15, 23, 42, 0.72) !important;
+    border: 1px solid rgba(255, 255, 255, 0.08) !important;
+    box-shadow: none !important;
+}
+
+body.mesh-bg-aurora #selected-work .showcase-tab {
+    color: #94a3b8 !important;
+    background: transparent !important;
+    box-shadow: none !important;
+}
+
+body.mesh-bg-aurora #selected-work .showcase-tab:hover,
+body.mesh-bg-aurora #selected-work .showcase-tab.active {
+    color: #020617 !important;
+    background: #ffffff !important;
+    box-shadow: none !important;
+}
+
+body.mesh-bg-aurora #selected-work .showcase-kicker {
+    color: #0284c7 !important;
+    margin-bottom: 6px !important;
+}
+
+body.mesh-bg-aurora #selected-work .showcase-card h3,
+body.mesh-bg-aurora #selected-work .showcase-card h3 a {
+    color: #ffffff !important;
+    margin-bottom: 6px !important;
+}
+
+body.mesh-bg-aurora #selected-work .showcase-card h3 a:hover {
+    color: #38bdf8 !important;
+}
+
+body.mesh-bg-aurora #selected-work .showcase-card p {
+    color: #94a3b8 !important;
+    margin-bottom: 10px !important;
+    line-height: 1.5 !important;
+}
+
+body.mesh-bg-aurora #selected-work .showcase-link {
+    color: #ffffff !important;
+}
+
+body.mesh-bg-aurora #selected-work .showcase-link:hover {
+    color: #38bdf8 !important;
+}
+
+body.mesh-bg-aurora #selected-work .showcase-card img {
+    border-bottom-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+/* Selected Work 三列网格：与示意图一致，卡间距约 20–24px */
+body.mesh-bg-aurora #selected-work .showcase-track.showcase-track--grid {
+    gap: 1.5rem; /* 24px */
+    align-items: start;
+}
+
+body.mesh-bg-aurora #selected-work .showcase-body {
+    padding: 0.75rem 0.875rem 0.875rem !important; /* 收紧卡片内留白，不改文案 */
 }
 /* Current navigation state */
 nav a.nav-current {
@@ -1204,7 +1291,7 @@ nav .hidden.md\:flex a.nav-current {
 }
 
 .research-card.glass-card:hover {
-    transform: translateY(-15px) scale(1.042);
+    transform: translateY(-6px) scale(1.015);
 }
 
 .research-tint-blue {
