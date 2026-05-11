@@ -476,8 +476,11 @@ body.mesh-bg-aurora #mobile-menu a.nav-current {
 }
 
 /* Media / commercial module text */
+body.mesh-bg-aurora .media-source {
+    color: #0284c7 !important;
+}
 body.mesh-bg-aurora .media-title {
-    color: #0f172a;
+    color: #0c1324;
 }
 body.mesh-bg-aurora .media-copy {
     color: #64748b;
