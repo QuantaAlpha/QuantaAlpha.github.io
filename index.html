@@ -30,6 +30,10 @@
     <link rel="shortcut icon" type="image/jpeg" href="images/logo.png">
     <link rel="apple-touch-icon" href="images/logo.png">
 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:ital,wght@0,700;0,800;0,900;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -48,6 +52,7 @@
                     fontFamily: {
                         sans: ['Inter', 'sans-serif'],
                         mono: ['JetBrains Mono', 'monospace'],
+                        tech: ['Orbitron', 'ui-sans-serif', 'system-ui', 'sans-serif'],
                     }
                 }
             }
@@ -64,7 +69,15 @@
     <link rel="stylesheet" href="style.css">
 
 </head>
-<body class="mesh-bg min-h-screen selection:bg-brand-blue selection:text-white">
+<body class="mesh-bg-aurora min-h-screen selection:bg-brand-blue selection:text-white">
+
+    <!-- Aurora-style animated backdrop (homepage only) -->
+    <div class="aurora-backdrop" aria-hidden="true">
+        <div class="aurora-blob aurora-blob--cyan"></div>
+        <div class="aurora-blob aurora-blob--violet"></div>
+        <div class="aurora-blob aurora-blob--mint"></div>
+        <div class="aurora-band aurora-band--sheen"></div>
+    </div>
 
     <!-- Navigation -->
     <nav class="fixed w-full z-50 top-0 glass border-b border-white/5">
@@ -112,24 +125,24 @@
     </nav>
 
 <!-- Hero Section -->
-    <section id="about" class="relative pt-36 lg:pt-52 xl:pt-60 pb-16 lg:pb-24 overflow-hidden">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-4 relative">
+    <section id="about" class="relative pt-24 md:pt-28 lg:pt-36 xl:pt-40 pb-12 lg:pb-16 overflow-hidden">
+        <div class="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-4 relative">
             <!-- Decorative Torus Background (anchored within centered container) -->
             <div class="hero-torus-wrapper pointer-events-none">
                 <canvas id="hero-torus-canvas" class="w-full h-full"></canvas>
             </div>
 
             <div class="lg:max-w-[620px] xl:max-w-[680px] 2xl:max-w-[720px] relative z-10" data-aos="fade-up" data-aos-duration="1000">
-                <div class="text-sm uppercase tracking-[0.2em] text-brand-blue font-semibold mb-6">AI Agent Research</div>
-                <h1 class="text-4xl md:text-5xl lg:text-5xl xl:text-6xl font-extrabold tracking-tight text-white mb-6 leading-[1.1]">
+                <div class="font-tech italic font-black text-xs sm:text-sm uppercase tracking-[0.28em] text-brand-blue mb-5">AI Agent Research</div>
+                <h1 class="text-4xl md:text-5xl lg:text-5xl xl:text-6xl font-extrabold tracking-tight text-white mb-5 leading-[1.1]">
                     Building the Future of<br>
                     <span class="text-gradient">Autonomous Intelligence</span>
                 </h1>
-                <p class="text-slate-400 text-base md:text-lg mb-10">
+                <p class="text-slate-400 text-base md:text-lg mb-8">
                     CodeAgent · DeepResearch · Agentic RL · Self-Evolving Systems
                 </p>
                 
-                <div class="flex flex-wrap gap-4 items-center mb-16">
+                <div class="flex flex-wrap gap-4 items-center mb-10">
                     <a href="#research" class="px-7 py-3 text-sm font-bold text-slate-950 bg-brand-blue rounded-lg hover:bg-sky-300 transition-all shadow-lg shadow-brand-blue/20">
                         Explore Research
                     </a>
@@ -139,7 +152,7 @@
                 </div>
 
                 <!-- Stats Row -->
-                <div class="flex flex-wrap gap-8 items-start mb-10 pb-10 border-b border-white/10" data-aos="fade-up" data-aos-delay="200">
+                <div class="flex flex-wrap gap-8 items-start mb-8 pb-8 border-b border-white/10" data-aos="fade-up" data-aos-delay="200">
                     <div>
                         <div class="text-3xl font-bold text-white">34+</div>
                         <div class="text-xs text-slate-500 uppercase tracking-wider mt-1">Publications</div>
@@ -155,7 +168,7 @@
                 </div>
                 
                 <!-- Affiliations -->
-                <div class="mt-10" data-aos="fade-up" data-aos-delay="300">
+                <div class="mt-6 md:mt-7" data-aos="fade-up" data-aos-delay="300">
                     <span class="text-xs text-slate-500 uppercase tracking-wider mr-3">Affiliated with</span>
                     <span class="text-sm text-brand-blue font-semibold">PKU</span>
                     <span class="text-slate-600 mx-1">·</span>
@@ -172,213 +185,266 @@
             </div>
         </div>
     </section><!-- Research Areas -->
-    <section id="research" class="py-12 relative">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-8" data-aos="fade-up">
-                <h2 class="text-2xl md:text-3xl font-bold text-white mb-3">Research Focus</h2>
+    <section id="research" class="relative pt-6 md:pt-8 pb-24 md:pb-32">
+        <div class="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
+            <header class="text-center mb-14 md:mb-16" data-aos="fade-up">
+                <h2 class="text-2xl md:text-3xl font-bold text-white mb-4 tracking-tight">Research Focus</h2>
                 <div class="h-1 w-16 bg-brand-blue mx-auto rounded-full"></div>
-            </div>
+            </header>
 
-            <!-- Agent Intelligence -->
-            <div class="mb-10" data-aos="fade-up">
-                <h3 class="text-lg font-bold text-slate-300 mb-5 text-center">Agent Intelligence</h3>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-                    <!-- CodeAgent -->
-                    <div class="glass-card p-5 rounded-xl" data-aos="fade-up" data-aos-delay="0">
-                        <div class="h-10 w-10 bg-blue-500/20 rounded-lg flex items-center justify-center mb-4 text-brand-blue">
+            <!-- Agent Intelligence：2×2；上行大卡、下行略收 — 阶梯层次 -->
+            <div class="research-block mb-16 md:mb-24" data-aos="fade-up">
+                <h3 class="text-center text-lg md:text-xl font-bold text-slate-300 mb-8 md:mb-10">Agent Intelligence</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-x-10 lg:gap-y-8 max-w-5xl mx-auto xl:max-w-6xl 2xl:max-w-[1200px]">
+                    <article class="research-card research-card--tier1 research-tint-blue glass-card rounded-2xl p-7 md:p-8 flex flex-col min-h-[268px] md:min-h-[300px]" data-aos="fade-up" data-aos-delay="0">
+                        <div class="h-12 w-12 shrink-0 bg-blue-500/25 rounded-xl flex items-center justify-center text-brand-blue border border-blue-400/20 mb-5 md:mb-6">
                             <i class="fas fa-laptop-code text-xl"></i>
                         </div>
-                        <h3 class="text-lg font-bold text-white mb-2">CodeAgent</h3>
-                        <p class="text-slate-400 text-xs leading-relaxed">
+                        <h3 class="text-xl font-bold text-white">CodeAgent</h3>
+                        <p class="text-slate-400 text-sm leading-relaxed mt-3 md:mt-4 flex-1">
                             End-to-end execution for real-world coding tasks, enabling agents to autonomously understand, modify, and run complex repositories.
                         </p>
-                    </div>
+                    </article>
 
-                    <!-- DeepResearch -->
-                    <div class="glass-card p-5 rounded-xl" data-aos="fade-up" data-aos-delay="100">
-                        <div class="h-10 w-10 bg-purple-500/20 rounded-lg flex items-center justify-center mb-4 text-purple-400">
+                    <article class="research-card research-card--tier1 research-tint-violet glass-card rounded-2xl p-7 md:p-8 flex flex-col min-h-[268px] md:min-h-[300px]" data-aos="fade-up" data-aos-delay="60">
+                        <div class="h-12 w-12 shrink-0 bg-purple-500/25 rounded-xl flex items-center justify-center text-purple-300 border border-purple-400/20 mb-5 md:mb-6">
                             <i class="fas fa-book-journal-whills text-xl"></i>
                         </div>
-                        <h3 class="text-lg font-bold text-white mb-2">DeepResearch</h3>
-                        <p class="text-slate-400 text-xs leading-relaxed">
+                        <h3 class="text-xl font-bold text-white">DeepResearch</h3>
+                        <p class="text-slate-400 text-sm leading-relaxed mt-3 md:mt-4 flex-1">
                             Multi-step reasoning agents for open-ended scientific and knowledge discovery, synthesizing insights across domains.
                         </p>
-                    </div>
+                    </article>
 
-                    <!-- Agentic RL -->
-                    <div class="glass-card p-5 rounded-xl" data-aos="fade-up" data-aos-delay="200">
-                        <div class="h-10 w-10 bg-yellow-500/20 rounded-lg flex items-center justify-center mb-4 text-yellow-400">
-                            <i class="fas fa-brain text-xl"></i>
+                    <article class="research-card research-card--tier2 research-tint-gold glass-card rounded-xl p-6 md:p-7 flex flex-col min-h-[228px] md:min-h-[252px] md:translate-y-1" data-aos="fade-up" data-aos-delay="120">
+                        <div class="h-10 w-10 shrink-0 bg-yellow-500/20 rounded-lg flex items-center justify-center text-yellow-400 border border-yellow-500/15 mb-4 md:mb-5">
+                            <i class="fas fa-brain text-lg"></i>
                         </div>
-                        <h3 class="text-lg font-bold text-white mb-2">Agentic RL</h3>
-                        <p class="text-slate-400 text-xs leading-relaxed">
+                        <h3 class="text-lg font-bold text-white">Agentic RL</h3>
+                        <p class="text-slate-400 text-sm leading-relaxed mt-3 flex-1">
                             Reasoning-centered reinforcement learning, bridging decision-making, planning, and adaptive intelligence.
                         </p>
-                    </div>
+                    </article>
 
-                    <!-- Self-Evolving -->
-                    <div class="glass-card p-5 rounded-xl" data-aos="fade-up" data-aos-delay="300">
-                        <div class="h-10 w-10 bg-green-500/20 rounded-lg flex items-center justify-center mb-4 text-green-400">
-                            <i class="fas fa-dna text-xl"></i>
+                    <article class="research-card research-card--tier2 research-tint-green glass-card rounded-xl p-6 md:p-7 flex flex-col min-h-[228px] md:min-h-[252px] md:translate-y-1" data-aos="fade-up" data-aos-delay="180">
+                        <div class="h-10 w-10 shrink-0 bg-green-500/20 rounded-lg flex items-center justify-center text-green-400 border border-green-500/15 mb-4 md:mb-5">
+                            <i class="fas fa-dna text-lg"></i>
                         </div>
-                        <h3 class="text-lg font-bold text-white mb-2">Self-Evolving</h3>
-                        <p class="text-slate-400 text-xs leading-relaxed">
+                        <h3 class="text-lg font-bold text-white">Self-Evolving</h3>
+                        <p class="text-slate-400 text-sm leading-relaxed mt-3 flex-1">
                             Agents that continuously improve through self-evolution and collaborative learning, enabling emergent collective intelligence.
                         </p>
-                    </div>
+                    </article>
                 </div>
             </div>
 
-            <!-- AI4Science -->
-            <div data-aos="fade-up" data-aos-delay="100">
-                <h3 class="text-lg font-bold text-slate-300 mb-5 text-center">AI4Science</h3>
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-                    <!-- AI4Investment -->
-                    <div class="glass-card p-5 rounded-xl" data-aos="fade-up" data-aos-delay="0">
-                        <div class="h-10 w-10 bg-amber-500/20 rounded-lg flex items-center justify-center mb-4 text-amber-400">
-                            <i class="fas fa-chart-line text-xl"></i>
+            <!-- AI4Science：一行三卡，单卡略宽以平衡版面 -->
+            <div class="research-block" data-aos="fade-up" data-aos-delay="80">
+                <h3 class="text-center text-lg md:text-xl font-bold text-slate-300 mb-8 md:mb-10">AI4Science</h3>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 max-w-6xl mx-auto xl:max-w-none">
+                    <article class="research-card research-tint-orange glass-card rounded-xl p-6 md:p-7 flex flex-col min-h-[220px]" data-aos="fade-up" data-aos-delay="0">
+                        <div class="h-11 w-11 shrink-0 bg-amber-500/25 rounded-xl flex items-center justify-center text-amber-400 border border-amber-500/15 mb-5">
+                            <i class="fas fa-chart-line text-lg"></i>
                         </div>
-                        <h3 class="text-lg font-bold text-white mb-2">AI4Investment</h3>
-                        <p class="text-slate-400 text-xs leading-relaxed">
+                        <h3 class="text-lg font-bold text-white">AI4Investment</h3>
+                        <p class="text-slate-400 text-sm leading-relaxed mt-3 flex-1">
                             Agent-driven automated investment: discovering optimal factors, strategies, and execution models for intelligent trading and portfolio management.
                         </p>
-                    </div>
+                    </article>
 
-                    <!-- AI4Healthcare -->
-                    <div class="glass-card p-5 rounded-xl" data-aos="fade-up" data-aos-delay="100">
-                        <div class="h-10 w-10 bg-rose-500/20 rounded-lg flex items-center justify-center mb-4 text-rose-400">
-                            <i class="fas fa-heart-pulse text-xl"></i>
+                    <article class="research-card research-tint-rose glass-card rounded-xl p-6 md:p-7 flex flex-col min-h-[220px]" data-aos="fade-up" data-aos-delay="60">
+                        <div class="h-11 w-11 shrink-0 bg-rose-500/20 rounded-xl flex items-center justify-center text-rose-400 border border-rose-500/15 mb-5">
+                            <i class="fas fa-heart-pulse text-lg"></i>
                         </div>
-                        <h3 class="text-lg font-bold text-white mb-2">AI4Healthcare</h3>
-                        <p class="text-slate-400 text-xs leading-relaxed">
+                        <h3 class="text-lg font-bold text-white">AI4Healthcare</h3>
+                        <p class="text-slate-400 text-sm leading-relaxed mt-3 flex-1">
                             Efficiency-first AI for healthcare: scalable foundation models, vision-language alignment, and agentic workflows for real-world clinical impact.
                         </p>
-                    </div>
+                    </article>
 
-                    <!-- AI4Bioinformatics -->
-                    <div class="glass-card p-5 rounded-xl" data-aos="fade-up" data-aos-delay="200">
-                        <div class="h-10 w-10 bg-teal-500/20 rounded-lg flex items-center justify-center mb-4 text-teal-400">
-                            <i class="fas fa-flask text-xl"></i>
+                    <article class="research-card research-tint-teal glass-card rounded-xl p-6 md:p-7 flex flex-col min-h-[220px]" data-aos="fade-up" data-aos-delay="120">
+                        <div class="h-11 w-11 shrink-0 bg-teal-500/20 rounded-xl flex items-center justify-center text-teal-400 border border-teal-500/15 mb-5">
+                            <i class="fas fa-flask text-lg"></i>
                         </div>
-                        <h3 class="text-lg font-bold text-white mb-2">AI4Bioinformatics</h3>
-                        <p class="text-slate-400 text-xs leading-relaxed">
+                        <h3 class="text-lg font-bold text-white">AI4Bioinformatics</h3>
+                        <p class="text-slate-400 text-sm leading-relaxed mt-3 flex-1">
                             Agent-driven discovery in genomics: automating bioinformatics analyses and enabling novel scientific insights in biological research.
                         </p>
-                    </div>
+                    </article>
                 </div>
             </div>
         </div>
-    </section><!-- Spotlight -->
-    <section id="publications" class="py-14 relative">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-8" data-aos="fade-up">
-                <div>
-                    <div class="text-sm uppercase tracking-[0.2em] text-brand-blue font-semibold mb-3">Selected Work</div>
-                    <h2 class="text-3xl md:text-4xl font-bold text-white mb-3">Papers, Products, and Coverage in One Flow</h2>
-                    <p class="text-slate-400 text-sm max-w-2xl leading-relaxed">Switch between the strongest publications, commercialized systems, and media coverage without leaving the homepage.</p>
+    </section><!-- Featured Publications (Carousel) -->
+    <section id="publications" class="py-24 md:py-32 relative">
+        <div class="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8 mb-12 md:mb-16">
+                <div class="text-left" data-aos="fade-up">
+                    <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Featured Publications</h2>
+                    <p class="text-slate-400 text-sm max-w-xl leading-relaxed">Highlighted papers, swipe to explore more</p>
+                    <div class="h-1 w-20 bg-brand-blue rounded-full mt-4"></div>
                 </div>
-                <div class="showcase-tabs">
-                    <button class="showcase-tab active" data-showcase-tab="papers">Papers</button>
-                    <button class="showcase-tab" data-showcase-tab="projects">Projects</button>
-                    <button class="showcase-tab" data-showcase-tab="media">Media</button>
+                <div class="carousel-nav-inline relative z-30 flex gap-2 shrink-0">
+                    <button type="button" id="carousel-prev" class="carousel-nav-btn inline-flex h-10 w-10 items-center justify-center rounded-lg border-2 border-white/15 bg-white/10 text-white hover:bg-white/20 hover:border-brand-blue/40 active:scale-95 transition-all duration-200" aria-label="Previous publication">
+                        <i class="fas fa-chevron-left text-sm"></i>
+                    </button>
+                    <button type="button" id="carousel-next" class="carousel-nav-btn inline-flex h-10 w-10 items-center justify-center rounded-lg border-2 border-white/15 bg-white/10 text-white hover:bg-white/20 hover:border-brand-blue/40 active:scale-95 transition-all duration-200" aria-label="Next publication">
+                        <i class="fas fa-chevron-right text-sm"></i>
+                    </button>
                 </div>
             </div>
 
-            <div class="showcase-shell" data-aos="fade-up">
-                <div class="showcase-panel active" data-showcase-panel="papers">
-                    <div class="showcase-track scrollbar-hide">
-                        <article class="showcase-card glass-card">
-                            <a href="https://arxiv.org/abs/2603.27304" target="_blank"><img src="images/EpochX.jpg" alt="EpochX paper" loading="lazy" decoding="async"></a>
-                            <div class="showcase-body">
-                                <div class="showcase-kicker">arXiv 2026 · Product-ready infrastructure</div>
-                                <h3><a href="https://arxiv.org/abs/2603.27304" target="_blank">EpochX: Infrastructure for an Emergent Agent Civilization</a></h3>
-                                <p>Credits-native production networks for human-agent task markets, reusable skills, and institutional memory.</p>
-                                <a href="publications.html" class="showcase-link">Explore papers <i class="fas fa-arrow-right"></i></a>
+            <!-- Carousel Container -->
+            <div class="relative">
+                <!-- Carousel Track -->
+                <div id="carousel-container" class="carousel-hover-pan overflow-x-auto pb-4 scrollbar-hide">
+                    <div id="carousel-track" class="flex gap-9 lg:gap-12" style="width: max-content;">
+                        <!-- Pub 0: EpochX -->
+                        <div class="glass-card p-6 rounded-2xl flex flex-col md:flex-row gap-6 items-start w-[90vw] md:w-[700px] flex-shrink-0">
+                            <div class="w-full md:w-2/5 flex-shrink-0">
+                                <img src="images/EpochX.jpg" alt="EpochX" class="w-full h-auto rounded-lg shadow-lg border border-white/10 hover:scale-[1.02] transition-transform duration-300">
                             </div>
-                        </article>
-                        <article class="showcase-card glass-card">
-                            <a href="https://arxiv.org/abs/2508.02085" target="_blank"><img src="images/SE-Agent.png" alt="SE-Agent paper" loading="lazy" decoding="async"></a>
-                            <div class="showcase-body">
-                                <div class="showcase-kicker">NeurIPS 2025 · Self-evolution</div>
-                                <h3><a href="https://arxiv.org/abs/2508.02085" target="_blank">SE-Agent: Self-Evolution Trajectory Optimization</a></h3>
-                                <p>Trajectory-level revision, recombination, and refinement for stronger multi-step agent reasoning.</p>
-                                <a href="https://github.com/JARVIS-Xs/SE-Agent" target="_blank" class="showcase-link">Open code <i class="fas fa-arrow-right"></i></a>
+                            <div class="flex-1">
+                                <h3 class="text-xl font-bold text-white mb-3 hover:text-brand-blue transition-colors">
+                                    <a href="https://arxiv.org/abs/2603.27304">EpochX: Building the Infrastructure for an Emergent Agent Civilization</a>
+                                </h3>
+                                <div class="flex flex-wrap gap-2 mb-3">
+                                    <span class="px-2 py-1 bg-white/5 rounded-full text-xs font-medium text-brand-blue border border-brand-blue/20">QuantaAlpha Team</span>
+                                    <span class="px-2 py-1 bg-cyan-500/10 rounded-full text-xs font-medium text-cyan-400 border border-cyan-500/20">arXiv 2026</span>
+                                </div>
+                                <p class="text-slate-400 mb-4 text-sm leading-relaxed">
+                                    A credits-native marketplace infrastructure for human-agent production networks, where humans and agents collaborate as peer participants.
+                                </p>
+                                <div class="flex gap-4">
+                                    <a href="https://arxiv.org/abs/2603.27304" class="inline-flex items-center gap-2 text-sm font-semibold text-white hover:text-brand-blue transition-colors">
+                                        <i class="fas fa-file-alt"></i> Paper
+                                    </a>
+                                    <a href="https://github.com/QuantaAlpha/EpochX" class="inline-flex items-center gap-2 text-sm font-semibold text-white hover:text-brand-blue transition-colors">
+                                        <i class="fab fa-github"></i> GitHub
+                                    </a>
+                                    <a href="https://epochx.cc/" class="inline-flex items-center gap-2 text-sm font-semibold text-white hover:text-brand-blue transition-colors">
+                                        <i class="fas fa-globe"></i> Product
+                                    </a>
+                                </div>
                             </div>
-                        </article>
-                        <article class="showcase-card glass-card">
-                            <a href="https://arxiv.org/abs/2508.18993" target="_blank"><img src="images/GitTaskBench.png" alt="GitTaskBench paper" loading="lazy" decoding="async"></a>
-                            <div class="showcase-body">
-                                <div class="showcase-kicker">AAAI 2026 Oral · Benchmark</div>
-                                <h3><a href="https://arxiv.org/abs/2508.18993" target="_blank">GitTaskBench: Real-world Code Agent Delivery</a></h3>
-                                <p>Repo-level code-agent evaluation from repository understanding to project delivery and cost efficiency.</p>
-                                <a href="https://github.com/QuantaAlpha/GitTaskBench" target="_blank" class="showcase-link">Open benchmark <i class="fas fa-arrow-right"></i></a>
+                        </div>
+
+                        <!-- Pub 1: Octopus -->
+                        <div class="glass-card p-6 rounded-2xl flex flex-col md:flex-row gap-6 items-start w-[90vw] md:w-[700px] flex-shrink-0">
+                            <div class="w-full md:w-2/5 flex-shrink-0">
+                                <img src="images/Octupus.png" alt="Octopus" class="w-full h-auto rounded-lg shadow-lg border border-white/10 hover:scale-[1.02] transition-transform duration-300">
                             </div>
-                        </article>
+                            <div class="flex-1">
+                                <h3 class="text-xl font-bold text-white mb-3 hover:text-brand-blue transition-colors">
+                                    <a href="#">🐙 Octopus: Agentic Multimodal Reasoning with Six-Capability Orchestration</a>
+                                </h3>
+                                <div class="flex flex-wrap gap-2 mb-3">
+                                    <span class="px-2 py-1 bg-white/5 rounded-full text-xs font-medium text-brand-blue border border-brand-blue/20">QuantaAlpha Team</span>
+                                    <span class="px-2 py-1 bg-yellow-500/10 rounded-full text-xs font-medium text-yellow-500 border border-yellow-500/20">arXiv Preprint</span>
+                                </div>
+                                <p class="text-slate-400 mb-4 text-sm leading-relaxed">
+                                    Comprehensive agentic framework orchestrating six distinct capabilities for advanced multimodal reasoning.
+                                </p>
+                                <div class="flex gap-4">
+                                    <a href="#" class="inline-flex items-center gap-2 text-sm font-semibold text-white hover:text-brand-blue transition-colors">
+                                        <i class="fas fa-file-alt"></i> Paper
+                                    </a>
+                                    <a href="#" class="inline-flex items-center gap-2 text-sm font-semibold text-slate-500 cursor-not-allowed">
+                                        <i class="fab fa-github"></i> Code Coming Soon
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Pub 2: SE-Agent -->
+                        <div class="glass-card p-6 rounded-2xl flex flex-col md:flex-row gap-6 items-start w-[90vw] md:w-[700px] flex-shrink-0">
+                            <div class="w-full md:w-2/5 flex-shrink-0">
+                                <img src="images/SE-Agent.png" alt="SE-Agent" class="w-full h-auto rounded-lg shadow-lg border border-white/10 hover:scale-[1.02] transition-transform duration-300">
+                            </div>
+                            <div class="flex-1">
+                                <h3 class="text-xl font-bold text-white mb-3 hover:text-brand-blue transition-colors">
+                                    <a href="https://arxiv.org/pdf/2508.02085">🧠 SE-Agent: Self-Evolution Trajectory Optimization</a>
+                                </h3>
+                                <div class="flex flex-wrap gap-2 mb-3">
+                                    <span class="px-2 py-1 bg-white/5 rounded-full text-xs font-medium text-brand-blue border border-brand-blue/20">QuantaAlpha Team</span>
+                                    <span class="px-2 py-1 bg-yellow-500/10 rounded-full text-xs font-medium text-yellow-500 border border-yellow-500/20">NeurIPS 2025 Poster</span>
+                                </div>
+                                <p class="text-slate-400 mb-4 text-sm leading-relaxed">
+                                    A novel framework for self-evolving agents that optimizes reasoning trajectories through continuous learning.
+                                </p>
+                                <div class="flex gap-4">
+                                    <a href="https://arxiv.org/pdf/2508.02085" class="inline-flex items-center gap-2 text-sm font-semibold text-white hover:text-brand-blue transition-colors">
+                                        <i class="fas fa-file-alt"></i> Paper
+                                    </a>
+                                    <a href="https://github.com/JARVIS-Xs/SE-Agent" class="inline-flex items-center gap-2 text-sm font-semibold text-white hover:text-brand-blue transition-colors">
+                                        <i class="fab fa-github"></i> GitHub
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Pub 3: GitTaskBench -->
+                        <div class="glass-card p-6 rounded-2xl flex flex-col md:flex-row gap-6 items-start w-[90vw] md:w-[700px] flex-shrink-0">
+                            <div class="w-full md:w-2/5 flex-shrink-0">
+                                <img src="images/GitTaskBench.png" alt="GitTaskBench" class="w-full h-auto rounded-lg shadow-lg border border-white/10 hover:scale-[1.02] transition-transform duration-300">
+                            </div>
+                            <div class="flex-1">
+                                <h3 class="text-xl font-bold text-white mb-3 hover:text-brand-blue transition-colors">
+                                    <a href="https://arxiv.org/abs/2508.18993">🧩 GitTaskBench: A Benchmark for Code Agents</a>
+                                </h3>
+                                <div class="flex flex-wrap gap-2 mb-3">
+                                    <span class="px-2 py-1 bg-white/5 rounded-full text-xs font-medium text-brand-blue border border-brand-blue/20">QuantaAlpha Team</span>
+                                    <span class="px-2 py-1 bg-green-500/10 rounded-full text-xs font-medium text-green-400 border border-green-500/20">AAAI 2026 Oral</span>
+                                </div>
+                                <p class="text-slate-400 mb-4 text-sm leading-relaxed">
+                                    A benchmark evaluating code agents on their ability to solve complex, real-world tasks.
+                                </p>
+                                <div class="flex gap-4">
+                                    <a href="https://arxiv.org/abs/2508.18993" class="inline-flex items-center gap-2 text-sm font-semibold text-white hover:text-brand-blue transition-colors">
+                                        <i class="fas fa-file-alt"></i> Paper
+                                    </a>
+                                    <a href="https://github.com/QuantaAlpha/GitTaskBench" class="inline-flex items-center gap-2 text-sm font-semibold text-white hover:text-brand-blue transition-colors">
+                                        <i class="fab fa-github"></i> GitHub
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Pub 4: RepoMaster -->
+                        <div class="glass-card p-6 rounded-2xl flex flex-col md:flex-row gap-6 items-start w-[90vw] md:w-[700px] flex-shrink-0">
+                            <div class="w-full md:w-2/5 flex-shrink-0">
+                                <img src="images/RepoMaster.png" alt="RepoMaster" class="w-full h-auto rounded-lg shadow-lg border border-white/10 hover:scale-[1.02] transition-transform duration-300">
+                            </div>
+                            <div class="flex-1">
+                                <h3 class="text-xl font-bold text-white mb-3 hover:text-brand-blue transition-colors">
+                                    <a href="https://arxiv.org/pdf/2505.21577">🔍 RepoMaster: Autonomous Exploration of GitHub Repos</a>
+                                </h3>
+                                <div class="flex flex-wrap gap-2 mb-3">
+                                    <span class="px-2 py-1 bg-white/5 rounded-full text-xs font-medium text-brand-blue border border-brand-blue/20">QuantaAlpha Team</span>
+                                    <span class="px-2 py-1 bg-pink-500/10 rounded-full text-xs font-medium text-pink-400 border border-pink-500/20">NeurIPS 2025 Spotlight</span>
+                                </div>
+                                <p class="text-slate-400 mb-4 text-sm leading-relaxed">
+                                    Autonomous agents exploring and understanding large-scale codebases to solve complex tasks.
+                                </p>
+                                <div class="flex gap-4">
+                                    <a href="https://arxiv.org/pdf/2505.21577" class="inline-flex items-center gap-2 text-sm font-semibold text-white hover:text-brand-blue transition-colors">
+                                        <i class="fas fa-file-alt"></i> Paper
+                                    </a>
+                                    <a href="https://github.com/QuantaAlpha/RepoMaster" class="inline-flex items-center gap-2 text-sm font-semibold text-white hover:text-brand-blue transition-colors">
+                                        <i class="fab fa-github"></i> GitHub
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
-                <div class="showcase-panel" data-showcase-panel="projects">
-                    <div class="showcase-track scrollbar-hide">
-                        <article class="showcase-card glass-card">
-                            <a href="https://github.com/QuantaAlpha/QuantaAlpha" target="_blank"><img src="images/media/quantaalpha-qbitai-mirror.png" alt="QuantaAlpha Alpha Mining" loading="lazy" decoding="async"></a>
-                            <div class="showcase-body">
-                                <div class="showcase-kicker">AI4Investment · Reported ARR 27.75%</div>
-                                <h3><a href="https://github.com/QuantaAlpha/QuantaAlpha" target="_blank">QuantaAlpha Alpha Mining Engine</a></h3>
-                                <p>Self-evolving factor discovery with auditable agent workflows for hypothesis, backtest, mutation, and risk filtering.</p>
-                                <a href="commercialization.html" class="showcase-link">View projects <i class="fas fa-arrow-right"></i></a>
-                            </div>
-                        </article>
-                        <article class="showcase-card glass-card">
-                            <a href="https://epochx.cc/" target="_blank"><img src="images/EpochX.jpg" alt="EpochX product" loading="lazy" decoding="async"></a>
-                            <div class="showcase-body">
-                                <div class="showcase-kicker">Agent Economy · Live Product</div>
-                                <h3><a href="https://epochx.cc/" target="_blank">EpochX Production Network</a></h3>
-                                <p>Marketplace infrastructure for task decomposition, execution, verification, credit payout, and reusable agent assets.</p>
-                                <a href="https://epochx.cc/" target="_blank" class="showcase-link">Open product <i class="fas fa-arrow-right"></i></a>
-                            </div>
-                        </article>
-                        <article class="showcase-card glass-card">
-                            <a href="https://github.com/midea-ai/sema-code-core" target="_blank"><img src="images/RepoMaster.png" alt="Sema Code RepoMaster stack" loading="lazy" decoding="async"></a>
-                            <div class="showcase-body">
-                                <div class="showcase-kicker">CodeAgent Infra · Enterprise workflow</div>
-                                <h3><a href="https://github.com/midea-ai/sema-code-core" target="_blank">Sema Code / RepoMaster Stack</a></h3>
-                                <p>Programmable AI coding infrastructure for repository understanding, tool execution, scheduling, and delivery.</p>
-                                <a href="commercialization.html" class="showcase-link">View stack <i class="fas fa-arrow-right"></i></a>
-                            </div>
-                        </article>
-                    </div>
-                </div>
-
-                <div class="showcase-panel" data-showcase-panel="media">
-                    <div class="showcase-track scrollbar-hide">
-                        <article class="showcase-card glass-card">
-                            <a href="https://www.qbitai.com/2025/08/324007.html" target="_blank"><img src="images/media/se-agent-qbitai.png" alt="QbitAI SE-Agent coverage" loading="lazy" decoding="async"></a>
-                            <div class="showcase-body">
-                                <div class="showcase-kicker">量子位 · QbitAI</div>
-                                <h3><a href="https://www.qbitai.com/2025/08/324007.html" target="_blank">突破 Claude-4 编程上限，自进化 Agent 框架拿下新 SOTA</a></h3>
-                                <p>SE-Agent coverage around self-evolution and SWE-bench Verified performance.</p>
-                                <a href="media.html" class="showcase-link">More coverage <i class="fas fa-arrow-right"></i></a>
-                            </div>
-                        </article>
-                        <article class="showcase-card glass-card">
-                            <a href="https://www.x-techcon.com/article/39410.html" target="_blank"><img src="images/media/repomaster-ai-tech-review.png" alt="RepoMaster coverage" loading="lazy" decoding="async"></a>
-                            <div class="showcase-body">
-                                <div class="showcase-kicker">AI科技评论 · 科技区角</div>
-                                <h3><a href="https://www.x-techcon.com/article/39410.html" target="_blank">RepoMaster：从“造工具”到“用仓库”的复杂任务智能体</a></h3>
-                                <p>Coverage on autonomous GitHub repository exploration and complex code task solving.</p>
-                                <a href="media.html" class="showcase-link">More coverage <i class="fas fa-arrow-right"></i></a>
-                            </div>
-                        </article>
-                        <article class="showcase-card glass-card">
-                            <a href="https://www.36kr.com/p/3641740455874184" target="_blank"><img src="images/media/memgovern-36kr.png" alt="MemGovern coverage" loading="lazy" decoding="async"></a>
-                            <div class="showcase-body">
-                                <div class="showcase-kicker">36氪 · 量子位转载</div>
-                                <h3><a href="https://www.36kr.com/p/3641740455874184" target="_blank">代码 AI 偷师 GitHub，bug 修复率飙升至 69.8%</a></h3>
-                                <p>MemGovern coverage around governed human experience memory for code agents.</p>
-                                <a href="media.html" class="showcase-link">More coverage <i class="fas fa-arrow-right"></i></a>
-                            </div>
-                        </article>
-                    </div>
+                <!-- Carousel Indicators -->
+                <div class="flex justify-center gap-2 mt-6">
+                    <button class="carousel-dot w-2 h-2 rounded-full bg-white/30 hover:bg-white/50 transition-colors active" data-index="0"></button>
+                    <button class="carousel-dot w-2 h-2 rounded-full bg-white/30 hover:bg-white/50 transition-colors" data-index="1"></button>
+                    <button class="carousel-dot w-2 h-2 rounded-full bg-white/30 hover:bg-white/50 transition-colors" data-index="2"></button>
+                    <button class="carousel-dot w-2 h-2 rounded-full bg-white/30 hover:bg-white/50 transition-colors" data-index="3"></button>
+                    <button class="carousel-dot w-2 h-2 rounded-full bg-white/30 hover:bg-white/50 transition-colors" data-index="4"></button>
                 </div>
             </div>
         </div>
@@ -388,9 +454,28 @@
         <i class="fas fa-chevron-up"></i>
     </button>
 
+    <!-- Technical path strip -->
+    <section class="tech-path-strip border-t border-white/10 bg-slate-950/90 py-10 md:py-12" aria-label="Technical stack overview">
+        <div class="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-wrap items-center justify-center md:justify-start gap-x-5 md:gap-x-8 gap-y-3 font-mono text-[10px] sm:text-xs uppercase tracking-[0.18em] md:tracking-[0.22em] text-slate-500">
+                <span>Infrastructure</span>
+                <span class="text-slate-700 hidden sm:inline" aria-hidden="true">·</span>
+                <span>Models</span>
+                <span class="text-slate-700 hidden sm:inline" aria-hidden="true">·</span>
+                <span>Reasoning</span>
+                <span class="text-slate-700 hidden sm:inline" aria-hidden="true">·</span>
+                <span>Execution</span>
+                <span class="text-slate-700 hidden sm:inline" aria-hidden="true">·</span>
+                <span>Evolution</span>
+                <span class="text-slate-700 hidden sm:inline" aria-hidden="true">·</span>
+                <span>Applications</span>
+            </div>
+        </div>
+    </section>
+
     <!-- Footer -->
     <footer class="border-t border-white/5 bg-slate-950 py-12">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-6">
+        <div class="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-6">
             <div class="flex items-center gap-3">
                 <img src="images/logo.png" alt="Logo" class="h-8 w-8 opacity-80 grayscale hover:grayscale-0 transition-all">
                 <span class="text-slate-400 text-sm">© 2025-2026 QuantaAlpha Research.</span>
@@ -409,3 +494,4 @@
     <script src="app.js"></script>
 </body>
 </html>
+

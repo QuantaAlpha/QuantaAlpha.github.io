@@ -16,34 +16,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Navigation active state highlighting
-    (function highlightActiveNav() {
-        const currentPage = window.location.pathname.split('/').pop() || 'index.html';
-        // Map page filenames to their nav href patterns
-        const pageToHref = {
-            'index.html': ['index.html#research'],
-            'publications.html': ['publications.html'],
-            'commercialization.html': ['commercialization.html'],
-            'media.html': ['media.html'],
-            'people.html': ['people.html', 'people.html#community'],
-        };
-
-        const matchingHrefs = pageToHref[currentPage] || [];
-        if (!matchingHrefs.length) return;
-
-        // Select all nav links (desktop + mobile)
-        const navLinks = document.querySelectorAll('nav a[href]');
-        navLinks.forEach((link) => {
-            const href = link.getAttribute('href');
-            // Skip the "Join Us" button (it has special styling)
-            if (href === 'index.html#contact') return;
-            // Check if this link matches the current page
-            if (matchingHrefs.includes(href)) {
-                link.classList.add('nav-active');
-            }
-        });
-    })();
-
     const translations = {
         en: {
             navResearch: 'Research',
@@ -172,33 +144,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     applyLanguage(localStorage.getItem('qa-lang') || 'en');
 
-    function markCurrentNavigation() {
-        const currentPage = normalizedPageName();
-        const hash = window.location.hash;
-        const activeHrefs = new Set();
-
-        if (currentPage === 'index.html') {
-            activeHrefs.add(hash === '#contact' ? 'index.html#contact' : 'index.html#research');
-        } else if (currentPage === 'people.html' && hash === '#community') {
-            activeHrefs.add('people.html#community');
-        } else {
-            activeHrefs.add(currentPage);
-        }
-
-        document.querySelectorAll('nav a').forEach((link) => {
-            const isCurrent = activeHrefs.has(link.getAttribute('href'));
-            link.classList.toggle('nav-current', isCurrent);
-            if (isCurrent) {
-                link.setAttribute('aria-current', 'page');
-            } else {
-                link.removeAttribute('aria-current');
-            }
-        });
-    }
-
-    markCurrentNavigation();
-    window.addEventListener('hashchange', markCurrentNavigation);
-
     function buildJoinModal() {
         const modal = document.createElement('div');
         modal.id = 'join-modal';
@@ -326,47 +271,10 @@ document.addEventListener('DOMContentLoaded', () => {
         let currentIndex = 0;
         const totalSlides = dots.length;
 
-        let latestTargetScroll = 0;
-        let smoothPanRaf = null;
-        let carouselScrollAnimRaf = null;
-
-        /** Slower than native `scroll-behavior: smooth` (browser-dependent). */
-        const CAROUSEL_SCROLL_DURATION_MS = 2600;
-
-        function animateCarouselScroll(targetLeft) {
-            if (carouselScrollAnimRaf) {
-                cancelAnimationFrame(carouselScrollAnimRaf);
-                carouselScrollAnimRaf = null;
-            }
-            const start = carouselContainer.scrollLeft;
-            const delta = targetLeft - start;
-            if (Math.abs(delta) < 0.5) {
-                carouselContainer.scrollLeft = targetLeft;
-                return;
-            }
-            const t0 = performance.now();
-            function easeOutCubic(t) {
-                return 1 - (1 - t) ** 3;
-            }
-            function step(now) {
-                const elapsed = now - t0;
-                const t = Math.min(1, elapsed / CAROUSEL_SCROLL_DURATION_MS);
-                carouselContainer.scrollLeft = start + delta * easeOutCubic(t);
-                if (t < 1) {
-                    carouselScrollAnimRaf = requestAnimationFrame(step);
-                } else {
-                    carouselScrollAnimRaf = null;
-                    carouselContainer.scrollLeft = targetLeft;
-                }
-            }
-            carouselScrollAnimRaf = requestAnimationFrame(step);
-        }
-
         function getSlideWidth() {
             const slides = carouselTrack.children;
             if (slides.length > 0) {
-                const gap = window.matchMedia('(min-width: 1024px)').matches ? 48 : 36;
-                return slides[0].offsetWidth + gap;
+                return slides[0].offsetWidth + 24;
             }
             return 724;
         }
@@ -385,31 +293,20 @@ document.addEventListener('DOMContentLoaded', () => {
 
         function updateCarousel(index) {
             const slideWidth = getSlideWidth();
-            const targetLeft = slideWidth * index;
-            if (smoothPanRaf) {
-                cancelAnimationFrame(smoothPanRaf);
-                smoothPanRaf = null;
-            }
-            latestTargetScroll = targetLeft;
-            if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-                carouselContainer.scrollLeft = targetLeft;
-            } else {
-                animateCarouselScroll(targetLeft);
-            }
+            carouselContainer.scrollTo({
+                left: slideWidth * index,
+                behavior: 'smooth'
+            });
             currentIndex = index;
             updateDots();
         }
 
-        prevBtn.addEventListener('click', (e) => {
-            e.preventDefault();
-            e.stopPropagation();
+        prevBtn.addEventListener('click', () => {
             currentIndex = Math.max(0, currentIndex - 1);
             updateCarousel(currentIndex);
         });
 
-        nextBtn.addEventListener('click', (e) => {
-            e.preventDefault();
-            e.stopPropagation();
+        nextBtn.addEventListener('click', () => {
             currentIndex = Math.min(totalSlides - 1, currentIndex + 1);
             updateCarousel(currentIndex);
         });
@@ -433,65 +330,19 @@ document.addEventListener('DOMContentLoaded', () => {
         updateDots();
 
         let autoPlayInterval;
-        const CAROUSEL_AUTOPLAY_MS = 16000;
-
         function startAutoPlay() {
             autoPlayInterval = setInterval(() => {
                 currentIndex = (currentIndex + 1) % totalSlides;
                 updateCarousel(currentIndex);
-            }, CAROUSEL_AUTOPLAY_MS);
+            }, 5000);
         }
         function stopAutoPlay() {
             clearInterval(autoPlayInterval);
         }
 
-        /** Hover: pointer X → target scroll; lower = slower follow. */
-        const HOVER_SMOOTH = 0.022;
-
-        function setHoverScrollTarget(clientX) {
-            const rect = carouselContainer.getBoundingClientRect();
-            const ratio = Math.max(0, Math.min(1, (clientX - rect.left) / rect.width));
-            const maxScroll = carouselContainer.scrollWidth - carouselContainer.clientWidth;
-            if (maxScroll <= 0) return;
-            latestTargetScroll = ratio * maxScroll;
-        }
-
-        function smoothPanLoop() {
-            smoothPanRaf = null;
-            const maxScroll = carouselContainer.scrollWidth - carouselContainer.clientWidth;
-            if (maxScroll <= 0) return;
-            const cur = carouselContainer.scrollLeft;
-            const diff = latestTargetScroll - cur;
-            if (Math.abs(diff) < 0.45) {
-                carouselContainer.scrollLeft = latestTargetScroll;
-                return;
-            }
-            carouselContainer.scrollLeft = cur + diff * HOVER_SMOOTH;
-            smoothPanRaf = requestAnimationFrame(smoothPanLoop);
-        }
-
-        const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
-        if (!prefersReducedMotion.matches) {
-            carouselContainer.addEventListener('mousemove', (e) => {
-                setHoverScrollTarget(e.clientX);
-                if (!smoothPanRaf) {
-                    smoothPanRaf = requestAnimationFrame(smoothPanLoop);
-                }
-            });
-        }
-
         startAutoPlay();
-        carouselContainer.addEventListener('mouseenter', () => {
-            stopAutoPlay();
-            if (carouselScrollAnimRaf) {
-                cancelAnimationFrame(carouselScrollAnimRaf);
-                carouselScrollAnimRaf = null;
-            }
-            latestTargetScroll = carouselContainer.scrollLeft;
-        });
-        carouselContainer.addEventListener('mouseleave', () => {
-            startAutoPlay();
-        });
+        carouselContainer.addEventListener('mouseenter', stopAutoPlay);
+        carouselContainer.addEventListener('mouseleave', startAutoPlay);
     }
 
     const filterBtns = document.querySelectorAll('.pub-filter');
@@ -858,4 +709,3 @@ document.addEventListener('DOMContentLoaded', () => {
 
     ctx.restore();
 });
-

@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <!-- Google analytics tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-STGLQW4BJX"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-STGLQW4BJX');
+    </script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QuantaAlpha - AI Agent Research Team</title>
+    <meta name="description" content="QuantaAlpha is an elite AI Agent research team focusing on CodeAgent, DeepResearch, Agentic RL, and Self-Evolving systems.">
+    <meta name="keywords" content="AI Agent, CodeAgent, LLM, Deep Research, Self-Evolving, NeurIPS, AAAI, Machine Learning, Autonomous Intelligence">
+    
+    <!-- Open Graph / Social Media -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="QuantaAlpha - AI Agent Research Team">
+    <meta property="og:description" content="Elite AI Agent research team building the future of Autonomous Intelligence. 30+ publications at NeurIPS, AAAI, ACL, EMNLP.">
+    <meta property="og:image" content="images/logo.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="QuantaAlpha - AI Agent Research Team">
+    <meta name="twitter:description" content="Elite AI Agent research team building the future of Autonomous Intelligence.">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/jpeg" href="images/logo.png">
+    <link rel="shortcut icon" type="image/jpeg" href="images/logo.png">
+    <link rel="apple-touch-icon" href="images/logo.png">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        slate: {
+                            950: '#020617', // Deepest background
+                        },
+                        brand: {
+                            blue: '#38bdf8',
+                            violet: '#818cf8',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- AOS Animation -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body class="mesh-bg min-h-screen selection:bg-brand-blue selection:text-white">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 top-0 glass border-b border-white/5">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-4">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo -->
+                <div class="flex-shrink-0 flex items-center gap-3 cursor-pointer" onclick="window.location.href='index.html'">
+                    <img class="h-10 w-10 rounded-lg shadow-lg shadow-brand-blue/20" src="images/logo.png" alt="QuantaAlpha">
+                    <span class="font-bold text-xl tracking-tight text-white">QuantaAlpha</span>
+                </div>
+                
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex space-x-8 items-center">
+                    <a href="index.html#research" class="text-sm font-medium text-slate-300 hover:text-white transition-colors">Research</a>
+                    <a href="publications.html" class="text-sm font-medium text-slate-300 hover:text-white transition-colors">Publications</a>
+                    <a href="commercialization.html" class="text-sm font-medium text-slate-300 hover:text-white transition-colors">Commercialization</a>
+                    <a href="media.html" class="text-sm font-medium text-slate-300 hover:text-white transition-colors">Media</a>
+                    <a href="people.html" class="text-sm font-medium text-slate-300 hover:text-white transition-colors">People</a>
+                    <a href="people.html#community" class="text-sm font-medium text-slate-300 hover:text-white transition-colors">Community</a>
+                    <a href="index.html#contact" class="px-4 py-2 text-sm font-semibold text-slate-950 bg-white rounded-full hover:bg-slate-200 transition-all shadow-lg shadow-white/10">
+                        Join Us
+                    </a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden">
+                    <button id="mobile-menu-btn" class="text-slate-300 hover:text-white p-2">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden glass border-t border-white/5 absolute w-full">
+            <div class="px-4 pt-2 pb-6 space-y-2">
+                <a href="index.html#research" class="block px-3 py-2 text-base font-medium text-slate-300 hover:text-white hover:bg-white/5 rounded-md">Research</a>
+                <a href="publications.html" class="block px-3 py-2 text-base font-medium text-slate-300 hover:text-white hover:bg-white/5 rounded-md">Publications</a>
+                <a href="commercialization.html" class="block px-3 py-2 text-base font-medium text-slate-300 hover:text-white hover:bg-white/5 rounded-md">Commercialization</a>
+                <a href="media.html" class="block px-3 py-2 text-base font-medium text-slate-300 hover:text-white hover:bg-white/5 rounded-md">Media</a>
+                <a href="people.html" class="block px-3 py-2 text-base font-medium text-slate-300 hover:text-white hover:bg-white/5 rounded-md">People</a>
+                <a href="people.html#community" class="block px-3 py-2 text-base font-medium text-slate-300 hover:text-white hover:bg-white/5 rounded-md">Community</a>
+                <a href="index.html#contact" class="block px-3 py-2 text-base font-medium text-white bg-brand-blue/20 rounded-md">Join Us</a>
+            </div>
+        </div>
+    </nav>
+
+<!-- Hero Section -->
+    <section id="about" class="relative pt-36 lg:pt-52 xl:pt-60 pb-16 lg:pb-24 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-4 relative">
+            <!-- Decorative Torus Background (anchored within centered container) -->
+            <div class="hero-torus-wrapper pointer-events-none">
+                <canvas id="hero-torus-canvas" class="w-full h-full"></canvas>
+            </div>
+
+            <div class="lg:max-w-[620px] xl:max-w-[680px] 2xl:max-w-[720px] relative z-10" data-aos="fade-up" data-aos-duration="1000">
+                <div class="text-sm uppercase tracking-[0.2em] text-brand-blue font-semibold mb-6">AI Agent Research</div>
+                <h1 class="text-4xl md:text-5xl lg:text-5xl xl:text-6xl font-extrabold tracking-tight text-white mb-6 leading-[1.1]">
+                    Building the Future of<br>
+                    <span class="text-gradient">Autonomous Intelligence</span>
+                </h1>
+                <p class="text-slate-400 text-base md:text-lg mb-10">
+                    CodeAgent · DeepResearch · Agentic RL · Self-Evolving Systems
+                </p>
+                
+                <div class="flex flex-wrap gap-4 items-center mb-16">
+                    <a href="#research" class="px-7 py-3 text-sm font-bold text-slate-950 bg-brand-blue rounded-lg hover:bg-sky-300 transition-all shadow-lg shadow-brand-blue/20">
+                        Explore Research
+                    </a>
+                    <a href="publications.html" class="text-sm font-semibold text-slate-300 hover:text-white transition-colors flex items-center gap-1">
+                        View Publications <span class="text-lg">→</span>
+                    </a>
+                </div>
+
+                <!-- Stats Row -->
+                <div class="flex flex-wrap gap-8 items-start mb-10 pb-10 border-b border-white/10" data-aos="fade-up" data-aos-delay="200">
+                    <div>
+                        <div class="text-3xl font-bold text-white">34+</div>
+                        <div class="text-xs text-slate-500 uppercase tracking-wider mt-1">Publications</div>
+                    </div>
+                    <div>
+                        <div class="text-3xl font-bold text-white">60+</div>
+                        <div class="text-xs text-slate-500 uppercase tracking-wider mt-1">Researchers</div>
+                    </div>
+                    <div>
+                        <div class="text-3xl font-bold text-white whitespace-nowrap">April 2025</div>
+                        <div class="text-xs text-slate-500 uppercase tracking-wider mt-1">Founded</div>
+                    </div>
+                </div>
+                
+                <!-- Affiliations -->
+                <div class="mt-10" data-aos="fade-up" data-aos-delay="300">
+                    <span class="text-xs text-slate-500 uppercase tracking-wider mr-3">Affiliated with</span>
+                    <span class="text-sm text-brand-blue font-semibold">PKU</span>
+                    <span class="text-slate-600 mx-1">·</span>
+                    <span class="text-sm text-brand-blue font-semibold">THU</span>
+                    <span class="text-slate-600 mx-1">·</span>
+                    <span class="text-sm text-brand-blue font-semibold">CMU</span>
+                    <span class="text-slate-600 mx-1">·</span>
+                    <span class="text-sm text-brand-blue font-semibold">Stanford</span>
+                    <span class="text-slate-600 mx-1">·</span>
+                    <span class="text-sm text-brand-blue font-semibold">HKUST</span>
+                    <span class="text-slate-600 mx-1">·</span>
+                    <span class="text-sm text-brand-blue font-semibold">ZJU</span>
+                </div>
+            </div>
+        </div>
+    </section><!-- Research Areas -->
+    <section id="research" class="py-12 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-8" data-aos="fade-up">
+                <h2 class="text-2xl md:text-3xl font-bold text-white mb-3">Research Focus</h2>
+                <div class="h-1 w-16 bg-brand-blue mx-auto rounded-full"></div>
+            </div>
+
+            <!-- Agent Intelligence -->
+            <div class="mb-10" data-aos="fade-up">
+                <h3 class="text-lg font-bold text-slate-300 mb-5 text-center">Agent Intelligence</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+                    <!-- CodeAgent -->
+                    <div class="glass-card p-5 rounded-xl" data-aos="fade-up" data-aos-delay="0">
+                        <div class="h-10 w-10 bg-blue-500/20 rounded-lg flex items-center justify-center mb-4 text-brand-blue">
+                            <i class="fas fa-laptop-code text-xl"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-white mb-2">CodeAgent</h3>
+                        <p class="text-slate-400 text-xs leading-relaxed">
+                            End-to-end execution for real-world coding tasks, enabling agents to autonomously understand, modify, and run complex repositories.
+                        </p>
+                    </div>
+
+                    <!-- DeepResearch -->
+                    <div class="glass-card p-5 rounded-xl" data-aos="fade-up" data-aos-delay="100">
+                        <div class="h-10 w-10 bg-purple-500/20 rounded-lg flex items-center justify-center mb-4 text-purple-400">
+                            <i class="fas fa-book-journal-whills text-xl"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-white mb-2">DeepResearch</h3>
+                        <p class="text-slate-400 text-xs leading-relaxed">
+                            Multi-step reasoning agents for open-ended scientific and knowledge discovery, synthesizing insights across domains.
+                        </p>
+                    </div>
+
+                    <!-- Agentic RL -->
+                    <div class="glass-card p-5 rounded-xl" data-aos="fade-up" data-aos-delay="200">
+                        <div class="h-10 w-10 bg-yellow-500/20 rounded-lg flex items-center justify-center mb-4 text-yellow-400">
+                            <i class="fas fa-brain text-xl"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-white mb-2">Agentic RL</h3>
+                        <p class="text-slate-400 text-xs leading-relaxed">
+                            Reasoning-centered reinforcement learning, bridging decision-making, planning, and adaptive intelligence.
+                        </p>
+                    </div>
+
+                    <!-- Self-Evolving -->
+                    <div class="glass-card p-5 rounded-xl" data-aos="fade-up" data-aos-delay="300">
+                        <div class="h-10 w-10 bg-green-500/20 rounded-lg flex items-center justify-center mb-4 text-green-400">
+                            <i class="fas fa-dna text-xl"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-white mb-2">Self-Evolving</h3>
+                        <p class="text-slate-400 text-xs leading-relaxed">
+                            Agents that continuously improve through self-evolution and collaborative learning, enabling emergent collective intelligence.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- AI4Science -->
+            <div data-aos="fade-up" data-aos-delay="100">
+                <h3 class="text-lg font-bold text-slate-300 mb-5 text-center">AI4Science</h3>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    <!-- AI4Investment -->
+                    <div class="glass-card p-5 rounded-xl" data-aos="fade-up" data-aos-delay="0">
+                        <div class="h-10 w-10 bg-amber-500/20 rounded-lg flex items-center justify-center mb-4 text-amber-400">
+                            <i class="fas fa-chart-line text-xl"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-white mb-2">AI4Investment</h3>
+                        <p class="text-slate-400 text-xs leading-relaxed">
+                            Agent-driven automated investment: discovering optimal factors, strategies, and execution models for intelligent trading and portfolio management.
+                        </p>
+                    </div>
+
+                    <!-- AI4Healthcare -->
+                    <div class="glass-card p-5 rounded-xl" data-aos="fade-up" data-aos-delay="100">
+                        <div class="h-10 w-10 bg-rose-500/20 rounded-lg flex items-center justify-center mb-4 text-rose-400">
+                            <i class="fas fa-heart-pulse text-xl"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-white mb-2">AI4Healthcare</h3>
+                        <p class="text-slate-400 text-xs leading-relaxed">
+                            Efficiency-first AI for healthcare: scalable foundation models, vision-language alignment, and agentic workflows for real-world clinical impact.
+                        </p>
+                    </div>
+
+                    <!-- AI4Bioinformatics -->
+                    <div class="glass-card p-5 rounded-xl" data-aos="fade-up" data-aos-delay="200">
+                        <div class="h-10 w-10 bg-teal-500/20 rounded-lg flex items-center justify-center mb-4 text-teal-400">
+                            <i class="fas fa-flask text-xl"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-white mb-2">AI4Bioinformatics</h3>
+                        <p class="text-slate-400 text-xs leading-relaxed">
+                            Agent-driven discovery in genomics: automating bioinformatics analyses and enabling novel scientific insights in biological research.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section><!-- Spotlight -->
+    <section id="publications" class="py-14 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-8" data-aos="fade-up">
+                <div>
+                    <div class="text-sm uppercase tracking-[0.2em] text-brand-blue font-semibold mb-3">Selected Work</div>
+                    <h2 class="text-3xl md:text-4xl font-bold text-white mb-3">Papers, Products, and Coverage in One Flow</h2>
+                    <p class="text-slate-400 text-sm max-w-2xl leading-relaxed">Switch between the strongest publications, commercialized systems, and media coverage without leaving the homepage.</p>
+                </div>
+                <div class="showcase-tabs">
+                    <button class="showcase-tab active" data-showcase-tab="papers">Papers</button>
+                    <button class="showcase-tab" data-showcase-tab="projects">Projects</button>
+                    <button class="showcase-tab" data-showcase-tab="media">Media</button>
+                </div>
+            </div>
+
+            <div class="showcase-shell" data-aos="fade-up">
+                <div class="showcase-panel active" data-showcase-panel="papers">
+                    <div class="showcase-track scrollbar-hide">
+                        <article class="showcase-card glass-card">
+                            <a href="https://arxiv.org/abs/2603.27304" target="_blank"><img src="images/EpochX.jpg" alt="EpochX paper" loading="lazy" decoding="async"></a>
+                            <div class="showcase-body">
+                                <div class="showcase-kicker">arXiv 2026 · Product-ready infrastructure</div>
+                                <h3><a href="https://arxiv.org/abs/2603.27304" target="_blank">EpochX: Infrastructure for an Emergent Agent Civilization</a></h3>
+                                <p>Credits-native production networks for human-agent task markets, reusable skills, and institutional memory.</p>
+                                <a href="publications.html" class="showcase-link">Explore papers <i class="fas fa-arrow-right"></i></a>
+                            </div>
+                        </article>
+                        <article class="showcase-card glass-card">
+                            <a href="https://arxiv.org/abs/2508.02085" target="_blank"><img src="images/SE-Agent.png" alt="SE-Agent paper" loading="lazy" decoding="async"></a>
+                            <div class="showcase-body">
+                                <div class="showcase-kicker">NeurIPS 2025 · Self-evolution</div>
+                                <h3><a href="https://arxiv.org/abs/2508.02085" target="_blank">SE-Agent: Self-Evolution Trajectory Optimization</a></h3>
+                                <p>Trajectory-level revision, recombination, and refinement for stronger multi-step agent reasoning.</p>
+                                <a href="https://github.com/JARVIS-Xs/SE-Agent" target="_blank" class="showcase-link">Open code <i class="fas fa-arrow-right"></i></a>
+                            </div>
+                        </article>
+                        <article class="showcase-card glass-card">
+                            <a href="https://arxiv.org/abs/2508.18993" target="_blank"><img src="images/GitTaskBench.png" alt="GitTaskBench paper" loading="lazy" decoding="async"></a>
+                            <div class="showcase-body">
+                                <div class="showcase-kicker">AAAI 2026 Oral · Benchmark</div>
+                                <h3><a href="https://arxiv.org/abs/2508.18993" target="_blank">GitTaskBench: Real-world Code Agent Delivery</a></h3>
+                                <p>Repo-level code-agent evaluation from repository understanding to project delivery and cost efficiency.</p>
+                                <a href="https://github.com/QuantaAlpha/GitTaskBench" target="_blank" class="showcase-link">Open benchmark <i class="fas fa-arrow-right"></i></a>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+
+                <div class="showcase-panel" data-showcase-panel="projects">
+                    <div class="showcase-track scrollbar-hide">
+                        <article class="showcase-card glass-card">
+                            <a href="https://github.com/QuantaAlpha/QuantaAlpha" target="_blank"><img src="images/media/quantaalpha-qbitai-mirror.png" alt="QuantaAlpha Alpha Mining" loading="lazy" decoding="async"></a>
+                            <div class="showcase-body">
+                                <div class="showcase-kicker">AI4Investment · Reported ARR 27.75%</div>
+                                <h3><a href="https://github.com/QuantaAlpha/QuantaAlpha" target="_blank">QuantaAlpha Alpha Mining Engine</a></h3>
+                                <p>Self-evolving factor discovery with auditable agent workflows for hypothesis, backtest, mutation, and risk filtering.</p>
+                                <a href="commercialization.html" class="showcase-link">View projects <i class="fas fa-arrow-right"></i></a>
+                            </div>
+                        </article>
+                        <article class="showcase-card glass-card">
+                            <a href="https://epochx.cc/" target="_blank"><img src="images/EpochX.jpg" alt="EpochX product" loading="lazy" decoding="async"></a>
+                            <div class="showcase-body">
+                                <div class="showcase-kicker">Agent Economy · Live Product</div>
+                                <h3><a href="https://epochx.cc/" target="_blank">EpochX Production Network</a></h3>
+                                <p>Marketplace infrastructure for task decomposition, execution, verification, credit payout, and reusable agent assets.</p>
+                                <a href="https://epochx.cc/" target="_blank" class="showcase-link">Open product <i class="fas fa-arrow-right"></i></a>
+                            </div>
+                        </article>
+                        <article class="showcase-card glass-card">
+                            <a href="https://github.com/midea-ai/sema-code-core" target="_blank"><img src="images/RepoMaster.png" alt="Sema Code RepoMaster stack" loading="lazy" decoding="async"></a>
+                            <div class="showcase-body">
+                                <div class="showcase-kicker">CodeAgent Infra · Enterprise workflow</div>
+                                <h3><a href="https://github.com/midea-ai/sema-code-core" target="_blank">Sema Code / RepoMaster Stack</a></h3>
+                                <p>Programmable AI coding infrastructure for repository understanding, tool execution, scheduling, and delivery.</p>
+                                <a href="commercialization.html" class="showcase-link">View stack <i class="fas fa-arrow-right"></i></a>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+
+                <div class="showcase-panel" data-showcase-panel="media">
+                    <div class="showcase-track scrollbar-hide">
+                        <article class="showcase-card glass-card">
+                            <a href="https://www.qbitai.com/2025/08/324007.html" target="_blank"><img src="images/media/se-agent-qbitai.png" alt="QbitAI SE-Agent coverage" loading="lazy" decoding="async"></a>
+                            <div class="showcase-body">
+                                <div class="showcase-kicker">量子位 · QbitAI</div>
+                                <h3><a href="https://www.qbitai.com/2025/08/324007.html" target="_blank">突破 Claude-4 编程上限，自进化 Agent 框架拿下新 SOTA</a></h3>
+                                <p>SE-Agent coverage around self-evolution and SWE-bench Verified performance.</p>
+                                <a href="media.html" class="showcase-link">More coverage <i class="fas fa-arrow-right"></i></a>
+                            </div>
+                        </article>
+                        <article class="showcase-card glass-card">
+                            <a href="https://www.x-techcon.com/article/39410.html" target="_blank"><img src="images/media/repomaster-ai-tech-review.png" alt="RepoMaster coverage" loading="lazy" decoding="async"></a>
+                            <div class="showcase-body">
+                                <div class="showcase-kicker">AI科技评论 · 科技区角</div>
+                                <h3><a href="https://www.x-techcon.com/article/39410.html" target="_blank">RepoMaster：从“造工具”到“用仓库”的复杂任务智能体</a></h3>
+                                <p>Coverage on autonomous GitHub repository exploration and complex code task solving.</p>
+                                <a href="media.html" class="showcase-link">More coverage <i class="fas fa-arrow-right"></i></a>
+                            </div>
+                        </article>
+                        <article class="showcase-card glass-card">
+                            <a href="https://www.36kr.com/p/3641740455874184" target="_blank"><img src="images/media/memgovern-36kr.png" alt="MemGovern coverage" loading="lazy" decoding="async"></a>
+                            <div class="showcase-body">
+                                <div class="showcase-kicker">36氪 · 量子位转载</div>
+                                <h3><a href="https://www.36kr.com/p/3641740455874184" target="_blank">代码 AI 偷师 GitHub，bug 修复率飙升至 69.8%</a></h3>
+                                <p>MemGovern coverage around governed human experience memory for code agents.</p>
+                                <a href="media.html" class="showcase-link">More coverage <i class="fas fa-arrow-right"></i></a>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Back to Top Button -->
+    <button id="back-to-top" class="fixed bottom-8 right-8 w-12 h-12 bg-brand-blue/20 hover:bg-brand-blue/40 backdrop-blur-sm rounded-full flex items-center justify-center text-white transition-all shadow-lg border border-brand-blue/30 opacity-0 invisible z-50" aria-label="Back to top">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <!-- Footer -->
+    <footer class="border-t border-white/5 bg-slate-950 py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-6">
+            <div class="flex items-center gap-3">
+                <img src="images/logo.png" alt="Logo" class="h-8 w-8 opacity-80 grayscale hover:grayscale-0 transition-all">
+                <span class="text-slate-400 text-sm">© 2025-2026 QuantaAlpha Research.</span>
+            </div>
+            
+            <div class="flex gap-6">
+                <a href="#" class="text-slate-500 hover:text-white transition-colors"><i class="fab fa-github text-xl"></i></a>
+                <a href="#" class="text-slate-500 hover:text-white transition-colors"><i class="fab fa-twitter text-xl"></i></a>
+                <a href="#" class="text-slate-500 hover:text-white transition-colors"><i class="fab fa-linkedin text-xl"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>

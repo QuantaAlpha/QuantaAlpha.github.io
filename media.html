@@ -30,6 +30,10 @@
     <link rel="shortcut icon" type="image/jpeg" href="images/logo.png">
     <link rel="apple-touch-icon" href="images/logo.png">
 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:ital,wght@0,700;0,800;0,900;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -48,6 +52,7 @@
                     fontFamily: {
                         sans: ['Inter', 'sans-serif'],
                         mono: ['JetBrains Mono', 'monospace'],
+                        tech: ['Orbitron', 'ui-sans-serif', 'system-ui', 'sans-serif'],
                     }
                 }
             }
@@ -112,10 +117,10 @@
     </nav>
 
 <!-- Media Coverage Section -->
-    <section id="media-coverage" class="py-20 bg-slate-900/50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-12" data-aos="fade-up">
-                <div class="text-sm uppercase tracking-[0.2em] text-brand-violet font-semibold mb-3">Media Coverage</div>
+    <section id="media-coverage" class="pt-32 md:pt-40 pb-20 bg-slate-900/50">
+        <div class="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-14 md:mb-16" data-aos="fade-up">
+                <div class="font-tech italic font-black text-xs sm:text-sm uppercase tracking-[0.28em] text-brand-blue mb-5 md:mb-6">Media Coverage</div>
                 <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Reported by Leading AI and Tech Media</h2>
                 <p class="text-slate-400 text-sm max-w-2xl mx-auto leading-relaxed">
                     Screenshots and source links collected from public media pages and institution-backed sources for portfolio and press-room use.
@@ -123,7 +128,7 @@
                 <div class="h-1 w-20 bg-gradient-to-r from-brand-blue to-brand-violet mx-auto rounded-full mt-4"></div>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-9 lg:gap-10">
                 <article class="media-card glass-card rounded-2xl overflow-hidden" data-aos="fade-up">
                     <img src="images/media/se-agent-qbitai.png" alt="QbitAI SE-Agent coverage screenshot" class="media-img">
                     <div class="p-5">
@@ -221,6 +226,206 @@
                         <h3 class="media-title">Fin-R1：强化学习训练的金融推理大模型</h3>
                         <p class="media-copy">报道 Fin-R1 以 Qwen2.5-7B 为基座，通过 SFT 与 RL 强化金融代码、计算、合规和风控推理。</p>
                         <a href="https://news.aibase.com/zh/news/16520" target="_blank" class="media-link">Open coverage <i class="fas fa-arrow-up-right-from-square"></i></a>
+                    </div>
+                </article>
+
+                <article class="media-card glass-card rounded-2xl overflow-hidden" data-aos="fade-up" data-aos-delay="50">
+                    <img src="images/media/videodr-wechat-cover.png" alt="新智元 Video Deep Research VideoDR 报道封面" class="media-img">
+                    <div class="p-5">
+                        <div class="media-source">新智元 · WeChat</div>
+                        <h3 class="media-title">视频理解+开放网络搜索=首个视频Deep Research评测基准</h3>
+                        <p class="media-copy">报道 QuantaAlpha 与高校合作推出的首个 Video Deep Research（VideoDR）基准：融合视频理解与开放网络检索，迈向「视频 × Deep Research」评测。</p>
+                        <a href="https://mp.weixin.qq.com/s/7T9NX69poGJt_hJZvwmBTw" target="_blank" rel="noopener noreferrer" class="media-link">Open coverage <i class="fas fa-arrow-up-right-from-square"></i></a>
+                    </div>
+                </article>
+
+                <article class="media-card glass-card rounded-2xl overflow-hidden" data-aos="fade-up" data-aos-delay="100">
+                    <img src="images/media/idea2story-wechat-cover.png" alt="ReadingFun Idea2Story 报道封面" class="media-img">
+                    <div class="p-5">
+                        <div class="media-source">ReadingFun · WeChat</div>
+                        <h3 class="media-title">Idea2Story：只需要一个粗糙的 Idea，AI 自动为你搭出“论文叙事骨架”</h3>
+                        <p class="media-copy">围绕 arXiv 论文 Idea2Story，介绍从粗糙想法到完整科学叙事的两阶段管线：离线知识图谱构建与在线检索驱动生成。</p>
+                        <a href="https://mp.weixin.qq.com/s/I94pdb7Ke_s5V4MtoE0d3Q" target="_blank" rel="noopener noreferrer" class="media-link">Open coverage <i class="fas fa-arrow-up-right-from-square"></i></a>
+                    </div>
+                </article>
+
+                <article class="media-card glass-card rounded-2xl overflow-hidden" data-aos="fade-up">
+                    <img src="images/media/idea2paper-wechat-cover.png" alt="柳叶方舟 Idea2Paper 报道封面" class="media-img">
+                    <div class="p-5">
+                        <div class="media-source">柳叶方舟 · WeChat</div>
+                        <h3 class="media-title">从一个灵感，到一篇论文：最近爆火的论文写作工具Idea2Paper介绍与上手指南</h3>
+                        <p class="media-copy">把研究灵感打磨成逻辑严谨的论文：介绍 Idea2Paper 的定位、能力与快速上手指南（建议在移动端微信内阅读原文排版）。</p>
+                        <a href="https://mp.weixin.qq.com/s/8bHihQOboqbokk15ayCUow" target="_blank" rel="noopener noreferrer" class="media-link">Open coverage <i class="fas fa-arrow-up-right-from-square"></i></a>
+                    </div>
+                </article>
+
+                <article class="media-card glass-card rounded-2xl overflow-hidden" data-aos="fade-up" data-aos-delay="50">
+                    <img src="images/media/media-wechat-04.png" alt="QuantML QuantaAlpha 轨迹进化 Alpha 挖掘报道封面" class="media-img">
+                    <div class="p-5">
+                        <div class="media-source">QuantML · WeChat</div>
+                        <h3 class="media-title">QuantaAlpha：基于轨迹进化的可控 Alpha 挖掘框架</h3>
+                        <p class="media-copy">报道团队论文亮点与「轨迹级」自进化思路，附机构作者信息与 GitHub / arXiv 导读。</p>
+                        <a href="https://mp.weixin.qq.com/s/qPazA7ttGk56cmZkPutCog" target="_blank" rel="noopener noreferrer" class="media-link">Open coverage <i class="fas fa-arrow-up-right-from-square"></i></a>
+                    </div>
+                </article>
+
+                <article class="media-card glass-card rounded-2xl overflow-hidden" data-aos="fade-up" data-aos-delay="100">
+                    <img src="images/media/media-wechat-05.png" alt="LaborAI QuantaAlpha 金融科技 Alpha 报道封面" class="media-img">
+                    <div class="p-5">
+                        <div class="media-source">LaborAI · WeChat</div>
+                        <h3 class="media-title">QuantaAlpha：Self-Evolving × 金融科技实现 Alpha 因子挖掘</h3>
+                        <p class="media-copy">整理论文基本信息、作者机构与关键词，解读 LLM 驱动的 Alpha 挖掘与开源仓库链接。</p>
+                        <a href="https://mp.weixin.qq.com/s/9UaiIiNYWcRfXvRwZNdMRg" target="_blank" rel="noopener noreferrer" class="media-link">Open coverage <i class="fas fa-arrow-up-right-from-square"></i></a>
+                    </div>
+                </article>
+
+                <article class="media-card glass-card rounded-2xl overflow-hidden" data-aos="fade-up">
+                    <img src="images/media/media-wechat-06.png" alt="映翡量化 QuantaAlpha 因子跨洲报道封面" class="media-img">
+                    <div class="p-5">
+                        <div class="media-source">映翡量化 · WeChat</div>
+                        <h3 class="media-title">年化收益率 27.75%，最大回撤仅 8%，因子能够跨洲转移</h3>
+                        <p class="media-copy">结合论文框架图对比传统机器学习、Agent 基线与 QuantaAlpha 的轨迹自进化与可解释性。</p>
+                        <a href="https://mp.weixin.qq.com/s/aOjM5uCGwghyezjdwxe86A" target="_blank" rel="noopener noreferrer" class="media-link">Open coverage <i class="fas fa-arrow-up-right-from-square"></i></a>
+                    </div>
+                </article>
+
+                <article class="media-card glass-card rounded-2xl overflow-hidden" data-aos="fade-up" data-aos-delay="50">
+                    <img src="images/media/media-wechat-07.png" alt="AI搞钱杂货铺 QuantaAlpha 使用说明报道封面" class="media-img">
+                    <div class="p-5">
+                        <div class="media-source">AI搞钱杂货铺 · WeChat</div>
+                        <h3 class="media-title">QuantaAlpha 使用说明：LLM 驱动的自进化因子挖掘框架</h3>
+                        <p class="media-copy">四象限图解多样化规划、因子实现、自进化策略与因子池，概述从研究方向到验证 Alpha 的路径。</p>
+                        <a href="https://mp.weixin.qq.com/s/uX-5WT2K5atqvtsRiB4gPg" target="_blank" rel="noopener noreferrer" class="media-link">Open coverage <i class="fas fa-arrow-up-right-from-square"></i></a>
+                    </div>
+                </article>
+
+                <article class="media-card glass-card rounded-2xl overflow-hidden" data-aos="fade-up" data-aos-delay="100">
+                    <img src="images/media/media-wechat-08.png" alt="AI Daily Papers QuantaAlpha 报道封面" class="media-img">
+                    <div class="p-5">
+                        <div class="media-source">AI Daily Papers · WeChat</div>
+                        <h3 class="media-title">QuantaAlpha：AI 进化式挖掘金融 Alpha 因子的革命性框架</h3>
+                        <p class="media-copy">摘录论文头图与概述，附 arXiv 全文与 GitHub 仓库入口，面向日报读者的精炼导读。</p>
+                        <a href="https://mp.weixin.qq.com/s/FmeE_QVHmiuIt9lm2bHHUw" target="_blank" rel="noopener noreferrer" class="media-link">Open coverage <i class="fas fa-arrow-up-right-from-square"></i></a>
+                    </div>
+                </article>
+
+                <article class="media-card glass-card rounded-2xl overflow-hidden" data-aos="fade-up">
+                    <img src="images/media/media-wechat-09.png" alt="量子位 QuantaAlpha 自进化量化因子报道封面" class="media-img">
+                    <div class="p-5">
+                        <div class="media-source">量子位 · WeChat</div>
+                        <h3 class="media-title">这个 AI 炒股年化收益 27.75%！用自进化 Agent 挖掘穿越牛熊的量化因子</h3>
+                        <p class="media-copy">量子位首发：上财团队投稿，解析 Alpha 因子、遗传规划与 LLM 结合的自进化量化路径。</p>
+                        <a href="https://mp.weixin.qq.com/s/0EQsuPJ-UxADtjPHM3vusw" target="_blank" rel="noopener noreferrer" class="media-link">Open coverage <i class="fas fa-arrow-up-right-from-square"></i></a>
+                    </div>
+                </article>
+
+                <article class="media-card glass-card rounded-2xl overflow-hidden" data-aos="fade-up" data-aos-delay="50">
+                    <img src="images/media/media-wechat-10.png" alt="Hyman CoM Chain of Mindset 报道封面" class="media-img">
+                    <div class="p-5">
+                        <div class="media-source">Hyman的杂货铺 · WeChat</div>
+                        <h3 class="media-title">北大等团队发布 Chain of Mindset：让 AI 学会像人类一样灵活切换思维模式</h3>
+                        <p class="media-copy">介绍北大、北交、QuantaAlpha 等合作的 CoM 框架与多推理基准上的性能对比。</p>
+                        <a href="https://mp.weixin.qq.com/s/J7nz0lZDxwdd5EZb1CcOJQ" target="_blank" rel="noopener noreferrer" class="media-link">Open coverage <i class="fas fa-arrow-up-right-from-square"></i></a>
+                    </div>
+                </article>
+
+                <article class="media-card glass-card rounded-2xl overflow-hidden" data-aos="fade-up" data-aos-delay="100">
+                    <img src="images/media/media-wechat-11.png" alt="QuantML LLM 因子挖掘公式与代码路线报道封面" class="media-img">
+                    <div class="p-5">
+                        <div class="media-source">QuantML · WeChat</div>
+                        <h3 class="media-title">LLM 因子挖掘：公式搜索还是代码生成？</h3>
+                        <p class="media-copy">对照「公式搜索」与「代码演化」两条路线及流水线示意图，讨论 Alpha 因子挖掘的技术分叉。</p>
+                        <a href="https://mp.weixin.qq.com/s/FazWf_cLtKOyUBI6b1FvkA" target="_blank" rel="noopener noreferrer" class="media-link">Open coverage <i class="fas fa-arrow-up-right-from-square"></i></a>
+                    </div>
+                </article>
+
+                <article class="media-card glass-card rounded-2xl overflow-hidden" data-aos="fade-up">
+                    <img src="images/media/media-x-01-akhaliq.png" alt="X post by AK on QuantaAlpha paper" class="media-img">
+                    <div class="p-5">
+                        <div class="media-source">AK (@_akhaliq) · X</div>
+                        <h3 class="media-title">QuantaAlpha: An Evolutionary Framework for LLM-Driven Alpha Mining</h3>
+                        <p class="media-copy">转发论文首页预览：基于 LLM 驱动的 Alpha 挖掘演化框架，配图含作者机构与 Hugging Face 来源标注。</p>
+                        <a href="https://x.com/_akhaliq/status/2021246452761075739?s=20" target="_blank" rel="noopener noreferrer" class="media-link">Open coverage <i class="fas fa-arrow-up-right-from-square"></i></a>
+                    </div>
+                </article>
+
+                <article class="media-card glass-card rounded-2xl overflow-hidden" data-aos="fade-up" data-aos-delay="50">
+                    <img src="images/media/media-x-02-dongxi-nlp.png" alt="X post by 马东锡 NLP on QuantaAlpha quant results" class="media-img">
+                    <div class="p-5">
+                        <div class="media-source">马东锡 NLP · X</div>
+                        <h3 class="media-title">跟着 AI Paper 学量化：演化搜索 + LLM 做 Alpha Mining</h3>
+                        <p class="media-copy">科普 Alpha / Alpha Mining，给出 IC、ARR、MDD 等指标，并附论文首页与 CSI 300、标普 500 超额收益曲线。</p>
+                        <a href="https://x.com/dongxi_nlp/status/2021361931299561651?s=20" target="_blank" rel="noopener noreferrer" class="media-link">Open coverage <i class="fas fa-arrow-up-right-from-square"></i></a>
+                    </div>
+                </article>
+
+                <article class="media-card glass-card rounded-2xl overflow-hidden" data-aos="fade-up" data-aos-delay="100">
+                    <img src="images/media/media-x-03-huggingpapers.png" alt="Daily Papers post on QuantaAlpha framework diagram" class="media-img">
+                    <div class="p-5">
+                        <div class="media-source">Daily Papers · X</div>
+                        <h3 class="media-title">QuantaAlpha：沪深 300 年化收益与跨指数迁移</h3>
+                        <p class="media-copy">Hugging Face Daily Papers 推文概述演化式 Alpha 挖掘，附假设操作与轨迹级自进化示意图。</p>
+                        <a href="https://x.com/HuggingPapers/status/2021197740747698619?s=20" target="_blank" rel="noopener noreferrer" class="media-link">Open coverage <i class="fas fa-arrow-up-right-from-square"></i></a>
+                    </div>
+                </article>
+
+                <article class="media-card glass-card rounded-2xl overflow-hidden" data-aos="fade-up">
+                    <img src="images/media/media-x-04-dongxi-nlp-arxiv.png" alt="X post by 马东锡 NLP with arXiv preview" class="media-img">
+                    <div class="p-5">
+                        <div class="media-source">马东锡 NLP · X</div>
+                        <h3 class="media-title">QuantaAlpha：一种基于 LLM 的 Alpha 挖掘演化框架</h3>
+                        <p class="media-copy">推文附 arXiv 链接预览与中英摘要节选，讨论非平稳市场里 Alpha 挖掘对噪声与机制切换的敏感性。</p>
+                        <a href="https://x.com/dongxi_nlp/status/2021361934138998785?s=20" target="_blank" rel="noopener noreferrer" class="media-link">Open coverage <i class="fas fa-arrow-up-right-from-square"></i></a>
+                    </div>
+                </article>
+
+                <article class="media-card glass-card rounded-2xl overflow-hidden" data-aos="fade-up" data-aos-delay="50">
+                    <img src="images/media/media-x-05-jiqizhixin.png" alt="机器之心 X post on Controlled Self-Evolution" class="media-img">
+                    <div class="p-5">
+                        <div class="media-source">机器之心 · X</div>
+                        <h3 class="media-title">Controlled Self-Evolution：迭代优化代码的受控自进化</h3>
+                        <p class="media-copy">报道 NJU、PKU、Midea-AIRC、ECNU、SYSU、RUC、QuantaAlpha 提出的 CSE，附与既有方法的探索效率对比图。</p>
+                        <a href="https://x.com/jiqizhixin/status/2011323933979762944?s=20" target="_blank" rel="noopener noreferrer" class="media-link">Open coverage <i class="fas fa-arrow-up-right-from-square"></i></a>
+                    </div>
+                </article>
+
+                <article class="media-card glass-card rounded-2xl overflow-hidden" data-aos="fade-up" data-aos-delay="100">
+                    <img src="images/media/media-x-06-tom-doerr.png" alt="Tom Dörr X post with QuantaAlpha GitHub README" class="media-img">
+                    <div class="p-5">
+                        <div class="media-source">Tom Dörr · X</div>
+                        <h3 class="media-title">利用 LLM 挖掘定量 Alpha 因子 · QuantaAlpha GitHub</h3>
+                        <p class="media-copy">推文配图展示仓库 README：自进化因子挖掘总览、企鹅示意图与工作流（研究方向 → 规划 → 轨迹 → 验证 Alpha）。</p>
+                        <a href="https://x.com/tom_doerr/status/2049451031331790861?s=20" target="_blank" rel="noopener noreferrer" class="media-link">Open coverage <i class="fas fa-arrow-up-right-from-square"></i></a>
+                    </div>
+                </article>
+
+                <article class="media-card glass-card rounded-2xl overflow-hidden" data-aos="fade-up">
+                    <img src="images/media/media-sohu-techwalker-quantaalpha.png" alt="搜狐商业 · 科技行者 QuantaAlpha 报道截图" class="media-img">
+                    <div class="p-5">
+                        <div class="media-source">科技行者 · Sohu</div>
+                        <h3 class="media-title">上海财大 QuantaAlpha：AI 实现华尔街级投资机会挖掘</h3>
+                        <p class="media-copy">搜狐商业首发：介绍上海财经大学 AIFin Lab 等与 QuantaAlpha、斯坦福、北大等机构合作的论文（arXiv:2602.07085），概述演化式轨迹学习、沪深 300 实证与跨市场迁移结果。</p>
+                        <a href="https://business.sohu.com/a/985926656_121718165" target="_blank" rel="noopener noreferrer" class="media-link">Open coverage <i class="fas fa-arrow-up-right-from-square"></i></a>
+                    </div>
+                </article>
+
+                <article class="media-card glass-card rounded-2xl overflow-hidden" data-aos="fade-up" data-aos-delay="50">
+                    <img src="images/media/media-sina-orient-quantaalpha-report.png" alt="新浪财经 · 东方证券 QuantaAlpha 金融工程研报截图" class="media-img">
+                    <div class="p-5">
+                        <div class="media-source">东方证券 · 新浪财经</div>
+                        <h3 class="media-title">金融工程研究：QUANTAALPHA：用大模型做量化因子挖掘</h3>
+                        <p class="media-copy">东方证券研报解读 QuantaAlpha：LLM 与进化算法深度融合、多智能体模拟量化研究员全流程，对照自研 DFQ 遗传规划的升级点，并附实证与风险提示。</p>
+                        <a href="https://stock.finance.sina.com.cn/stock/go.php/vReport_Show/kind/lastest/rptid/828926408568/index.phtml" target="_blank" rel="noopener noreferrer" class="media-link">Open coverage <i class="fas fa-arrow-up-right-from-square"></i></a>
+                    </div>
+                </article>
+
+                <article class="media-card glass-card rounded-2xl overflow-hidden" data-aos="fade-up" data-aos-delay="100">
+                    <img src="images/media/media-bilibili-quantaalpha-opus.png" alt="哔哩哔哩专栏 · QuantaAlpha 相关动态截图" class="media-img">
+                    <div class="p-5">
+                        <div class="media-source">哔哩哔哩 · 专栏</div>
+                        <h3 class="media-title">QuantaAlpha：专栏动态与讨论</h3>
+                        <p class="media-copy">B 站专栏 opus 链接对应的公开动态页；若遇到验证页或跳转异常，建议在哔哩哔哩 App 内打开。</p>
+                        <a href="https://www.bilibili.com/opus/1167703648227033145" target="_blank" rel="noopener noreferrer" class="media-link">Open coverage <i class="fas fa-arrow-up-right-from-square"></i></a>
                     </div>
                 </article>
 
