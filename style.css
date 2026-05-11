@@ -27,18 +27,12 @@ html {
     background-color: #020617;
 }
 
-/* Mesh Gradient Animation Background (subpages) */
+/* Legacy class: same base as aurora pages (backdrop added in HTML) */
 .mesh-bg {
     background-color: #020617;
-    background-image: 
-        radial-gradient(at 0% 0%, rgba(56, 189, 248, 0.1) 0px, transparent 50%),
-        radial-gradient(at 100% 0%, rgba(139, 92, 246, 0.1) 0px, transparent 50%),
-        radial-gradient(at 100% 100%, rgba(56, 189, 248, 0.1) 0px, transparent 50%),
-        radial-gradient(at 0% 100%, rgba(139, 92, 246, 0.1) 0px, transparent 50%);
-    background-size: 100% 100%;
 }
 
-/* ─── Homepage: aurora-like floating backdrop ─── */
+/* ─── Site-wide: flowing green aurora backdrop ─── */
 body.mesh-bg-aurora {
     background-color: transparent;
 }
@@ -49,66 +43,73 @@ body.mesh-bg-aurora {
     z-index: 0;
     pointer-events: none;
     overflow: hidden;
-    background: radial-gradient(ellipse 120% 80% at 50% 100%, #0c1222 0%, #020617 45%, #020617 100%);
+    background:
+        radial-gradient(ellipse 140% 95% at 50% 115%, rgba(16, 185, 129, 0.14) 0%, transparent 52%),
+        radial-gradient(ellipse 90% 60% at 20% 20%, rgba(6, 95, 70, 0.25) 0%, transparent 55%),
+        linear-gradient(180deg, #022c1f 0%, #020617 38%, #020617 100%);
 }
 
 .aurora-blob {
     position: absolute;
     border-radius: 50%;
-    filter: blur(72px);
-    opacity: 0.42;
+    filter: blur(78px);
+    opacity: 0.48;
     mix-blend-mode: screen;
     will-change: transform, opacity;
 }
 
+/* Emerald “ribbon” — bright aurora green */
 .aurora-blob--cyan {
-    width: min(85vw, 720px);
-    height: min(85vw, 720px);
-    left: -18%;
-    top: -12%;
-    background: radial-gradient(circle at 35% 40%, rgba(34, 211, 238, 0.55) 0%, rgba(56, 189, 248, 0.25) 38%, transparent 68%);
-    animation: aurora-float-1 22s ease-in-out infinite;
+    width: min(88vw, 760px);
+    height: min(88vw, 760px);
+    left: -20%;
+    top: -14%;
+    background: radial-gradient(circle at 38% 42%, rgba(110, 231, 183, 0.62) 0%, rgba(52, 211, 153, 0.32) 36%, rgba(16, 185, 129, 0.12) 58%, transparent 72%);
+    animation: aurora-float-1 24s ease-in-out infinite;
 }
 
+/* Teal depth — cooler green drift */
 .aurora-blob--violet {
-    width: min(95vw, 820px);
-    height: min(75vw, 640px);
-    right: -22%;
-    top: 8%;
-    background: radial-gradient(circle at 60% 45%, rgba(167, 139, 250, 0.5) 0%, rgba(129, 140, 248, 0.22) 42%, transparent 70%);
-    animation: aurora-float-2 28s ease-in-out infinite;
-    animation-delay: -6s;
+    width: min(98vw, 840px);
+    height: min(78vw, 660px);
+    right: -24%;
+    top: 6%;
+    background: radial-gradient(circle at 58% 44%, rgba(45, 212, 191, 0.52) 0%, rgba(20, 184, 166, 0.26) 40%, rgba(15, 118, 110, 0.1) 62%, transparent 74%);
+    animation: aurora-float-2 31s ease-in-out infinite;
+    animation-delay: -7s;
 }
 
+/* Spring accent — lighter flowing lime */
 .aurora-blob--mint {
-    width: min(90vw, 760px);
-    height: min(70vw, 560px);
-    left: 5%;
-    bottom: -8%;
-    background: radial-gradient(circle at 50% 55%, rgba(52, 211, 153, 0.35) 0%, rgba(45, 212, 191, 0.18) 45%, transparent 72%);
-    animation: aurora-float-3 26s ease-in-out infinite;
-    animation-delay: -12s;
+    width: min(92vw, 780px);
+    height: min(72vw, 580px);
+    left: 2%;
+    bottom: -12%;
+    background: radial-gradient(circle at 48% 52%, rgba(190, 242, 100, 0.38) 0%, rgba(163, 230, 53, 0.22) 42%, rgba(74, 222, 128, 0.14) 62%, transparent 76%);
+    animation: aurora-float-3 27s ease-in-out infinite;
+    animation-delay: -13s;
 }
 
+/* Horizontal flowing curtain */
 .aurora-band {
     position: absolute;
-    left: -15%;
-    width: 130%;
-    height: min(55vh, 420px);
-    top: 28%;
-    filter: blur(56px);
-    opacity: 0.22;
+    left: -20%;
+    width: 140%;
+    height: min(58vh, 460px);
+    top: 26%;
+    filter: blur(58px);
+    opacity: 0.26;
     border-radius: 50%;
     background: linear-gradient(
-        105deg,
+        102deg,
         transparent 0%,
-        rgba(56, 189, 248, 0.2) 22%,
-        rgba(129, 140, 248, 0.28) 48%,
-        rgba(52, 211, 153, 0.15) 72%,
+        rgba(52, 211, 153, 0.26) 18%,
+        rgba(45, 212, 191, 0.3) 42%,
+        rgba(16, 185, 129, 0.22) 68%,
         transparent 100%
     );
     mix-blend-mode: screen;
-    animation: aurora-sheen 35s ease-in-out infinite;
+    animation: aurora-green-flow 42s ease-in-out infinite;
 }
 
 @keyframes aurora-float-1 {
@@ -156,14 +157,18 @@ body.mesh-bg-aurora {
     }
 }
 
-@keyframes aurora-sheen {
+@keyframes aurora-green-flow {
     0%, 100% {
-        transform: translateY(0) scaleX(1);
-        opacity: 0.18;
+        transform: translate(-6vw, 0) scaleX(1) rotate(-2deg);
+        opacity: 0.2;
     }
-    50% {
-        transform: translateY(-4vh) scaleX(1.06);
-        opacity: 0.28;
+    33% {
+        transform: translate(8vw, -5vh) scaleX(1.12) rotate(1.5deg);
+        opacity: 0.3;
+    }
+    66% {
+        transform: translate(3vw, 3vh) scaleX(0.96) rotate(-1deg);
+        opacity: 0.24;
     }
 }
 
@@ -171,20 +176,25 @@ body.mesh-bg-aurora {
     .aurora-blob,
     .aurora-band {
         animation: none !important;
-        opacity: 0.22;
+        opacity: 0.2;
+        transform: none;
     }
 }
 
-/* Push homepage content above aurora layer */
-body.mesh-bg-aurora > nav,
+/* Push page content above aurora layer (nav stays position:fixed from utilities) */
 body.mesh-bg-aurora > section,
-body.mesh-bg-aurora > footer {
+body.mesh-bg-aurora > footer,
+body.mesh-bg-aurora > button#back-to-top {
     position: relative;
     z-index: 1;
 }
 
 body.mesh-bg-aurora > nav {
     z-index: 50;
+}
+
+body.mesh-bg-aurora > button#back-to-top {
+    z-index: 60;
 }
 
 /* Navigation Active State */

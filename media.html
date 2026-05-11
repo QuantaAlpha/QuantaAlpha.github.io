@@ -69,7 +69,15 @@
     <link rel="stylesheet" href="style.css">
 
 </head>
-<body class="mesh-bg min-h-screen selection:bg-brand-blue selection:text-white">
+<body class="mesh-bg-aurora min-h-screen selection:bg-brand-blue selection:text-white">
+
+    <!-- Flowing green aurora backdrop -->
+    <div class="aurora-backdrop" aria-hidden="true">
+        <div class="aurora-blob aurora-blob--cyan"></div>
+        <div class="aurora-blob aurora-blob--violet"></div>
+        <div class="aurora-blob aurora-blob--mint"></div>
+        <div class="aurora-band aurora-band--sheen"></div>
+    </div>
 
     <!-- Navigation -->
     <nav class="fixed w-full z-50 top-0 glass border-b border-white/5">
@@ -410,16 +418,26 @@
                 </article>
 
                 <article class="media-card glass-card rounded-2xl overflow-hidden" data-aos="fade-up" data-aos-delay="50">
-                    <img src="images/media/media-sina-orient-quantaalpha-report.png" alt="新浪财经 · 东方证券 QuantaAlpha 金融工程研报截图" class="media-img">
+                    <img src="images/media/media-sina-quantaalpha-fin-engineering.png" alt="新浪财经 · 东方证券 QuantaAlpha 金融工程研报页面截图" class="media-img">
                     <div class="p-5">
                         <div class="media-source">东方证券 · 新浪财经</div>
                         <h3 class="media-title">金融工程研究：QUANTAALPHA：用大模型做量化因子挖掘</h3>
-                        <p class="media-copy">东方证券研报解读 QuantaAlpha：LLM 与进化算法深度融合、多智能体模拟量化研究员全流程，对照自研 DFQ 遗传规划的升级点，并附实证与风险提示。</p>
+                        <p class="media-copy">新浪财经研报摘要页（东方证券，2026-04-07，刘静涵）：概述 arXiv:2602.07085 论文及 LLM 与进化算法融合的 Alpha 因子挖掘框架与全流程。</p>
                         <a href="https://stock.finance.sina.com.cn/stock/go.php/vReport_Show/kind/lastest/rptid/828926408568/index.phtml" target="_blank" rel="noopener noreferrer" class="media-link">Open coverage <i class="fas fa-arrow-up-right-from-square"></i></a>
                     </div>
                 </article>
 
                 <article class="media-card glass-card rounded-2xl overflow-hidden" data-aos="fade-up" data-aos-delay="100">
+                    <img src="images/media/media-orientsec-quantaalpha-special-report-cover.png" alt="东方证券 · 量化研究参考系列 QuantaAlpha 专题报告封面" class="media-img">
+                    <div class="p-5">
+                        <div class="media-source">东方证券 · 研报 PDF</div>
+                        <h3 class="media-title">量化研究参考系列之一：QuantaAlpha，用大模型做量化因子挖掘</h3>
+                        <p class="media-copy">东方证券证券研究报告正式封面稿（金融工程 · 专题报告，2026-04-07）。以下为研报 PDF 全文，供离线查阅。</p>
+                        <a href="documents/orient-20260407-quantaalpha-factor-mining.pdf" target="_blank" rel="noopener noreferrer" class="media-link">Open PDF <i class="fas fa-file-pdf"></i></a>
+                    </div>
+                </article>
+
+                <article class="media-card glass-card rounded-2xl overflow-hidden" data-aos="fade-up" data-aos-delay="150">
                     <img src="images/media/media-bilibili-quantaalpha-opus.png" alt="哔哩哔哩专栏 · QuantaAlpha 相关动态截图" class="media-img">
                     <div class="p-5">
                         <div class="media-source">哔哩哔哩 · 专栏</div>
