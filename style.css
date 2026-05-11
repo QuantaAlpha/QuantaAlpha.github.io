@@ -1,10 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap');
 
-/* Base Styles */
+/* Base Styles — light canvas (full site uses mesh-bg-aurora) */
 body {
     font-family: 'Inter', sans-serif;
-    background-color: #020617; /* slate-950 */
-    color: #e2e8f0; /* slate-200 */
+    background-color: #f4f6fb;
+    color: #1e293b;
     overflow-x: hidden;
 }
 
@@ -13,28 +13,28 @@ body {
     width: 8px;
 }
 ::-webkit-scrollbar-track {
-    background: #0f172a;
+    background: #e2e8f0;
 }
 ::-webkit-scrollbar-thumb {
-    background: #334155;
+    background: #94a3b8;
     border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {
-    background: #475569;
+    background: #64748b;
 }
 
 html {
-    background-color: #020617;
+    background-color: #f4f6fb;
 }
 
-/* Legacy class: same base as aurora pages (backdrop added in HTML) */
+/* Legacy class */
 .mesh-bg {
-    background-color: #020617;
+    background-color: #f4f6fb;
 }
 
-/* ─── Site-wide: flowing green aurora backdrop ─── */
+/* ─── Site-wide: airy light mesh (cyan → lavender → peach) ─── */
 body.mesh-bg-aurora {
-    background-color: transparent;
+    background-color: #f4f6fb;
 }
 
 .aurora-backdrop {
@@ -44,72 +44,73 @@ body.mesh-bg-aurora {
     pointer-events: none;
     overflow: hidden;
     background:
-        radial-gradient(ellipse 140% 95% at 50% 115%, rgba(16, 185, 129, 0.14) 0%, transparent 52%),
-        radial-gradient(ellipse 90% 60% at 20% 20%, rgba(6, 95, 70, 0.25) 0%, transparent 55%),
-        linear-gradient(180deg, #022c1f 0%, #020617 38%, #020617 100%);
+        radial-gradient(ellipse 88% 72% at 82% 36%, rgba(186, 230, 253, 0.95) 0%, rgba(224, 231, 255, 0.28) 46%, transparent 58%),
+        radial-gradient(ellipse 62% 52% at 68% 58%, rgba(233, 213, 255, 0.65) 0%, transparent 52%),
+        radial-gradient(ellipse 48% 42% at 94% 68%, rgba(254, 215, 170, 0.55) 0%, transparent 50%),
+        linear-gradient(180deg, #fafbfc 0%, #f1f5f9 48%, #eef2f7 100%);
 }
 
 .aurora-blob {
     position: absolute;
     border-radius: 50%;
-    filter: blur(78px);
-    opacity: 0.48;
-    mix-blend-mode: screen;
+    filter: blur(92px);
+    opacity: 0.52;
+    mix-blend-mode: normal;
     will-change: transform, opacity;
 }
 
-/* Emerald “ribbon” — bright aurora green */
+/* Soft cyan / aqua */
 .aurora-blob--cyan {
     width: min(88vw, 760px);
     height: min(88vw, 760px);
-    left: -20%;
-    top: -14%;
-    background: radial-gradient(circle at 38% 42%, rgba(110, 231, 183, 0.62) 0%, rgba(52, 211, 153, 0.32) 36%, rgba(16, 185, 129, 0.12) 58%, transparent 72%);
-    animation: aurora-float-1 24s ease-in-out infinite;
+    left: -18%;
+    top: -12%;
+    background: radial-gradient(circle at 40% 44%, rgba(125, 211, 252, 0.7) 0%, rgba(56, 189, 248, 0.28) 42%, rgba(14, 165, 233, 0.08) 62%, transparent 76%);
+    animation: aurora-float-1 26s ease-in-out infinite;
 }
 
-/* Teal depth — cooler green drift */
+/* Lavender */
 .aurora-blob--violet {
     width: min(98vw, 840px);
     height: min(78vw, 660px);
-    right: -24%;
-    top: 6%;
-    background: radial-gradient(circle at 58% 44%, rgba(45, 212, 191, 0.52) 0%, rgba(20, 184, 166, 0.26) 40%, rgba(15, 118, 110, 0.1) 62%, transparent 74%);
-    animation: aurora-float-2 31s ease-in-out infinite;
+    right: -22%;
+    top: 4%;
+    background: radial-gradient(circle at 56% 42%, rgba(196, 181, 253, 0.62) 0%, rgba(167, 139, 250, 0.26) 44%, rgba(139, 92, 246, 0.08) 64%, transparent 78%);
+    animation: aurora-float-2 32s ease-in-out infinite;
     animation-delay: -7s;
 }
 
-/* Spring accent — lighter flowing lime */
+/* Warm peach accent */
 .aurora-blob--mint {
     width: min(92vw, 780px);
-    height: min(72vw, 580px);
-    left: 2%;
-    bottom: -12%;
-    background: radial-gradient(circle at 48% 52%, rgba(190, 242, 100, 0.38) 0%, rgba(163, 230, 53, 0.22) 42%, rgba(74, 222, 128, 0.14) 62%, transparent 76%);
-    animation: aurora-float-3 27s ease-in-out infinite;
+    height: min(72vw, 560px);
+    left: 4%;
+    bottom: -14%;
+    background: radial-gradient(circle at 50% 48%, rgba(254, 215, 170, 0.55) 0%, rgba(251, 191, 155, 0.22) 48%, rgba(249, 168, 112, 0.1) 66%, transparent 80%);
+    animation: aurora-float-3 28s ease-in-out infinite;
     animation-delay: -13s;
 }
 
-/* Horizontal flowing curtain */
+/* Flowing ribbon */
 .aurora-band {
     position: absolute;
-    left: -20%;
-    width: 140%;
+    left: -22%;
+    width: 145%;
     height: min(58vh, 460px);
-    top: 26%;
-    filter: blur(58px);
-    opacity: 0.26;
+    top: 24%;
+    filter: blur(64px);
+    opacity: 0.38;
     border-radius: 50%;
     background: linear-gradient(
         102deg,
         transparent 0%,
-        rgba(52, 211, 153, 0.26) 18%,
-        rgba(45, 212, 191, 0.3) 42%,
-        rgba(16, 185, 129, 0.22) 68%,
+        rgba(125, 211, 252, 0.38) 18%,
+        rgba(196, 181, 253, 0.36) 46%,
+        rgba(254, 215, 170, 0.34) 72%,
         transparent 100%
     );
-    mix-blend-mode: screen;
-    animation: aurora-green-flow 42s ease-in-out infinite;
+    mix-blend-mode: multiply;
+    animation: aurora-mesh-flow 44s ease-in-out infinite;
 }
 
 @keyframes aurora-float-1 {
@@ -157,18 +158,18 @@ body.mesh-bg-aurora {
     }
 }
 
-@keyframes aurora-green-flow {
+@keyframes aurora-mesh-flow {
     0%, 100% {
         transform: translate(-6vw, 0) scaleX(1) rotate(-2deg);
-        opacity: 0.2;
+        opacity: 0.28;
     }
     33% {
         transform: translate(8vw, -5vh) scaleX(1.12) rotate(1.5deg);
-        opacity: 0.3;
+        opacity: 0.4;
     }
     66% {
         transform: translate(3vw, 3vh) scaleX(0.96) rotate(-1deg);
-        opacity: 0.24;
+        opacity: 0.32;
     }
 }
 
@@ -176,7 +177,7 @@ body.mesh-bg-aurora {
     .aurora-blob,
     .aurora-band {
         animation: none !important;
-        opacity: 0.2;
+        opacity: 0.35;
         transform: none;
     }
 }
@@ -197,7 +198,246 @@ body.mesh-bg-aurora > button#back-to-top {
     z-index: 60;
 }
 
-/* Navigation Active State */
+/* ========== Light airy UI (pastel mesh + readable slate text) ========== */
+body.mesh-bg-aurora .text-white {
+    color: #0f172a !important;
+}
+body.mesh-bg-aurora .hover\:text-white:hover {
+    color: #0f172a !important;
+}
+body.mesh-bg-aurora .text-slate-300 {
+    color: #475569 !important;
+}
+body.mesh-bg-aurora .text-slate-400 {
+    color: #64748b !important;
+}
+body.mesh-bg-aurora .text-slate-500 {
+    color: #64748b !important;
+}
+body.mesh-bg-aurora .text-slate-600 {
+    color: #475569 !important;
+}
+body.mesh-bg-aurora .border-white\/5,
+body.mesh-bg-aurora .border-white\/10 {
+    border-color: rgba(15, 23, 42, 0.08) !important;
+}
+body.mesh-bg-aurora .border-b.border-white\/5 {
+    border-bottom-color: rgba(15, 23, 42, 0.08) !important;
+}
+body.mesh-bg-aurora .border-t.border-white\/5 {
+    border-top-color: rgba(15, 23, 42, 0.08) !important;
+}
+body.mesh-bg-aurora .bg-slate-900\/50 {
+    background-color: rgba(241, 245, 249, 0.72) !important;
+}
+body.mesh-bg-aurora .bg-slate-900\/30 {
+    background-color: rgba(241, 245, 249, 0.5) !important;
+}
+body.mesh-bg-aurora .bg-slate-950 {
+    background-color: #eef1f7 !important;
+}
+body.mesh-bg-aurora .bg-white\/5 {
+    background-color: rgba(15, 23, 42, 0.045) !important;
+}
+body.mesh-bg-aurora .hover\:bg-white\/5:hover {
+    background-color: rgba(15, 23, 42, 0.06) !important;
+}
+body.mesh-bg-aurora .hover\:bg-white\/10:hover {
+    background-color: rgba(15, 23, 42, 0.08) !important;
+}
+body.mesh-bg-aurora .border-white\/10 {
+    border-color: rgba(15, 23, 42, 0.1) !important;
+}
+
+body.mesh-bg-aurora .glass {
+    background: rgba(255, 255, 255, 0.82);
+    border-color: rgba(15, 23, 42, 0.06);
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.95) inset;
+}
+body.mesh-bg-aurora .glass-card {
+    background: rgba(255, 255, 255, 0.74);
+    border-color: rgba(15, 23, 42, 0.07);
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.85) inset;
+}
+body.mesh-bg-aurora .glass-card:hover {
+    background: rgba(255, 255, 255, 0.92);
+    border-color: rgba(14, 165, 233, 0.38);
+    box-shadow: 0 28px 56px -16px rgba(15, 23, 42, 0.12), 0 0 0 1px rgba(14, 165, 233, 0.12);
+}
+
+body.mesh-bg-aurora .text-gradient {
+    background: linear-gradient(to right, #0284c7, #7c3aed, #ea580c);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+body.mesh-bg-aurora nav a.nav-active {
+    color: #0f172a !important;
+}
+body.mesh-bg-aurora #mobile-menu a.nav-active {
+    color: #0f172a !important;
+    background: rgba(14, 165, 233, 0.12);
+    border-left-color: #0284c7;
+}
+
+body.mesh-bg-aurora .carousel-dot.active {
+    background-color: rgba(15, 23, 42, 0.55) !important;
+}
+
+body.mesh-bg-aurora .pub-item.glass-card:hover {
+    background-color: rgba(255, 255, 255, 0.88) !important;
+}
+
+body.mesh-bg-aurora #back-to-top {
+    color: #0f172a !important;
+    border-color: rgba(14, 165, 233, 0.35);
+}
+
+body.mesh-bg-aurora footer .text-slate-400,
+body.mesh-bg-aurora footer .text-slate-500 {
+    color: #64748b !important;
+}
+body.mesh-bg-aurora footer a.hover\:text-white:hover {
+    color: #0f172a !important;
+}
+
+/* Showcase & spotlight panels */
+body.mesh-bg-aurora .showcase-tabs {
+    border-color: rgba(15, 23, 42, 0.1);
+    background: rgba(255, 255, 255, 0.88);
+}
+body.mesh-bg-aurora .showcase-tab {
+    color: #64748b;
+}
+body.mesh-bg-aurora .showcase-tab:hover,
+body.mesh-bg-aurora .showcase-tab.active {
+    color: #0f172a;
+    background: #ffffff;
+    box-shadow: 0 4px 14px rgba(15, 23, 42, 0.08);
+}
+body.mesh-bg-aurora .showcase-card img {
+    border-bottom-color: rgba(15, 23, 42, 0.08);
+}
+body.mesh-bg-aurora .showcase-card h3 {
+    color: #0f172a;
+}
+body.mesh-bg-aurora .showcase-card h3 a:hover {
+    color: #0284c7;
+}
+body.mesh-bg-aurora .showcase-card p {
+    color: #64748b;
+}
+body.mesh-bg-aurora .showcase-link {
+    color: #0f172a;
+}
+body.mesh-bg-aurora .showcase-link:hover {
+    color: #0284c7;
+}
+body.mesh-bg-aurora .showcase-card img.showcase-img-contain {
+    background:
+        radial-gradient(circle at 30% 20%, rgba(14, 165, 233, 0.12), transparent 36%),
+        linear-gradient(135deg, rgba(248, 250, 252, 0.98), rgba(241, 245, 249, 0.96));
+}
+
+body.mesh-bg-aurora .technical-showcase {
+    border-color: rgba(15, 23, 42, 0.1);
+    background:
+        linear-gradient(135deg, rgba(255, 255, 255, 0.88), rgba(248, 250, 252, 0.82)),
+        radial-gradient(circle at 18% 0%, rgba(14, 165, 233, 0.08), transparent 36%);
+}
+
+body.mesh-bg-aurora nav a.nav-current {
+    color: #0f172a !important;
+    background: rgba(14, 165, 233, 0.14) !important;
+    border-color: rgba(14, 165, 233, 0.28) !important;
+}
+
+body.mesh-bg-aurora #mobile-menu a.nav-current {
+    background: rgba(14, 165, 233, 0.16) !important;
+    border-color: rgba(14, 165, 233, 0.32) !important;
+}
+
+/* Media / commercial module text */
+body.mesh-bg-aurora .media-title {
+    color: #0f172a;
+}
+body.mesh-bg-aurora .media-copy {
+    color: #64748b;
+}
+body.mesh-bg-aurora .media-link {
+    color: #0284c7;
+}
+body.mesh-bg-aurora .media-link:hover {
+    color: #0369a1;
+}
+body.mesh-bg-aurora .media-img,
+body.mesh-bg-aurora .commercial-img {
+    border-bottom-color: rgba(15, 23, 42, 0.08);
+}
+
+body.mesh-bg-aurora .metric-tile {
+    border-color: rgba(15, 23, 42, 0.1);
+    background: rgba(255, 255, 255, 0.78);
+}
+body.mesh-bg-aurora .metric-tile span {
+    color: #0f172a;
+}
+body.mesh-bg-aurora .section-link {
+    background: rgba(15, 23, 42, 0.05);
+    color: #0f172a;
+}
+body.mesh-bg-aurora .section-link:hover {
+    background: rgba(14, 165, 233, 0.12);
+    color: #0284c7;
+}
+
+body.mesh-bg-aurora .page-nav {
+    border-color: rgba(15, 23, 42, 0.12);
+    background: rgba(255, 255, 255, 0.88);
+    color: #0f172a;
+}
+body.mesh-bg-aurora .page-nav-label {
+    background: rgba(255, 255, 255, 0.95);
+    color: #334155;
+    border: 1px solid rgba(15, 23, 42, 0.08);
+}
+
+/* Research cards — frosted tints */
+body.mesh-bg-aurora .research-tint-blue {
+    background: linear-gradient(145deg, rgba(255, 255, 255, 0.95) 0%, rgba(240, 249, 255, 0.88) 100%);
+    border-color: rgba(14, 165, 233, 0.22) !important;
+}
+body.mesh-bg-aurora .research-tint-violet {
+    background: linear-gradient(145deg, rgba(255, 255, 255, 0.95) 0%, rgba(245, 243, 255, 0.9) 100%);
+    border-color: rgba(139, 92, 246, 0.2) !important;
+}
+body.mesh-bg-aurora .research-tint-gold {
+    background: linear-gradient(145deg, rgba(255, 255, 255, 0.94) 0%, rgba(255, 251, 235, 0.88) 100%);
+    border-color: rgba(245, 158, 11, 0.2) !important;
+}
+body.mesh-bg-aurora .research-tint-green {
+    background: linear-gradient(145deg, rgba(255, 255, 255, 0.94) 0%, rgba(236, 253, 245, 0.88) 100%);
+    border-color: rgba(16, 185, 129, 0.2) !important;
+}
+body.mesh-bg-aurora .research-tint-orange {
+    background: linear-gradient(145deg, rgba(255, 255, 255, 0.94) 0%, rgba(255, 247, 237, 0.88) 100%);
+    border-color: rgba(249, 115, 22, 0.2) !important;
+}
+body.mesh-bg-aurora .research-tint-rose {
+    background: linear-gradient(145deg, rgba(255, 255, 255, 0.94) 0%, rgba(255, 241, 242, 0.88) 100%);
+    border-color: rgba(244, 63, 94, 0.18) !important;
+}
+body.mesh-bg-aurora .research-tint-teal {
+    background: linear-gradient(145deg, rgba(255, 255, 255, 0.94) 0%, rgba(240, 253, 250, 0.88) 100%);
+    border-color: rgba(20, 184, 166, 0.2) !important;
+}
+
+body.mesh-bg-aurora .commercial-card.glass-card:hover,
+body.mesh-bg-aurora .media-card.glass-card:hover {
+    box-shadow: 0 28px 64px -18px rgba(15, 23, 42, 0.14);
+}
+
 nav a.nav-active {
     color: #ffffff;
 }

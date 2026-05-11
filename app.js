@@ -850,7 +850,7 @@ document.addEventListener('DOMContentLoaded', () => {
         ctx.rotate(angle);
         ctx.beginPath();
         ctx.ellipse(0, 0, rx, ry, 0, 0, Math.PI * 2);
-        ctx.strokeStyle = `rgba(56, 189, 248, ${alpha})`;
+        ctx.strokeStyle = `rgba(14, 116, 184, ${alpha})`;
         ctx.lineWidth = lineW;
         ctx.stroke();
         ctx.restore();
