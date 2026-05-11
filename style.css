@@ -1,9 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap');
 
+/* 参考首页效果图：亮白底 #f9fafb；彩色集中在右侧，紫为主、右上极小暖高光 */
+:root {
+    --qa-canvas: #f9fafb;
+    --qa-canvas-deep: #f3f4f6;
+    --qa-canvas-veil: rgba(249, 250, 251, 0.96);
+}
+
 /* Base Styles — light canvas (full site uses mesh-bg-aurora) */
 body {
     font-family: 'Inter', sans-serif;
-    background-color: #f4f6fb;
+    background-color: var(--qa-canvas);
     color: #1e293b;
     overflow-x: hidden;
 }
@@ -24,17 +31,23 @@ body {
 }
 
 html {
-    background-color: #f4f6fb;
+    background-color: var(--qa-canvas);
+    overflow-x: clip;
 }
 
 /* Legacy class */
 .mesh-bg {
-    background-color: #f4f6fb;
+    background-color: var(--qa-canvas);
 }
 
-/* ─── Site-wide: airy light mesh (cyan → lavender → peach) ─── */
+/* Legacy / utility: 与画布同色（首页 tech strip 等） */
+.bg-qa-canvas {
+    background-color: var(--qa-canvas) !important;
+}
+
+/* ─── Site-wide：与参考图一致 — 右侧氤氲 mesh；紫占绝大部分，暖黄仅锁在右上角一小角 ─── */
 body.mesh-bg-aurora {
-    background-color: #f4f6fb;
+    background-color: var(--qa-canvas);
 }
 
 .aurora-backdrop {
@@ -43,133 +56,138 @@ body.mesh-bg-aurora {
     z-index: 0;
     pointer-events: none;
     overflow: hidden;
+    contain: paint;
+    /*
+     * 叠层顺序（前列 = 叠在上层）：① 右上极小蜜桃高光 ②③ 右侧大块薰衣草 ④ 中部极淡衔接（左侧保持白）
+     * 底色：干净中性白，不用斜向「左下紫」以免整屏发灰。
+     */
     background:
-        radial-gradient(ellipse 88% 72% at 82% 36%, rgba(186, 230, 253, 0.95) 0%, rgba(224, 231, 255, 0.28) 46%, transparent 58%),
-        radial-gradient(ellipse 62% 52% at 68% 58%, rgba(233, 213, 255, 0.65) 0%, transparent 52%),
-        radial-gradient(ellipse 48% 42% at 94% 68%, rgba(254, 215, 170, 0.55) 0%, transparent 50%),
-        linear-gradient(180deg, #fafbfc 0%, #f1f5f9 48%, #eef2f7 100%);
+        radial-gradient(ellipse 34% 28% at 97% 10%, rgba(255, 248, 240, 0.38) 0%, rgba(255, 236, 218, 0.14) 44%, transparent 72%),
+        radial-gradient(ellipse 74% 115% at 88% 46%, rgba(232, 224, 248, 0.5) 0%, rgba(220, 208, 242, 0.26) 38%, rgba(226, 218, 246, 0.12) 54%, transparent 76%),
+        radial-gradient(ellipse 56% 92% at 99% 50%, rgba(238, 230, 252, 0.36) 0%, rgba(242, 236, 252, 0.1) 46%, transparent 74%),
+        radial-gradient(ellipse 85% 75% at 58% 50%, rgba(252, 250, 254, 0.16) 0%, transparent 62%),
+        linear-gradient(to bottom, #fafafa 0%, var(--qa-canvas) 50%, #fafafa 100%);
 }
 
 .aurora-blob {
     position: absolute;
     border-radius: 50%;
-    filter: blur(92px);
-    opacity: 0.52;
+    filter: blur(128px);
+    opacity: 0.32;
     mix-blend-mode: normal;
     will-change: transform, opacity;
 }
 
-/* Soft cyan / aqua */
+/* 右侧空气：极淡冷白，柔化紫团边缘 */
 .aurora-blob--cyan {
-    width: min(88vw, 760px);
-    height: min(88vw, 760px);
-    left: -18%;
-    top: -12%;
-    background: radial-gradient(circle at 40% 44%, rgba(125, 211, 252, 0.7) 0%, rgba(56, 189, 248, 0.28) 42%, rgba(14, 165, 233, 0.08) 62%, transparent 76%);
+    width: min(72vw, 620px);
+    height: min(72vw, 620px);
+    right: 8%;
+    top: 28%;
+    background: radial-gradient(circle at 50% 50%, rgba(248, 250, 252, 0.35) 0%, rgba(240, 244, 250, 0.1) 52%, transparent 78%);
     animation: aurora-float-1 26s ease-in-out infinite;
 }
 
-/* Lavender */
+/* 右侧主薰衣草雾团（面积大、与 backdrop 同侧） */
 .aurora-blob--violet {
-    width: min(98vw, 840px);
-    height: min(78vw, 660px);
-    right: -22%;
-    top: 4%;
-    background: radial-gradient(circle at 56% 42%, rgba(196, 181, 253, 0.62) 0%, rgba(167, 139, 250, 0.26) 44%, rgba(139, 92, 246, 0.08) 64%, transparent 78%);
+    width: min(105vw, 920px);
+    height: min(95vw, 780px);
+    right: -20%;
+    top: 5%;
+    background: radial-gradient(circle at 52% 48%, rgba(218, 206, 238, 0.42) 0%, rgba(206, 192, 228, 0.22) 42%, rgba(196, 182, 218, 0.08) 68%, transparent 88%);
     animation: aurora-float-2 32s ease-in-out infinite;
     animation-delay: -7s;
 }
 
-/* Warm peach accent */
+/* 右上角小暖高光（类名 mint）：体积小，仅占一角 */
 .aurora-blob--mint {
-    width: min(92vw, 780px);
-    height: min(72vw, 560px);
-    left: 4%;
-    bottom: -14%;
-    background: radial-gradient(circle at 50% 48%, rgba(254, 215, 170, 0.55) 0%, rgba(251, 191, 155, 0.22) 48%, rgba(249, 168, 112, 0.1) 66%, transparent 80%);
+    width: min(42vw, 380px);
+    height: min(38vw, 340px);
+    right: -4%;
+    top: -6%;
+    background: radial-gradient(circle at 62% 38%, rgba(255, 242, 228, 0.42) 0%, rgba(255, 232, 212, 0.16) 48%, rgba(252, 218, 195, 0.05) 76%, transparent 92%);
     animation: aurora-float-3 28s ease-in-out infinite;
     animation-delay: -13s;
 }
 
-/* Flowing ribbon */
+/* 横向柔带：加强右侧紫雾连贯，不带大块黄 */
 .aurora-band {
     position: absolute;
-    left: -22%;
-    width: 145%;
-    height: min(58vh, 460px);
-    top: 24%;
-    filter: blur(64px);
-    opacity: 0.38;
+    left: -8%;
+    width: 118%;
+    height: min(68vh, 560px);
+    top: 16%;
+    filter: blur(100px);
+    opacity: 0.12;
     border-radius: 50%;
     background: linear-gradient(
-        102deg,
+        108deg,
         transparent 0%,
-        rgba(125, 211, 252, 0.38) 18%,
-        rgba(196, 181, 253, 0.36) 46%,
-        rgba(254, 215, 170, 0.34) 72%,
-        transparent 100%
+        rgba(228, 218, 244, 0.18) 38%,
+        rgba(216, 204, 236, 0.14) 58%,
+        transparent 82%
     );
-    mix-blend-mode: multiply;
+    mix-blend-mode: normal;
     animation: aurora-mesh-flow 44s ease-in-out infinite;
 }
 
 @keyframes aurora-float-1 {
     0%, 100% {
         transform: translate(0, 0) scale(1);
-        opacity: 0.38;
+        opacity: 0.32;
     }
     40% {
         transform: translate(12vw, 6vh) scale(1.08);
-        opacity: 0.48;
+        opacity: 0.38;
     }
     70% {
         transform: translate(-6vw, 10vh) scale(0.96);
-        opacity: 0.34;
+        opacity: 0.28;
     }
 }
 
 @keyframes aurora-float-2 {
     0%, 100% {
         transform: translate(0, 0) scale(1.02);
-        opacity: 0.36;
+        opacity: 0.3;
     }
     35% {
         transform: translate(-14vw, 12vh) scale(1.12);
-        opacity: 0.46;
+        opacity: 0.36;
     }
     65% {
         transform: translate(8vw, -5vh) scale(0.94);
-        opacity: 0.32;
+        opacity: 0.26;
     }
 }
 
 @keyframes aurora-float-3 {
     0%, 100% {
         transform: translate(0, 0) rotate(0deg);
-        opacity: 0.28;
+        opacity: 0.26;
     }
     45% {
         transform: translate(10vw, -12vh) rotate(6deg);
-        opacity: 0.4;
+        opacity: 0.34;
     }
     75% {
         transform: translate(-12vw, 4vh) rotate(-4deg);
-        opacity: 0.26;
+        opacity: 0.22;
     }
 }
 
 @keyframes aurora-mesh-flow {
     0%, 100% {
         transform: translate(-6vw, 0) scaleX(1) rotate(-2deg);
-        opacity: 0.28;
+        opacity: 0.14;
     }
     33% {
         transform: translate(8vw, -5vh) scaleX(1.12) rotate(1.5deg);
-        opacity: 0.4;
+        opacity: 0.22;
     }
     66% {
         transform: translate(3vw, 3vh) scaleX(0.96) rotate(-1deg);
-        opacity: 0.32;
+        opacity: 0.17;
     }
 }
 
@@ -177,25 +195,31 @@ body.mesh-bg-aurora {
     .aurora-blob,
     .aurora-band {
         animation: none !important;
-        opacity: 0.35;
+        opacity: 0.26;
         transform: none;
     }
 }
 
 /* Push page content above aurora layer (nav stays position:fixed from utilities) */
-body.mesh-bg-aurora > section,
-body.mesh-bg-aurora > footer,
-body.mesh-bg-aurora > button#back-to-top {
+body.mesh-bg-aurora > section {
     position: relative;
     z-index: 1;
 }
 
-body.mesh-bg-aurora > nav {
-    z-index: 50;
+body.mesh-bg-aurora > footer {
+    position: relative;
+    z-index: 12;
+    isolation: isolate;
+    margin-top: -3px;
 }
 
 body.mesh-bg-aurora > button#back-to-top {
+    position: relative;
     z-index: 60;
+}
+
+body.mesh-bg-aurora > nav {
+    z-index: 50;
 }
 
 /* ========== Light airy UI (pastel mesh + readable slate text) ========== */
@@ -217,6 +241,12 @@ body.mesh-bg-aurora .text-slate-500 {
 body.mesh-bg-aurora .text-slate-600 {
     color: #475569 !important;
 }
+
+/* 首页 Hero 主标题：仅比全局 text-white→slate-900 再略深一丝（不改渐变字） */
+body.mesh-bg-aurora #about h1.text-white {
+    color: #0c1324 !important;
+}
+
 body.mesh-bg-aurora .border-white\/5,
 body.mesh-bg-aurora .border-white\/10 {
     border-color: rgba(15, 23, 42, 0.08) !important;
@@ -228,13 +258,18 @@ body.mesh-bg-aurora .border-t.border-white\/5 {
     border-top-color: rgba(15, 23, 42, 0.08) !important;
 }
 body.mesh-bg-aurora .bg-slate-900\/50 {
-    background-color: rgba(241, 245, 249, 0.72) !important;
+    background-color: var(--qa-canvas) !important;
 }
 body.mesh-bg-aurora .bg-slate-900\/30 {
-    background-color: rgba(241, 245, 249, 0.5) !important;
+    background-color: var(--qa-canvas) !important;
 }
 body.mesh-bg-aurora .bg-slate-950 {
-    background-color: #eef1f7 !important;
+    background-color: var(--qa-canvas) !important;
+}
+
+/* 首页 Technical path strip：原为 bg-slate-950/90，未命中上一规则，会呈现深色条 */
+body.mesh-bg-aurora .bg-slate-950\/90 {
+    background-color: var(--qa-canvas) !important;
 }
 body.mesh-bg-aurora .bg-white\/5 {
     background-color: rgba(15, 23, 42, 0.045) !important;
@@ -289,17 +324,99 @@ body.mesh-bg-aurora .pub-item.glass-card:hover {
     background-color: rgba(255, 255, 255, 0.88) !important;
 }
 
+/* Publications：筛选选中态与左侧年份/会议徽章统一用 sky-600（比 sky-700 略亮一档） */
+body.mesh-bg-aurora #all-publications .pub-filter.active {
+    color: #0284c7 !important;
+    background-color: rgba(2, 132, 199, 0.12) !important;
+    border-color: rgba(2, 132, 199, 0.34) !important;
+}
+body.mesh-bg-aurora #all-publications .pub-filter.active:hover {
+    background-color: rgba(2, 132, 199, 0.18) !important;
+}
+
+/* 每行最左侧高亮胶囊（年份 / Oral / 会议标签）与筛选条同色 */
+body.mesh-bg-aurora #all-publications .pub-item > div.flex > div.flex-shrink-0:first-child span {
+    color: #0284c7 !important;
+    background-color: rgba(2, 132, 199, 0.12) !important;
+    border-color: rgba(2, 132, 199, 0.28) !important;
+}
+
+body.mesh-bg-aurora #all-publications .pub-item h4 a:hover {
+    color: #0284c7 !important;
+}
+
 body.mesh-bg-aurora #back-to-top {
     color: #0f172a !important;
     border-color: rgba(14, 165, 233, 0.35);
 }
 
 body.mesh-bg-aurora footer .text-slate-400,
-body.mesh-bg-aurora footer .text-slate-500 {
-    color: #64748b !important;
+body.mesh-bg-aurora footer .text-slate-500,
+body.mesh-bg-aurora footer span,
+body.mesh-bg-aurora footer a {
+    color: #0284c7 !important;
 }
+body.mesh-bg-aurora footer a:hover,
 body.mesh-bg-aurora footer a.hover\:text-white:hover {
-    color: #0f172a !important;
+    color: #0369a1 !important;
+}
+
+body.mesh-bg-aurora footer {
+    background-color: var(--qa-canvas) !important;
+    background-image: none !important;
+    border-top-color: transparent !important;
+}
+
+/*
+ * 页脚 HTML 含 border-t border-white/5；下方全局规则
+ * body.mesh-bg-aurora .border-t.border-white\/5 { border-top-color: rgba(...) !important }
+ * 特异性高于上一段 footer { border-top-color: transparent }，顶边仍会落成灰线 → 接缝。
+ * 必须用「footer + 同类」锁掉顶边框。
+ */
+body.mesh-bg-aurora footer.border-t,
+body.mesh-bg-aurora footer.border-t.border-white\/5 {
+    border-top: none !important;
+}
+
+/* Tailwind 晚加载时 .bg-slate-950 可能盖过上面规则，再锁一层 */
+body.mesh-bg-aurora footer.bg-slate-950 {
+    background-color: var(--qa-canvas) !important;
+}
+
+/*
+ * Media / Publications 曾用 bg-slate-900/50 + 本段「最后一屏铺 var(--qa-canvas)」叠在固定极光层上，
+ * 等于「底图（多层 radial/linear 极光）」和「一块纯色蒙版」硬拼，极易在页脚附近出现一条色差带。
+ * Commercialization 主区域无半透明 slate，极光连续，视觉上无缝。
+ * 故：主内容 section 不再强制铺底；需要纯色带的区块用显式类（如首页 .tech-path-strip）。
+ */
+
+/* 首页底部技术栈横条：与页面同色 + 与 AI Agent Research（sky-600）一致 */
+body.mesh-bg-aurora .tech-path-strip {
+    background-color: var(--qa-canvas) !important;
+    border-top-color: transparent !important;
+}
+body.mesh-bg-aurora .tech-path-strip .flex {
+    color: #0284c7 !important;
+    font-weight: 600;
+}
+body.mesh-bg-aurora .tech-path-strip span {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: #0284c7 !important;
+}
+@media (min-width: 640px) {
+    body.mesh-bg-aurora .tech-path-strip span {
+        font-size: 0.8125rem;
+    }
+}
+@media (min-width: 768px) {
+    body.mesh-bg-aurora .tech-path-strip span {
+        font-size: 0.875rem;
+    }
+}
+
+body.mesh-bg-aurora .tech-path-strip span.text-slate-700 {
+    color: rgba(2, 132, 199, 0.35) !important;
 }
 
 /* Showcase & spotlight panels */
@@ -504,36 +621,68 @@ nav a.nav-active {
     animation: float 6s ease-in-out infinite;
 }
 
-/* Hero Torus */
+/* Hero Torus — 参考图：圆球右缘/下缘被 hero 裁掉，只露偏左上一侧的大半弧，不是完整圆盘落在框内 */
 .hero-torus-wrapper {
     position: absolute;
-    right: -170px;   /* 更靠右 */
-    bottom: -120px;
-    width: 540px;     /* 略缩 */
-    height: 540px;
+    right: -140px;
+    bottom: -230px;
+    width: 580px;
+    height: 580px;
+    overflow: visible;
+    isolation: isolate;
 }
+
+.hero-torus-wrapper::before {
+    content: '';
+    position: absolute;
+    width: 220%;
+    height: 220%;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 0;
+    pointer-events: none;
+    border-radius: 50%;
+    /*
+     * 与早期版本一致：不用 mask 挖空，仅靠大半径径向 + blur 向外交融（线框球本身不会被「糊成实心」）；
+     * 右上暖黄：双层叠加（大块晕 + 屏沿高光），浓度适度提高。
+     */
+    filter: blur(32px);
+    opacity: 0.9;
+    background:
+        radial-gradient(ellipse 52% 48% at 76% 14%, rgba(255, 238, 210, 0.62) 0%, rgba(255, 224, 178, 0.34) 30%, rgba(255, 232, 200, 0.16) 48%, transparent 78%),
+        radial-gradient(ellipse 32% 28% at 96% 5%, rgba(255, 250, 235, 0.55) 0%, rgba(255, 236, 210, 0.28) 40%, transparent 68%),
+        radial-gradient(ellipse 102% 100% at 50% 54%, rgba(222, 210, 244, 0.2) 0%, rgba(210, 196, 232, 0.12) 44%, rgba(226, 216, 246, 0.06) 62%, rgba(248, 244, 252, 0.03) 78%, transparent 94%),
+        radial-gradient(ellipse 138% 132% at 46% 54%, rgba(240, 234, 252, 0.12) 0%, rgba(252, 250, 254, 0.05) 52%, transparent 78%);
+}
+
+.hero-torus-wrapper canvas {
+    position: relative;
+    z-index: 1;
+}
+
 @media (min-width: 1024px) {
     .hero-torus-wrapper {
-        width: 640px;
-        height: 640px;
-        right: -210px;
-        bottom: -150px;
+        width: 680px;
+        height: 680px;
+        right: -190px;
+        bottom: -270px;
     }
 }
 @media (min-width: 1280px) {
     .hero-torus-wrapper {
-        width: 720px;
-        height: 720px;
-        right: -250px;
-        bottom: -180px;
+        width: 760px;
+        height: 760px;
+        right: -240px;
+        bottom: -300px;
     }
 }
 @media (min-width: 1536px) {
     .hero-torus-wrapper {
-        width: 800px;
-        height: 800px;
+        width: 840px;
+        height: 840px;
         right: -280px;
-        bottom: -210px;
+        bottom: -330px;
     }
 }
 

@@ -843,8 +843,9 @@ document.addEventListener('DOMContentLoaded', () => {
     for (let i = 0; i < numEllipses; i++) {
         const angle = (i / numEllipses) * Math.PI;
         const t = (Math.cos(angle) + 1) / 2;
-        const alpha = 0.12 + 0.43 * t;
-        const lineW = 0.40 + 0.75 * t;
+        /* 略抬底线：原先 angle→π 一侧过淡（视觉上偏左下），与右上亮度更接近 */
+        const alpha = 0.17 + 0.39 * t;
+        const lineW = 0.52 + 0.68 * t;
 
         ctx.save();
         ctx.rotate(angle);
