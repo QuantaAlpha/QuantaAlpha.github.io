@@ -636,7 +636,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function imageForPublication(title) {
         const normalized = title.toLowerCase();
-        if (normalized.includes('epochx')) return 'images/EpochX.jpg';
+        if (normalized.includes('idea2paper')) return 'images/paper-idea2paper-infographic.png';
+        if (normalized.includes('idea2story')) return 'images/paper-idea2story-diagram.png';
+        if (normalized.includes('epochx')) return 'images/paper-epochx-scroll.png';
         if (normalized.includes('se-agent')) return 'images/SE-Agent.png';
         if (normalized.includes('gittaskbench')) return 'images/GitTaskBench.png';
         if (normalized.includes('repomaster') || normalized.includes('sema code')) return 'images/RepoMaster.png';
@@ -646,21 +648,45 @@ document.addEventListener('DOMContentLoaded', () => {
         return 'images/logo.png';
     }
 
+    function blurbTwoLines(text, maxLen) {
+        const t = text.replace(/\s+/g, ' ').trim();
+        const cap = maxLen || 132;
+        if (t.length <= cap) return t;
+        return `${t.slice(0, cap - 1)}…`;
+    }
+
+    function pickProductPrimaryHref(item) {
+        const title = firstText(item, 'h3').toLowerCase();
+        if (title.includes('autonomous') || title.includes('repomaster') || title.includes('sema')) {
+            const links = item.querySelectorAll('a.section-link');
+            for (let i = 0; i < links.length; i += 1) {
+                const href = links[i].getAttribute('href') || '';
+                if (href.includes('2505.21577')) return href;
+            }
+        }
+        return firstHref(item, '.section-link', 'commercialization.html');
+    }
+
     function renderShowcaseCard(item) {
-        const target = item.href && item.href.startsWith('http') ? ' target="_blank"' : '';
+        const target = item.href && item.href.startsWith('http') ? ' target="_blank" rel="noopener noreferrer"' : '';
         const imageClass = item.containImage ? ' class="showcase-img-contain"' : '';
         const safeHref = escapeHtml(item.href || '#');
+        const kickerHtml = item.kicker
+            ? `<div class="showcase-kicker${item.kickerPlain ? ' showcase-kicker-tags-plain' : ''}">${escapeHtml(item.kicker)}</div>`
+            : '';
+        const titleBlock = item.plainTitle
+            ? `<h3 class="showcase-title-plain">${escapeHtml(item.title)}</h3>`
+            : `<h3><a href="${safeHref}"${target}>${escapeHtml(item.title)}</a></h3>`;
         return `
-            <article class="showcase-card glass-card">
+            <article class="showcase-card showcase-card-equal glass-card rounded-2xl overflow-hidden">
                 <a href="${safeHref}"${target}><img${imageClass} src="${escapeHtml(normalizeSrc(item.image))}" alt="${escapeHtml(item.alt || item.title)}" loading="lazy" decoding="async"></a>
-                <div class="showcase-body">
-                    <div class="showcase-kicker">${escapeHtml(item.kicker)}</div>
-                    <h3><a href="${safeHref}"${target}>${escapeHtml(item.title)}</a></h3>
-                    <p>${escapeHtml(item.copy)}</p>
-                    <a href="${safeHref}"${target} class="showcase-link">${escapeHtml(item.linkLabel)} <i class="fas fa-arrow-right"></i></a>
+                <div class="showcase-body showcase-body-stack">
+                    ${kickerHtml}
+                    ${titleBlock}
+                    <p class="showcase-desc">${escapeHtml(item.copy)}</p>
+                    <a href="${safeHref}"${target} class="showcase-link showcase-link-tail">${escapeHtml(item.linkLabel)} <span aria-hidden="true">→</span></a>
                 </div>
-            </article>
-        `;
+            </article>`;
     }
 
     function replaceShowcaseTrack(panelName, items) {
@@ -703,45 +729,52 @@ document.addEventListener('DOMContentLoaded', () => {
                     containImage: false,
                     alt: `${title} publication`,
                     kicker: `${year} · ${firstTag}`,
+                    plainTitle: true,
                     title,
-                    copy: tags.length ? tags.slice(0, 3).join(' · ') : 'Research publication from the complete QuantaAlpha publication list.',
+                    copy: blurbTwoLines(
+                        tags.length ? tags.slice(0, 3).join(' · ') : 'Research publication from the complete QuantaAlpha publication list.'
+                    ),
                     href: firstHref(item, 'h4 a', 'publications.html'),
                     linkLabel: 'Open paper'
                 };
             }).filter((item) => item.title && item.image !== 'images/logo.png');
 
             const projectItems = Array.from(commercializationDoc.querySelectorAll('.commercial-card')).map((item) => {
-                const badges = Array.from(item.querySelectorAll('.flex.flex-wrap.gap-2 span'))
-                    .map((badge) => badge.textContent.replace(/\s+/g, ' ').trim())
-                    .filter(Boolean);
                 const title = firstText(item, 'h3');
+                const href = pickProductPrimaryHref(item);
                 return {
                     image: normalizeSrc(item.querySelector('img')?.getAttribute('src')),
                     alt: item.querySelector('img')?.getAttribute('alt') || `${title} project`,
-                    kicker: badges.slice(0, 2).join(' · ') || 'Project',
+                    kicker: '',
+                    plainTitle: true,
                     title,
-                    copy: firstText(item, 'p'),
-                    href: firstHref(item, '.section-link', 'commercialization.html'),
-                    linkLabel: 'View project'
+                    copy: blurbTwoLines(firstText(item, 'p')),
+                    href,
+                    linkLabel: href.includes('epochx.cc') ? 'Open product' : 'Open paper'
                 };
             }).filter((item) => item.title);
 
             const mediaItems = Array.from(mediaDoc.querySelectorAll('.media-card')).map((item) => {
                 const title = firstText(item, '.media-title');
+                const href = firstHref(item, '.media-link', 'media.html');
+                const linkLabel = /\.pdf(\?|$)/i.test(href) || href.toLowerCase().includes('.pdf')
+                    ? 'Open PDF'
+                    : 'Open coverage';
                 return {
                     image: normalizeSrc(item.querySelector('img')?.getAttribute('src')),
                     alt: item.querySelector('img')?.getAttribute('alt') || `${title} coverage`,
                     kicker: firstText(item, '.media-source') || 'Media Coverage',
+                    plainTitle: true,
                     title,
-                    copy: firstText(item, '.media-copy'),
-                    href: firstHref(item, '.media-link', 'media.html'),
-                    linkLabel: 'Open coverage'
+                    copy: blurbTwoLines(firstText(item, '.media-copy')),
+                    href,
+                    linkLabel
                 };
             }).filter((item) => item.title);
 
-            replaceShowcaseTrack('papers', paperItems);
-            replaceShowcaseTrack('projects', projectItems);
-            replaceShowcaseTrack('media', mediaItems);
+            replaceShowcaseTrack('paper', paperItems);
+            replaceShowcaseTrack('products', projectItems);
+            replaceShowcaseTrack('medias', mediaItems);
         } catch (error) {
             console.warn('Keeping fallback showcase cards:', error);
         }

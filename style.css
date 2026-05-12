@@ -35,6 +35,24 @@ html {
     overflow-x: clip;
 }
 
+/* People：团队介绍严格最多三行（窄屏超出以省略号截断） */
+#people .team-intro-wrap {
+    max-width: min(100%, 46rem);
+}
+
+#people .team-intro {
+    margin: 0;
+    line-height: 1.62;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    word-break: break-word;
+    overflow-wrap: anywhere;
+    text-wrap: balance;
+}
+
 /* Legacy class */
 .mesh-bg {
     background-color: var(--qa-canvas);
@@ -918,22 +936,26 @@ body.mesh-bg-aurora #selected-work .showcase-tab.active {
 
 body.mesh-bg-aurora #selected-work .showcase-kicker {
     color: #0284c7 !important;
-    margin-bottom: 6px !important;
+    margin-bottom: 4px !important;
+    font-size: clamp(0.55rem, 0.52rem + 0.15vw, 0.6rem) !important;
 }
 
-body.mesh-bg-aurora #selected-work .showcase-card h3,
-body.mesh-bg-aurora #selected-work .showcase-card h3 a {
+body.mesh-bg-aurora #selected-work .showcase-card h3:not(.showcase-title-plain),
+body.mesh-bg-aurora #selected-work .showcase-card h3:not(.showcase-title-plain) a {
     color: #ffffff !important;
-    margin-bottom: 6px !important;
 }
 
-body.mesh-bg-aurora #selected-work .showcase-card h3 a:hover {
+body.mesh-bg-aurora #selected-work .showcase-card h3:not(.showcase-title-plain) {
+    margin-bottom: 4px !important;
+}
+
+body.mesh-bg-aurora #selected-work .showcase-card h3:not(.showcase-title-plain) a:hover {
     color: #38bdf8 !important;
 }
 
-body.mesh-bg-aurora #selected-work .showcase-card p {
+body.mesh-bg-aurora #selected-work .showcase-card p:not(.showcase-desc) {
     color: #94a3b8 !important;
-    margin-bottom: 10px !important;
+    margin-bottom: 4px !important;
     line-height: 1.5 !important;
 }
 
@@ -947,16 +969,120 @@ body.mesh-bg-aurora #selected-work .showcase-link:hover {
 
 body.mesh-bg-aurora #selected-work .showcase-card img {
     border-bottom-color: rgba(255, 255, 255, 0.08) !important;
+    aspect-ratio: auto;
+    height: 133px;
+    max-height: 133px;
+    width: 100%;
+    object-fit: cover;
+    object-position: center top;
 }
 
-/* Selected Work 三列网格：与示意图一致，卡间距约 20–24px */
+/* Selected Work：三列等高 + 统一间距（Paper / Products / Medias 同规格） */
 body.mesh-bg-aurora #selected-work .showcase-track.showcase-track--grid {
-    gap: 1.5rem; /* 24px */
-    align-items: start;
+    gap: clamp(0.85rem, 1.47vw, 1.17rem);
+    align-items: stretch;
+}
+
+body.mesh-bg-aurora #selected-work .showcase-tabs-sm {
+    padding: 3px !important;
+    gap: 3px !important;
+}
+
+body.mesh-bg-aurora #selected-work .showcase-tabs-sm .showcase-tab {
+    padding: 5px 9px !important;
+    font-size: clamp(0.62rem, 0.58rem + 0.2vw, 0.68rem) !important;
+    font-weight: 800 !important;
+}
+
+body.mesh-bg-aurora #selected-work .showcase-card-equal.showcase-card {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+    align-self: stretch;
+}
+
+body.mesh-bg-aurora #selected-work .showcase-track.showcase-track--grid .showcase-card-equal.showcase-card {
+    width: 100%;
+    max-width: none;
+}
+
+body.mesh-bg-aurora #selected-work .showcase-card-equal > a:first-of-type {
+    flex-shrink: 0;
+}
+
+body.mesh-bg-aurora #selected-work .showcase-card-equal .showcase-body-stack {
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
+    min-height: clamp(8.25rem, 21vw, 9.75rem);
+}
+
+body.mesh-bg-aurora #selected-work .showcase-card-equal .showcase-link-tail {
+    margin-top: auto;
+}
+
+body.mesh-bg-aurora #selected-work .showcase-title-plain {
+    color: #ffffff !important;
+    font-size: clamp(0.68rem, 0.66rem + 0.2vw, 0.72rem) !important;
+    font-weight: 800 !important;
+    line-height: 1.35 !important;
+    margin: 0 0 5px !important;
+    white-space: normal;
+    overflow: visible;
+    display: block;
+}
+
+body.mesh-bg-aurora #selected-work .showcase-card p.showcase-desc {
+    font-size: clamp(1.02rem, 0.952rem + 0.34vw, 1.105rem) !important;
+    line-height: 1.5 !important;
+    flex: 0 1 auto;
+    margin: 0 0 5px !important;
+    min-height: 0;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+}
+
+body.mesh-bg-aurora #selected-work .showcase-link-tail {
+    margin-top: 0;
+    font-size: clamp(0.62rem, 0.59rem + 0.15vw, 0.68rem) !important;
+    padding-top: 3px;
 }
 
 body.mesh-bg-aurora #selected-work .showcase-body {
-    padding: 0.75rem 0.875rem 0.875rem !important; /* 收紧卡片内留白，不改文案 */
+    padding: 9px 11px 11px !important;
+}
+
+body.mesh-bg-aurora #selected-work .showcase-tagline {
+    color: #94a3b8 !important;
+    font-size: clamp(0.58rem, 0.55rem + 0.15vw, 0.62rem);
+    line-height: 1.5 !important;
+    margin-bottom: 7px !important;
+}
+
+body.mesh-bg-aurora #selected-work .showcase-tagline a {
+    color: #94a3b8 !important;
+    text-decoration: underline;
+    text-decoration-color: rgba(148, 163, 184, 0.35);
+    text-underline-offset: 2px;
+}
+
+body.mesh-bg-aurora #selected-work .showcase-tagline a:hover {
+    color: #38bdf8 !important;
+    text-decoration-color: rgba(56, 189, 248, 0.55);
+}
+
+body.mesh-bg-aurora #selected-work .showcase-tag-sep {
+    color: #64748b;
+}
+
+/* Projects 左卡：标签保留大小写（避免全局 kicker 的 uppercase 把 Coverage 变成全大写） */
+body.mesh-bg-aurora #selected-work .showcase-kicker-tags-plain {
+    text-transform: none !important;
+    letter-spacing: 0.04em !important;
+    font-weight: 700 !important;
 }
 /* Current navigation state */
 nav a.nav-current {
@@ -1158,10 +1284,17 @@ nav .hidden.md\:flex a.nav-current {
 
 .commercial-img {
     width: 100%;
-    height: 260px;
+    height: 200px;
     object-fit: cover;
     object-position: top center;
     border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+#commercialization .commercial-intro {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
 }
 
 .metric-tile {
@@ -1267,7 +1400,7 @@ nav .hidden.md\:flex a.nav-current {
     }
 
     .commercial-img {
-        height: 210px;
+        height: 170px;
     }
 
     .metric-tile {
