@@ -8,6 +8,31 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // Video modal
+    const vmodal = document.getElementById('vmodal');
+    const vmodalVideo = document.getElementById('vmodal-video');
+    if (vmodal && vmodalVideo) {
+        window.openVideo = function(src, title) {
+            vmodalVideo.src = src;
+            vmodal.classList.add('open');
+            vmodalVideo.play().catch(() => {});
+            document.body.style.overflow = 'hidden';
+        };
+        window.closeVideo = function() {
+            vmodalVideo.pause();
+            vmodalVideo.removeAttribute('src');
+            vmodalVideo.load();
+            vmodal.classList.remove('open');
+            document.body.style.overflow = '';
+        };
+        vmodal.addEventListener('click', (e) => {
+            if (e.target === vmodal) window.closeVideo();
+        });
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && vmodal.classList.contains('open')) window.closeVideo();
+        });
+    }
+
     const btn = document.getElementById('mobile-menu-btn');
     const menu = document.getElementById('mobile-menu');
     if (btn && menu) {
@@ -50,8 +75,7 @@ document.addEventListener('DOMContentLoaded', () => {
             navPublications: 'Publications',
             navCommercialization: 'Products',
             navMedia: 'Media',
-            navPeople: 'People',
-            navCommunity: 'Community',
+            navPeople: 'Team',
             navJoin: 'Join Us',
             commercialEyebrow: 'Products Pipeline',
             commercialTitle: 'From Frontier Papers to Deployable Agent Products',
@@ -77,7 +101,59 @@ document.addEventListener('DOMContentLoaded', () => {
             publicExperience: 'Public Experience',
             arkCommercialCopy: 'End-to-end research automation that links literature exploration, method planning, experiment execution, result interpretation, manuscript drafting, and review iteration into a closed-loop product surface.',
             papersAssisted: 'Papers Assisted',
-            researchLoop: 'Research Loop'
+            researchLoop: 'Research Loop',
+            // QuantaAlpha deck
+            qaTitle: 'QuantaAlpha  ·  Self-Evolving Alpha Mining Engine',
+            qaSubtitle: 'An Evolutionary Framework for LLM-Driven Alpha Mining  ·  First LLM × Evolutionary Algorithm Fusion Framework',
+            qaH1: 'Core Positioning',
+            qaP1: 'Translates quantitative research into an <b class="text-slate-300">auditable Agent workflow</b>: factor hypothesis generation, expression construction, code implementation, backtest validation, and iterative optimization in a unified pipeline. Multi-agent collaboration completes factor discovery, logic explanation, risk filtering, and factor warehousing.',
+            qaH2: 'Technical Highlights',
+            qaP2: 'Upgrades from random trial-and-error to interpretable evolution based on complete research trajectories via <b class="text-slate-300">trajectory-level mutation/crossover</b> and directed logic repair; introduces complexity, redundancy, and Rank IC constraints to mitigate factor crowding and backtest noise.',
+            qaH3: 'Impact',
+            qaP3: 'Faithfully simulates the workflow of professional quant researchers — AI moves from "blindly generating code by trial and error" to a white-box system that <b class="text-slate-300">actively participates in hypothesis formation, failure diagnosis, and experience reuse</b>. <b class="text-white">Consistently outperforms all baselines</b> on CSI 300; cross-market transfer maintains significant excess returns. <b class="text-slate-300">Covered by Tencent News and adopted by Orient Securities and other institutions as an AI-empowered quant research case study.</b>',
+            qaStat1: 'Outperforms',
+            qaStat1Sub: 'CSI 300',
+            qaStat2: 'Zero-shot',
+            qaStat2Sub: 'Cross-market',
+            qaStat3Sub: 'Agent Workflow',
+            qaMedia: 'Orient Securities · Tencent News Coverage',
+            qaHarness: 'Three-Layer Harness Architecture',
+            qaLead: 'Plan research directions',
+            qaReviewer: 'Cross-direction audit & cross-referral',
+            qaMiner: 'Parallel exploration',
+            qaWiki: '<i class="fas fa-circle-info text-sky-600 mr-1"></i> <b class="text-slate-300">Factor Wiki</b>: Structured factor knowledge base as a consensus medium for multi-Agent collaboration — each factor carries a full lineage chain → traceable research genealogy.',
+            // EpochX deck
+            epTitle: 'EpochX  ·  Human–Agent Production Network',
+            epH1: 'Core Positioning',
+            epP1: 'A credits-native human–agent marketplace — <b class="text-slate-300">humans and agents are economically equal participants</b>. First to unify an agent task market, reusable skill ecosystem, verifiable delivery flow, execution trace memory, and credits-native incentive layer into a single production protocol.',
+            epH2: 'Mechanism',
+            epP2: 'Task posting → recursive decomposition → parallel execution → verified settlement → distilled into reusable Skills / Traces / Experience. Credits handle bounty locking, delegation budgets, acceptance settlement, and reuse royalty distribution.',
+            epH3: 'Differentiating Value',
+            epP3: 'Upgrades from one-off demos to a <b class="text-slate-300">self-reinforcing economic system</b>: execution, verification, and distillation all contribute compound returns. The core contribution elevates Agentic AI from tool-calling to infrastructure with <b class="text-slate-300">organizational coordination, knowledge compounding, and economic closed loops</b> — "agent civilization infrastructure."',
+            epMedia: 'Coverage: TechWalker · HF Papers',
+            epDemo1: 'Task Publishing demo',
+            epDemo2: 'Agent Execution demo',
+            epLive: 'epochx.cc Live',
+            // RepoMaster deck
+            rmTitle: 'RepoMaster  ·  Repo-Level Autonomous Exploration',
+            rmSubtitle: 'Independent research: end-to-end understanding, retrieval, localization, and task execution for 100K+ file repositories.',
+            rmFeat1: 'Repo Understanding',
+            rmFeat1P: 'Builds hierarchical code trees, module dependency graphs, and function call graphs to locate key files, classes, and functions in ultra-large repositories.',
+            rmFeat2: 'Autonomous Exploration',
+            rmFeat2P: 'Supports agents exploring and completing complex tasks in real GitHub repos via search, dependency analysis, and granular code view.',
+            rmFeat3: 'Results',
+            rmFeat3P: 'Complex task completion rate <b class="text-slate-300">24% → 62.96%</b> (vs OpenHands), token cost reduced by <b class="text-slate-300">95%</b>.',
+            rmFeat4: 'Paper & Open Source',
+            rmFeat4P: '<b class="text-slate-300">NeurIPS 2025 Spotlight</b>. MLE-Bench Kaggle tasks: <b class="text-slate-300">22.7%</b> gold medals, far exceeding open-source Code Agent SOTA.',
+            // Event Research deck
+            erTitle: 'Event-Driven Research OS  ·  Financial Event Deep Research',
+            erSubtitle: 'Independent research direction: upgrading major market events from one-time news processing to research assets that are understandable, comparable, inferable, verifiable, and reusable.',
+            erBody: 'The system centers on structured <b class="text-slate-300">Events</b> rather than news or research report documents; organizes event chains via <b class="text-slate-300">Context / Event / Mechanism / Asset / Outcome</b>, conducts Deep Research around mechanism similarity, macro environment, market price-in degree, and historical counterexamples, and converges output into auditable <b class="text-slate-300">Claims</b> entering T+1 / T+5 / T+20 multi-window backtesting to distinguish retrieval errors, reasoning errors, and fully priced-in markets.',
+            erTag1: 'Event Understanding → Historical Analogy → Mechanism Reasoning',
+            erTag3: 'Lookahead-Bias-Free Verification',
+            // Idea2Paper deck
+            i2pTitle: 'Idea2Paper / ARK  ·  Research Automation',
+            i2pBody: 'End-to-end research automation product connecting literature exploration, method planning, experiment execution, result interpretation, manuscript drafting, and review iteration in a closed loop. Served externally via ARK (idea2paper.org) and PaperBuild (paperbuild.cn), with open-source reference implementation on GitHub.'
         },
         zh: {
             navResearch: '研究方向',
@@ -85,7 +161,6 @@ document.addEventListener('DOMContentLoaded', () => {
             navCommercialization: '产品',
             navMedia: '媒体报道',
             navPeople: '团队',
-            navCommunity: '社区',
             navJoin: '加入我们',
             commercialEyebrow: '产品管线',
             commercialTitle: '从前沿论文到可部署的 Agent 产品',
@@ -111,7 +186,59 @@ document.addEventListener('DOMContentLoaded', () => {
             publicExperience: '公开体验',
             arkCommercialCopy: '端到端科研自动化产品，将文献探索、方法规划、实验执行、结果解释、论文起草和审稿迭代连接成闭环。',
             papersAssisted: '辅助论文',
-            researchLoop: '科研闭环'
+            researchLoop: '科研闭环',
+            // QuantaAlpha deck
+            qaTitle: 'QuantaAlpha  ·  自进化因子挖掘引擎',
+            qaSubtitle: 'An Evolutionary Framework for LLM-Driven Alpha Mining  ·  行业首个 LLM × 进化算法融合框架',
+            qaH1: '核心定位',
+            qaP1: '把量化研究转写成<b class="text-slate-300">可审计的 Agent 工作流</b>：因子假设生成、表达式构造、代码实现、回测验证与迭代优化一体化流水线。多智能体协同完成因子发现、逻辑解释、风险过滤与因子入库。',
+            qaH2: '技术亮点',
+            qaP2: '通过<b class="text-slate-300">轨迹级变异/交叉</b>和定向逻辑修复，从随机试错升级为基于完整研究轨迹的可解释进化；引入复杂度、冗余度与 Rank IC 等约束，缓解因子拥挤和回测噪声。',
+            qaH3: '落地价值',
+            qaP3: '完整模拟人类专业量化研究员的工作流，AI 从"盲目试错生成代码"走向"<b class="text-slate-300">主动参与假设形成、失败诊断与经验复用</b>"的白盒化系统。CSI 300 上<b class="text-white">稳定优于所有基线</b>，因子跨市场迁移保持显著超额收益。<b class="text-slate-300">被腾讯新闻等媒体报道，被东方证券等多家证券及量化机构作为 AI 赋能量化投研的研究案例。</b>',
+            qaStat1: '稳超基线',
+            qaStat1Sub: 'CSI 300',
+            qaStat2: '零样本',
+            qaStat2Sub: '跨市场迁移',
+            qaStat3Sub: 'Agent 工作流',
+            qaMedia: '东方证券 · 腾讯新闻报道',
+            qaHarness: '三层 Harness 架构',
+            qaLead: '规划研究方向',
+            qaReviewer: '跨方向审计 & 交叉推荐',
+            qaMiner: '并行探索',
+            qaWiki: '<i class="fas fa-circle-info text-sky-600 mr-1"></i> <b class="text-slate-300">Factor Wiki</b>：结构化因子知识库作为多 Agent 协作的共识介质，每个因子携带完整血统链 → 可溯源研究谱系图。',
+            // EpochX deck
+            epTitle: 'EpochX  ·  人机协作的生产网络',
+            epH1: '核心定位',
+            epP1: 'Credits-native 的人机协作市场 —— <b class="text-slate-300">人与 Agent 都是经济意义上的对等参与者</b>。首次将 Agent 任务市场、可复用技能生态、可验证交付流、执行轨迹记忆与 credits-native 激励层整合为统一生产协议。',
+            epH2: '运作机制',
+            epP2: '任务发布 → 递归分解 → 并行执行 → 验证结算 → 沉淀为可复用 Skill / Trace / Experience。Credits 完成赏金锁定、委托预算、验收结算和复用收益分配。',
+            epH3: '差异价值',
+            epP3: '从一次性 demo 升级为<b class="text-slate-300">自我增强的经济体系</b>：执行、验证、沉淀均贡献复利。核心贡献在于把 Agentic AI 从工具调用升级为具备<b class="text-slate-300">组织协调、知识复利、经济闭环</b>的"智能体文明基础设施"。',
+            epMedia: '报道：科技行者 · HF Papers',
+            epDemo1: '任务发布 demo',
+            epDemo2: 'Agent 执行 demo',
+            epLive: 'epochx.cc 已上线',
+            // RepoMaster deck
+            rmTitle: 'RepoMaster  ·  仓库级自主探索Code Agent框架',
+            rmSubtitle: '独立研究成果：面向 10 万+ 文件级仓库的端到端理解、检索、定位与任务执行。',
+            rmFeat1: '仓库理解',
+            rmFeat1P: '构建层级代码树、模块依赖图与函数调用图，面向超大仓库定位关键文件、类与函数。',
+            rmFeat2: '自主探索',
+            rmFeat2P: '通过搜索、依赖分析与 granular code view 支持 Agent 在真实 GitHub 仓库中探索并完成复杂任务。',
+            rmFeat3: '实验结果',
+            rmFeat3P: '复杂任务完成率 <b class="text-slate-300">24% → 62.96%</b>（vs OpenHands），Token 开销降低 <b class="text-slate-300">95%</b>。',
+            rmFeat4: '论文与开源',
+            rmFeat4P: '<b class="text-slate-300">NeurIPS 2025 Spotlight</b>。MLE-Bench Kaggle 任务 <b class="text-slate-300">22.7%</b> 获得金牌，远超开源 Code Agent SOTA。',
+            // Event Research deck
+            erTitle: 'Event-Driven Research OS  ·  金融事件深度研究系统',
+            erSubtitle: '独立研究方向：把重大市场事件从一次性资讯处理，升级为可理解、可类比、可推演、可验证、可复用的研究资产。',
+            erBody: '系统以结构化 <b class="text-slate-300">Event</b> 为核心对象，而不是以新闻或研报文档为中心；通过 <b class="text-slate-300">Context / Event / Mechanism / Asset / Outcome</b> 组织事件链条，围绕机制相似性、宏观环境、市场 price-in 程度和历史反例做 Deep Research，并把输出收敛为可审计的 <b class="text-slate-300">Claim</b>，进入 T+1 / T+5 / T+20 等多窗口回测验证，从而区分检索错误、推理错误和市场已充分定价。',
+            erTag1: '事件理解 → 历史类比 → 机制推理',
+            erTag3: '防前视偏差验证',
+            // Idea2Paper deck
+            i2pTitle: 'Idea2Paper / ARK  ·  科研自动化',
+            i2pBody: '端到端科研自动化产品，将文献探索、方法规划、实验执行、结果解释、论文起草和审稿迭代连接成闭环。通过 ARK (idea2paper.org) 和 PaperBuild (paperbuild.cn) 对外服务，开源参考实现已发布在 GitHub。'
         }
     };
 
@@ -121,7 +248,6 @@ document.addEventListener('DOMContentLoaded', () => {
         ['commercialization.html', 'navCommercialization'],
         ['media.html', 'navMedia'],
         ['people.html', 'navPeople'],
-        ['people.html#community', 'navCommunity'],
         ['index.html#contact', 'navJoin']
     ];
 
@@ -136,6 +262,10 @@ document.addEventListener('DOMContentLoaded', () => {
         document.querySelectorAll('[data-i18n]').forEach((node) => {
             const value = translations[lang][node.dataset.i18n];
             if (value) node.textContent = value;
+        });
+        document.querySelectorAll('[data-i18n-html]').forEach((node) => {
+            const value = translations[lang][node.dataset.i18nHtml];
+            if (value) node.innerHTML = value;
         });
         document.querySelectorAll('[data-lang-toggle]').forEach((toggle) => {
             toggle.textContent = lang === 'zh' ? 'EN' : '中文';
