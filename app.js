@@ -693,6 +693,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
         track.addEventListener('pointerdown', (event) => {
             if (event.button !== 0) return;
+            const onLink = event.target.closest('a[href]');
+            const href = onLink ? onLink.getAttribute('href') : '';
+            if (onLink && href && href !== '#') {
+                return;
+            }
             isPointerDown = true;
             startX = event.clientX;
             startScrollLeft = track.scrollLeft;
@@ -726,6 +731,12 @@ document.addEventListener('DOMContentLoaded', () => {
             track.classList.remove('is-dragging');
         });
         track.addEventListener('click', (event) => {
+            const anchor = event.target.closest('a[href]');
+            const href = anchor ? anchor.getAttribute('href') : '';
+            if (anchor && href && href !== '#') {
+                suppressClick = false;
+                return;
+            }
             if (!suppressClick) return;
             event.preventDefault();
             event.stopPropagation();
@@ -754,19 +765,38 @@ document.addEventListener('DOMContentLoaded', () => {
         return href && href !== '#' ? href : fallback;
     }
 
+    /** Match homepage "View product": Products page Product link, else Paper link. */
+    function commercialPrimaryHref(cardEl) {
+        const links = Array.from(cardEl.querySelectorAll('a.section-link'));
+        const label = (a) => a.textContent.replace(/\s+/g, ' ').trim();
+        const product = links.find((a) => label(a).includes('Product'));
+        if (product) {
+            const href = product.getAttribute('href');
+            if (href && href !== '#') return href;
+        }
+        const paper = links.find((a) => label(a).includes('Paper'));
+        if (paper) {
+            const href = paper.getAttribute('href');
+            if (href && href !== '#') return href;
+        }
+        return firstHref(cardEl, '.section-link', 'commercialization.html');
+    }
+
     function normalizeSrc(src) {
         return src || 'images/logo.png';
     }
 
     function imageForPublication(title) {
         const normalized = title.toLowerCase();
-        if (normalized.includes('epochx')) return 'images/EpochX.jpg';
-        if (normalized.includes('se-agent')) return 'images/SE-Agent.png';
-        if (normalized.includes('gittaskbench')) return 'images/GitTaskBench.png';
-        if (normalized.includes('repomaster') || normalized.includes('sema code')) return 'images/RepoMaster.png';
-        if (normalized.includes('octopus')) return 'images/Octupus.png';
+        if (normalized.includes('epochx')) return 'images/papers/showcase-01.png';
+        if (normalized.includes('quantaalpha') && normalized.includes('evolutionary')) return 'images/papers/showcase-02.png';
+        if (normalized.includes('clonemem')) return 'images/papers/showcase-03.png';
+        if (normalized.includes('sema code')) return 'images/papers/showcase-04.png';
+        if (normalized.includes('octopus')) return 'images/papers/showcase-05.png';
+        if (normalized.includes('se-agent')) return 'images/papers/showcase-06.png';
+        if (normalized.includes('gittaskbench')) return 'images/papers/showcase-07.png';
+        if (normalized.includes('repomaster')) return 'images/papers/showcase-08.png';
         if (normalized.includes('quantaalpha')) return 'images/media/quantaalpha-qbitai-mirror.png';
-        if (normalized.includes('clonemem')) return 'images/media/clonemem-baai.png';
         return 'images/logo.png';
     }
 
@@ -845,7 +875,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     kicker: badges.slice(0, 2).join(' · ') || 'Project',
                     title,
                     copy: firstText(item, 'p'),
-                    href: firstHref(item, '.section-link', 'commercialization.html'),
+                    href: commercialPrimaryHref(item),
                     linkLabel: 'View product'
                 };
             }).filter((item) => item.title);
