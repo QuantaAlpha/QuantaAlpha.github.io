@@ -771,6 +771,20 @@ nav a.nav-active {
     position: relative;
 }
 
+.showcase-tabs--floating {
+    position: absolute;
+    top: -76px;
+    right: 0;
+    z-index: 10;
+}
+
+@media (max-width: 1023px) {
+    .showcase-tabs--floating {
+        position: static;
+        margin-bottom: 16px;
+    }
+}
+
 .showcase-panel {
     display: none;
 }
@@ -923,30 +937,30 @@ body.mesh-bg-aurora #selected-work .showcase-kicker {
 
 body.mesh-bg-aurora #selected-work .showcase-card h3,
 body.mesh-bg-aurora #selected-work .showcase-card h3 a {
-    color: #ffffff !important;
+    color: #0f172a !important;
     margin-bottom: 6px !important;
 }
 
 body.mesh-bg-aurora #selected-work .showcase-card h3 a:hover {
-    color: #38bdf8 !important;
+    color: #0284c7 !important;
 }
 
 body.mesh-bg-aurora #selected-work .showcase-card p {
-    color: #94a3b8 !important;
+    color: #475569 !important;
     margin-bottom: 10px !important;
     line-height: 1.5 !important;
 }
 
 body.mesh-bg-aurora #selected-work .showcase-link {
-    color: #ffffff !important;
+    color: #0284c7 !important;
 }
 
 body.mesh-bg-aurora #selected-work .showcase-link:hover {
-    color: #38bdf8 !important;
+    color: #0369a1 !important;
 }
 
 body.mesh-bg-aurora #selected-work .showcase-card img {
-    border-bottom-color: rgba(255, 255, 255, 0.08) !important;
+    border-bottom-color: rgba(15, 23, 42, 0.08) !important;
 }
 
 /* Selected Work 三列网格：与示意图一致，卡间距约 20–24px */
@@ -1394,5 +1408,4 @@ nav .hidden.md\:flex a.nav-current {
         cursor: auto;
     }
 }
-
 

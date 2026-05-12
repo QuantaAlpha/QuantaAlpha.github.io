@@ -556,12 +556,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     document.querySelectorAll('.showcase-track:not(.showcase-track--grid)').forEach((track) => {
-        track.addEventListener('wheel', (event) => {
-            if (Math.abs(event.deltaY) <= Math.abs(event.deltaX)) return;
-            event.preventDefault();
-            track.scrollBy({ left: event.deltaY, behavior: 'smooth' });
-        }, { passive: false });
-
         let isPointerDown = false;
         let startX = 0;
         let startScrollLeft = 0;
@@ -722,7 +716,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     title,
                     copy: firstText(item, 'p'),
                     href: firstHref(item, '.section-link', 'commercialization.html'),
-                    linkLabel: 'View project'
+                    linkLabel: 'View product'
                 };
             }).filter((item) => item.title);
 
