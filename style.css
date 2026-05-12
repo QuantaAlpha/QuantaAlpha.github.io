@@ -936,8 +936,8 @@ body.mesh-bg-aurora #selected-work .showcase-tab.active {
 
 body.mesh-bg-aurora #selected-work .showcase-kicker {
     color: #0284c7 !important;
-    margin-bottom: 4px !important;
-    font-size: clamp(0.55rem, 0.52rem + 0.15vw, 0.6rem) !important;
+    margin-bottom: 6px !important;
+    font-size: clamp(0.75rem, 0.7rem + 0.28vw, 0.88rem) !important;
 }
 
 body.mesh-bg-aurora #selected-work .showcase-card h3:not(.showcase-title-plain),
