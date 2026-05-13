@@ -48,7 +48,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const pageToHref = {
             'index.html': ['index.html#research'],
             'publications.html': ['publications.html'],
-            'commercialization.html': ['commercialization.html'],
+            'product.html': ['product.html'],
             'media.html': ['media.html'],
             'people.html': ['people.html', 'people.html#community'],
         };
@@ -245,7 +245,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const navKeys = [
         ['index.html#research', 'navResearch'],
         ['publications.html', 'navPublications'],
-        ['commercialization.html', 'navCommercialization'],
+        ['product.html', 'navCommercialization'],
         ['media.html', 'navMedia'],
         ['people.html', 'navPeople'],
         ['index.html#contact', 'navJoin']
@@ -400,7 +400,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const modulePages = [
         { href: 'index.html', label: 'Research' },
         { href: 'publications.html', label: 'Publications' },
-        { href: 'commercialization.html', label: 'Products' },
+        { href: 'product.html', label: 'Products' },
         { href: 'media.html', label: 'Media' },
         { href: 'people.html', label: 'People' }
     ];
@@ -779,7 +779,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const href = paper.getAttribute('href');
             if (href && href !== '#') return href;
         }
-        return firstHref(cardEl, '.section-link', 'commercialization.html');
+        return firstHref(cardEl, '.section-link', 'product.html');
     }
 
     function normalizeSrc(src) {
@@ -840,7 +840,7 @@ document.addEventListener('DOMContentLoaded', () => {
         try {
             const [publicationsDoc, commercializationDoc, mediaDoc] = await Promise.all([
                 loadHtmlPage('publications.html'),
-                loadHtmlPage('commercialization.html'),
+                loadHtmlPage('product.html'),
                 loadHtmlPage('media.html')
             ]);
 
