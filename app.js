@@ -50,7 +50,7 @@ document.addEventListener('DOMContentLoaded', () => {
             'publications.html': ['publications.html'],
             'product.html': ['product.html'],
             'media.html': ['media.html'],
-            'people.html': ['people.html', 'people.html#community'],
+            'people.html': ['people.html'],
         };
 
         const matchingHrefs = pageToHref[currentPage] || [];
@@ -309,8 +309,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if (currentPage === 'index.html') {
             activeHrefs.add(hash === '#contact' ? 'index.html#contact' : 'index.html#research');
-        } else if (currentPage === 'people.html' && hash === '#community') {
-            activeHrefs.add('people.html#community');
         } else {
             activeHrefs.add(currentPage);
         }
@@ -937,7 +935,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     document.querySelectorAll('.commercial-card').forEach((card) => {
-        const link = card.querySelector('.section-link');
+        const link = card.querySelector('a.section-link');
         const image = card.querySelector('.commercial-img');
         const title = card.querySelector('h3');
         if (!link) return;

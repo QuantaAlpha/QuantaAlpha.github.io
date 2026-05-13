@@ -1229,6 +1229,131 @@ nav .hidden.md\:flex a.nav-current {
     color: #38bdf8;
 }
 
+.kicker {
+    color: #0284c7;
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.venue {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    color: #64748b;
+}
+
+.venue.spotlight {
+    color: #c026d3;
+}
+
+.venue.oral {
+    color: #d97706;
+}
+
+.video-card {
+    position: relative;
+    overflow: hidden;
+    border-radius: 12px;
+    border: 1px solid rgba(15, 23, 42, 0.08);
+    background: #020617;
+    box-shadow: 0 12px 32px -16px rgba(15, 23, 42, 0.18);
+    cursor: pointer;
+}
+
+.video-card video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.25s ease;
+}
+
+.video-card:hover video {
+    transform: scale(1.02);
+}
+
+.video-card .play-pill {
+    position: absolute;
+    left: 14px;
+    bottom: 14px;
+    z-index: 2;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.45rem 0.8rem;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(15, 23, 42, 0.72);
+    color: #ffffff;
+    font-size: 0.82rem;
+    font-weight: 700;
+    backdrop-filter: blur(10px);
+    transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+.video-card:hover .play-pill {
+    background: rgba(2, 132, 199, 0.95);
+    border-color: transparent;
+}
+
+#vmodal {
+    position: fixed;
+    inset: 0;
+    z-index: 100;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    background: rgba(15, 23, 42, 0.78);
+    backdrop-filter: blur(8px);
+}
+
+#vmodal.open {
+    display: flex;
+}
+
+#vmodal .frame {
+    position: relative;
+    width: min(1200px, 100%);
+    max-height: 88vh;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    border-radius: 12px;
+    background: #000000;
+}
+
+#vmodal video {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    background: #000000;
+}
+
+#vmodal .close {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    z-index: 3;
+    width: 40px;
+    height: 40px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.92);
+    color: #0f172a;
+    cursor: pointer;
+    transition: background 0.2s ease, color 0.2s ease;
+}
+
+#vmodal .close:hover {
+    background: #0284c7;
+    color: #ffffff;
+}
+
 .media-img {
     width: 100%;
     aspect-ratio: 16 / 9;
@@ -1478,4 +1603,3 @@ a.card-link:hover { color: #0284c7; border-bottom-color: #0284c7; }
         cursor: auto;
     }
 }
-
