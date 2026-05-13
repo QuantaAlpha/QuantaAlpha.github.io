@@ -150,7 +150,7 @@ document.addEventListener('DOMContentLoaded', () => {
             erSubtitle: 'Independent research direction: upgrading major market events from one-time news processing to research assets that are understandable, comparable, inferable, verifiable, and reusable.',
             erBody: 'The system centers on structured <b class="text-slate-300">Events</b> rather than news or research report documents; organizes event chains via <b class="text-slate-300">Context / Event / Mechanism / Asset / Outcome</b>, conducts Deep Research around mechanism similarity, macro environment, market price-in degree, and historical counterexamples, and converges output into auditable <b class="text-slate-300">Claims</b> entering T+1 / T+5 / T+20 multi-window backtesting to distinguish retrieval errors, reasoning errors, and fully priced-in markets.',
             erTag1: 'Event Understanding → Historical Analogy → Mechanism Reasoning',
-            erTag3: 'Lookahead-Bias-Free Verification',
+            inDevelopment: 'In Development...',
             // Idea2Paper deck
             i2pTitle: 'Idea2Paper / ARK  ·  Research Automation',
             i2pBody: 'End-to-end research automation product connecting literature exploration, method planning, experiment execution, result interpretation, manuscript drafting, and review iteration in a closed loop. Served externally via ARK (idea2paper.org) and PaperBuild (paperbuild.cn), with open-source reference implementation on GitHub.'
@@ -235,7 +235,7 @@ document.addEventListener('DOMContentLoaded', () => {
             erSubtitle: '独立研究方向：把重大市场事件从一次性资讯处理，升级为可理解、可类比、可推演、可验证、可复用的研究资产。',
             erBody: '系统以结构化 <b class="text-slate-300">Event</b> 为核心对象，而不是以新闻或研报文档为中心；通过 <b class="text-slate-300">Context / Event / Mechanism / Asset / Outcome</b> 组织事件链条，围绕机制相似性、宏观环境、市场 price-in 程度和历史反例做 Deep Research，并把输出收敛为可审计的 <b class="text-slate-300">Claim</b>，进入 T+1 / T+5 / T+20 等多窗口回测验证，从而区分检索错误、推理错误和市场已充分定价。',
             erTag1: '事件理解 → 历史类比 → 机制推理',
-            erTag3: '防前视偏差验证',
+            inDevelopment: '开发中...',
             // Idea2Paper deck
             i2pTitle: 'Idea2Paper / ARK  ·  科研自动化',
             i2pBody: '端到端科研自动化产品，将文献探索、方法规划、实验执行、结果解释、论文起草和审稿迭代连接成闭环。通过 ARK (idea2paper.org) 和 PaperBuild (paperbuild.cn) 对外服务，开源参考实现已发布在 GitHub。'
@@ -1019,4 +1019,3 @@ document.addEventListener('DOMContentLoaded', () => {
 
     ctx.restore();
 });
-
