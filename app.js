@@ -786,15 +786,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function imageForPublication(title) {
         const normalized = title.toLowerCase();
-        if (normalized.includes('epochx')) return 'images/papers/showcase-01.png';
-        if (normalized.includes('quantaalpha') && normalized.includes('evolutionary')) return 'images/papers/showcase-02.png';
-        if (normalized.includes('clonemem')) return 'images/papers/showcase-03.png';
-        if (normalized.includes('sema code')) return 'images/papers/showcase-04.png';
-        if (normalized.includes('octopus')) return 'images/papers/showcase-05.png';
-        if (normalized.includes('se-agent')) return 'images/papers/showcase-06.png';
-        if (normalized.includes('gittaskbench')) return 'images/papers/showcase-07.png';
-        if (normalized.includes('repomaster')) return 'images/papers/showcase-08.png';
-        if (normalized.includes('quantaalpha')) return 'images/media/quantaalpha-qbitai-mirror.png';
+        if (normalized.includes('epochx')) return 'images/papers/showcase-01.webp';
+        if (normalized.includes('quantaalpha') && normalized.includes('evolutionary')) return 'images/papers/showcase-02.webp';
+        if (normalized.includes('clonemem')) return 'images/papers/showcase-03.webp';
+        if (normalized.includes('sema code')) return 'images/papers/showcase-04.webp';
+        if (normalized.includes('octopus')) return 'images/papers/showcase-05.webp';
+        if (normalized.includes('se-agent')) return 'images/papers/showcase-06.webp';
+        if (normalized.includes('gittaskbench')) return 'images/papers/showcase-07.webp';
+        if (normalized.includes('repomaster')) return 'images/papers/showcase-08.webp';
+        if (normalized.includes('quantaalpha')) return 'images/media/quantaalpha-qbitai-mirror.webp';
         return 'images/logo.png';
     }
 
