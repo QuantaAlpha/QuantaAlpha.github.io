@@ -1,4 +1,4 @@
-/* Fonts loaded via <link> in HTML <head> — no @import to avoid duplicate requests */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap');
 
 /* 参考首页效果图：亮白底 #f9fafb；彩色集中在右侧，紫为主、右上极小暖高光 */
 :root {
