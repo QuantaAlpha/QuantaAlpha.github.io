@@ -8,12 +8,60 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Video modal
+    // Video modal and managed previews
     const vmodal = document.getElementById('vmodal');
     const vmodalVideo = document.getElementById('vmodal-video');
+    const previewVideos = document.querySelectorAll('.video-card video[data-src]');
+
+    function unloadPreviewVideo(video) {
+        video.pause();
+        if (video.getAttribute('src')) {
+            video.removeAttribute('src');
+            video.load();
+        }
+    }
+
+    function pauseAllPreviewVideos(exceptVideo) {
+        previewVideos.forEach((video) => {
+            if (video === exceptVideo) return;
+            unloadPreviewVideo(video);
+        });
+    }
+
+    function loadPreviewVideo(video) {
+        if (!video.getAttribute('src')) {
+            video.src = video.dataset.src;
+        }
+    }
+
+    function setupManagedVideoPreviews() {
+        const canHoverPreview = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+        const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        if (!canHoverPreview || reduceMotion) return;
+
+        previewVideos.forEach((video) => {
+            const card = video.closest('.video-card');
+            if (!card) return;
+
+            card.addEventListener('pointerenter', () => {
+                pauseAllPreviewVideos(video);
+                loadPreviewVideo(video);
+                video.play().catch(() => {});
+            });
+
+            card.addEventListener('pointerleave', () => {
+                unloadPreviewVideo(video);
+            });
+        });
+    }
+
+    setupManagedVideoPreviews();
+
     if (vmodal && vmodalVideo) {
         window.openVideo = function(src, title) {
+            pauseAllPreviewVideos();
             vmodalVideo.src = src;
+            vmodalVideo.preload = 'metadata';
             vmodal.classList.add('open');
             vmodalVideo.play().catch(() => {});
             document.body.style.overflow = 'hidden';
@@ -103,25 +151,25 @@ document.addEventListener('DOMContentLoaded', () => {
             papersAssisted: 'Papers Assisted',
             researchLoop: 'Research Loop',
             // QuantaAlpha deck
-            qaTitle: 'QuantaAlpha  ·  Self-Evolving Alpha Mining Engine',
-            qaSubtitle: 'An Evolutionary Framework for LLM-Driven Alpha Mining  ·  First LLM × Evolutionary Algorithm Fusion Framework',
+            qaTitle: 'QuantaAlpha  ·  Self-Evolving Alpha Engine',
+            qaSubtitle: 'LLM-driven alpha mining with evolutionary search',
             qaH1: 'Core Positioning',
-            qaP1: 'Translates quantitative research into an <b class="text-slate-300">auditable Agent workflow</b>: factor hypothesis generation, expression construction, code implementation, backtest validation, and iterative optimization in a unified pipeline. Multi-agent collaboration completes factor discovery, logic explanation, risk filtering, and factor warehousing.',
+            qaP1: 'Turns quant research into an <b class="text-slate-300">auditable Agent workflow</b>: hypotheses, expressions, code, backtests, and iteration. Agents collaborate on discovery, explanation, risk checks, and factor storage.',
             qaH2: 'Technical Highlights',
-            qaP2: 'Upgrades from random trial-and-error to interpretable evolution based on complete research trajectories via <b class="text-slate-300">trajectory-level mutation/crossover</b> and directed logic repair; introduces complexity, redundancy, and Rank IC constraints to mitigate factor crowding and backtest noise.',
+            qaP2: 'Evolves full research trajectories with <b class="text-slate-300">mutation, crossover, and targeted repair</b>. Complexity, redundancy, and Rank IC constraints reduce crowding and noisy backtests.',
             qaH3: 'Impact',
-            qaP3: 'Faithfully simulates the workflow of professional quant researchers — AI moves from "blindly generating code by trial and error" to a white-box system that <b class="text-slate-300">actively participates in hypothesis formation, failure diagnosis, and experience reuse</b>. <b class="text-white">Consistently outperforms all baselines</b> on CSI 300; cross-market transfer maintains significant excess returns. <b class="text-slate-300">Covered by Tencent News and adopted by Orient Securities and other institutions as an AI-empowered quant research case study.</b>',
-            qaStat1: 'Outperforms',
+            qaP3: 'Mirrors a professional quant workflow: AI helps <b class="text-slate-300">form hypotheses, diagnose failures, and reuse experience</b>. <b class="text-white">It beats CSI 300 baselines</b>, transfers across markets, and has been covered by Tencent News and adopted by Orient Securities as an AI quant research case.',
+            qaStat1: 'Baseline+',
             qaStat1Sub: 'CSI 300',
-            qaStat2: 'Zero-shot',
+            qaStat2: 'Transfer',
             qaStat2Sub: 'Cross-market',
             qaStat3Sub: 'Agent Workflow',
             qaMedia: 'Orient Securities · Tencent News Coverage',
-            qaHarness: 'Three-Layer Harness Architecture',
+            qaHarness: 'Three-Layer Harness',
             qaLead: 'Plan research directions',
-            qaReviewer: 'Cross-direction audit & cross-referral',
+            qaReviewer: 'Audit & referral',
             qaMiner: 'Parallel exploration',
-            qaWiki: '<i class="fas fa-circle-info text-sky-600 mr-1"></i> <b class="text-slate-300">Factor Wiki</b>: Structured factor knowledge base as a consensus medium for multi-Agent collaboration — each factor carries a full lineage chain → traceable research genealogy.',
+            qaWiki: '<i class="fas fa-circle-info text-sky-600 mr-1"></i> <b class="text-slate-300">Factor Wiki</b>: Shared factor knowledge with lineage for traceable research genealogy.',
             // EpochX deck
             epTitle: 'EpochX  ·  Human–Agent Production Network',
             epH1: 'Core Positioning',
@@ -300,7 +348,7 @@ document.addEventListener('DOMContentLoaded', () => {
         mobileMenu.insertBefore(toggle, joinLink);
     }
 
-    applyLanguage(localStorage.getItem('qa-lang') || 'en');
+    applyLanguage(localStorage.getItem('qa-lang') || 'zh');
 
     function markCurrentNavigation() {
         const currentPage = normalizedPageName();
